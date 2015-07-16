@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Internal">
+      <UniqueIdentifier>{cfae76eb-c99c-4019-8948-09944b5d7aab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\private_include">
+      <UniqueIdentifier>{3387d19b-4664-455e-a45e-6c2ba2e4babd}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\include\Concurrent\Config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Concurrent\Mutex.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Concurrent\Internal\MutexPlatform.h">
+      <Filter>Header Files\Internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Concurrent\MutexLocker.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Concurrent\Internal\RefBase.h">
+      <Filter>Header Files\Internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Concurrent\Reference.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Concurrent\Internal\RWLockPlatform.h">
+      <Filter>Header Files\Internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Concurrent\RWLock.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Concurrent\ReadLocker.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Concurrent\WriteLocker.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Concurrent\Task.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Concurrent\Internal\ConditionPlatform.h">
+      <Filter>Header Files\Internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Concurrent\Condition.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Concurrent\Scheduler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Concurrent\Queue.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Concurrent\Internal\TaskInternal.h">
+      <Filter>Header Files\Internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Concurrent\ThreadLocalPtr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Concurrent\FunctionTask.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Concurrent\Internal\ProducerInternal.h">
+      <Filter>Header Files\Internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Concurrent\Producer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Concurrent\Internal\SchedulerInternal.h">
+      <Filter>Header Files\Internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Concurrent\Concurrent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Concurrent\private_include\Platform.h">
+      <Filter>Source Files\private_include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\Concurrent\Mutex.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Concurrent\MutexLocker.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Concurrent\RWLock.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Concurrent\ReadLocker.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Concurrent\WriteLocker.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Concurrent\Condition.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Concurrent\Scheduler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Concurrent\Task.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Concurrent\FunctionTask.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Concurrent\Concurrent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Concurrent\Platform.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

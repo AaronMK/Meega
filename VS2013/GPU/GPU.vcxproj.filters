@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\DirectX">
+      <UniqueIdentifier>{01aaba60-ba88-4ce1-b129-aa791f01577d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\OpenGL">
+      <UniqueIdentifier>{c450a757-845c-497b-a7cc-5e5d4a57bd44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\OpenGL\Windows">
+      <UniqueIdentifier>{752212e4-b267-4e37-bb4c-7edead6ead6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Windows">
+      <UniqueIdentifier>{7d85732a-125e-4131-ae89-966cf30f2e7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\DirectX">
+      <UniqueIdentifier>{58643d51-8309-4915-8f20-6b5d8766cf3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\private_include">
+      <UniqueIdentifier>{18b4a9cd-ad14-4eb1-9974-82e6f26cd264}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\private_include\Windows">
+      <UniqueIdentifier>{98e19a88-56f6-4587-ab25-b5bdaeeb5790}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Windows">
+      <UniqueIdentifier>{2e03a6c2-86e6-4910-9fb9-77eab1a9ec37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Qt">
+      <UniqueIdentifier>{26257656-27fa-4950-8931-b4765dfc824e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Qt">
+      <UniqueIdentifier>{05f247f7-588e-4109-95ac-b144540f109a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Generated Source">
+      <UniqueIdentifier>{ec64f17e-bae9-4ebe-bc34-88edd5ed9b1f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Generated Source\moc">
+      <UniqueIdentifier>{2f1d7c68-53f8-4e4c-8e6a-df2b3ddb2c47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Generated Source\moc\Qt">
+      <UniqueIdentifier>{39da756a-22f0-4408-a1ca-58eb92449b74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Internal">
+      <UniqueIdentifier>{f79b4659-d0f4-4d90-8737-e5e05728ca51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Internal\OpenGL">
+      <UniqueIdentifier>{4d36cd40-1b97-4544-9958-02996d31575f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\OpenGL">
+      <UniqueIdentifier>{a26eedfe-3b81-4978-a3f0-93f997764996}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Internal\Qt">
+      <UniqueIdentifier>{63c7802d-5f37-4bbf-a778-a2ecec61acd7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\include\GPU\Config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\GPU\GPU.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\GPU\RenderTarget.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\GPU\Windows\RenderTargetWin.h">
+      <Filter>Header Files\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\GPU\DirectX\Common.h">
+      <Filter>Header Files\DirectX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\GPU\DirectX\Device.h">
+      <Filter>Header Files\DirectX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\GPU\private_include\Windows\HiddenWindow.h">
+      <Filter>Source Files\private_include\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\GPU\internal\OpenGL\ContextSysBase.h">
+      <Filter>Header Files\Internal\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\GPU\Internal\Qt\QRenderTargetSysBase.h">
+      <Filter>Header Files\Internal\Qt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\GPU\OpenGL\Common.h">
+      <Filter>Header Files\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\GPU\OpenGL\Context.h">
+      <Filter>Header Files\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\GPU\OpenGL\Format.h">
+      <Filter>Header Files\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\GPU\OpenGL\glew.h">
+      <Filter>Header Files\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\GPU\OpenGL\OpenGL.h">
+      <Filter>Header Files\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\GPU\OpenGL\Windows\wglew.h">
+      <Filter>Header Files\OpenGL\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\GPU\DirectX\DirectX.h">
+      <Filter>Header Files\DirectX</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\GPU\DirectX\dxDevice.cpp">
+      <Filter>Source Files\DirectX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\GPU\Windows\HiddenWindow.cpp">
+      <Filter>Source Files\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\GPU\Windows\RenderTargetWin.cpp">
+      <Filter>Source Files\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\GPU\Qt\QRenderTarget.cpp">
+      <Filter>Source Files\Qt</Filter>
+    </ClCompile>
+    <ClCompile Include="moc\Qt\moc_QRenderTarget.qt.cxx">
+      <Filter>Generated Source\moc\Qt</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\GPU\OpenGL\Context.cpp">
+      <Filter>Source Files\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\GPU\OpenGL\Format.cpp">
+      <Filter>Source Files\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\GPU\OpenGL\glew.c">
+      <Filter>Source Files\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\GPU\OpenGL\OpenGL.cpp">
+      <Filter>Source Files\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\GPU\OpenGL\ContextSysBase.cpp">
+      <Filter>Source Files\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\GPU\Qt\QRenderTargetSysBase.cpp">
+      <Filter>Source Files\Qt</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\GPU\DirectX\DirectX.cpp">
+      <Filter>Source Files\DirectX</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\include\GPU\Qt\QRenderTarget.qt.h">
+      <Filter>Header Files\Qt</Filter>
+    </CustomBuild>
+  </ItemGroup>
+</Project>

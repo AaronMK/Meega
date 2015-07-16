@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\include\Engine\App.h" />
+    <ClInclude Include="..\..\include\Engine\Camera\Camera.h" />
+    <ClInclude Include="..\..\include\Engine\Config.h" />
+    <ClInclude Include="..\..\include\Engine\Core\Color.h" />
+    <ClInclude Include="..\..\include\Engine\Core\Constants.h" />
+    <ClInclude Include="..\..\include\Engine\Core\Math3d.h" />
+    <ClInclude Include="..\..\include\Engine\Core\Matrix4x4.h" />
+    <ClInclude Include="..\..\include\Engine\Core\Quaternion.h" />
+    <ClInclude Include="..\..\include\Engine\Core\Ray.h" />
+    <ClInclude Include="..\..\include\Engine\Core\SIMD.h" />
+    <ClInclude Include="..\..\include\Engine\Core\Transform.h" />
+    <ClInclude Include="..\..\include\Engine\Core\Types.h" />
+    <ClInclude Include="..\..\include\Engine\Core\Utility.h" />
+    <ClInclude Include="..\..\include\Engine\Core\Vec.h" />
+    <ClInclude Include="..\..\include\Engine\DevSupport\DevSupport.h" />
+    <ClInclude Include="..\..\include\Engine\DevSupport\InterfaceHooks.h" />
+    <ClInclude Include="..\..\include\Engine\DevSupport\Logging.h" />
+    <ClInclude Include="..\..\include\Engine\DevSupport\Property.h" />
+    <ClInclude Include="..\..\include\Engine\Engine.h" />
+    <ClInclude Include="..\..\include\Engine\Internal\Core\ConstantsPlatform.h" />
+    <ClInclude Include="..\..\include\Engine\Internal\Memory\VertexArrayObjectPlatform.h" />
+    <ClInclude Include="..\..\include\Engine\Internal\Memory\VertexBufferObjectPlatform.h" />
+    <ClInclude Include="..\..\include\Engine\Internal\Shading\ProgramPlatform.h" />
+    <ClInclude Include="..\..\include\Engine\Internal\Shading\ShaderPlatform.h" />
+    <ClInclude Include="..\..\include\Engine\Internal\Shading\VertexArrayObjectPlatform.h" />
+    <ClInclude Include="..\..\include\Engine\Internal\Tasking\FenceInternal.h" />
+    <ClInclude Include="..\..\include\Engine\Memory\Align16.h" />
+    <ClInclude Include="..\..\include\Engine\Memory\AlignedAllocator.hpp" />
+    <ClInclude Include="..\..\include\Engine\Memory\Arena.h" />
+    <ClInclude Include="..\..\include\Engine\Memory\VertexArrayObject.h" />
+    <ClInclude Include="..\..\include\Engine\Memory\VertexBufferObject.h" />
+    <ClInclude Include="..\..\include\Engine\Options.h" />
+    <ClInclude Include="..\..\include\Engine\Runtime.h" />
+    <ClInclude Include="..\..\include\Engine\Shading\Program.h" />
+    <ClInclude Include="..\..\include\Engine\Shading\Shader.h" />
+    <ClInclude Include="..\..\include\Engine\Tasking\Fence.h" />
+    <ClInclude Include="..\..\include\Engine\Tasking\Pipeline.h" />
+    <ClInclude Include="..\..\include\Engine\Tasking\Scheduling.h" />
+    <ClInclude Include="..\..\include\Engine\Timing\Timing.h" />
+    <ClInclude Include="..\..\src\Engine\private_include\Debug\DebugGL.h" />
+    <ClInclude Include="..\..\src\Engine\private_include\Tasking\GpuPipeline.h" />
+    <ClInclude Include="..\..\src\Engine\private_include\Tasking\PipelinePrivate.h" />
+    <ClInclude Include="..\..\src\Engine\private_include\Tasking\SchedulingPrivate.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\Engine\App.cpp" />
+    <ClCompile Include="..\..\src\Engine\Camera\Camera.cpp" />
+    <ClCompile Include="..\..\src\Engine\Core\Color.cpp" />
+    <ClCompile Include="..\..\src\Engine\Core\Math3d.cpp" />
+    <ClCompile Include="..\..\src\Engine\Core\Matrix4x4.cpp" />
+    <ClCompile Include="..\..\src\Engine\Core\Ray.cpp" />
+    <ClCompile Include="..\..\src\Engine\Core\Transform.cpp" />
+    <ClCompile Include="..\..\src\Engine\Core\Vec.cpp" />
+    <ClCompile Include="..\..\src\Engine\Debug\DebugGL.cpp" />
+    <ClCompile Include="..\..\src\Engine\DevSupport\InterfaceHooks.cpp" />
+    <ClCompile Include="..\..\src\Engine\DevSupport\Logging.cpp" />
+    <ClCompile Include="..\..\src\Engine\Engine.cpp" />
+    <ClCompile Include="..\..\src\Engine\Memory\Align16.cpp" />
+    <ClCompile Include="..\..\src\Engine\Memory\Arena.cpp" />
+    <ClCompile Include="..\..\src\Engine\Memory\VertexArrayObject.cpp" />
+    <ClCompile Include="..\..\src\Engine\Memory\VertexBufferObject.cpp" />
+    <ClCompile Include="..\..\src\Engine\Options.cpp" />
+    <ClCompile Include="..\..\src\Engine\Runtime.cpp" />
+    <ClCompile Include="..\..\src\Engine\Shading\Program.cpp" />
+    <ClCompile Include="..\..\src\Engine\Shading\Shader.cpp" />
+    <ClCompile Include="..\..\src\Engine\Tasking\Fence.cpp" />
+    <ClCompile Include="..\..\src\Engine\Tasking\GpuPipeline.cpp" />
+    <ClCompile Include="..\..\src\Engine\Tasking\Pipeline.cpp" />
+    <ClCompile Include="..\..\src\Engine\Tasking\Scheduling.cpp" />
+    <ClCompile Include="..\..\src\Engine\Timing\Timing.cpp" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B91D3A2D-0E97-4441-BF25-1FDCCABEAB66}</ProjectGuid>
+    <RootNamespace>Engine</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="..\Local.props" />
+    <Import Project="..\Base.props" />
+    <Import Project="..\Debug.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="..\Local.props" />
+    <Import Project="..\Base.props" />
+    <Import Project="..\Release.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>ENGINE_BUILD;ENGINE_DYNAMIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>GPU.lib;Concurrent.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>ENGINE_BUILD;ENGINE_DYNAMIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>GPU.lib;Concurrent.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

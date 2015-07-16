@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Shading">
+      <UniqueIdentifier>{9c986a53-1aa8-46b2-873f-668f8581e450}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Shading">
+      <UniqueIdentifier>{15a01176-2b8a-4952-b17b-90abc3e6ece9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Internal">
+      <UniqueIdentifier>{8506ee5b-1c5b-4a85-be67-1afe5ea0939f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Internal\Shading">
+      <UniqueIdentifier>{7b658d94-59be-46e6-8055-adf7fb98165f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Core">
+      <UniqueIdentifier>{ee2220b0-99e0-4c26-9d66-66e81b880ffd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Memory">
+      <UniqueIdentifier>{4c790424-cc54-49a3-8288-3e6f4856d01d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Tasking">
+      <UniqueIdentifier>{81f2e8ed-cee1-4cb8-bb5c-4bffc1affb42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Internal\Tasking">
+      <UniqueIdentifier>{d0cea903-a262-4b3a-b0aa-aeee6b10a9ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Tasking">
+      <UniqueIdentifier>{7b4a306f-947c-480a-9471-3962eea1e72f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\private_include">
+      <UniqueIdentifier>{f4a99e2f-5ec8-4048-b0a8-a98087ed6526}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\private_include\Tasking">
+      <UniqueIdentifier>{fa9007d1-9bc2-40a8-83d6-05e6bfd6f2d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Timing">
+      <UniqueIdentifier>{e467c70c-5b23-4d9d-93dd-a61cb666ea9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Timing">
+      <UniqueIdentifier>{8a6efdfb-1fb7-42de-b169-6888ee6b59c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\private_include\Debug">
+      <UniqueIdentifier>{3cff9566-fd3a-49ce-bf51-166ce1dc017d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Memory">
+      <UniqueIdentifier>{13b0b92b-4a7b-483e-9a60-ad3b4196e424}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Internal\Memory">
+      <UniqueIdentifier>{146b1130-102e-4c7e-80ac-ef76099a1886}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Camera">
+      <UniqueIdentifier>{8ef20fb7-18d8-4ec7-a7c1-15dbe02442c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Camera">
+      <UniqueIdentifier>{dae30f70-407b-409f-b094-816c98b67493}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Core">
+      <UniqueIdentifier>{f81916c0-e33f-4709-9a6f-46ae43c0f581}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Internal\Core">
+      <UniqueIdentifier>{585f3a7e-97e6-4505-8058-9521e36f67d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Debug">
+      <UniqueIdentifier>{109645ec-3af2-4d3b-96c3-4832dc7d289d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\DevSupport">
+      <UniqueIdentifier>{6e5f4f51-e2da-4590-ac95-8093d5f3a026}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\DevSupport">
+      <UniqueIdentifier>{85c1e583-1ddb-49ac-9266-cd65abc2ff13}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\include\Engine\Engine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Engine\Config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Engine\Shading\Shader.h">
+      <Filter>Header Files\Shading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Engine\Internal\Shading\ShaderPlatform.h">
+      <Filter>Header Files\Internal\Shading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Engine\Core\Utility.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Engine\Core\Vec.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Engine\Memory\Align16.h">
+      <Filter>Header Files\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Engine\Core\SIMD.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Engine\Core\Matrix4x4.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Engine\Core\Math3d.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Engine\Core\Constants.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Engine\Shading\Program.h">
+      <Filter>Header Files\Shading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Engine\Internal\Shading\ProgramPlatform.h">
+      <Filter>Header Files\Internal\Shading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Engine\Memory\AlignedAllocator.hpp">
+      <Filter>Header Files\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Engine\Tasking\Fence.h">
+      <Filter>Header Files\Tasking</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Engine\Tasking\Pipeline.h">
+      <Filter>Header Files\Tasking</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Engine\Internal\Tasking\FenceInternal.h">
+      <Filter>Header Files\Internal\Tasking</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Engine\Tasking\Scheduling.h">
+      <Filter>Header Files\Tasking</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Engine\private_include\Tasking\GpuPipeline.h">
+      <Filter>Source Files\private_include\Tasking</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Engine\private_include\Tasking\PipelinePrivate.h">
+      <Filter>Source Files\private_include\Tasking</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Engine\private_include\Tasking\SchedulingPrivate.h">
+      <Filter>Source Files\private_include\Tasking</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Engine\Core\Quaternion.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Engine\Core\Transform.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Engine\Timing\Timing.h">
+      <Filter>Header Files\Timing</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Engine\private_include\Debug\DebugGL.h">
+      <Filter>Source Files\private_include\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Engine\Memory\VertexArrayObject.h">
+      <Filter>Header Files\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Engine\Internal\Shading\VertexArrayObjectPlatform.h">
+      <Filter>Header Files\Internal\Shading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Engine\Internal\Memory\VertexArrayObjectPlatform.h">
+      <Filter>Header Files\Internal\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Engine\Internal\Memory\VertexBufferObjectPlatform.h">
+      <Filter>Header Files\Internal\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Engine\Memory\VertexBufferObject.h">
+      <Filter>Header Files\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Engine\Core\Types.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Engine\Camera\Camera.h">
+      <Filter>Header Files\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Engine\Core\Ray.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Engine\Internal\Core\ConstantsPlatform.h">
+      <Filter>Header Files\Internal\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Engine\Core\Color.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Engine\DevSupport\Logging.h">
+      <Filter>Header Files\DevSupport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Engine\DevSupport\InterfaceHooks.h">
+      <Filter>Header Files\DevSupport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Engine\DevSupport\Property.h">
+      <Filter>Header Files\DevSupport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Engine\DevSupport\DevSupport.h">
+      <Filter>Header Files\DevSupport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Engine\App.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Engine\Options.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Engine\Runtime.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Engine\Memory\Arena.h">
+      <Filter>Header Files\Memory</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\Engine\Shading\Shader.cpp">
+      <Filter>Source Files\Shading</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Engine\Shading\Program.cpp">
+      <Filter>Source Files\Shading</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Engine\Tasking\Fence.cpp">
+      <Filter>Source Files\Tasking</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Engine\Tasking\Pipeline.cpp">
+      <Filter>Source Files\Tasking</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Engine\Engine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Engine\Tasking\Scheduling.cpp">
+      <Filter>Source Files\Tasking</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Engine\Tasking\GpuPipeline.cpp">
+      <Filter>Source Files\Tasking</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Engine\Timing\Timing.cpp">
+      <Filter>Source Files\Timing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Engine\Memory\VertexArrayObject.cpp">
+      <Filter>Source Files\Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Engine\Memory\VertexBufferObject.cpp">
+      <Filter>Source Files\Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Engine\Camera\Camera.cpp">
+      <Filter>Source Files\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Engine\Core\Matrix4x4.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Engine\Core\Vec.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Engine\Core\Color.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Engine\Memory\Align16.cpp">
+      <Filter>Source Files\Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Engine\Core\Ray.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Engine\Core\Math3d.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Engine\Debug\DebugGL.cpp">
+      <Filter>Source Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Engine\DevSupport\Logging.cpp">
+      <Filter>Source Files\DevSupport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Engine\DevSupport\InterfaceHooks.cpp">
+      <Filter>Source Files\DevSupport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Engine\Core\Transform.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Engine\App.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Engine\Options.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Engine\Runtime.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Engine\Memory\Arena.cpp">
+      <Filter>Source Files\Memory</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

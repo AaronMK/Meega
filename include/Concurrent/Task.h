@@ -1,0 +1,78 @@
+#ifndef _CONCURRENT_TASK_H_
+#define _CONCURRENT_TASK_H_
+
+#include <Concurrent/Config.h>
+
+#include <Concurrent/Internal/TaskInternal.h>
+
+namespace Concurrent
+{
+	/**
+	 * Abstract task for concurrent operations.  These can be passed to a Scheduler to be
+	 * queued for running on the platform threadpool.
+	 */
+	class CONCURRENT_DYNAMIC_CLASS Task : public TaskInternal
+	{
+		friend class SchedulerInternal;
+	public:
+		Task(const Task&) = delete;
+		Task& operator=(const Task&) = delete;
+
+		Task();
+
+		virtual ~Task();
+		
+		/**
+		 * Override to determine what your task will do.
+		 */
+		virtual void main() = 0;
+
+		/**
+		 * The task is either currently running, or is in the queue waiting to run.
+		 */
+		bool isRunning();
+
+		/**
+		 * Waits for the task and its subtasks to complete.  This will return immediately if the
+		 * task has not been passed to the scheduler.
+		 */
+		void wait();
+
+		/**
+		 * Gets a pointer to the Task that is currently running.  This will be NULL if execution
+		 * is outside the context of a Scheduler.
+		 */
+		static Task* current();
+
+		/**
+		 * Waits for any task to complete, returning the index of the task that completed.
+		 */
+		static size_t waitForAny(Task** tArray, size_t numTasks);
+
+		/**
+		 * Waits for all tasks to complete.
+		 */
+		static void waitForAll(Task** tArray, size_t numTasks);
+
+	protected:
+
+		/**
+		 * Adds a substask.  This task will continue to run to completion, but will not
+		 * be considered complete, until decendent tasks are complete. The Task
+		 * must be running to create subtasks, and any subtask cannot be running
+		 * when attached. The subtask will be considered running upon return.
+		 *
+		 * Subtasks will be placed on the highest priority queue.  This prevents a subtask from
+		 * effectively lowering the priority of the original task.
+		 */
+		bool subTask(Task* childTask);
+
+		/**
+		 * Yields the current thread to work on another task.  This is good for keeping cores busy
+		 * while waiting on non-cooperative sychronization primitives.
+		 */
+		void yield();
+	};
+}
+
+#endif // _CONCURRENT_TASK_H_
