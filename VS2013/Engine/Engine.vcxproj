@@ -69,7 +69,6 @@
     <ClCompile Include="..\..\src\Engine\DevSupport\Logging.cpp" />
     <ClCompile Include="..\..\src\Engine\Engine.cpp" />
     <ClCompile Include="..\..\src\Engine\Memory\Align16.cpp" />
-    <ClCompile Include="..\..\src\Engine\Memory\Arena.cpp" />
     <ClCompile Include="..\..\src\Engine\Memory\VertexArrayObject.cpp" />
     <ClCompile Include="..\..\src\Engine\Memory\VertexBufferObject.cpp" />
     <ClCompile Include="..\..\src\Engine\Options.cpp" />

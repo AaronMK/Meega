@@ -287,8 +287,5 @@
     <ClCompile Include="..\..\src\Engine\Runtime.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\Engine\Memory\Arena.cpp">
-      <Filter>Source Files\Memory</Filter>
-    </ClCompile>
   </ItemGroup>
 </Project>
