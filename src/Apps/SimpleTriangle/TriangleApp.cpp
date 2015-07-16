@@ -6,59 +6,15 @@
 #include <Engine/Tasking/Pipeline.h>
 #include <Engine/Tasking/Fence.h>
 
-#include <Engine/Memory/Arena.h>
-
 #include <Concurrent/Scheduler.h>
 
 using namespace Engine;
 using namespace Concurrent;
 using namespace AppsCommon;
 
-class A
-{
-public:
-	int mA;
-
-	A(int a)
-	{
-		mA = a;
-	}
-
-	~A()
-	{
-		mA = 1;
-	}
-};
-
-class B
-{
-public:
-	int mA;
-	int mB;
-
-	B(int a, int b)
-	{
-		mA = a;
-	}
-
-	~B()
-	{
-		mA = 1;
-	}
-};
-
-
 TriangleApp::TriangleApp(int argc, char** argv)
 	: QApplication(argc, argv), mStop(false)
 {
-	Arena arena(1024);
-
-	arena.Push<A>(2);
-	arena.PushAligned<B>(16, 2, 3);
-	arena.Push<B>(2, 3);
-
-	arena.clear();
-
 	mMainWindow = new QMainWindow();
 	mRenderTarget = new GPU::QRenderTarget();
 
