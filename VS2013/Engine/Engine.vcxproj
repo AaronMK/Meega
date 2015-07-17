@@ -39,7 +39,7 @@
     <ClInclude Include="..\..\include\Engine\Internal\Tasking\FenceInternal.h" />
     <ClInclude Include="..\..\include\Engine\Memory\Align16.h" />
     <ClInclude Include="..\..\include\Engine\Memory\AlignedAllocator.hpp" />
-    <ClInclude Include="..\..\include\Engine\Memory\Arena.h" />
+    <ClInclude Include="..\..\include\Engine\Memory\MemoryPool.h" />
     <ClInclude Include="..\..\include\Engine\Memory\VertexArrayObject.h" />
     <ClInclude Include="..\..\include\Engine\Memory\VertexBufferObject.h" />
     <ClInclude Include="..\..\include\Engine\Options.h" />

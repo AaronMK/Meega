@@ -210,7 +210,7 @@
     <ClInclude Include="..\..\include\Engine\Runtime.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\Engine\Memory\Arena.h">
+    <ClInclude Include="..\..\include\Engine\Memory\MemoryPool.h">
       <Filter>Header Files\Memory</Filter>
     </ClInclude>
   </ItemGroup>

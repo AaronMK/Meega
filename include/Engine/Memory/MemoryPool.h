@@ -1,5 +1,5 @@
-#ifndef _ENGINE_ARENA_H_
-#define _ENGINE_ARENA_H_
+#ifndef _ENGINE_MEMORY_POOL_H_
+#define _ENGINE_MEMORY_POOL_H_
 
 #include <Engine/Config.h>
 
@@ -10,7 +10,7 @@
 
 namespace Engine
 {
-	class Arena
+	class MemoryPool
 	{
 	private:
 		class EntryBase
@@ -35,28 +35,28 @@ namespace Engine
 		};
 
 	public:
-		Arena(const Arena &other) = delete;
+		MemoryPool(const MemoryPool &other) = delete;
 
-		Arena(size_t byteSize);
-		Arena(Arena&& other);
+		MemoryPool(size_t byteSize);
+		MemoryPool(MemoryPool&& other);
 
-		virtual ~Arena();
-
-		template<typename T, typename... Args>
-		T* Push(Args&& ...args);
+		virtual ~MemoryPool();
 
 		template<typename T, typename... Args>
-		T* PushAligned(size_t alignment, Args&& ...args);
+		T* push(Args&& ...args);
+
+		template<typename T, typename... Args>
+		T* pushAligned(size_t alignment, Args&& ...args);
 
 		/**
-		 * Destroys all objects in the Arena and freeing all the
+		 * Destroys all objects in the MemoryPool and freeing all the
 		 * space.  Any pointers returned by the push functions
 		 * become invalid.
 		 */
 		void clear();
 
-		Arena& operator=(const Arena &other) = delete;
-		Arena& operator=(Arena&& other);
+		MemoryPool& operator=(const MemoryPool &other) = delete;
+		MemoryPool& operator=(MemoryPool&& other);
 
 	private:
 		void* mMemory;
@@ -71,25 +71,25 @@ namespace Engine
 
 	/////////////////////////////////////////////
 
-	Arena::Arena(size_t byteSize)
+	MemoryPool::MemoryPool(size_t byteSize)
 	{
-		mMemory = (unsigned char*)_aligned_malloc(16, mAllocSize);
-		mStackMarker = mMemory;
-
 		mAllocSize = byteSize;
 		mRemainingSpace = mAllocSize;
+
+		mMemory = malloc(mAllocSize);
+		mStackMarker = mMemory;
 
 		mLastAdded = nullptr;
 		mFirstAdded = nullptr;
 	}
 
-	Arena::Arena(Arena&& other)
+	MemoryPool::MemoryPool(MemoryPool&& other)
 	{
-		mMemory = other.mMemory;
-		mStackMarker = other.mStackMarker;
-
 		mAllocSize = other.mAllocSize;
 		mRemainingSpace = other.mRemainingSpace;
+
+		mMemory = other.mMemory;
+		mStackMarker = other.mStackMarker;
 
 		mLastAdded = other.mLastAdded;
 		mFirstAdded = other.mFirstAdded;
@@ -97,20 +97,20 @@ namespace Engine
 		other.mMemory = nullptr;
 	}
 
-	Arena::~Arena()
+	MemoryPool::~MemoryPool()
 	{
 		clear();
-		_aligned_free(mMemory);
+		free(mMemory);
 	}
 
 	template <typename T, typename... Args>
-	T* Arena::Push(Args&& ...args)
+	T* MemoryPool::push(Args&& ...args)
 	{
-		return PushAligned<T>(0, args...);
+		return pushAligned<T>(0, args...);
 	}
 
 	template<typename T, typename... Args>
-	T* Arena::PushAligned(size_t alignment, Args&& ...args)
+	T* MemoryPool::pushAligned(size_t alignment, Args&& ...args)
 	{
 		if (nullptr == mMemory)
 			return nullptr;
@@ -140,7 +140,7 @@ namespace Engine
 		return nullptr;
 	}
 
-	void Arena::clear()
+	void MemoryPool::clear()
 	{
 		if (nullptr == mMemory)
 			return;
@@ -160,13 +160,19 @@ namespace Engine
 		mFirstAdded = nullptr;
 	}
 
-	Arena& Arena::operator=(Arena&& other)
+	MemoryPool& MemoryPool::operator=(MemoryPool&& other)
 	{
-		mMemory = other.mMemory;
-		mStackMarker = other.mStackMarker;
+		if (mMemory)
+		{
+			clear();
+			free(mMemory);
+		}
 
 		mAllocSize = other.mAllocSize;
 		mRemainingSpace = other.mRemainingSpace;
+
+		mMemory = other.mMemory;
+		mStackMarker = other.mStackMarker;
 
 		mLastAdded = other.mLastAdded;
 		mFirstAdded = other.mFirstAdded;
@@ -178,12 +184,12 @@ namespace Engine
 
 	//////////////////////////////////////////////
 
-	Arena::EntryBase::EntryBase()
+	MemoryPool::EntryBase::EntryBase()
 	{
 		mNext = nullptr;
 	}
 
-	Arena::EntryBase::~EntryBase()
+	MemoryPool::EntryBase::~EntryBase()
 	{
 
 	}
@@ -192,15 +198,15 @@ namespace Engine
 
 	template<typename T>
 	template<typename... Args>
-	Arena::Entry<T>::Entry(Args&& ...args)
+	MemoryPool::Entry<T>::Entry(Args&& ...args)
 		: EntryBase(), mItem(args...)
 	{
 	}
 
 	template<typename T>
-	Arena::Entry<T>::~Entry()
+	MemoryPool::Entry<T>::~Entry()
 	{
 	}
 }
 
-#endif // _ENGINE_ARENA_H_
+#endif // _ENGINE_MEMORY_POOL_H_
