@@ -1,5 +1,7 @@
 #include "private_include/Internal.h"
 
+#include <Resource/Serialize.h>
+
 #include <cassert>
 #include <sstream>
 
@@ -60,18 +62,15 @@ namespace Resource
 
 	int strcmp(const char* left, ByteStream* stream, seek_t stringSeek)
 	{
-		assert(stream->getFlags() & MEMORY_BACKED != 0);
+		assert((stream->getFlags() & MEMORY_BACKED) != 0);
 
 		SeekBackup seekBack(stream);
 		stream->seek(stringSeek);
 
-		uint32 stringSize = 0;
-		Serializer serializer(stream);
-
-		serializer.readUInt32(&stringSize, 1);
+		uint16_t stringSize = 0;
+		Serialize::read<uint16_t>(stream, &stringSize);
 
 		const char* strData = (const char*)stream->dataPtr(stream->getSeekPosition());
-
 		return strncmp(left, strData, stringSize);
 	}
 }

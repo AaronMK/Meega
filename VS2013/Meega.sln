@@ -30,6 +30,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{7EDA3C03-AFF1-4A4E-A60D-262633D125A9}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Editor", "Editor\Editor.vcxproj", "{1B3E715B-0CA0-4198-9704-B4B99D177098}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9569E737-1280-416E-9E57-AE34829A19FD} = {9569E737-1280-416E-9E57-AE34829A19FD}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Resource", "Resource\Resource.vcxproj", "{DB5F6DD7-3F43-4A1B-A522-C343B990F953}"
 EndProject

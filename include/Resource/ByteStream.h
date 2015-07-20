@@ -25,7 +25,7 @@ namespace Resource
 		bool isValid() const;
 
 		/**
-		 * Gets a pointer to raw data at a seek position in the sream.  This does not
+		 * Gets a pointer to raw data at a seek position in the stream.  This does not
 		 * actually seek the stream, and will only work if the data backing the stream
 		 * is in memory.
 		 */

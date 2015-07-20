@@ -72,6 +72,7 @@
     <ClInclude Include="..\..\include\Resource\Config.h" />
     <ClInclude Include="..\..\include\Resource\File.h" />
     <ClInclude Include="..\..\include\Resource\Resource.h" />
+    <ClInclude Include="..\..\include\Resource\Serialize.h" />
     <ClInclude Include="..\..\include\Resource\Types.h" />
     <ClInclude Include="..\..\src\Resource\private_include\Internal.h" />
   </ItemGroup>
@@ -80,6 +81,7 @@
     <ClCompile Include="..\..\src\Resource\File.cpp" />
     <ClCompile Include="..\..\src\Resource\Internal.cpp" />
     <ClCompile Include="..\..\src\Resource\Resource.cpp" />
+    <ClCompile Include="..\..\src\Resource\Serialize.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

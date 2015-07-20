@@ -7,5 +7,6 @@ namespace Resource
 	bool setMessageCallback(MessageCallback &&callback)
 	{
 		messageCallback = std::forward<MessageCallback>(callback);
+		return true;
 	}
 }
