@@ -16,3 +16,7 @@
 /VS2013/Engine/x64
 /VS2013/x64
 /doc
+/VS2013/GPU/*.user
+/VS2013/GPU/x64
+/VS2013/GPU/moc
+/VS2013/Local.props
