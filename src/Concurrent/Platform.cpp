@@ -13,7 +13,7 @@ namespace Concurrent
 		void* param;
 	};
 
-	static DWORD WINAPI ThreadRunner(LPVOID lpParam)
+	static DWORD WINAPI sysThreadRunner(LPVOID lpParam)
 	{
 		ThreadSpecs* specs = static_cast<ThreadSpecs*>(lpParam);
 		
@@ -40,7 +40,7 @@ namespace Concurrent
 		specs->func = func;
 		specs->param = param;
 
-		HANDLE winHandle = CreateThread(NULL, NULL, &ThreadRunner, specs, CREATE_SUSPENDED, NULL);
+		HANDLE winHandle = CreateThread(NULL, NULL, &sysThreadRunner, specs, CREATE_SUSPENDED, NULL);
 		ResumeThread(winHandle);
 		CloseHandle(winHandle);
 	}

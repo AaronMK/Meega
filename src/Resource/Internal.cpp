@@ -7,6 +7,8 @@
 
 namespace Resource
 {
+	std::function<void(MessageLevel, std::string &&)> messageCallback;
+
 	void critical(std::string && msg)
 	{
 		messageCallback(MessageLevel::CRITICAL, std::forward<std::string>(msg));

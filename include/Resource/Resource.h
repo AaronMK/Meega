@@ -33,29 +33,29 @@ namespace Resource
 	/**
 	 * Stream is read only.
 	 */
-	static const uint32 READ_ONLY = 1;
+	static const uint32_t READ_ONLY = 1;
 
 	/**
 	 * Stream is write only.
 	 */
-	static const uint32 WRITE_ONLY = 2;
+	static const uint32_t WRITE_ONLY = 2;
 
 	/**
 	 * Stream supports seeking.  Usually streams that do not support seaking
 	 * are sockets.
 	 */
-	static const uint32 CAN_SEEK = 4;
+	static const uint32_t CAN_SEEK = 4;
 
 	/**
 	 * Backing stream data is in memory, and can be accessed directly using pointers
 	 * returned by dataPtr().
 	 */
-	static const uint32 MEMORY_BACKED = 8;
+	static const uint32_t MEMORY_BACKED = 8;
 
 	/**
 	 * Indicates that the stream is not valid.
 	 */
-	static const uint32 INVALID = 16;
+	static const uint32_t INVALID = 16;
 
 	typedef std::function<void(MessageLevel, std::string &&)> MessageCallback;
 
@@ -69,7 +69,7 @@ namespace Resource
 	/**
 	 * Gets the each component of the version of the library in use.
 	 */
-	RESOURCE_DYNAMIC_FUNC_EXPORT void libVersion(uint8 *outMajor, uint8 *outMinor, uint8 *outPatch);
+	RESOURCE_DYNAMIC_FUNC_EXPORT void libVersion(uint8_t *outMajor, uint8_t *outMinor, uint8_t *outPatch);
 }
 
 #endif // _RESOURCE_RESOURCE_H_

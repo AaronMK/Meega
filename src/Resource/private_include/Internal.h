@@ -12,18 +12,17 @@
 namespace Resource
 {
 	///////// Archive Structure //////////////
-	// uint8               - version major
-	// uint8               - version minor
-	// uint8               - version patch
-	// uint8               - endianess (0 = little, 1 = big)
-	// seek_t              - seek position of first folder
-	// Header Structure    - size of file header data
-	// seek_t              - item data begin
-	// Folder Structure(s) - folder structures in the archive,
-	//                       first is root and rest are sub-folders of root.
-	// raw data            - item data
+	// uint8_t               - version major
+	// uint8_t               - version minor
+	// uint8_t               - version patch
+	// uint8_t               - endianess (0 = little, 1 = big)
+	// seek_t                - seek position of first folder
+	// Header Structure      - size of file header data
+	// seek_t                - item data begin
+	// Folder Structure(s)   - folder structures in the archive,
+	//                         first is root and rest are sub-folders of root.
+	// raw data              - item data
 	/////////////////////////////////////////
-
 
 	///////// Header Structure //////////////
 	// bytesize_t       - header data size
@@ -43,25 +42,25 @@ namespace Resource
 	// bytesize_t       - item data size
 	// 
 	// (if subfolders)
-	//		uint16           - BEGIN_SUBFOLDER
-	//		string           - sub-folder name
-	//		seek_t           - folder structure location
+	//		uint16_t           - BEGIN_SUBFOLDER
+	//		string             - sub-folder name
+	//		seek_t             - folder structure location
 	//       .......................
 	//
 	// (if items)
-	//		uint16           - BEGIN_ITEM
-	//		string           - item name
-	//		Item Structure   - item data read by the reader
+	//		uint16_t           - BEGIN_ITEM
+	//		string             - item name
+	//		Item Structure     - item data read by the reader
 	//       .......................
 	//
-	// uint16           - END_FOLDER
+	// uint16_t           - END_FOLDER
 	////////////////////////////////////
 
-	static const uint16 BEGIN_SUBFOLDER = 1;
-	static const uint16 BEGIN_ITEM = 2;
-	static const uint16 END_FOLDER = 3;
+	static const uint16_t BEGIN_SUBFOLDER = 1;
+	static const uint16_t BEGIN_ITEM = 2;
+	static const uint16_t END_FOLDER = 3;
 
-	static const uint8 HOST_ENDIANESS = 0;
+	static const uint8_t HOST_ENDIANESS = 0;
 
 
 	// internal globals

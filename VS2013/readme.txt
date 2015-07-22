@@ -1,0 +1,1 @@
+Rename "Local_template.props" to "Local.props" before opening the solution.  This contains paths to external dependencies to be filled in with locations on the local machine.

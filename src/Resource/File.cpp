@@ -42,7 +42,7 @@ namespace Resource
 		if (nullptr == mFile)
 			return false;
 
-		int64 backSeek = getSeekPosition();
+		int64_t backSeek = getSeekPosition();
 
 		size_t byteCount = byteLength;
 		size_t elementsRead;
@@ -69,7 +69,7 @@ namespace Resource
 		if (NULL == mFile)
 			return false;
 
-		int64 backSeek = getSeekPosition();
+		int64_t backSeek = getSeekPosition();
 
 		size_t byteCount = byteLength;
 		size_t elementsWritten = fwrite(data, byteCount, 1, mFile);
@@ -92,7 +92,7 @@ namespace Resource
 			return false;
 
 		// Check for overflow
-		if (position > (int64)std::numeric_limits<long>::max())
+		if (position > (int64_t)std::numeric_limits<long>::max())
 		{
 			warning("Attempt was made to seek past the supported max file size.");
 			return false;
@@ -135,8 +135,8 @@ namespace Resource
 		if (NULL == mFile)
 			return false;
 
-		int64 currentSeek = ftell(mFile);
-		int64 maxSeek = 0;
+		int64_t currentSeek = ftell(mFile);
+		int64_t maxSeek = 0;
 
 		if (0 == fseek(mFile, 0, SEEK_END))
 		{

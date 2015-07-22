@@ -39,9 +39,9 @@ namespace Concurrent
 		void wait();
 
 		/**
-		 * Gets a pointer to the Task that is currently running.  This will be NULL if execution
-		 * is outside the context of a Scheduler.
-		 */
+		* Gets a pointer to the Task that is currently running.  This will be NULL if execution
+		* is outside the context of a Scheduler.
+		*/
 		static Task* current();
 
 		/**
@@ -55,6 +55,13 @@ namespace Concurrent
 		static void waitForAll(Task** tArray, size_t numTasks);
 
 	protected:
+
+		/**
+		 * Adds the function as a subtask of this task.  There is no tracking for 
+		 * the status provided by the tasking system, but the this task will not be signaled
+		 * as complete until func has also completed.
+		 */
+		bool subTask(std::function<void()>&& func);
 
 		/**
 		 * Adds a substask.  This task will continue to run to completion, but will not

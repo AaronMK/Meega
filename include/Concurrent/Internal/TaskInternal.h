@@ -14,14 +14,19 @@ namespace Concurrent
 	{
 		friend class Task;
 		friend class Scheduler;
+		friend class SchedulerInternal;
 
 	private:
 		TaskInternal();
 		virtual ~TaskInternal();
 
-		std::atomic<int> mDependentCount;
+		void schedulerAcquire();
+		void schedulerRelease();
 
+		std::atomic<int> mDependentCount;
 		Condition mFinishedHandle;
+
+		Scheduler* mScheduler;
 		Task* mParent;
 
 		void doRun();

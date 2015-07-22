@@ -17,17 +17,6 @@ namespace Concurrent
 		sysScheduleFunction(&Concurrent::SchedulerInternal::taskRunner, scheduler);
 	}
 
-	static void ThreadRunner(void* param)
-	{
-		Task* task = static_cast<Task*>(param);
-		Scheduler::runInline(task);
-	}
-
-	static void RunAsThread(Task* task)
-	{
-		sysRunAsThread(ThreadRunner, task);
-	}
-
 	template <typename T>
 	static T clamp(T val, T min, T max)
 	{
@@ -36,12 +25,7 @@ namespace Concurrent
 
 	////////////////////////////////////////////////////////////
 
-	static ThreadLocalPtr<Task> runningTask;
-	static ThreadLocalPtr<Scheduler> currentScheduler;
-
 	static Scheduler defaultScheduler(0);
-
-	//////////////////////////////
 
 	Scheduler::Scheduler(int maxPriority)
 	{
@@ -52,24 +36,19 @@ namespace Concurrent
 	{
 	}
 
-	void Scheduler::addTask(TaskFunction_t&& func, int priority)
-	{
-		priority = clamp<int>(priority, 0, (int)mInternal->mTaskQueues.size() - 1);
-		
+	void Scheduler::addTask(std::function<void()>&& func, int priority)
+	{	
 		SchedulerInternal::TaskRecord record;
-		record.func = std::forward<TaskFunction_t>(func);
+		record.func = std::forward<std::function<void()>>(func);
 		record.ref = mInternal;
 
-		mInternal->mTaskQueues[priority].push(std::move(record));
-		sysScheduleFunction(&SchedulerInternal::taskRunner, this);
+		mInternal->enqueueRecord(std::move(record), priority);
 	}
 
 	void Scheduler::addTask(Task* task, int priority)
 	{
-		assert(0 == task->mDependentCount);
-
-		task->mFinishedHandle.reset();
-		task->mDependentCount = 1;
+		task->schedulerAcquire();
+		task->mScheduler = this;
 
 		addTask(std::bind(&TaskInternal::doRun, task), priority);
 	}
@@ -79,23 +58,15 @@ namespace Concurrent
 		return &defaultScheduler;
 	}
 
-	Scheduler* Scheduler::current()
-	{
-		Scheduler* curr = currentScheduler.get();
-		return (nullptr != curr) ? curr : default();
-	}
-
 	void Scheduler::runAsThread(Task* task)
 	{
-		sysRunAsThread(&ThreadRunner, task);
+		task->schedulerAcquire();
+		sysRunAsThread(&SchedulerInternal::threadRunner, task);
 	}
 
 	void Scheduler::runInline(Task* task)
 	{
-		assert(0 == task->mDependentCount);
-
-		task->mFinishedHandle.reset();
-		task->mDependentCount = 1;
+		task->schedulerAcquire();
 
 		task->doRun();
 		task->wait();
@@ -112,15 +83,28 @@ namespace Concurrent
 	{
 	}
 
+	void SchedulerInternal::enqueueRecord(TaskRecord&& record, int priority)
+	{
+		assert(record.ref.get() == this);
+
+		if (priority < 0)
+		{
+			highPriorityQueue.push(std::forward<TaskRecord>(record));
+		}
+		else
+		{
+			priority = clamp<int>(priority, 0, (int)mTaskQueues.size() - 1);
+			mTaskQueues[priority].push(std::forward<TaskRecord>(record));
+		}
+
+		sysScheduleFunction(&SchedulerInternal::taskRunner, this);
+	}
+
 	void SchedulerInternal::taskRunner(void* data)
 	{
-		Scheduler* scheduler = static_cast<Scheduler*>(data);
-		currentScheduler.set(scheduler);
-
-		SchedulerInternal* schedulerInternal = scheduler->mInternal.get();
+		SchedulerInternal* schedulerInternal = static_cast<SchedulerInternal*>(data);
 
 		TaskRecord record;
-
 		if (false == schedulerInternal->highPriorityQueue.tryPop(record))
 		{
 			for (size_t i = schedulerInternal->mTaskQueues.size() - 1;
@@ -131,6 +115,15 @@ namespace Concurrent
 
 		record.func();
 
-		currentScheduler.set(nullptr);
+		if (record.parentTask)
+			record.parentTask->schedulerRelease();
+	}
+
+	void SchedulerInternal::threadRunner(void* param)
+	{
+		Task* task = static_cast<Task*>(param);
+
+		task->doRun();
+		task->wait();
 	}
 }

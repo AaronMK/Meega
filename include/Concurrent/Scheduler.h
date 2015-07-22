@@ -14,16 +14,13 @@ namespace Concurrent
 		friend class Task;
 
 	public:
-		typedef std::function<void()> TaskFunction_t;
-
 		Scheduler(int maxPriority);
 		virtual ~Scheduler();
 
-		void addTask(TaskFunction_t&& func, int priority);
+		void addTask(std::function<void()>&& func, int priority);
 		void addTask(Task* task, int priority);
 
 		static Scheduler* default();
-		static Scheduler* current();
 
 		static void runAsThread(Task* task);
 		static void runInline(Task* task);

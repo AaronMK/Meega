@@ -30,12 +30,12 @@ namespace Resource
 		return nullptr;
 	}
 
-	uint32 ByteStream::getFlags() const
+	uint32_t ByteStream::getFlags() const
 	{
 		return mFlags;
 	}
 
-	void ByteStream::setFlags(uint32 mask)
+	void ByteStream::setFlags(uint32_t mask)
 	{
 		mFlags = mask;
 	}

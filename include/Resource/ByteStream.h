@@ -80,13 +80,13 @@ namespace Resource
 		/*
 		 * Gets the flags for common properties of ByteStreams.
 		 */
-		uint32 getFlags() const;
+		uint32_t getFlags() const;
 
 	protected:
-		void setFlags(uint32 mask);
+		void setFlags(uint32_t mask);
 
 	private:
-		uint32 mFlags;
+		uint32_t mFlags;
 	};
 }
 
