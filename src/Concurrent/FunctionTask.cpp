@@ -2,13 +2,8 @@
 
 namespace Concurrent
 {
-	FunctionTask::FunctionTask(const taskfunc &func)
-		: mFunc(func)
-	{
-	}
-
-	FunctionTask::FunctionTask(taskfunc&& func)
-		: mFunc(std::forward<taskfunc>(func))
+	FunctionTask::FunctionTask(std::function<void()>&& func)
+		: mFunc(std::forward<std::function<void()>>(func))
 	{
 
 	}
@@ -17,15 +12,10 @@ namespace Concurrent
 	{
 	}
 
-	void FunctionTask::setFunction(const taskfunc &func)
-	{
-		setFunction(taskfunc(func));
-	}
-
-	void FunctionTask::setFunction(taskfunc&& func)
+	void FunctionTask::setFunction(std::function<void()>&& func)
 	{
 		assert(false == Task::isRunning());
-		mFunc = std::forward<taskfunc>(func);
+		mFunc = std::forward<std::function<void()>>(func);
 	}
 
 	void FunctionTask::main()

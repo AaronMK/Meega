@@ -10,22 +10,17 @@ namespace Concurrent
 	class CONCURRENT_DYNAMIC_CLASS FunctionTask : public Task
 	{
 	public:
-		typedef std::function<void()> taskfunc;
-		
 		FunctionTask() = default;
-
-		FunctionTask(const taskfunc &func);
-		FunctionTask(taskfunc&& func);
+		FunctionTask(std::function<void()>&& func);
 
 		virtual ~FunctionTask();
 
-		void setFunction(const taskfunc &func);
-		void setFunction(taskfunc&& func);
+		void setFunction(std::function<void()>&& func);
 
 		virtual void main() override;
 
 	private:
-		taskfunc mFunc;
+		std::function<void()> mFunc;
 	};
 }
 
