@@ -21,6 +21,9 @@ namespace Concurrent
 	class CONCURRENT_DYNAMIC_CLASS Mutex : private MutexPlatform
 	{
 	public:
+		Mutex(const Mutex&) = delete;
+		Mutex& operator=(const Mutex&) = delete;
+
 		Mutex();
 		virtual ~Mutex();
 
