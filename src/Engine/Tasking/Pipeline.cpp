@@ -68,8 +68,7 @@ namespace Engine
 
 		bool inPipeline()
 		{
-			assert(nullptr != pipeRender);
-			return (pipeRender == GpuPipeline::current());
+			return pipeRender->inPipeline();
 		}
 	}
 
@@ -89,7 +88,7 @@ namespace Engine
 		void flush()
 		{
 			assert(nullptr != pipeLoad);
-			if (pipeLoad != GpuPipeline::current())
+			if (pipeLoad->inPipeline())
 			{
 				Fence fence;
 				Load::enqueue([&]()
@@ -104,7 +103,7 @@ namespace Engine
 		bool inPipeline()
 		{
 			assert(nullptr != pipeLoad);
-			return (pipeLoad == GpuPipeline::current());
+			return (pipeLoad->inPipeline());
 		}
 	}
 }

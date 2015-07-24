@@ -17,29 +17,21 @@
 
 #include <GPU/OpenGL/Context.h>
 
-namespace Engine
-{
-	class GpuPipelinePlatform
-	{
-	public:
-		OpenGL::Context* mWaitContext;
-		OpenGL::Context* mRunContext;
-	};
-}
 #else
 #	error Unsupported platform for GpuPipeline
 #endif
 
 namespace Engine
 {
-	class GpuPipeline : public GpuPipelinePlatform
+	class GpuPipeline : public Concurrent::Task
 	{
 		friend class Fence;
 	public:
 		GpuPipeline(GpuPipeline* shared = nullptr);
 		virtual ~GpuPipeline();
 
-		void enqueue(const std::function<void()> &func);
+		virtual void main();
+
 		void enqueue(std::function<void()>&& func);
 
 		void setTarget(GPU::RenderTarget* target);
@@ -47,19 +39,19 @@ namespace Engine
 
 		void markForFlush();
 
+		bool inPipeline() const;
 		static GpuPipeline* current();
 
 	private:
+#ifdef ENGINE_API_OPEN_GL
+		OpenGL::Context* mWaitContext;
+		OpenGL::Context* mRunContext;
+#endif // ENGINE_API_OPEN_GL
+
 		bool flush;
 
 		Concurrent::Producer<Fence*> mFenceQueue;
 		Concurrent::Producer<std::function<void()>> mTaskQueue;
-
-		Concurrent::FunctionTask mWaitTask;
-		Concurrent::FunctionTask mRunTask;
-
-		void waitThread();
-		void runThread();
 	};
 }
 

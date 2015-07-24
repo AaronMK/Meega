@@ -10,6 +10,8 @@
 
 #include <Engine/DevSupport/Logging.h>
 
+using namespace Concurrent;
+
 namespace Engine
 {
 #ifdef ENGINE_API_OPEN_GL
@@ -146,50 +148,35 @@ namespace Engine
 			mRunContext->doneCurrent();
 		}
 
-		mRunTask.setFunction(std::bind(&GpuPipeline::runThread, this));
-		Concurrent::Scheduler::runAsThread(&mRunTask);
-
-		mWaitTask.setFunction(std::bind(&GpuPipeline::waitThread, this));
-		Concurrent::Scheduler::runAsThread(&mWaitTask);
+		Concurrent::Scheduler::runAsThread(this);
 	}
 
 	GpuPipeline::~GpuPipeline()
 	{
 		mTaskQueue.end();
-		mRunTask.wait();
-
-		mFenceQueue.end();
-		mWaitTask.wait();
+		wait();
 
 		delete mRunContext;
 		delete mWaitContext;
 	}
 
-	void GpuPipeline::enqueue(const std::function<void()> &func)
-	{
-		if (Concurrent::Task::current() == &mRunTask)
-			func();
-		else
-			mTaskQueue.push(std::function<void()>(func));
-	}
-
 	void GpuPipeline::enqueue(std::function<void()>&& func)
 	{
-		if (Concurrent::Task::current() == &mRunTask)
+		if ( isCurrent() )
 			func();
 		else
-			mTaskQueue.push(std::move(func));
+			mTaskQueue.push(std::forward<std::function<void()>>(func));
 	}
 
 	void GpuPipeline::setTarget(GPU::RenderTarget* target)
 	{
-		assert(Concurrent::Task::current() == &mRunTask);
+		assert( isCurrent() );
 		mRunContext->makeCurrent(target);
 	}
 
 	void GpuPipeline::swapBuffers()
 	{
-		assert(Concurrent::Task::current() == &mRunTask);
+		assert( isCurrent() );
 		mRunContext->swapBuffers();
 	}
 
@@ -205,36 +192,38 @@ namespace Engine
 		});
 	}
 
-	void GpuPipeline::waitThread()
+	bool GpuPipeline::inPipeline() const
 	{
-		currentPipeline.set(this);
-
-		mWaitContext->makeCurrent();
-
-		OpenGL::Format fmt = MasterFormat();
-		
-		if (fmt.debug)
-		{
-			initGLDebug(fmt, &DebugGLCallback, this);
-		}
-
-		Fence* fence = nullptr;
-		while (mFenceQueue.consume(fence))
-		{
-			glClientWaitSync(fence->mApiFence, GL_SYNC_FLUSH_COMMANDS_BIT, std::numeric_limits<GLuint64>::max());
-			glDeleteSync(fence->mApiFence);
-			fence->mApiFence = 0;
-			fence->done.trigger();
-		}
-
-		mWaitContext->doneCurrent();
-
-		currentPipeline.set(nullptr);
+		return (this == Concurrent::Task::current());
 	}
 
-	void GpuPipeline::runThread()
+	GpuPipeline* GpuPipeline::current()
 	{
-		currentPipeline.set(this);
+		return dynamic_cast<GpuPipeline*>(Concurrent::Task::current());
+	}
+
+	void GpuPipeline::main()
+	{
+		subTaskThread([this]()
+		{
+			mWaitContext->makeCurrent();
+
+			OpenGL::Format fmt = MasterFormat();
+
+			if (fmt.debug)
+				initGLDebug(fmt, &DebugGLCallback, this);
+
+			Fence* fence = nullptr;
+			while (mFenceQueue.consume(fence))
+			{
+				glClientWaitSync(fence->mApiFence, GL_SYNC_FLUSH_COMMANDS_BIT, std::numeric_limits<GLuint64>::max());
+				glDeleteSync(fence->mApiFence);
+				fence->mApiFence = 0;
+				fence->done.trigger();
+			}
+
+			mWaitContext->doneCurrent();
+		});
 
 		mRunContext->makeCurrent();
 
@@ -257,14 +246,8 @@ namespace Engine
 			}
 		}
 
+		mFenceQueue.end();
 		mRunContext->doneCurrent();
-
-		currentPipeline.set(nullptr);
-	}
-
-	GpuPipeline* GpuPipeline::current()
-	{
-		return currentPipeline.get();
 	}
 #else
 #	error Unsupported platform for GpuPipeline

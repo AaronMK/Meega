@@ -7,6 +7,7 @@
 #include <atomic>
 #include <vector>
 #include <functional>
+#include <cassert>
 
 namespace Concurrent
 {
