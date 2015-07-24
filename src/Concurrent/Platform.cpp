@@ -5,6 +5,8 @@
 #include <Windows.h>
 #include <concrt.h>
 
+using namespace std;
+
 namespace Concurrent
 {
 	struct ThreadSpecs
@@ -41,6 +43,27 @@ namespace Concurrent
 		specs->param = param;
 
 		HANDLE winHandle = CreateThread(NULL, NULL, &sysThreadRunner, specs, CREATE_SUSPENDED, NULL);
+		ResumeThread(winHandle);
+		CloseHandle(winHandle);
+	}
+
+	///////////////////
+
+	static DWORD WINAPI sysFunctionalJump(LPVOID lpParam)
+	{
+		function<void()>* funcPtr = static_cast<function<void()>*>(lpParam);
+		(*funcPtr)();
+
+		delete funcPtr;
+
+		return 0;
+	}
+
+	void sysRunAsThread(std::function<void()>&& func)
+	{
+		function<void()>* funcPtr = new function<void()>(forward<function<void()>>(func));
+
+		HANDLE winHandle = CreateThread(NULL, NULL, &sysFunctionalJump, funcPtr, CREATE_SUSPENDED, NULL);
 		ResumeThread(winHandle);
 		CloseHandle(winHandle);
 	}

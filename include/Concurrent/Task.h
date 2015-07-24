@@ -38,6 +38,8 @@ namespace Concurrent
 		 */
 		void wait();
 
+		bool isCurrent() const;
+
 		/**
 		* Gets a pointer to the Task that is currently running.  This will be NULL if execution
 		* is outside the context of a Scheduler.
@@ -58,13 +60,21 @@ namespace Concurrent
 
 		/**
 		 * Adds the function as a subtask of this task.  There is no tracking for 
-		 * the status provided by the tasking system, but the this task will not be signaled
-		 * as complete until func has also completed.
+		 * the status provided by the tasking system, but the task calling this will
+		 * not be signaled as complete until func has also completed.
 		 */
 		bool subTask(std::function<void()>&& func);
 
 		/**
-		 * Adds a substask.  This task will continue to run to completion, but will not
+		 * Adds the function as a subtask of this task, and runs it as a thread.  
+		 * There is no tracking for the status provided by the tasking system,
+		 * but the task calling this will, not be signaled as complete until
+		 * func has also completed.
+		 */
+		bool subTaskThread(std::function<void()>&& func);
+
+		/**
+		 * Adds a sub-task.  This task will continue to run to completion, but will not
 		 * be considered complete, until decendent tasks are complete. The Task
 		 * must be running to create subtasks, and any subtask cannot be running
 		 * when attached. The subtask will be considered running upon return.
@@ -73,6 +83,14 @@ namespace Concurrent
 		 * effectively lowering the priority of the original task.
 		 */
 		bool subTask(Task* childTask);
+
+		/**
+		 * Adds a sub-task that is run as a thread.  This task will continue to run
+		 *  to completion, but will not be considered complete, until decendent tasks are
+		 *  complete. The Task must be running to create subtasks, and any subtask cannot
+		 * be running when attached. The subtask will be considered running upon return.
+		 */
+		bool subTaskThread(Task* childTask);
 
 		/**
 		 * Yields the current thread to work on another task.  This is good for keeping cores busy

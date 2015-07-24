@@ -82,6 +82,11 @@ namespace Concurrent
 		mFinishedHandle.wait();
 	}
 
+	bool Task::isCurrent() const
+	{
+		return (this == current());
+	}
+
 	Task* Task::current()
 	{
 		return runningTask.get();
@@ -105,6 +110,23 @@ namespace Concurrent
 		return true;
 	}
 
+	bool Task::subTaskThread(std::function<void()>&& func)
+	{
+		assert(this == current());
+
+		schedulerAcquire();
+
+		std::function<void(std::function<void()>)> runFunc = [this](std::function<void()> funcArg)
+		{
+			funcArg();
+			schedulerRelease();
+		};
+
+		sysRunAsThread(std::bind(runFunc, std::forward<std::function<void()>>(func)));
+
+		return true;
+	}
+
 	bool Task::subTask(Task* childTask)
 	{
 		assert(this == current());
@@ -122,6 +144,18 @@ namespace Concurrent
 		record.parentTask = nullptr;
 
 		scheduler->mInternal->enqueueRecord(std::move(record), -1);
+
+		return true;
+	}
+
+	bool Task::subTaskThread(Task* childTask)
+	{
+		schedulerAcquire();
+
+		sysRunAsThread([this, childTask]() {
+			childTask->main();
+			schedulerRelease();
+		});
 
 		return true;
 	}
