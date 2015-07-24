@@ -25,13 +25,6 @@ namespace Engine
 		return transModelview.matrix();
 	}
 
-	void Camera::setFromCamera(const Camera &other)
-	{
-		transModelview = other.transModelview;
-		transProjection = other.transProjection;
-		transRasterToCamera = other.transRasterToCamera;
-	}
-
 	void Camera::setLookAt(const vec3 &Eye, const vec3 &Center, const vec3 &Up)
 	{
 		vec3 Forward = Center - Eye;

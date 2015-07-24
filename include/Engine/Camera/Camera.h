@@ -13,6 +13,8 @@ namespace Engine
 	class ENGINE_DYNAMIC_CLASS Camera : public Align16
 	{
 	public:
+		Camera(const Camera&) = default;
+
 		Camera();
 		virtual ~Camera();
 
@@ -25,8 +27,6 @@ namespace Engine
 
 		const mat4x4& projection() const;
 		const mat4x4& modelview() const;
-
-		void setFromCamera(const Camera &other);
 
 		void setLookAt(const vec3 &Eye, const vec3 &Center, const vec3 &Up);
 		void setPerspective(float fovyDegrees, float pxWidth, float pxHeight, float zNear, float zFar);
