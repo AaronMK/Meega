@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GPU", "GPU\GPU.vcxproj", "{5535E022-3B76-4077-8E27-A637DECE19B6}"
 EndProject
@@ -31,6 +31,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{7EDA3C03
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Editor", "Editor\Editor.vcxproj", "{1B3E715B-0CA0-4198-9704-B4B99D177098}"
 	ProjectSection(ProjectDependencies) = postProject
+		{B91D3A2D-0E97-4441-BF25-1FDCCABEAB66} = {B91D3A2D-0E97-4441-BF25-1FDCCABEAB66}
 		{9569E737-1280-416E-9E57-AE34829A19FD} = {9569E737-1280-416E-9E57-AE34829A19FD}
 	EndProjectSection
 EndProject

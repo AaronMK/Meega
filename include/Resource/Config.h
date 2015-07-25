@@ -11,8 +11,6 @@
 //////////////////////////////////////
 
 #if defined(_WIN32)
-#	pragma comment(lib, "Concurrent.lib")
-
 #	ifndef NOMINMAX
 #		define NOMINMAX
 #		undef min
