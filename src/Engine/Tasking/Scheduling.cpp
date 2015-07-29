@@ -20,11 +20,6 @@ namespace Engine
 	{
 	}
 
-	void ScheduleTask(const std::function<void()> &func, Priority priority)
-	{
-		mainScheduler.addTask(std::function<void()>(func), enumVal(priority));
-	}
-
 	void ScheduleTask(std::function<void()>&& func, Priority priority)
 	{
 		mainScheduler.addTask(std::forward<std::function<void()>>(func), enumVal(priority));
