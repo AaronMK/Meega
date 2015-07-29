@@ -52,9 +52,11 @@ namespace Concurrent
 	static DWORD WINAPI sysFunctionalJump(LPVOID lpParam)
 	{
 		function<void()>* funcPtr = static_cast<function<void()>*>(lpParam);
-		(*funcPtr)();
-
+		function<void()> localFunc = std::move(*funcPtr);
+		
 		delete funcPtr;
+
+		localFunc();
 
 		return 0;
 	}
