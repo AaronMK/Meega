@@ -17,16 +17,8 @@ namespace Engine
 	class ENGINE_DYNAMIC_CLASS Ray3
 	{
 	public:
-
-		/**
-		 * Constructs an uninitialized ray.
-		 */
-		Ray3();
-
-		/**
-		 * Copy constructor.
-		 */
-		Ray3(const Ray3 &other);
+		Ray3() = default;
+		Ray3(const Ray3&) = default;
 
 		/**
 		 * Constructs the ray, translating the other ray's origin from homogenious coordinates
@@ -44,6 +36,8 @@ namespace Engine
 		 * if w is not 0.  For the direction, w should always be 0.
 		 */
 		Ray3(const vec4 &origin, const vec4 &direction);
+
+		Ray3& operator=(const Ray3&) = default;
 
 		/**
 		 * The origin point of the ray.
@@ -64,16 +58,13 @@ namespace Engine
 	class ENGINE_DYNAMIC_CLASS Ray4 : public Align16
 	{
 	public:
+		Ray4() = default;
+		Ray4(const Ray4&) = default;
 
-		/**
-		 * Constructs an uninitialized ray.
-		 */
-		Ray4();
-
-		Ray4(const Ray3 &other);
-		Ray4(const Ray4 &other);
 		Ray4(const vec3 &origin, const vec3 &direction);
 		Ray4(const vec4 &origin, const vec4 &direction);
+
+		Ray4& operator=(const Ray4&) = default;
 
 		/**
 		 * The origin point of the ray.
