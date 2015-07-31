@@ -61,6 +61,7 @@ namespace Engine
 		Ray4() = default;
 		Ray4(const Ray4&) = default;
 
+		Ray4(const Ray3 &other);
 		Ray4(const vec3 &origin, const vec3 &direction);
 		Ray4(const vec4 &origin, const vec4 &direction);
 
