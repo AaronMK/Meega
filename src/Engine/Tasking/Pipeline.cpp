@@ -4,6 +4,8 @@
 
 #include "../private_include/Tasking/GpuPipeline.h"
 
+using namespace Concurrent;
+
 namespace Engine
 {
 	GpuPipeline* pipeRender = nullptr;
@@ -19,6 +21,16 @@ namespace Engine
 		return true;
 	}
 
+	extern GpuPipeline* currentPipeline()
+	{
+		Task* currentTask = Task::current();
+
+		if (currentTask == pipeRender || currentTask == pipeLoad)
+			return dynamic_cast<GpuPipeline*>(currentTask);
+
+		return nullptr;
+	}
+
 	void shutdownPipeline()
 	{
 		delete pipeRender;
@@ -30,15 +42,10 @@ namespace Engine
 
 	namespace Render
 	{
-		void enqueue(const std::function<void()> &function)
-		{
-			enqueue(std::function<void()>(function));
-		}
-
 		void enqueue(std::function<void()>&& function)
 		{
 			assert(nullptr != pipeRender);
-			pipeRender->enqueue(std::move(function));
+			pipeRender->enqueue(std::forward<std::function<void()>>(function));
 		}
 
 		void setTarget(GPU::RenderTarget* target)
@@ -74,15 +81,10 @@ namespace Engine
 
 	namespace Load
 	{
-		void enqueue(const std::function<void()> &function)
-		{
-			enqueue(std::function<void()>(function));
-		}
-
 		void enqueue(std::function<void()>&& function)
 		{
 			assert(nullptr != pipeLoad);
-			pipeLoad->enqueue(std::move(function));
+			pipeLoad->enqueue(std::forward<std::function<void()>>(function));
 		}
 
 		void flush()

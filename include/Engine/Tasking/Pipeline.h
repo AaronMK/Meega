@@ -30,12 +30,7 @@ namespace Engine
 	namespace Render
 	{
 		/**
-		 * Places a copy of a function into the queue for execution in the render pipeline.
-		 */
-		ENGINE_FUNC_EXPORT void enqueue(const std::function<void()> &function);
-
-		/**
-		 * Uses move semantics to enqueue a function into the Rendering pipeline.
+		 * Enqueues a function into the Rendering pipeline.
 		 */
 		ENGINE_FUNC_EXPORT void enqueue(std::function<void()>&& function);
 
@@ -64,7 +59,6 @@ namespace Engine
 
 	namespace Load
 	{
-		ENGINE_FUNC_EXPORT void enqueue(const std::function<void()> &function);
 		ENGINE_FUNC_EXPORT void enqueue(std::function<void()>&& function);
 
 		/**

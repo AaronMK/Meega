@@ -1,14 +1,15 @@
 #include "../private_include/Tasking/GpuPipeline.h"
 
-#include <Concurrent/Scheduler.h>
-#include <Concurrent/ThreadLocalPtr.h>
+#include <Engine/DevSupport/Logging.h>
+#include <Engine/Tasking/Pipeline.h>
 
 #include "../private_include/Debug/DebugGL.h"
 
+#include <Concurrent/Scheduler.h>
+#include <Concurrent/ThreadLocalPtr.h>
+
 #include <limits>
 #include <sstream>
-
-#include <Engine/DevSupport/Logging.h>
 
 using namespace Concurrent;
 
@@ -195,11 +196,6 @@ namespace Engine
 	bool GpuPipeline::inPipeline() const
 	{
 		return (this == Concurrent::Task::current());
-	}
-
-	GpuPipeline* GpuPipeline::current()
-	{
-		return dynamic_cast<GpuPipeline*>(Concurrent::Task::current());
 	}
 
 	void GpuPipeline::main()

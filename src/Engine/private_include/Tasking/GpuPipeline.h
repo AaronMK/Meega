@@ -40,7 +40,6 @@ namespace Engine
 		void markForFlush();
 
 		bool inPipeline() const;
-		static GpuPipeline* current();
 
 	private:
 #ifdef ENGINE_API_OPEN_GL

@@ -1,6 +1,9 @@
 #include <Engine/Tasking/Fence.h>
 
+#include <Engine/Tasking/Pipeline.h>
+
 #include "../private_include/Tasking/GpuPipeline.h"
+#include "../private_include/Tasking/PipelinePrivate.h"
 
 #include <cassert>
 
@@ -18,9 +21,9 @@ namespace Engine
 
 	void Fence::activate()
 	{
-		GpuPipeline* pipeline = GpuPipeline::current();
-		assert(nullptr != pipeline && 0 == mApiFence && false == done.isTriggered());
+		GpuPipeline* pipeline = currentPipeline();
 		
+		assert(nullptr != pipeline && 0 == mApiFence && false == done.isTriggered());
 		mApiFence = glFenceSync(GL_SYNC_GPU_COMMANDS_COMPLETE, 0);
 		pipeline->mFenceQueue.push(this);
 	}
