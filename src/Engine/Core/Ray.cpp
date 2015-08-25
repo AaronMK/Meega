@@ -34,3 +34,18 @@ namespace Engine
 	{
 	}
 }
+
+#ifdef ENGINE_DEVEOPMENT_SUPPORT
+
+class RayMetaType
+{
+public:
+	RayMetaType()
+	{
+		qRegisterMetaType<Engine::Ray3>();
+		qRegisterMetaType<Engine::Ray4>();
+	}
+};
+static RayMetaType instRayMetaType;
+
+#endif // ENGINE_DEVEOPMENT_SUPPORT
