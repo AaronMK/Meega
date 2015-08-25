@@ -29,7 +29,7 @@ namespace Engine
 
 	vec4 Transform::point(const vec3 &V) const
 	{
-		vec4 ret = m_Matrix*vec4(V, 1.0f);
+		vec4 ret = m_Matrix * vec4(V, 1.0f);
 		return ret;
 	}
 
@@ -37,13 +37,13 @@ namespace Engine
 	{
 		assert( 0.0f != V[3] );
 		
-		vec4 ret = m_Matrix*V;
+		vec4 ret = m_Matrix * V;
 		return ret;
 	}
 
 	vec4 Transform::invPoint(const vec3 &V) const
 	{
-		vec4 ret = m_invMatrix*vec4(V, 1.0f);
+		vec4 ret = m_invMatrix * vec4(V, 1.0f);
 		return ret;
 	}
 
@@ -51,35 +51,35 @@ namespace Engine
 	{
 		assert( 0.0f != V[3] );
 		
-		vec4 ret = m_invMatrix*V;
+		vec4 ret = m_invMatrix * V;
 		return ret;
 	}
 
 	vec4 Transform::vector(const vec3 &V) const
 	{
-		return m_Matrix*vec4(V, 0.0f);
+		return m_Matrix * vec4(V, 0.0f);
 	}
 
 	vec4 Transform::vector(const vec4 &V) const
 	{
 		assert( 0.0f == V[3] );
-		return m_Matrix*V;
+		return m_Matrix * V;
 	}
 
 	vec4 Transform::invVector(const vec3 &V) const
 	{
-		return m_invMatrix*vec4(V, 0.0f);
+		return m_invMatrix * vec4(V, 0.0f);
 	}
 
 	vec4 Transform::invVector(const vec4 &V) const
 	{
 		assert( 0.0f == V[3] );
-		return m_invMatrix*V;
+		return m_invMatrix * V;
 	}
 
 	vec4 Transform::normal(const vec3 &V) const
 	{
-		vec4 ret = vec4(V)*m_invMatrix;
+		vec4 ret = vec4(V) * m_invMatrix;
 		ret[3] = 0.0f;
 		return ret;
 	}
@@ -88,14 +88,14 @@ namespace Engine
 	{
 		assert( 0.0f == V[3] );
 		
-		vec4 ret = V*m_invMatrix;
+		vec4 ret = V * m_invMatrix;
 		ret[3] = 0.0f;
 		return ret;
 	}
 
 	vec4 Transform::invNormal(const vec3 &V) const
 	{
-		vec4 ret = vec4(V)*m_Matrix;
+		vec4 ret = vec4(V) * m_Matrix;
 		ret[3] = 0.0f;
 		return ret;
 	}
@@ -104,7 +104,7 @@ namespace Engine
 	{
 		assert( 0.0f == V[3] );
 		
-		vec4 ret = V*m_Matrix;
+		vec4 ret = V * m_Matrix;
 		ret[3] = 0.0f;
 		return ret;
 	}
@@ -179,15 +179,15 @@ namespace Engine
 
 	Transform Transform::Scale(const vec3 &sVec)
 	{
-		mat4x4 trans(sVec[0], 0.0f, 0.0f, 0.0f,
-		             0.0f, sVec[1], 0.0f, 0.0f,
-		             0.0f, 0.0f, sVec[2], 0.0f,
-		             0.0f, 0.0f, 0.0f,    1.0f);
+		mat4x4 trans(sVec[0], 0.0f,    0.0f,    0.0f,
+		             0.0f,    sVec[1], 0.0f,    0.0f,
+		             0.0f,    0.0f,    sVec[2], 0.0f,
+		             0.0f,    0.0f,    0.0f,    1.0f);
 		 
-		mat4x4 invTrans(1.0f/sVec[0], 0.0f, 0.0f, 0.0f,
-		                0.0f, 1.0f/sVec[1], 0.0f, 0.0f,
-		                0.0f, 0.0f, 1.0f/sVec[2], 0.0f,
-		                0.0f, 0.0f, 0.0f,         1.0f);
+		mat4x4 invTrans(1.0f/sVec[0], 0.0f,         0.0f,         0.0f,
+		                0.0f,         1.0f/sVec[1], 0.0f,         0.0f,
+		                0.0f,         0.0f,         1.0f/sVec[2], 0.0f,
+		                0.0f,         0.0f,         0.0f,         1.0f);
 
 		return Transform(trans, invTrans);
 	}
@@ -230,3 +230,17 @@ namespace Engine
 		       * Translate(-1.0f, 1.0f, 0.0f);
 	}
 }
+
+#ifdef ENGINE_DEVEOPMENT_SUPPORT
+
+class TransformMetaType
+{
+public:
+	TransformMetaType()
+	{
+		qRegisterMetaType<Engine::Transform>();
+	}
+};
+static TransformMetaType instTransformMetaType;
+
+#endif // ENGINE_DEVEOPMENT_SUPPORT

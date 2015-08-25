@@ -236,4 +236,13 @@ namespace Engine
 	};
 }
 
+#ifdef ENGINE_DEVEOPMENT_SUPPORT
+
+#include <QtCore/QMetaType>
+
+Q_DECLARE_METATYPE(Engine::vec3)
+Q_DECLARE_METATYPE(Engine::vec4)
+
+#endif // ENGINE_DEVEOPMENT_SUPPORT
+
 #endif // _ENGINE_VEC_H_

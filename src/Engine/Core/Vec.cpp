@@ -389,3 +389,18 @@ namespace Engine
 		return mult[0] + mult[1] + mult[2] + mult[3]; 
 	}
 }
+
+#ifdef ENGINE_DEVEOPMENT_SUPPORT
+
+class VecMetaType
+{
+public:
+	VecMetaType()
+	{
+		qRegisterMetaType<Engine::vec3>();
+		qRegisterMetaType<Engine::vec4>();
+	}
+};
+static VecMetaType instVecMetaType;
+
+#endif // ENGINE_DEVEOPMENT_SUPPORT

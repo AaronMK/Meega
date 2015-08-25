@@ -18,7 +18,8 @@ namespace Engine
 	 * see utility functions for getting the vec3 back.
 	 *
 	 * Transforms can be stacked using the multiplication operator.  The left-to-right order of the transformations
-	 * is the order in which the transforms will be implmented.
+	 * is the order in which the matrices will be multiplied.  The most local transforms to the should be on
+	 * the right.
 	 */
 	class ENGINE_DYNAMIC_CLASS Transform : public Align16
 	{
@@ -78,5 +79,13 @@ namespace Engine
 		mat4x4 m_invMatrix;
 	};
 }
+
+#ifdef ENGINE_DEVEOPMENT_SUPPORT
+
+#include <QtCore/QMetaType>
+
+Q_DECLARE_METATYPE(Engine::Transform)
+
+#endif // ENGINE_DEVEOPMENT_SUPPORT
 
 #endif // _ENGINE_TRANSFORM_H_

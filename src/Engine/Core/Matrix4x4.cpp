@@ -263,3 +263,17 @@ namespace Engine
 		              Mult*M.Cols[3]);
 	}
 }
+
+#ifdef ENGINE_DEVEOPMENT_SUPPORT
+
+class Mat4x4MetaType
+{
+public:
+	Mat4x4MetaType()
+	{
+		qRegisterMetaType<Engine::mat4x4>();
+	}
+};
+static Mat4x4MetaType instMat4x4MetaType;
+
+#endif // ENGINE_DEVEOPMENT_SUPPORT

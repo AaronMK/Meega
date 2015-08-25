@@ -136,4 +136,13 @@ namespace Engine
 	ENGINE_FUNC_EXPORT mat4x4 operator*(float f, const mat4x4 &M);
 }
 
+
+#ifdef ENGINE_DEVEOPMENT_SUPPORT
+
+#include <QtCore/QMetaType>
+
+Q_DECLARE_METATYPE(Engine::mat4x4)
+
+#endif // ENGINE_DEVEOPMENT_SUPPORT
+
 #endif // _ENGINE_MAT4_H_
