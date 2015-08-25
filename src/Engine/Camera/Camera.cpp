@@ -6,7 +6,6 @@
 
 namespace Engine
 {	
-	
 	Camera::Camera()
 	{
 	}
@@ -15,14 +14,14 @@ namespace Engine
 	{
 	}
 
-	const mat4x4& Camera::projection() const
+	const Transform& Camera::projection() const
 	{
-		return transProjection.matrix();
+		return transProjection;
 	}
 
-	const mat4x4& Camera::modelview() const
+	const Transform& Camera::world() const
 	{
-		return transModelview.matrix();
+		return transWorld;
 	}
 
 	void Camera::setLookAt(const vec3 &Eye, const vec3 &Center, const vec3 &Up)
@@ -43,7 +42,7 @@ namespace Engine
 		             0.0f, 0.0f, 1.0f, -Eye[2],
 		             0.0f, 0.0f, 0.0f,    1.0f);
 
-		transModelview = rot * trans;
+		transWorld = rot * trans;
 	}
 
 	void Camera::setPerspective(float fovyDegrees, float pxWidth, float pxHeight, float zNear, float zFar)

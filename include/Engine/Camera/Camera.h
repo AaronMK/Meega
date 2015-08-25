@@ -25,8 +25,8 @@ namespace Engine
 			Inside
 		};
 
-		const mat4x4& projection() const;
-		const mat4x4& modelview() const;
+		const Transform& projection() const;
+		const Transform& world() const;
 
 		void setLookAt(const vec3 &Eye, const vec3 &Center, const vec3 &Up);
 		void setPerspective(float fovyDegrees, float pxWidth, float pxHeight, float zNear, float zFar);
@@ -34,7 +34,7 @@ namespace Engine
 
 	protected:
 		Transform transProjection;
-		Transform transModelview;
+		Transform transWorld;
 		Transform transRasterToCamera;
 	};
 }
