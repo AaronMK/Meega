@@ -70,6 +70,20 @@ namespace Engine
 		B = pB;
 	}
 
+	RGB_F32::RGB_F32(const RGBA_8 &color)
+	{
+		R = (float)color.R / 255.0f;
+		G = (float)color.G / 255.0f;
+		B = (float)color.B / 255.0f;
+	}
+
+	RGB_F32::RGB_F32(const RGBA_F32 &color)
+	{
+		R = color.R;
+		G = color.G;
+		B = color.B;
+	}
+
 	///////////////////////////////////////
 
 	RGBA_F32::RGBA_F32(const RGBA_8 &color)
@@ -185,3 +199,24 @@ namespace Engine
 		alpha = pA;
 	}
 }
+
+#ifdef ENGINE_DEVEOPMENT_SUPPORT
+
+class ColorMetaType
+{
+public:
+	ColorMetaType()
+	{
+		qRegisterMetaType<Engine::RGB_8>();
+		qRegisterMetaType<Engine::RGBA_8>();
+		qRegisterMetaType<Engine::RGB_F32>();
+		qRegisterMetaType<Engine::RGBA_F32>();
+		qRegisterMetaType<Engine::GRAY_8>();
+		qRegisterMetaType<Engine::GRAY_ALPHA_8>();
+		qRegisterMetaType<Engine::GRAY_F32>();
+		qRegisterMetaType<Engine::GRAY_ALPHA_F32>();
+	}
+};
+static ColorMetaType instColorMetaType;
+
+#endif // ENGINE_DEVEOPMENT_SUPPORT
