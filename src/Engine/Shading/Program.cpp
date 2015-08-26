@@ -12,32 +12,11 @@ namespace Engine
 {
 	void ProgramPlatform::move(ProgramPlatform* src, ProgramPlatform* dst)
 	{
-		static std::function<void(ProgramPlatform*, ProgramPlatform*)> moveFunc(
-			[](ProgramPlatform* src, ProgramPlatform* dst)
-			{
-				if (dst->mProgramID != 0)
-					glDeleteProgram(dst->mProgramID);
+		if (dst->mProgramID != 0)
+			Render::enqueue(std::bind(glDeleteProgram, dst->mProgramID));
 
-				dst->mProgramID = src->mProgramID;
-				src->mProgramID = 0;
-			}
-		);
-
-		if (Render::inPipeline())
-		{
-		}
-		else
-		{
-			Condition barrier;
-
-			Render::enqueue([&]()
-			{
-				moveFunc(src, dst);
-				barrier.trigger();
-			});
-
-			barrier.wait();
-		}
+		dst->mProgramID = src->mProgramID;
+		src->mProgramID = 0;
 	}
 	
 	//////////////////////////////////////////////////////
@@ -130,7 +109,7 @@ namespace Engine
 		return Ret;
 	}
 
-	void Program::bindAttribLocation(GLuint index,  const GLchar *name)
+	void Program::bindAttribLocation(GLuint index, const GLchar *name)
 	{
 		glBindAttribLocation(mProgramID, index, name);
 	}
@@ -173,6 +152,13 @@ namespace Engine
 	void Program::setUniform(GLint loc, const mat4x4 &mat)
 	{
 		glUniformMatrix4fv(loc, 1, GL_FALSE, &mat[0][0]);
+	}
+
+
+	void Program::setUniform(GLint loc, const RGB_F32 &color)
+	{
+		vec3 colorvec(color.R, color.G, color.B);
+		glUniform3fv(loc, 1, &colorvec[0]);
 	}
 
 	GLuint Program::getId() const

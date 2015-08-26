@@ -2,7 +2,9 @@
 #define _ENGINE_PROGRAM_H_
 
 #include <Engine/Shading/Shader.h>
+
 #include <Engine/Core/Matrix4x4.h>
+#include <Engine/Core/Color.h>
 
 #include <Engine/Internal/Shading/ProgramPlatform.h>
 
@@ -90,6 +92,7 @@ namespace Engine
 		void setUniform(GLint loc, const vec3 &vec);
 		void setUniform(GLint loc, const vec4 &vec);
 		void setUniform(GLint loc, const mat4x4 &mat);
+		void setUniform(GLint loc, const RGB_F32 &color);
 
 		/**
 		 * Return the id of the program for use with OpenGL API functionality.  Use at your own risk.
