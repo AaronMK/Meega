@@ -7,70 +7,29 @@
 
 namespace Engine
 {
-	/**
-	 * For builds with development support, properties provided utilitles 
-	 * for external tools to track and modify their values.  On non-development
-	 * builds, they act like an object of type T.
-	 */
 	template<typename T>
 	class Property final
 	{
 	public:
+		std::function<T& ()> getter;
+		std::function<T& (T&&)> setter;
 
-		template <typename... Args>
-		Property(Args&& ...arguments);
-		
-		Property(T&& Value);
-
-		~Property();
-
-		T& operator=(T&& Value);
-
-		operator T&();
-		operator const T&();
-
-	private:
-		T mValue;
-
-	#ifdef ENGINE_DEVEOPMENT_SUPPORT
-	public:
-		void setChangeHandler(std::function<void(const T&)>&& funtion);
-
-		void setName(const std::string &name);
-		
-	private:
-		std::function<void(const T&)> mOnChanged;
-		std::string mName;
-
-	#endif // ENGINE_DEVEOPMENT_SUPPORT
+		operator T&() const;
+		T& operator=(T&& value);
 	};
 
 	////////////////////////////////////////////////
 
 	template<typename T>
-	template <typename... Args>
-	Property<T>::Property(Args&& ...arguments)
-		: mValue(arguments...)
+	Property<T>::operator T&() const
 	{
+		return getter();
 	}
 
 	template<typename T>
-	Property<T>::Property(T&& value)
-		: mValue(std::forward<T>(value))
+	T& Property<T>::operator=(T&& value)
 	{
-	}
-
-
-	template<typename T>
-	Property<T>::~Property()
-	{
-
-	}
-
-	template<typename T>
-	T& Property<T>::operator=(T&& Value)
-	{
-
+		return setter(std::forward<T>(value));
 	}
 }
 
