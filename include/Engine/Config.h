@@ -16,7 +16,6 @@
  * a great deal of functionality to assist in debugging of applications at a
  * noticeable cost in terms of memory, speed, and code bloat.
  */
-#define ENGINE_DEVEOPMENT_SUPPORT
 
 ////////////////////////////////////////////////////////////////////////////
 //////// Configuration End - Don't modify anything below this line. ////////
@@ -57,5 +56,30 @@
 #		define ENGINE_DYNAMIC_CLASS __declspec(dllimport)
 #	endif
 #endif
+
+namespace Engine
+{
+	ENGINE_FUNC_EXPORT bool DevelopmentSupport();
+	ENGINE_FUNC_EXPORT bool DynamicLibrary();
+
+	static bool checkRuntimeConfig()
+	{
+		bool ret = true;
+
+#		ifdef	ENGINE_DEVEOPMENT_SUPPORT
+			ret &= DevelopmentSupport();
+#		else
+			ret &= !DevelopmentSupport();
+#		endif
+
+#		ifdef	ENGINE_DYNAMIC
+			ret &= DynamicLibrary();
+#		else
+			ret &= !DynamicLibrary();
+#		endif
+
+		return ret;
+	}
+}
 
 #endif // _ENGINE_CONFIG_H_
