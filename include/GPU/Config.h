@@ -26,7 +26,6 @@
  * \def GPU_DYNAMIC_LIB
  * Define if being compiled or used as a dynamic library.
  */
-#define GPU_DYNAMIC_LIB
 
 /**
  * \def GPU_SUPPORT_DIRECT_X
