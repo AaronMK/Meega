@@ -5,8 +5,13 @@
 #include <Engine/Tasking/Scheduling.h>
 #include <Engine/Tasking/Pipeline.h>
 #include <Engine/Tasking/Fence.h>
+#include <Engine/Timing/Timing.h>
 
 #include <Concurrent/Scheduler.h>
+
+#include <QtWidgets/QDockWidget>
+
+#include <math.h>
 
 using namespace Engine;
 using namespace Concurrent;
@@ -23,48 +28,19 @@ TriangleApp::TriangleApp(int argc, char** argv)
 
 	connect(mRenderTarget, &GPU::QRenderTarget::resized, this, &TriangleApp::onRenderTargetResize);
 
+	QDockWidget* settingsDock = new QDockWidget("Settings");
+	settingsDock->setWidget(mTriangle.makePropertiesWidget());
+
+	mMainWindow->addDockWidget(Qt::LeftDockWidgetArea, settingsDock);
 	mMainWindow->show();
+
+	mCamera.setLookAt(vec3(0.0f, 0.0f, -2.0f), vec3(0.0f, 0.0f, 0.0f), vec3(0.0f, 1.0f, 0.0f));
 
 	Engine::Render::enqueue([this]()
 	{
-		float positionData[] =
-		{
-			-0.8f, -0.8f, 0.0f,
-			 0.8f, -0.8f, 0.0f,
-			 0.0f, 0.8f, 0.0f
-		};
-
-		float colorData[] =
-		{
-			1.0f, 0.0f, 0.0f,
-			0.0f, 1.0f, 0.0f,
-			0.0f, 0.0f, 1.0f
-		};
-
-		VBO::bind(&mVertBuffer, VBO::Target::Array);
-		VBO::BufferData(VBO::Target::Array, 9 * sizeof(float), positionData, VBO::Usage::StaticDraw);
-
-		VBO::bind(&mColorBuffer, VBO::Target::Array);
-		VBO::BufferData(VBO::Target::Array, 9 * sizeof(float), colorData, VBO::Usage::StaticDraw);
-		VBO::unbind(VBO::Target::Array);
-
 		glEnable(GL_DEPTH_TEST);
 		glEnable(GL_NORMALIZE);
-
 		glClearColor(0.0, 0.0, 0.0, 0.0);
-
-		VAO::bind(&mVertArrayObj);
-
-		VAO::enableAttribArray(0);
-		VBO::bind(&mVertBuffer, VBO::Target::Array);
-		VAO::attribPointerFloat(0, 3, false, 0, 0);
-
-		VAO::enableAttribArray(1);
-		VBO::bind(&mColorBuffer, VBO::Target::Array);
-		VAO::attribPointerFloat(1, 3, false, 0, 0);
-
-		VBO::unbind(VBO::Target::Array);
-		VAO::unbind();
 	});
 
 	renderTask.setFunction(std::bind(&TriangleApp::renderLoop, this));
@@ -79,36 +55,33 @@ TriangleApp::~TriangleApp()
 
 void TriangleApp::renderLoop()
 {
-	Engine::Fence fence;
-
 	while (!mStop)
 	{
-		Engine::Render::enqueue([this, &fence]()
+		Timing::update();
+		Engine::Render::enqueue([this]()
 		{
 			Engine::Render::setTarget(mRenderTarget);
 			Engine::Render::clear(COLOR_BUFFER_BIT | DEPTH_BUFFER_BIT);
 
-			Program::use(mBasicShader);
+			mTriangle.draw(mCamera);
 
-			VAO::bind(&mVertArrayObj);
-			VAO::drawArrays(VAO::Mode::Triangles, 0, 3);
-			VAO::unbind();
-
-			mBasicShader.unload();
-
-			fence.activate();
+			mRenderFence.activate();
 			Engine::Render::swapBuffers();
 			Engine::Render::flush();
 		});
 
-		fence.wait();
+		mRenderFence.wait();
 	}
 }
 
 void TriangleApp::onRenderTargetResize(int width, int height)
 {
-	Engine::Render::enqueue([width, height]()
+	Engine::Render::enqueue([this, width, height]()
 	{
+		mCamera.setPerspective(30.0f, float(width), float(height), 1.0f, 100.0f);
+
+		// float AR = float(width) / float(height);
+		// mCamera.setOrthographic(-AR, AR, -1.0f, 1.0f, 1.0f, 100.0f);
 		glViewport(0, 0, width, height);
 	});
 }

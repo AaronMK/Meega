@@ -3,23 +3,17 @@
 
 #include <GPU/Qt/QRenderTarget.qt.h>
 
-#include <QtCore/QTimer>
-
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QMainWindow>
 
 #include <GPU/Qt/QRenderTarget.qt.h>
 
-#include <GPU/OpenGL/OpenGL.h>
-#include <GPU/OpenGL/Context.h>
-
 #include <Concurrent/FunctionTask.h>
-#include <Concurrent/Producer.h>
 
-#include <Engine/Memory/VertexArrayObject.h>
-#include <Engine/Memory/VertexBufferObject.h>
+#include <Engine/Tasking/Fence.h>
+#include <Engine/Camera/Camera.h>
 
-#include <AppsCommon/BasicShader.h>
+#include "Triangle.h"
 
 class TriangleApp : public QApplication
 {
@@ -40,11 +34,10 @@ private:
 	QMainWindow* mMainWindow;
 	GPU::QRenderTarget* mRenderTarget;
 
-	Engine::VAO mVertArrayObj;
-	Engine::VBO mVertBuffer;
-	Engine::VBO mColorBuffer;
+	Triangle mTriangle;
 
-	AppsCommon::BasicShader mBasicShader;
+	Engine::Camera mCamera;
+	Engine::Fence mRenderFence;
 };
 
 #endif // _TRAINGLE_APP_
