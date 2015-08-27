@@ -5,7 +5,6 @@
  * \def CONCURRENT_DYNAMIC_LIB
  * Define if being compiled as a dynamic library.
  */
-#define CONCURRENT_DYNAMIC_LIB
 
 ////////////////////////////////////////////////////////////////////////////
 //////// Configuration End - Don't modify anything below this line. ////////
