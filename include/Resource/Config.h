@@ -4,7 +4,6 @@
 /** \def RESOURCE_DYNAMIC
 * Defined when the Engine is being built to support dynamic linking.
 */
-#define RESOURCE_DYNAMIC
 
 //////////////////////////////////////
 ///// DO NOT EDIT BELOW THIS LINE ////
