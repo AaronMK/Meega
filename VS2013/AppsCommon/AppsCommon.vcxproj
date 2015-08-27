@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
-    <ProjectConfiguration Include="Debug|x64">
-      <Configuration>Debug</Configuration>
+    <ProjectConfiguration Include="Debug Development|x64">
+      <Configuration>Debug Development</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release|x64">
-      <Configuration>Release</Configuration>
+    <ProjectConfiguration Include="Release Development|x64">
+      <Configuration>Release Development</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
@@ -15,12 +15,12 @@
     <RootNamespace>AppsCommon</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -29,21 +29,23 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'" Label="PropertySheets">
     <Import Project="..\Local.props" />
     <Import Project="..\Base.props" />
     <Import Project="..\Debug.props" />
     <Import Project="..\Qt.props" />
+    <Import Project="..\Development.props" />
   </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'" Label="PropertySheets">
     <Import Project="..\Local.props" />
     <Import Project="..\Base.props" />
     <Import Project="..\Release.props" />
     <Import Project="..\Qt.props" />
+    <Import Project="..\Development.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup />
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
@@ -55,7 +57,7 @@
       <AdditionalDependencies>GPU.lib;Engine.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
@@ -82,17 +84,22 @@
     <ClCompile Include="qrc\rcc_resource.cxx" />
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="..\..\src\Apps\SimpleTriangle\resource\resource.qrc">
+    <CustomBuild Include="..\..\src\AppsCommon\resource\resource.qrc">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)/bin/rcc "%(FullPath)" -o "$(ProjectDir)qrc\rcc_%(Filename).cxx"</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)/bin/rcc "%(FullPath)" -o "$(ProjectDir)qrc\rcc_%(Filename).cxx"</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Qt resource Compiler (%(Filename))</Message>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Qt resource Compiler (%(Filename))</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)qrc\rcc_%(Filename).cxx;</Outputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ProjectDir)qrc\rcc_%(Filename).cxx;</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">$(QTDIR)/bin/rcc "%(FullPath)" -o "$(ProjectDir)qrc\rcc_%(Filename).cxx"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">$(QTDIR)/bin/rcc "%(FullPath)" -o "$(ProjectDir)qrc\rcc_%(Filename).cxx"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">Qt resource Compiler (%(Filename))</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">Qt resource Compiler (%(Filename))</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">$(ProjectDir)qrc\rcc_%(Filename).cxx;</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">$(ProjectDir)qrc\rcc_%(Filename).cxx;</Outputs>
     </CustomBuild>
-    <None Include="..\..\src\Apps\SimpleTriangle\resource\Shaders\basic.frag" />
-    <None Include="..\..\src\Apps\SimpleTriangle\resource\Shaders\basic.vert" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\src\AppsCommon\resource\Styles\MasterStyle.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\src\AppsCommon\resource\Shaders\basic.frag" />
+    <None Include="..\..\src\AppsCommon\resource\Shaders\basic.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

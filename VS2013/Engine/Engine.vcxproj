@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
-    <ProjectConfiguration Include="Debug|x64">
-      <Configuration>Debug</Configuration>
+    <ProjectConfiguration Include="Debug Development|x64">
+      <Configuration>Debug Development</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release|x64">
-      <Configuration>Release</Configuration>
+    <ProjectConfiguration Include="Release Development|x64">
+      <Configuration>Release Development</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
@@ -25,10 +25,28 @@
     <ClInclude Include="..\..\include\Engine\Core\Types.h" />
     <ClInclude Include="..\..\include\Engine\Core\Utility.h" />
     <ClInclude Include="..\..\include\Engine\Core\Vec.h" />
+    <ClInclude Include="..\..\include\Engine\DevSupport\DevObject.h" />
     <ClInclude Include="..\..\include\Engine\DevSupport\DevSupport.h" />
     <ClInclude Include="..\..\include\Engine\DevSupport\InterfaceHooks.h" />
     <ClInclude Include="..\..\include\Engine\DevSupport\Logging.h" />
     <ClInclude Include="..\..\include\Engine\DevSupport\Property.h" />
+    <CustomBuild Include="..\..\include\Engine\DevSupport\Widgets\QColorEdit.qt.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">$(QTDIR)/bin/moc "%(FullPath)" -o "$(ProjectDir)moc\DevSupport\Widgets\moc_%(Filename).cxx" -DENGINE_DEVEOPMENT_SUPPORT</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">Moc%27ing %(Filename)</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">$(ProjectDir)moc\DevSupport\Widgets\moc_%(Filename).cxx</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">$(QTDIR)/bin/moc "%(FullPath)" -o "$(ProjectDir)moc\DevSupport\Widgets\moc_%(Filename).cxx" -DENGINE_DEVEOPMENT_SUPPORT</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">Moc%27ing %(Filename)</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">$(ProjectDir)moc\DevSupport\Widgets\moc_%(Filename).cxx</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\..\include\Engine\DevSupport\Widgets\QFloatEdit.qt.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">$(QTDIR)/bin/moc "%(FullPath)" -o "$(ProjectDir)moc\DevSupport\Widgets\moc_%(Filename).cxx" -DENGINE_DEVEOPMENT_SUPPORT</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">$(QTDIR)/bin/moc "%(FullPath)" -o "$(ProjectDir)moc\DevSupport\Widgets\moc_%(Filename).cxx" -DENGINE_DEVEOPMENT_SUPPORT</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">Moc%27ing %(Filename)</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">Moc%27ing %(Filename)</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">$(ProjectDir)moc\DevSupport\Widgets\moc_%(Filename).cxx</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">$(ProjectDir)moc\DevSupport\Widgets\moc_%(Filename).cxx</Outputs>
+    </CustomBuild>
+    <ClInclude Include="..\..\include\Engine\DevSupport\Widgets\QFloatValidator.h" />
     <ClInclude Include="..\..\include\Engine\Engine.h" />
     <ClInclude Include="..\..\include\Engine\Internal\Core\ConstantsPlatform.h" />
     <ClInclude Include="..\..\include\Engine\Internal\Memory\VertexArrayObjectPlatform.h" />
@@ -51,6 +69,8 @@
     <ClInclude Include="..\..\include\Engine\Tasking\Scheduling.h" />
     <ClInclude Include="..\..\include\Engine\Timing\Timing.h" />
     <ClInclude Include="..\..\src\Engine\private_include\Debug\DebugGL.h" />
+    <ClInclude Include="..\..\src\Engine\private_include\DevSupport\QDevObjectItem.h" />
+    <ClInclude Include="..\..\src\Engine\private_include\DevSupport\DevObjectManager.h" />
     <ClInclude Include="..\..\src\Engine\private_include\Tasking\GpuPipeline.h" />
     <ClInclude Include="..\..\src\Engine\private_include\Tasking\PipelinePrivate.h" />
     <ClInclude Include="..\..\src\Engine\private_include\Tasking\SchedulingPrivate.h" />
@@ -58,6 +78,7 @@
   <ItemGroup>
     <ClCompile Include="..\..\src\Engine\App.cpp" />
     <ClCompile Include="..\..\src\Engine\Camera\Camera.cpp" />
+    <ClCompile Include="..\..\src\Engine\Config.cpp" />
     <ClCompile Include="..\..\src\Engine\Core\Color.cpp" />
     <ClCompile Include="..\..\src\Engine\Core\Math3d.cpp" />
     <ClCompile Include="..\..\src\Engine\Core\Matrix4x4.cpp" />
@@ -65,8 +86,13 @@
     <ClCompile Include="..\..\src\Engine\Core\Transform.cpp" />
     <ClCompile Include="..\..\src\Engine\Core\Vec.cpp" />
     <ClCompile Include="..\..\src\Engine\Debug\DebugGL.cpp" />
+    <ClCompile Include="..\..\src\Engine\DevSupport\DevObject.cpp" />
+    <ClCompile Include="..\..\src\Engine\DevSupport\DevObjectManager.cpp" />
     <ClCompile Include="..\..\src\Engine\DevSupport\InterfaceHooks.cpp" />
     <ClCompile Include="..\..\src\Engine\DevSupport\Logging.cpp" />
+    <ClCompile Include="..\..\src\Engine\DevSupport\Widgets\QColorEdit.cpp" />
+    <ClCompile Include="..\..\src\Engine\DevSupport\Widgets\QFloatEdit.cpp" />
+    <ClCompile Include="..\..\src\Engine\DevSupport\Widgets\QFloatValidator.cpp" />
     <ClCompile Include="..\..\src\Engine\Engine.cpp" />
     <ClCompile Include="..\..\src\Engine\Memory\Align16.cpp" />
     <ClCompile Include="..\..\src\Engine\Memory\VertexArrayObject.cpp" />
@@ -80,18 +106,20 @@
     <ClCompile Include="..\..\src\Engine\Tasking\Pipeline.cpp" />
     <ClCompile Include="..\..\src\Engine\Tasking\Scheduling.cpp" />
     <ClCompile Include="..\..\src\Engine\Timing\Timing.cpp" />
+    <ClCompile Include="moc\DevSupport\Widgets\moc_QColorEdit.qt.cxx" />
+    <ClCompile Include="moc\DevSupport\Widgets\moc_QFloatEdit.qt.cxx" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B91D3A2D-0E97-4441-BF25-1FDCCABEAB66}</ProjectGuid>
     <RootNamespace>Engine</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v120</PlatformToolset>
@@ -99,36 +127,40 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'" Label="PropertySheets">
     <Import Project="..\Local.props" />
     <Import Project="..\Base.props" />
     <Import Project="..\Debug.props" />
+    <Import Project="..\Qt.props" />
+    <Import Project="..\Development.props" />
   </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'" Label="PropertySheets">
     <Import Project="..\Local.props" />
     <Import Project="..\Base.props" />
     <Import Project="..\Release.props" />
+    <Import Project="..\Qt.props" />
+    <Import Project="..\Development.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup />
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>ENGINE_BUILD;ENGINE_DYNAMIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>ENGINE_BUILD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>GPU.lib;Concurrent.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>ENGINE_BUILD;ENGINE_DYNAMIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>ENGINE_BUILD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>

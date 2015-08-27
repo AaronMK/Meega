@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
-    <ProjectConfiguration Include="Debug|x64">
-      <Configuration>Debug</Configuration>
+    <ProjectConfiguration Include="Debug Development|x64">
+      <Configuration>Debug Development</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release|x64">
-      <Configuration>Release</Configuration>
+    <ProjectConfiguration Include="Release Development|x64">
+      <Configuration>Release Development</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
@@ -19,26 +19,26 @@
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="..\..\src\Editor\include\EditorApp.qt.h">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)/bin/moc "%(FullPath)" -o "$(ProjectDir)moc\moc_%(Filename).cxx"</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)/bin/moc "%(FullPath)" -o "$(ProjectDir)moc\moc_%(Filename).cxx"</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing %(Filename)</Message>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Moc%27ing %(Filename)</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)moc\moc_%(Filename).cxx;%(Outputs)</Outputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ProjectDir)moc\moc_%(Filename).cxx;%(Outputs)</Outputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">$(QTDIR)/bin/moc "%(FullPath)" -o "$(ProjectDir)moc\moc_%(Filename).cxx"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">$(QTDIR)/bin/moc "%(FullPath)" -o "$(ProjectDir)moc\moc_%(Filename).cxx"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">Moc%27ing %(Filename)</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">Moc%27ing %(Filename)</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">$(ProjectDir)moc\moc_%(Filename).cxx;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">$(ProjectDir)moc\moc_%(Filename).cxx;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">%(AdditionalInputs)</AdditionalInputs>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="..\..\src\Editor\include\MainWindow.qt.h">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)/bin/moc "%(FullPath)" -o "$(ProjectDir)moc\moc_%(Filename).cxx"</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)/bin/moc "%(FullPath)" -o "$(ProjectDir)moc\moc_%(Filename).cxx"</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing %(Filename)</Message>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Moc%27ing %(Filename)</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)moc\moc_%(Filename).cxx;%(Outputs)</Outputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ProjectDir)moc\moc_%(Filename).cxx;%(Outputs)</Outputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">$(QTDIR)/bin/moc "%(FullPath)" -o "$(ProjectDir)moc\moc_%(Filename).cxx"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">$(QTDIR)/bin/moc "%(FullPath)" -o "$(ProjectDir)moc\moc_%(Filename).cxx"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">Moc%27ing %(Filename)</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">Moc%27ing %(Filename)</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">$(ProjectDir)moc\moc_%(Filename).cxx;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">$(ProjectDir)moc\moc_%(Filename).cxx;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">%(AdditionalInputs)</AdditionalInputs>
     </CustomBuild>
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -46,12 +46,12 @@
     <RootNamespace>Editor</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v120</PlatformToolset>
@@ -60,21 +60,23 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'" Label="PropertySheets">
     <Import Project="..\Local.props" />
     <Import Project="..\Base.props" />
     <Import Project="..\Debug.props" />
     <Import Project="..\Qt.props" />
+    <Import Project="..\Development.props" />
   </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'" Label="PropertySheets">
     <Import Project="..\Local.props" />
     <Import Project="..\Base.props" />
     <Import Project="..\Release.props" />
     <Import Project="..\Qt.props" />
+    <Import Project="..\Development.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup />
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
@@ -83,9 +85,10 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
+      <AdditionalDependencies>AppsCommon.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
@@ -98,6 +101,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <SubSystem>Windows</SubSystem>
+      <AdditionalDependencies>AppsCommon.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -82,6 +82,30 @@
     <Filter Include="Header Files\DevSupport">
       <UniqueIdentifier>{85c1e583-1ddb-49ac-9266-cd65abc2ff13}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\private_include\DevSupport">
+      <UniqueIdentifier>{2cf9112f-e184-47d0-8df2-0008c2a0e752}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\DevSupport\Widgets">
+      <UniqueIdentifier>{ed4a6d64-1605-4da0-9117-e58a6a4efdc6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\DevSupport\Widgets">
+      <UniqueIdentifier>{7f591b3c-a022-4bdd-b2e6-9e5f912d4c33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{72efff1b-6386-410f-bc55-258d7ae023ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Generated Files\DevSupport">
+      <UniqueIdentifier>{bd8ba411-9d17-4131-b0e2-1b7eb6f2c09f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Generated Files\DevSupport\Widgets">
+      <UniqueIdentifier>{7cb56e03-7b96-4b8d-9085-2602442acea5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\private_include\DevSupport\DataModels">
+      <UniqueIdentifier>{8b1354a2-3885-4919-a9cc-aa368ff6f9f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\DevSupport\DataModels">
+      <UniqueIdentifier>{00a38cea-3240-4fed-bbeb-0da51ee0c995}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\Engine\Engine.h">
@@ -213,6 +237,18 @@
     <ClInclude Include="..\..\include\Engine\Memory\MemoryPool.h">
       <Filter>Header Files\Memory</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\Engine\DevSupport\DevObject.h">
+      <Filter>Header Files\DevSupport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Engine\private_include\DevSupport\DevObjectManager.h">
+      <Filter>Source Files\private_include\DevSupport</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Engine\DevSupport\Widgets\QFloatValidator.h">
+      <Filter>Header Files\DevSupport\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Engine\private_include\DevSupport\QDevObjectItem.h">
+      <Filter>Source Files\private_include\DevSupport\DataModels</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\Engine\Shading\Shader.cpp">
@@ -287,5 +323,37 @@
     <ClCompile Include="..\..\src\Engine\Runtime.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\Engine\DevSupport\DevObject.cpp">
+      <Filter>Source Files\DevSupport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Engine\DevSupport\DevObjectManager.cpp">
+      <Filter>Source Files\DevSupport</Filter>
+    </ClCompile>
+    <ClCompile Include="moc\DevSupport\Widgets\moc_QFloatEdit.qt.cxx">
+      <Filter>Generated Files\DevSupport\Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Engine\DevSupport\Widgets\QFloatEdit.cpp">
+      <Filter>Source Files\DevSupport\Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Engine\DevSupport\Widgets\QFloatValidator.cpp">
+      <Filter>Source Files\DevSupport\Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Engine\Config.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Engine\DevSupport\Widgets\QColorEdit.cpp">
+      <Filter>Source Files\DevSupport\Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="moc\DevSupport\Widgets\moc_QColorEdit.qt.cxx">
+      <Filter>Generated Files\DevSupport\Widgets</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\include\Engine\DevSupport\Widgets\QFloatEdit.qt.h">
+      <Filter>Header Files\DevSupport\Widgets</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\include\Engine\DevSupport\Widgets\QColorEdit.qt.h">
+      <Filter>Header Files\DevSupport\Widgets</Filter>
+    </CustomBuild>
   </ItemGroup>
 </Project>

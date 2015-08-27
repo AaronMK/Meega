@@ -90,6 +90,12 @@
     <ClInclude Include="..\..\src\Concurrent\private_include\Platform.h">
       <Filter>Source Files\private_include</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\Concurrent\Timer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Concurrent\Internal\TimerPlatform.h">
+      <Filter>Header Files\Internal</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\Concurrent\Mutex.cpp">
@@ -123,6 +129,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\Concurrent\Platform.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Concurrent\Timer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
-    <ProjectConfiguration Include="Debug|x64">
-      <Configuration>Debug</Configuration>
+    <ProjectConfiguration Include="Debug Development|x64">
+      <Configuration>Debug Development</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release|x64">
-      <Configuration>Release</Configuration>
+    <ProjectConfiguration Include="Release Development|x64">
+      <Configuration>Release Development</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
@@ -17,14 +17,14 @@
     <ClInclude Include="..\..\include\GPU\DirectX\DirectX.h" />
     <ClInclude Include="..\..\include\GPU\GPU.h" />
     <CustomBuild Include="..\..\include\GPU\Qt\QRenderTarget.qt.h">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)/bin/moc "%(FullPath)" -o "$(ProjectDir)moc\Qt\moc_%(Filename).cxx"</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing %(Filename)</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)moc\Qt\moc_%(Filename).cxx;%(Outputs)</Outputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)/bin/moc "%(FullPath)" -o "$(ProjectDir)moc\Qt\moc_%(Filename).cxx"</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Moc%27ing %(Filename)</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ProjectDir)moc\Qt\moc_%(Filename).cxx;%(Outputs)</Outputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">$(QTDIR)/bin/moc "%(FullPath)" -o "$(ProjectDir)moc\Qt\moc_%(Filename).cxx"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">Moc%27ing %(Filename)</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">$(ProjectDir)moc\Qt\moc_%(Filename).cxx;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">$(QTDIR)/bin/moc "%(FullPath)" -o "$(ProjectDir)moc\Qt\moc_%(Filename).cxx"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">Moc%27ing %(Filename)</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">$(ProjectDir)moc\Qt\moc_%(Filename).cxx;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">%(AdditionalInputs)</AdditionalInputs>
     </CustomBuild>
     <ClInclude Include="..\..\include\GPU\internal\OpenGL\ContextSysBase.h" />
     <ClInclude Include="..\..\include\GPU\Internal\Qt\QRenderTargetSysBase.h" />
@@ -57,13 +57,13 @@
     <RootNamespace>GPU</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v120</PlatformToolset>
     <CharacterSet>NotSet</CharacterSet>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v120</PlatformToolset>
@@ -73,39 +73,41 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'" Label="PropertySheets">
     <Import Project="..\Local.props" />
     <Import Project="..\base.props" />
     <Import Project="..\Debug.props" />
     <Import Project="..\Qt.props" />
+    <Import Project="..\Development.props" />
   </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'" Label="PropertySheets">
     <Import Project="..\Local.props" />
     <Import Project="..\base.props" />
     <Import Project="..\Release.props" />
     <Import Project="..\Qt.props" />
+    <Import Project="..\Development.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup />
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>GPU_DYNAMIC_COMPILE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>GPU_COMPILE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>GPU_DYNAMIC_COMPILE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>GPU_COMPILE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>

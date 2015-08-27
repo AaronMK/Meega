@@ -30,10 +30,10 @@
     <ClCompile Include="moc\moc_TriangleApp.qt.cxx">
       <Filter>Generated Files\moc</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\Editor\MainWindow.cpp">
+    <ClCompile Include="..\..\..\src\Apps\SimpleTriangle\Triangle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="moc\moc_MainWindow.qt.cxx">
+    <ClCompile Include="moc\moc_Triangle.cxx">
       <Filter>Generated Files\moc</Filter>
     </ClCompile>
   </ItemGroup>
@@ -41,7 +41,7 @@
     <CustomBuild Include="..\..\..\src\Apps\SimpleTriangle\TriangleApp.qt.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="..\..\..\src\Editor\include\MainWindow.qt.h">
+    <CustomBuild Include="..\..\..\src\Apps\SimpleTriangle\Triangle.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
   </ItemGroup>

@@ -22,6 +22,9 @@
     <Filter Include="Generated Files\qrc">
       <UniqueIdentifier>{92933297-9cdd-473e-a8fd-705a36e091fc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\Styles">
+      <UniqueIdentifier>{57802923-f0ef-424c-b046-d8433cfd6d02}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\AppsCommon\AppsCommon.h">
@@ -46,16 +49,21 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\src\Apps\SimpleTriangle\resource\Shaders\basic.frag">
+    <CustomBuild Include="..\..\src\AppsCommon\resource\resource.qrc">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\src\AppsCommon\resource\Shaders\basic.frag">
       <Filter>Resource Files\Shaders</Filter>
     </None>
-    <None Include="..\..\src\Apps\SimpleTriangle\resource\Shaders\basic.vert">
+    <None Include="..\..\src\AppsCommon\resource\Shaders\basic.vert">
       <Filter>Resource Files\Shaders</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="..\..\src\Apps\SimpleTriangle\resource\resource.qrc">
-      <Filter>Resource Files</Filter>
-    </CustomBuild>
+    <Text Include="..\..\src\AppsCommon\resource\Styles\MasterStyle.txt">
+      <Filter>Resource Files\Styles</Filter>
+    </Text>
   </ItemGroup>
 </Project>

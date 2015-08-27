@@ -4,9 +4,9 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup />
   <ItemDefinitionGroup>
-    <Link>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </Link>
+    <ClCompile>
+      <PreprocessorDefinitions>APPS_COMMON_DYNAMIC;CONCURRENT_DYNAMIC_LIB;GPU_DYNAMIC_LIB;RESOURCE_DYNAMIC;ENGINE_DYNAMIC;ENGINE_DEVEOPMENT_SUPPORT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup />
 </Project>
