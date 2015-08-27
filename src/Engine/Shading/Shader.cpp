@@ -15,36 +15,17 @@ namespace Engine
 #ifdef ENGINE_API_OPEN_GL
 	void ShaderPlatform::move(ShaderPlatform* src, ShaderPlatform* dst)
 	{
-		static std::function<void(ShaderPlatform*, ShaderPlatform*)> moveFunc(
-			[](ShaderPlatform* src, ShaderPlatform* dst)
-			{
-				if (dst->mShaderID != 0)
-					glDeleteShader(dst->mShaderID);
+		if (src == dst)
+			return;
 
-				dst->mShaderType = src->mShaderType;
-				dst->mShaderID = src->mShaderID;
-			
-				src->mShaderType = enumVal(ShaderStage::Invalid);
-				src->mShaderID = 0;
-			}
-		);
+		if (dst->mShaderID != 0)
+			Render::enqueue(std::bind(glDeleteShader, dst->mShaderID));
 
-		if (Render::inPipeline())
-		{
-			moveFunc(src, dst);
-		}
-		else
-		{
-			Condition barrier;
+		dst->mShaderType = src->mShaderType;
+		dst->mShaderID = src->mShaderID;
 
-			Render::enqueue([&]()
-			{
-				moveFunc(src, dst);
-				barrier.trigger();
-			});
-
-			barrier.wait();
-		}
+		src->mShaderType = enumVal(ShaderStage::Invalid);
+		src->mShaderID = 0;
 	}
 	
 	//////////////////////////////////////////////////////
@@ -63,9 +44,7 @@ namespace Engine
 	Shader::~Shader()
 	{
 		if (0 != mShaderID)
-		{
 			Render::enqueue(std::bind(glDeleteShader, mShaderID));
-		}
 	}
 
 	void Shader::setSource(const std::string &source, ShaderStage stage)
@@ -119,6 +98,5 @@ namespace Engine
 		move(&other, this);
 		return *this;
 	}
-
 #endif
 }
