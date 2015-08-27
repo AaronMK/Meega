@@ -9,7 +9,6 @@ namespace Engine
 	DevObject::DevObject()
 	{
 		setObjectName(QString(tr("<untitled>")));
-		DevObjectManager::registerObject(this);
 	}
 
 	DevObject::~DevObject()

@@ -69,8 +69,6 @@
     <ClInclude Include="..\..\include\Engine\Tasking\Scheduling.h" />
     <ClInclude Include="..\..\include\Engine\Timing\Timing.h" />
     <ClInclude Include="..\..\src\Engine\private_include\Debug\DebugGL.h" />
-    <ClInclude Include="..\..\src\Engine\private_include\DevSupport\QDevObjectItem.h" />
-    <ClInclude Include="..\..\src\Engine\private_include\DevSupport\DevObjectManager.h" />
     <ClInclude Include="..\..\src\Engine\private_include\Tasking\GpuPipeline.h" />
     <ClInclude Include="..\..\src\Engine\private_include\Tasking\PipelinePrivate.h" />
     <ClInclude Include="..\..\src\Engine\private_include\Tasking\SchedulingPrivate.h" />
@@ -87,7 +85,6 @@
     <ClCompile Include="..\..\src\Engine\Core\Vec.cpp" />
     <ClCompile Include="..\..\src\Engine\Debug\DebugGL.cpp" />
     <ClCompile Include="..\..\src\Engine\DevSupport\DevObject.cpp" />
-    <ClCompile Include="..\..\src\Engine\DevSupport\DevObjectManager.cpp" />
     <ClCompile Include="..\..\src\Engine\DevSupport\InterfaceHooks.cpp" />
     <ClCompile Include="..\..\src\Engine\DevSupport\Logging.cpp" />
     <ClCompile Include="..\..\src\Engine\DevSupport\Widgets\QColorEdit.cpp" />
