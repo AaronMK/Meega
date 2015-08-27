@@ -1,12 +1,11 @@
 #include <AppsCommon/BasicShader.h>
 
 #include <AppsCommon/AppsCommon.h>
-
 #include <Engine/Tasking/Pipeline.h>
 
-using namespace Engine;
-
 #include <atomic>
+
+using namespace Engine;
 
 namespace AppsCommon
 {
@@ -19,10 +18,10 @@ namespace AppsCommon
 
 	static void acquire()
 	{
-		QString vertSource(fileToString(":/Shaders/basic.vert"));
-		QString fragSource(fileToString(":/Shaders/basic.frag"));
+		QString vertSource(fileToString(":/AppsCommon/Shaders/basic.vert"));
+		QString fragSource(fileToString(":/AppsCommon/Shaders/basic.frag"));
 
-		if (1 == refCount.fetch_add(1))
+		if (0 == refCount.fetch_add(1))
 		{
 			Render::enqueue([vertSource, fragSource]()
 			{
@@ -31,7 +30,7 @@ namespace AppsCommon
 				vertShader.compile();
 
 				Shader fragShader;
-				fragShader.setSource(fragSource.toStdString(), ShaderStage::Vertex);
+				fragShader.setSource(fragSource.toStdString(), ShaderStage::Fragment);
 				fragShader.compile();
 
 				basicProgram.attachShader(vertShader);
@@ -39,23 +38,20 @@ namespace AppsCommon
 
 				basicProgram.link();
 
+				Program::use(basicProgram);
 				locPosition = basicProgram.getAttribLocation("VertexPosition");
-				locColor = basicProgram.getAttribLocation("VertexColor");
-				locModelView = basicProgram.getUniformLocation("View.modelview");
-				locProjection = basicProgram.getUniformLocation("View.projection");
+				locColor = basicProgram.getUniformLocation("Color");
+				locModelView = basicProgram.getUniformLocation("modelview");
+				locProjection = basicProgram.getUniformLocation("projection");
 			});
 		}
 	}
 
 	static void release()
 	{
-		if (0 == refCount.fetch_sub(1))
+		if (1 == refCount.fetch_sub(1))
 		{
 			Render::enqueue(std::bind(&Program::clear, &basicProgram));
-			locPosition = 0;
-			locColor = 0;
-			locModelView = 0;
-			locProjection = 0;
 		}
 	}
 
@@ -69,15 +65,24 @@ namespace AppsCommon
 		release();
 	}
 
-	///////////////////////////////
-
-	BasicShaderParams::BasicShaderParams()
+	void BasicShader::setView(const mat4x4 &modelview, const mat4x4 &projection)
 	{
-
+		basicProgram.setUniform(locModelView, modelview);
+		basicProgram.setUniform(locProjection, projection);
 	}
 
-	BasicShaderParams::~BasicShaderParams()
+	void BasicShader::setColor(const Engine::RGB_F32 &color)
 	{
+		basicProgram.setUniform(locColor, color);
+	}
 
+	void BasicShader::load()
+	{
+		Program::use(basicProgram);
+	}
+
+	void BasicShader::unload()
+	{
+		Program::unload();
 	}
 }

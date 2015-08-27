@@ -8,6 +8,7 @@
 namespace AppsCommon
 {
 	APPS_COMMON_FUNC_EXPORT QString fileToString(const QString &path);
+	APPS_COMMON_FUNC_EXPORT QString getStyleSheet();
 }
 
 #endif // _APPS_COMMON_H_

@@ -8,25 +8,24 @@
 
 #include <Engine/Shading/Program.h>
 
+#include <Engine/Core/Matrix4x4.h>
+#include <Engine/Core/Color.h>
+
 #include <Concurrent/Reference.h>
 
 namespace AppsCommon
 {
-	class APPS_COMMON_DYNAMIC_CLASS BasicShader : public Engine::Program
+	class APPS_COMMON_DYNAMIC_CLASS BasicShader
 	{
 	public:
 		BasicShader();
 		virtual ~BasicShader();
-	};
 
-	class APPS_COMMON_DYNAMIC_CLASS BasicShaderParams : public Engine::VertexArrayObject
-	{
-	public:
-		BasicShaderParams();
-		virtual ~BasicShaderParams();
+		void setView(const Engine::mat4x4 &modelview, const Engine::mat4x4 &projection);
+		void setColor(const Engine::RGB_F32 &color);
 
-		Concurrent::Reference<Engine::VBO> mVertices;
-		Concurrent::Reference<Engine::VBO> mColors;
+		void load();
+		void unload();
 	};
 }
 

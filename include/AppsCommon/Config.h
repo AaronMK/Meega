@@ -1,9 +1,6 @@
 #ifndef _APPS_COMMON_CONFIG_H_
 #define _APPS_COMMON_CONFIG_H_
 
-#define APPS_COMMON_DYNAMIC
-#define ENGINE_DYNAMIC
-
 /////////////////////////////////////////
 
 #if defined(_WIN32)
