@@ -16,6 +16,9 @@ namespace Engine
 {
 	bool initialize()
 	{
+		if (false == checkRuntimeConfig())
+			return false;
+
 		Timing::initialize();
 		return (OpenGL::initialize() && initScheduling() && initPipeline());
 	}
