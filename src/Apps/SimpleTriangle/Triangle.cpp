@@ -5,6 +5,7 @@
 #endif
 
 #include <Engine/Core/Vec.h>
+#include <Engine/Core/Math3d.h>
 #include <Engine/Timing/Timing.h>
 #include <Engine/Tasking/Pipeline.h>
 
@@ -43,8 +44,8 @@ Triangle::Triangle()
 	{
 		vec3 points[3];
 		points[0] = vec3(0.0f, 0.8f, 0.0f);
-		points[1] = vec3(cosf(toRadians(-30.0f)), sinf(toRadians(-30.0f)), 0.0f) * 0.8f;
-		points[2] = vec3(cosf(toRadians(-150.0f)), sinf(toRadians(-150.0f)), 0.0f) * 0.8f;
+		points[1] = vec3(0.8660254f, -0.5f, 0.0f) * 0.8f;
+		points[2] = vec3(-0.8660254f, -0.5f, 0.0f) * 0.8f;
 
 		VBO::bind(&mVerts, VBO::Target::Array);
 		VBO::BufferData(VBO::Target::Array, 3 * sizeof(vec3), &points[0], VBO::Usage::StaticDraw);
@@ -67,7 +68,7 @@ Triangle::~Triangle()
 
 void Triangle::draw(const Camera &camera)
 {
-	Transform modelviewTrans = camera.world() * Transform::Rotate(vec3(0.0f, 0.0f, 1.0f), toRadians(float(Timing::EngineMSecs()) * 0.1f));
+	Transform modelviewTrans = camera.world() * Transform::Rotate(vec3(0.0f, 0.0f, 1.0f), Degrees(float(Timing::EngineMSecs()) * 0.1f));
 
 	mat4x4 modelview(modelviewTrans.matrix());
 	mat4x4 projection(camera.projection().matrix());

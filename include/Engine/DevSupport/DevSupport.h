@@ -17,6 +17,17 @@
 #	endif
 #endif
 
+#include <QtCore/QThread>
+
+namespace Engine
+{
+	/*
+	 * In development builds the engine performs operations that must be done
+	 * in the context of the user interface thread.  This function sets that thread.
+	 */
+	ENGINE_FUNC_EXPORT void setGuiThread(QThread* thread);
+}
+
 #endif // ENGINE_DEVEOPMENT_SUPPORT
 
 #endif // _ENGINE_DEV_SUPPORT_H_

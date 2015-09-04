@@ -3,6 +3,7 @@
 
 #include <Engine/Core/Matrix4x4.h>
 #include <Engine/Core/Math3d.h>
+#include <Engine/Core/Units.h>
 #include <Engine/Core/Ray.h>
 
 #include <math.h>
@@ -66,7 +67,7 @@ namespace Engine
 		static Transform Scale(const vec3 &sVec);
 		static Transform Scale(float x, float y, float z);
 		
-		static Transform Rotate(vec3 axis, float angleRadians);
+		static Transform Rotate(vec3 axis, const Radians &angle);
 
 		/**
 		 * Creates a transform that can be used to convert screen coordanites starting with (0, 0)

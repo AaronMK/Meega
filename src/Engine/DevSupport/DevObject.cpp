@@ -2,8 +2,6 @@
 
 #ifdef ENGINE_DEVEOPMENT_SUPPORT
 
-#include "../private_include/DevSupport/DevObjectManager.h"
-
 namespace Engine
 {
 	DevObject::DevObject()

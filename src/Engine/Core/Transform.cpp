@@ -197,11 +197,11 @@ namespace Engine
 		return Scale( vec3(x, y, z) );
 	}
 
-	Transform Transform::Rotate(vec3 axis, float angleRadians)
+	Transform Transform::Rotate(vec3 axis, const Radians &angle)
 	{	
 		vec3 a = normalize(axis);
-		float s = sinf(angleRadians);
-		float c = cosf(angleRadians);
+		float s = sinf(angle.value());
+		float c = cosf(angle.value());
 		float m[3][3];
 
 		m[0][0] = a[0]*a[0]*(1.0f - c) + c;

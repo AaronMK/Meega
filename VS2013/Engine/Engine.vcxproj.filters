@@ -97,6 +97,15 @@
     <Filter Include="Generated Files\DevSupport\Widgets">
       <UniqueIdentifier>{7cb56e03-7b96-4b8d-9085-2602442acea5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\private_include\DevSupport">
+      <UniqueIdentifier>{02dbef99-e1d0-4d35-9e25-cb4974766533}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Generated Files\private_include">
+      <UniqueIdentifier>{be1e2e8a-8fc4-4e7b-9ca3-e60d9ab2d214}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Generated Files\private_include\DevSupport">
+      <UniqueIdentifier>{31671ce4-15d2-4e4e-9188-7c494b8dabed}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\Engine\Engine.h">
@@ -234,6 +243,9 @@
     <ClInclude Include="..\..\include\Engine\DevSupport\Widgets\QFloatValidator.h">
       <Filter>Header Files\DevSupport\Widgets</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\Engine\Core\Units.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\Engine\Shading\Shader.cpp">
@@ -329,6 +341,18 @@
     <ClCompile Include="moc\DevSupport\Widgets\moc_QColorEdit.qt.cxx">
       <Filter>Generated Files\DevSupport\Widgets</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\Engine\DevSupport\DevSupport.cpp">
+      <Filter>Source Files\DevSupport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Engine\DevSupport\QGuiThreadQueue.cpp">
+      <Filter>Source Files\DevSupport</Filter>
+    </ClCompile>
+    <ClCompile Include="moc\private_include\DevSupport\moc_QGuiThreadQueue.qt.cxx">
+      <Filter>Generated Files\private_include\DevSupport</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Engine\Core\Quaternion.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="..\..\include\Engine\DevSupport\Widgets\QFloatEdit.qt.h">
@@ -336,6 +360,9 @@
     </CustomBuild>
     <CustomBuild Include="..\..\include\Engine\DevSupport\Widgets\QColorEdit.qt.h">
       <Filter>Header Files\DevSupport\Widgets</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\src\Engine\private_include\DevSupport\QGuiThreadQueue.qt.h">
+      <Filter>Source Files\private_include\DevSupport</Filter>
     </CustomBuild>
   </ItemGroup>
 </Project>

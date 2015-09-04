@@ -2,6 +2,7 @@
 #define _ENGINE_CAMERA_H_
 
 #include <Engine/Core/Transform.h>
+#include <Engine/Core/Units.h>
 
 namespace Engine
 {
@@ -29,7 +30,7 @@ namespace Engine
 		const Transform& world() const;
 
 		void setLookAt(const vec3 &Eye, const vec3 &Center, const vec3 &Up);
-		void setPerspective(float fovyDegrees, float pxWidth, float pxHeight, float zNear, float zFar);
+		void setPerspective(const Degrees &fovy, float pxWidth, float pxHeight, float zNear, float zFar);
 		void setOrthographic(float left, float right, float bottom, float top, float zNear, float zFar);
 
 	protected:

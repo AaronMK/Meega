@@ -1,7 +1,39 @@
 #include <Engine/Core/Math3d.h>
 
+#include <cmath>
+
 namespace Engine
 {
+	float sin(const Radians &rad)
+	{
+		return sinf(rad.value());
+	}
+
+	float cos(const Radians &rad)
+	{
+		return cosf(rad.value());
+	}
+
+	float tan(const Radians &rad)
+	{
+		return tanf(rad.value());
+	}
+
+	float asin(const Radians &rad)
+	{
+		return asinf(rad.value());
+	}
+
+	float acos(const Radians &rad)
+	{
+		return acosf(rad.value());
+	}
+
+	float atan(const Radians &rad)
+	{
+		return atanf(rad.value());
+	}
+
 	vec3 crossL(const vec3 &A, const vec3 &B)
 	{
 		return vec3(A[2]*B[1] - A[1]*B[2],
@@ -66,16 +98,6 @@ namespace Engine
 	vec3 normalize(const vec3 &V)
 	{
 		return V/length(V);
-	}
-
-	float toDegrees(float Radians)
-	{
-		return Radians * (180.0f * float(M_1_PI));
-	}
-
-	float toRadians(float Degrees)
-	{
-		return Degrees * (float(M_PI)/180.0f);
 	}
 
 	void orthonormalBasis(vec3 *Forward, vec3 *Up, vec3 *Right)

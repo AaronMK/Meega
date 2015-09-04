@@ -45,10 +45,10 @@ namespace Engine
 		transWorld = rot * trans;
 	}
 
-	void Camera::setPerspective(float fovyDegrees, float pxWidth, float pxHeight, float zNear, float zFar)
+	void Camera::setPerspective(const Degrees &fovy, float pxWidth, float pxHeight, float zNear, float zFar)
 	{	
 		float aspect = pxWidth/pxHeight;
-		float coTan = 1.0f/tan( toRadians(fovyDegrees) );
+		float coTan = 1.0f/tan(fovy);
 
 		transProjection = mat4x4( coTan/aspect, 0.0f,  0.0f,                          0.0f,
 		                          0.0f,         coTan, 0.0f,                          0.0f,

@@ -2,6 +2,7 @@
 #define _ENGINE_MATH_H_
 
 #include <Engine/Core/vec.h>
+#include <Engine/Core/Units.h>
 #include <Engine/Core/Constants.h>
 
 #include <assert.h>
@@ -18,6 +19,14 @@
  */
 namespace Engine
 {
+	ENGINE_FUNC_EXPORT float sin(const Radians &rad);
+	ENGINE_FUNC_EXPORT float cos(const Radians &rad);
+	ENGINE_FUNC_EXPORT float tan(const Radians &rad);
+
+	ENGINE_FUNC_EXPORT float asin(const Radians &rad);
+	ENGINE_FUNC_EXPORT float acos(const Radians &rad);
+	ENGINE_FUNC_EXPORT float atan(const Radians &rad);
+
 	ENGINE_FUNC_EXPORT vec3 crossL(const vec3 &A, const vec3 &B);
 	ENGINE_FUNC_EXPORT vec3 crossR(const vec3 &A, const vec3 &B);
 
@@ -28,9 +37,6 @@ namespace Engine
 	ENGINE_FUNC_EXPORT float lengthSquared(const vec4 &V);
 
 	ENGINE_FUNC_EXPORT vec3 normalize(const vec3 &V);
-
-	ENGINE_FUNC_EXPORT float toDegrees(float Radians);
-	ENGINE_FUNC_EXPORT float toRadians(float Degrees);
 
 	ENGINE_FUNC_EXPORT void orthonormalBasis(vec3 *Forward, vec3 *Up, vec3 *Right);
 	ENGINE_FUNC_EXPORT void orthonormalBasis(vec4 *Forward, vec4 *Up, vec4 *Right);
