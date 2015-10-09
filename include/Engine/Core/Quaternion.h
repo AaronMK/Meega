@@ -1,24 +1,32 @@
 #ifndef _ENGINE_QUATERNION_H_
 #define _ENGINE_QUATERNION_H_
 
-#include <Engine/Memory/Align16.h>
+#include "../Memory/Align16.h"
 
-#include <Engine/Core/Transform.h>
-#include <Engine/Core/Matrix4x4.h>
-#include <Engine/Core/Utility.h>
-#include <Engine/Core/vec.h>
+#include "../Core/Transform.h"
+#include "../Core/Matrix4x4.h"
+#include "../Core/Utility.h"
+#include "../Core/Units.h"
+#include "../Core/Vec.h"
 
 namespace Engine
 {
 	/**
-	 * Quaternion class.
+	 * @brief
+	 *	%Quaternion class.
 	 */
-	class Quaternion : public Align16
+	class ENGINE_DYNAMIC_CLASS Quaternion
 	{
 	public:
-		Quaternion();
-		Quaternion(const Quaternion &Q);
+		Quaternion() = default;
+		Quaternion(const Quaternion&) = default;
+		Quaternion& operator=(const Quaternion&) = default;
+
 		Quaternion(const vec3 &v, float w = 1.0);
+		Quaternion(float x, float y, float z, float w = 1.0);
+
+		static Quaternion fromAngle(const vec3 &v, const Radians &r);
+		static Quaternion fromAngle(float x, float y, float z, const Radians &r);
 
 		Quaternion operator+(const Quaternion &Other) const;
 		Quaternion& operator+=(const Quaternion &Other);
@@ -31,10 +39,6 @@ namespace Engine
 
 		Quaternion normalize() const;
 
-		/**
-		 * @todo
-		 *  What is this about using the transpose as the transform due to the handedness of the coordnite system?
-		 */
 		Transform toTransform() const;
 
 		static float dot(const Quaternion &Q1, const Quaternion &Q2);

@@ -1,20 +1,33 @@
 #include <Engine/Core/Quaternion.h>
 
+#include <Engine/Core/Math3d.h>
+
 namespace Engine
 {
-	Quaternion::Quaternion()
-		: mVec(0.0f, 0.0f, 0.0f), mW(1.0f)
-	{
-	}
-
 	Quaternion::Quaternion(const vec3 &v, float w)
 		: mVec(v), mW(w)
 	{
 	}
 
-	Quaternion::Quaternion(const Quaternion &Other)
-		: mVec(Other.mVec), mW(Other.mW)
+	Quaternion::Quaternion(float x, float y, float z, float w)
+		: Quaternion(vec3(x, y, z), w)
 	{
+
+	}
+
+	Quaternion Quaternion::fromAngle(const vec3 &v, const Radians &r)
+	{
+		Quaternion ret;
+
+		ret.mVec = v;
+		ret.mW = ::cos(r.value() / 2.0f);
+
+		return ret;
+	}
+
+	Quaternion Quaternion::fromAngle(float x, float y, float z, const Radians &r)
+	{
+		return fromAngle(vec3(x, y, z), r);
 	}
 
 	Quaternion Quaternion::operator+(const Quaternion &Other) const
