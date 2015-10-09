@@ -3,6 +3,13 @@
 
 namespace Engine
 {
+	/**
+	 * @defgroup Units Units
+	 */
+
+	/**
+	 * @ingroup Units
+	 */
 	class Meters
 	{
 	private:
@@ -47,6 +54,28 @@ namespace Engine
 			return *this;
 		}
 
+		Meters operator*(float f)
+		{
+			return Meters(mValue * f);
+		}
+
+		Meters& operator*=(float f)
+		{
+			mValue *= f;
+			return *this;
+		}
+
+		Meters operator/(float f)
+		{
+			return Meters(mValue / f);
+		}
+
+		Meters& operator/=(float f)
+		{
+			mValue /= f;
+			return *this;
+		}
+
 		bool operator<(const Meters &rhs) const
 		{
 			return mValue < rhs.mValue;
@@ -73,6 +102,9 @@ namespace Engine
 		}
 	};
 
+	/**
+	 * @ingroup Units
+	 */
 	class Feet
 	{
 	private:
@@ -107,7 +139,7 @@ namespace Engine
 
 		Feet operator+(const Feet &rhs)
 		{
-			return Meters(mValue + rhs.mValue);
+			return Feet(mValue + rhs.mValue);
 		}
 
 		Feet& operator+=(const Feet &rhs)
@@ -118,12 +150,34 @@ namespace Engine
 
 		Feet operator-(const Feet &rhs)
 		{
-			return Meters(mValue - rhs.mValue);
+			return Feet(mValue - rhs.mValue);
 		}
 
 		Feet& operator-=(const Feet &rhs)
 		{
 			mValue -= rhs.mValue;
+			return *this;
+		}
+
+		Feet operator*(const float f)
+		{
+			return Feet(mValue * f);
+		}
+
+		Feet& operator*=(const float f)
+		{
+			mValue *= f;
+			return *this;
+		}
+
+		Feet operator/(const float f)
+		{
+			return Feet(mValue/f);
+		}
+
+		Feet& operator/=(const float f)
+		{
+			mValue /= f;
 			return *this;
 		}
 
@@ -155,6 +209,10 @@ namespace Engine
 
 	//////////////////////////////
 
+
+	/**
+	 * @ingroup Units
+	 */
 	class Radians
 	{
 	private:
@@ -199,6 +257,28 @@ namespace Engine
 			return *this;
 		}
 
+		Radians operator*(float f)
+		{
+			return Radians(mValue * f);
+		}
+
+		Radians& operator*=(float f)
+		{
+			mValue *= f;
+			return *this;
+		}
+
+		Radians operator/(float f)
+		{
+			return Radians(mValue / f);
+		}
+
+		Radians& operator/=(float f)
+		{
+			mValue /= f;
+			return *this;
+		}
+
 		bool operator<(const Radians &rhs) const
 		{
 			return mValue < rhs.mValue;
@@ -225,6 +305,10 @@ namespace Engine
 		}
 	};
 
+
+	/**
+	 * @ingroup Units
+	 */
 	class Degrees
 	{
 	private:
@@ -276,6 +360,28 @@ namespace Engine
 		Degrees& operator-=(const Degrees &rhs)
 		{
 			mValue -= rhs.mValue;
+			return *this;
+		}
+
+		Degrees operator*(float f)
+		{
+			return Degrees(mValue * f);
+		}
+
+		Degrees& operator*=(float f)
+		{
+			mValue *= f;
+			return *this;
+		}
+
+		Degrees operator/(float f)
+		{
+			return Degrees(mValue / f);
+		}
+
+		Degrees& operator/=(float f)
+		{
+			mValue /= f;
 			return *this;
 		}
 
