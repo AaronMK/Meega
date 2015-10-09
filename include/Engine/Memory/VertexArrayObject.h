@@ -1,9 +1,9 @@
 #ifndef _ENGINE_VERTEX_ARRAY_OBJECT_H_
 #define _ENGINE_VERTEX_ARRAY_OBJECT_H_
 
-#include <Engine/Core/Types.h>
+#include "../Core/Types.h"
 
-#include <Engine/Internal/Memory/VertexArrayObjectPlatform.h>
+#include "../Internal/Memory/VertexArrayObjectPlatform.h"
 
 namespace Engine
 {

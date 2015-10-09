@@ -1,7 +1,7 @@
 #ifndef _GPU_DIRECT_X_H_
 #define _GPU_DIRECT_X_H_
 
-#include <GPU/Config.h>
+#include "../Config.h"
 
 #ifdef GPU_SUPPORT_DIRECT_X
 

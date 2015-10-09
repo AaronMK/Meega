@@ -129,12 +129,12 @@ namespace Engine
 		return glGetUniformLocation(mProgramID, VarName.c_str());
 	}
 
-	void Program::setUniform(GLint loc, int val)
+	void Program::setUniform(GLint loc, int32_t val)
 	{
 		glUniform1i(loc, val);
 	}
 
-	void Program::setUniform(GLint loc, float val)
+	void Program::setUniform(GLint loc, float32_t val)
 	{
 		glUniform1f(loc, val);
 	}

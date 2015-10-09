@@ -1,13 +1,12 @@
 #ifndef _CONCURRENT_PRODUCE_CONSUME_INTERNAL_H_
 #define _CONCURRENT_PRODUCE_CONSUME_INTERNAL_H_
 
-#include <Concurrent/Config.h>
-
-#include <Concurrent/Queue.h>
-#include <Concurrent/RWLock.h>
-#include <Concurrent/Condition.h>
-#include <Concurrent/ReadLocker.h>
-#include <Concurrent/WriteLocker.h>
+#include "../Config.h"
+#include "../Queue.h"
+#include "../RWLock.h"
+#include "../Condition.h"
+#include "../ReadLocker.h"
+#include "../WriteLocker.h"
 
 #include <atomic>
 

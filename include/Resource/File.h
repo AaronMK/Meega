@@ -1,7 +1,7 @@
 #ifndef _RESOURCE_FILE_H_
 #define _RESOURCE_FILE_H_
 
-#include <Resource/ByteStream.h>
+#include "ByteStream.h"
 
 #include <stdio.h>
 

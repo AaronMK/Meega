@@ -1,7 +1,7 @@
 #ifndef _GPU_Q_RENDER_RARGET_QT_H_
 #define _GPU_Q_RENDER_RARGET_QT_H_
 
-#include <GPU/Internal/Qt/QRenderTargetSysBase.h>
+#include "../Internal/Qt/QRenderTargetSysBase.h"
 
 namespace GPU
 {

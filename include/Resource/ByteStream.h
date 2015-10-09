@@ -1,8 +1,8 @@
 #ifndef _RESOURCE_BYTE_STREAM_H_
 #define _RESOURCE_BYTE_STREAM_H_
 
-#include <Resource/Resource.h>
-#include <Resource/Types.h>
+#include "Resource.h"
+#include "Types.h"
 
 #include <type_traits>
 #include <string>

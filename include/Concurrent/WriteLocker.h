@@ -1,7 +1,7 @@
 #ifndef _CONCURRENT_WRITE_LOCKER_H_
 #define _CONCURRENT_WRITE_LOCKER_H_
 
-#include <Concurrent/RWLock.h>
+#include "RWLock.h"
 
 namespace Concurrent
 {

@@ -1,7 +1,7 @@
 #ifndef _ENGINE_VERTEX_BUFFER_OBJECT_H_
 #define _ENGINE_VERTEX_BUFFER_OBJECT_H_
 
-#include <Engine/Internal/Memory/VertexBufferObjectPlatform.h>
+#include  "../Internal/Memory/VertexBufferObjectPlatform.h"
 
 namespace Engine
 {

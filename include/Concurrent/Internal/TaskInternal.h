@@ -1,10 +1,10 @@
 #ifndef _CONCURRENT_TASK_INTERNAL_H_
 #define _CONCURRENT_TASK_INTERNAL_H_
 
-#include <Concurrent/Condition.h>
-#include <Concurrent/Reference.h>
+#include "../Condition.h"
+#include "../Reference.h"
 
-#include <Concurrent/Internal/SchedulerInternal.h>
+#include "SchedulerInternal.h"
 
 #include <atomic>
 

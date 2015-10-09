@@ -1,7 +1,7 @@
 #ifndef _ENGINE_UTILITY_H_
 #define _ENGINE_UTILITY_H_
 
-#include <Engine/Config.h>
+#include "../Config.h"
 
 #include <type_traits>
 #include <algorithm>

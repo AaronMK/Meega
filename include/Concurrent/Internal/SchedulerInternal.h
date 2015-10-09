@@ -1,8 +1,8 @@
 #ifndef _CONCURRENT_SCHEDULER_INTERNAL_H_
 #define _CONCURRENT_SCHEDULER_INTERNAL_H_
 
-#include <Concurrent/RWLock.h>
-#include <Concurrent/Queue.h>
+#include "../RWLock.h"
+#include "../Queue.h"
 
 #include <atomic>
 #include <vector>

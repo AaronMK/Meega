@@ -1,9 +1,9 @@
 #ifndef _CONCURRENT_QUEUE_H_
 #define _CONCURRENT_QUEUE_H_
 
-#include <Concurrent/Config.h>
+#include "Config.h"
 
-#include <Concurrent/Internal/QueuePlatform.h>
+#include "Internal/QueuePlatform.h"
 
 namespace Concurrent
 {

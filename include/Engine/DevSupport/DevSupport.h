@@ -1,7 +1,7 @@
 #ifndef _ENGINE_DEV_SUPPORT_H_
 #define _ENGINE_DEV_SUPPORT_H_
 
-#include <Engine/Config.h>
+#include "../Config.h"
 
 #ifdef ENGINE_DEVEOPMENT_SUPPORT
 

@@ -1,7 +1,7 @@
 #ifndef _ENGINE_MUTEX_LOCKER_H_
 #define _ENGINE_MUTEX_LOCKER_H_
 
-#include <Concurrent/Mutex.h>
+#include "Mutex.h"
 
 namespace Concurrent
 {

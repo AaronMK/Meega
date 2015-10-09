@@ -1,7 +1,7 @@
 #ifndef _CONCURRENT_REF_BASE_H_
 #define _CONCURRENT_REF_BASE_H_
 
-#include <Concurrent/Config.h>
+#include "../Config.h"
 
 #include <memory>
 

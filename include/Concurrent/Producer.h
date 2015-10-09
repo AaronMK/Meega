@@ -1,9 +1,9 @@
 #ifndef _CONCURRENT_PRODUCE_CONSUME_H_
 #define _CONCURRENT_PRODUCE_CONSUME_H_
 
-#include <Concurrent/Internal/ProducerInternal.h>
+#include "Internal/ProducerInternal.h"
 
-#include <Concurrent/Reference.h>
+#include "Reference.h"
 
 namespace Concurrent
 {

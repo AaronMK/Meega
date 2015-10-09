@@ -1,7 +1,7 @@
 #ifndef _ENGINE_RUNTIME_H_
 #define _ENGINE_RUNTIME_H_
 
-#include <Engine/Engine.h>
+#include "Engine.h"
 
 namespace Engine
 {

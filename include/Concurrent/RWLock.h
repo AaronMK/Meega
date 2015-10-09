@@ -1,8 +1,8 @@
 #ifndef _CONCURRENT_RW_LOCK_H_
 #define _CONCURRENT_RW_LOCK_H_
 
-#include <Concurrent/Config.h>
-#include <Concurrent/Internal/RWLockPlatform.h>
+#include "Config.h"
+#include "Internal/RWLockPlatform.h"
 
 namespace Concurrent
 {

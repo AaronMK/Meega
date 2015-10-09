@@ -1,7 +1,7 @@
 #ifndef _ENGINE_TIMING_H_
 #define _ENGINE_TIMING_H_
 
-#include <Engine/Engine.h>
+#include "../Engine.h"
 
 #include <cstdint>
 

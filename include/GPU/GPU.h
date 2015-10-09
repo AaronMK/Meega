@@ -1,7 +1,7 @@
 #ifndef _GPU_H_
 #define _GPU_H_
 
-#include <GPU/Config.h>
+#include "Config.h"
 
 /**
  * The GPU namespace is a platform abstration layer for common GPU operations and

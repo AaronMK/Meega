@@ -3,8 +3,8 @@
 #if !defined(_GPU_GL_CONTEXT_SYS_BASE_H_) && defined(GPU_SUPPORT_OPEN_GL)
 #define _GPU_GL_CONTEXT_SYS_BASE_H_
 
-#include <GPU/OpenGL/Format.h>
-#include <GPU/RenderTarget.h>
+#include "../../OpenGL/Format.h"
+#include "../../RenderTarget.h"
 
 #if defined(_WIN32)
 

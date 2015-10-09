@@ -1,7 +1,7 @@
 #ifndef _ENGINE_MAT4_H_
 #define _ENGINE_MAT4_H_
 
-#include <Engine/Core/Vec.h>
+#include "Vec.h"
 
 namespace Engine
 {
@@ -137,7 +137,7 @@ namespace Engine
 }
 
 
-#ifdef ENGINE_DEVEOPMENT_SUPPORT
+#if defined(ENGINE_DEVEOPMENT_SUPPORT) && !defined(DOXYGEN)
 
 #include <QtCore/QMetaType>
 

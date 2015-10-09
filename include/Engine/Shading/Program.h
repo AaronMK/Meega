@@ -1,12 +1,12 @@
 #ifndef _ENGINE_PROGRAM_H_
 #define _ENGINE_PROGRAM_H_
 
-#include <Engine/Shading/Shader.h>
+#include "Shader.h"
 
-#include <Engine/Core/Matrix4x4.h>
-#include <Engine/Core/Color.h>
+#include "../Core/Matrix4x4.h"
+#include "../Core/Color.h"
 
-#include <Engine/Internal/Shading/ProgramPlatform.h>
+#include "../Internal/Shading/ProgramPlatform.h"
 
 namespace Engine
 {
@@ -88,7 +88,7 @@ namespace Engine
 		GLint getUniformLocation(const std::string &VarName);
 
 		void setUniform(GLint loc, int32_t val);
-		void setUniform(GLint loc, float val);
+		void setUniform(GLint loc, float32_t val);
 		void setUniform(GLint loc, const vec3 &vec);
 		void setUniform(GLint loc, const vec4 &vec);
 		void setUniform(GLint loc, const mat4x4 &mat);

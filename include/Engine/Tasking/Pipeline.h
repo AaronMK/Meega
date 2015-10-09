@@ -1,8 +1,9 @@
 #ifndef _ENGINE_PIPELINE_H_
 #define _ENGINE_PIPELINE_H_
 
-#include <Engine/Tasking/Fence.h>
-#include <Engine/Core/Constants.h>
+#include "Fence.h"
+
+#include "../Core/Constants.h"
 
 #include <GPU/RenderTarget.h>
 

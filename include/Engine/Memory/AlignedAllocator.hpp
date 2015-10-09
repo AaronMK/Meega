@@ -1,7 +1,7 @@
 #ifndef _ENGINE_ALIGNED_ALLOCATOR_H_
 #define _ENGINE_ALIGNED_ALLOCATOR_H_
 
-#include <Engine/Engine.h>
+#include "../../Config.h"
 
 #ifndef __SSE__
 #	define __SSE__

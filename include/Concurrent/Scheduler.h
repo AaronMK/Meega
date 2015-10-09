@@ -1,10 +1,10 @@
 #ifndef _CONCURRENT_SCHEDULER_H_
 #define _CONCURRENT_SCHEDULER_H_
 
-#include <Concurrent/Config.h>
-#include <Concurrent/Reference.h>
+#include "Config.h"
+#include "Reference.h"
 
-#include <Concurrent/Internal/SchedulerInternal.h>
+#include "Internal/SchedulerInternal.h"
 
 namespace Concurrent
 {

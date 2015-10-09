@@ -1,7 +1,7 @@
 #ifndef _APPS_COMMON_H_
 #define _APPS_COMMON_H_
 
-#include <AppsCommon/Config.h>
+#include "Config.h"
 
 #include <QtCore/QString>
 

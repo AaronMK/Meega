@@ -1,7 +1,7 @@
 #ifndef _CONCURRENT_TIMER_H_
 #define _CONCURRENT_TIMER_H_
 
-#include <Concurrent/Internal/TimerPlatform.h>
+#include "Internal/TimerPlatform.h"
 
 #include <functional>
 

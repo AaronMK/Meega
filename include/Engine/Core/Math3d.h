@@ -1,9 +1,9 @@
 #ifndef _ENGINE_MATH_H_
 #define _ENGINE_MATH_H_
 
-#include <Engine/Core/vec.h>
-#include <Engine/Core/Units.h>
-#include <Engine/Core/Constants.h>
+#include "vec.h"
+#include "Units.h"
+#include "Constants.h"
 
 #include <assert.h>
 

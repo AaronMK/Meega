@@ -1,7 +1,7 @@
 #ifndef _CONCURRENT_REFERENCE_H_
 #define _CONCURRENT_REFERENCE_H_
 
-#include <Concurrent/Internal/RefBase.h>
+#include "Internal/RefBase.h"
 
 namespace Concurrent
 {

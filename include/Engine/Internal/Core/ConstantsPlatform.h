@@ -1,7 +1,7 @@
 #ifndef _CONSTANTS_PLATFORM_H_
 #define _CONSTANTS_PLATFORM_H_
 
-#include <Engine/Config.h>
+#include "../../Config.h"
 
 #ifdef ENGINE_API_OPEN_GL
 

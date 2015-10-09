@@ -3,7 +3,7 @@
 #if !defined(_GPU_GL_CONTEXT_H_) && defined(GPU_SUPPORT_OPEN_GL)
 #define _GPU_GL_CONTEXT_H_
 
-#include <GPU/Internal/OpenGL/ContextSysBase.h>
+#include "../Internal/OpenGL/ContextSysBase.h"
 
 namespace OpenGL
 {

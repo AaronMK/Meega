@@ -1,7 +1,7 @@
 #ifndef _ENGINE_DEV_OBJECT_H_
 #define _ENGINE_DEV_OBJECT_H_
 
-#include <Engine/DevSupport/DevSupport.h>
+#include "DevSupport.h"
 
 #ifdef ENGINE_DEVEOPMENT_SUPPORT
 

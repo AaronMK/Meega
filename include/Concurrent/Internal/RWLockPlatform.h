@@ -1,7 +1,7 @@
 #ifndef _CONCURRENT_RW_LOCK_PLATFORM_H_
 #define _CONCURRENT_RW_LOCK_PLATFORM_H_
 
-#include <Concurrent/Config.h>
+#include "../Config.h"
 
 #ifdef _WIN32
 #include <concrt.h>

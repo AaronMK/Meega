@@ -1,11 +1,10 @@
 #ifndef _ENGINE_FENCE_H_
 #define _ENGINE_FENCE_H_
 
-#include <Engine/Config.h>
+#include "../Config.h"
+#include "../Internal/Tasking/FenceInternal.h"
 
 #include <Concurrent/Condition.h>
-
-#include <Engine/Internal/Tasking/FenceInternal.h>
 
 namespace Engine
 {

@@ -3,7 +3,7 @@
 #if !defined(_GPU_OPEN_GL_FORMAT_H_) && defined(GPU_SUPPORT_OPEN_GL)
 #define _GPU_OPEN_GL_FORMAT_H_
 
-#include <GPU/OpenGL/Common.h>
+#include "../OpenGL/Common.h"
 
 namespace OpenGL
 {

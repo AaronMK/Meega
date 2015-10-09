@@ -1,7 +1,7 @@
 #ifndef _ENGINE_SCHEDULING_H_
 #define _ENGINE_SCHEDULING_H_
 
-#include <Engine/Config.h>
+#include "../Config.h"
 
 #include <Concurrent/Task.h>
 

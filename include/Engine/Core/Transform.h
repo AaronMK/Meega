@@ -1,10 +1,10 @@
 #ifndef _ENGINE_TRANSFORM_H_
 #define _ENGINE_TRANSFORM_H_
 
-#include <Engine/Core/Matrix4x4.h>
-#include <Engine/Core/Math3d.h>
-#include <Engine/Core/Units.h>
-#include <Engine/Core/Ray.h>
+#include "Matrix4x4.h"
+#include "Math3d.h"
+#include "Units.h"
+#include "Ray.h"
 
 #include <math.h>
 #include <assert.h>
@@ -81,7 +81,7 @@ namespace Engine
 	};
 }
 
-#ifdef ENGINE_DEVEOPMENT_SUPPORT
+#if defined(ENGINE_DEVEOPMENT_SUPPORT) && !defined(DOXYGEN)
 
 #include <QtCore/QMetaType>
 

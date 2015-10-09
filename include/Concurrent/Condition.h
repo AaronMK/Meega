@@ -1,9 +1,9 @@
 #ifndef _CONCURRENT_CONDITION_H_
 #define _CONCURRENT_CONDITION_H_
 
-#include <Concurrent/Config.h>
+#include "Config.h"
 
-#include <Concurrent/Internal/ConditionPlatform.h>
+#include "Internal/ConditionPlatform.h"
 
 namespace Concurrent
 {	

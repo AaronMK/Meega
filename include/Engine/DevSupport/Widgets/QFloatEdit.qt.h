@@ -1,12 +1,13 @@
 #ifndef _ENGINE_Q_FLOAT_EDIT_H_
 #define _ENGINE_Q_FLOAT_EDIT_H_
 
-#include <Engine/Config.h>
+#include "../../Config.h"
 
 #ifdef ENGINE_DEVEOPMENT_SUPPORT
 
+#include "QFloatValidator.h"
+
 #include <QtWidgets/QLineEdit>
-#include <Engine/DevSupport/Widgets/QFloatValidator.h>
 
 namespace Engine
 {

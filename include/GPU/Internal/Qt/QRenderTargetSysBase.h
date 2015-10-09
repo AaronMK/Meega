@@ -1,7 +1,8 @@
 #ifndef _GPU_Q_RENDER_RARGET_SYS_BASE_QT_H_
 #define _GPU_Q_RENDER_RARGET_SYS_BASE_QT_H_
 
-#include <GPU/RenderTarget.h>
+#include "../../RenderTarget.h"
+
 #include <QtWidgets/QWidget>
 
 #ifdef Q_OS_WIN

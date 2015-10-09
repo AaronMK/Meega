@@ -1,14 +1,18 @@
 #ifndef _ENGINE_FENCE_INTERNAL_H_
 #define _ENGINE_FENCE_INTERNAL_H_
 
-#include <Engine/Config.h>
+#include "../../Config.h"
 
 #ifdef ENGINE_API_OPEN_GL
 
+#include <Concurrent/Condition.h>
 #include <GPU/OpenGL/OpenGL.h>
 
 namespace Engine
 {
+	/**
+	 * @internal
+	 */
 	class ENGINE_DYNAMIC_CLASS FenceInternal
 	{
 	public:

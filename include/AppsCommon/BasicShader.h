@@ -1,7 +1,7 @@
 #ifndef _BASIC_SHADER_H_
 #define _BASIC_SHADER_H_
 
-#include <AppsCommon/Config.h>
+#include "Config.h"
 
 #include <Engine/Memory/VertexArrayObject.h>
 #include <Engine/Memory/VertexBufferObject.h>

@@ -1,7 +1,7 @@
 #ifndef _ENGINE_COLOR_H_
 #define _ENGINE_COLOR_H_
 
-#include <Engine/Core/Types.h>
+#include "Types.h"
 
 #include <cstdint>
 
@@ -158,7 +158,7 @@ namespace Engine
 	};
 }
 
-#ifdef ENGINE_DEVEOPMENT_SUPPORT
+#if defined(ENGINE_DEVEOPMENT_SUPPORT) && !defined(DOXYGEN)
 
 #include <QtCore/QMetaType>
 

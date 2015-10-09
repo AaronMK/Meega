@@ -1,7 +1,7 @@
 #ifndef _ENGINE_CONSTANTS_H_
 #define _ENGINE_CONSTANTS_H_
 
-#include <Engine/Internal/Core/ConstantsPlatform.h>
+#include "../Internal/Core/ConstantsPlatform.h"
 
 namespace Engine
 {

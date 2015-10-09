@@ -1,12 +1,12 @@
 #ifndef _ENGINE_Q_COLOR_EDIT_H_
 #define _ENGINE_Q_COLOR_EDIT_H_
 
-#include <Engine/Config.h>
+#include "../../Config.h"
 
 #ifdef ENGINE_DEVEOPMENT_SUPPORT
 
-#include <Engine/Core/Color.h>
-#include <Engine/DevSupport/Widgets/QFloatEdit.qt.h>
+#include "../../Core/Color.h"
+#include "../../DevSupport/Widgets/QFloatEdit.qt.h"
 
 #include <QtWidgets/QWidget>
 

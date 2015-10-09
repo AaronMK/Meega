@@ -1,9 +1,7 @@
 #ifndef _ENGINE_OPTIONS_H_
 #define _ENGINE_OPTIONS_H_
 
-#include <Engine/Config.h>
-
-#include <Engine/Core/Types.h>
+#include "Core/Types.h"
 
 #include <GPU/RenderTarget.h>
 

@@ -1,11 +1,11 @@
 #ifndef _GPU_RENDER_TARGET_H_
 #define _GPU_RENDER_TARGET_H_
 
-#include <GPU/GPU.h>
+#include "GPU.h"
 
 #ifdef _WIN32
 
-#include <GPU/Windows/RenderTargetWin.h>
+#include "Windows/RenderTargetWin.h"
 
 namespace GPU
 {

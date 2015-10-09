@@ -1,8 +1,8 @@
 #ifndef _ENGINE_CAMERA_H_
 #define _ENGINE_CAMERA_H_
 
-#include <Engine/Core/Transform.h>
-#include <Engine/Core/Units.h>
+#include "../Core/Transform.h"
+#include "../Core/Units.h"
 
 namespace Engine
 {

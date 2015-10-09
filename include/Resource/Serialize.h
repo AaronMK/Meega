@@ -1,8 +1,8 @@
 #ifndef _RESOURCE_SERIALIZE_H_
 #define _RESOURCE_SERIALIZE_H_
 
-#include <Resource/Config.h>
-#include <Resource/Types.h>
+#include "Config.h"
+#include "Types.h"
 
 #include <cassert>
 #include <string>

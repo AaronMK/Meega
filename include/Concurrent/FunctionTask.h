@@ -1,7 +1,7 @@
 #ifndef _CONCURRENT_FUNCTION_TASK_H_
 #define _CONCURRENT_FUNCTION_TASK_H_
 
-#include <Concurrent/Task.h>
+#include "Task.h"
 
 #include <functional>
 

@@ -1,7 +1,7 @@
 #if !defined(_GPU_WIN_RENDER_TARGET_H_) && defined(_WIN32)
 #define _GPU_WIN_RENDER_TARGET_H_
 
-#include <GPU/Config.h>
+#include "../Config.h"
 
 #include <Windows.h>
 

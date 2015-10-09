@@ -1,7 +1,7 @@
 #ifndef _CONCURRENT_MUTEX_PLATFORM_H_
 #define _CONCURRENT_MUTEX_PLATFORM_H_
 
-#include <Concurrent/Config.h>
+#include "../Config.h"
 
 #include <atomic>
 #include <concrt.h>

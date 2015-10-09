@@ -1,9 +1,9 @@
 #ifndef _CONCURRENT_TASK_H_
 #define _CONCURRENT_TASK_H_
 
-#include <Concurrent/Config.h>
+#include "Config.h"
 
-#include <Concurrent/Internal/TaskInternal.h>
+#include "Internal/TaskInternal.h"
 
 namespace Concurrent
 {

@@ -1,12 +1,12 @@
 #ifndef _ENGINE_VEC_H_
 #define _ENGINE_VEC_H_
 
-#include <Engine/Engine.h>
+#include "../Engine.h"
 
-#include <Engine/Memory/Align16.h>
+#include "../Memory/Align16.h"
 
-#include <Engine/Core/Utility.h>
-#include <Engine/Core/SIMD.h>
+#include "Utility.h"
+#include "SIMD.h"
 
 namespace Engine
 {

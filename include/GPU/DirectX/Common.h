@@ -11,7 +11,7 @@
  *  headers for those versions required here?
  */
 
-#include <GPU/Config.h>
+#include "../Config.h"
 
 #if defined(GPU_SUPPORT_DIRECT_X)
 #	if defined(_WIN32)

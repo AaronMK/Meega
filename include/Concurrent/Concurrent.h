@@ -1,7 +1,7 @@
 #ifndef _CONCURRENT_H_
 #define _CONCURRENT_H_
 
-#include <Concurrent/Config.h>
+#include "Config.h"
 
 /**
  * Contains all classes and functionality of the Concurrent library.

@@ -1,7 +1,7 @@
 #ifndef _ENGINE_INTERFACE_HOOKS_H_
 #define _ENGINE_INTERFACE_HOOKS_H_
 
-#include <Engine/Config.h>
+#include "../Config.h"
 
 #include <string>
 

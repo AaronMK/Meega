@@ -1,7 +1,7 @@
 #ifndef _CONCURRENT_THREAD_LOCAL_PTR_H_
 #define _CONCURRENT_THREAD_LOCAL_PTR_H_
 
-#include <Concurrent/Config.h>
+#include "Config.h"
 
 namespace Concurrent
 {

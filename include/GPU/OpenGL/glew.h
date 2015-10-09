@@ -81,7 +81,7 @@
 #define __glew_h__
 #define __GLEW_H__
 
-#include <GPU/Config.h>
+#include "../Config.h"
 
 #if !defined(GPU_DYNAMIC_LIB) && !defined(GLEW_STATIC)
 #	define GLEW_STATIC

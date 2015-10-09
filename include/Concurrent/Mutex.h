@@ -1,9 +1,9 @@
 #ifndef _ENGINE_MUTEX_H_
 #define _ENGINE_MUTEX_H_
 
-#include <Concurrent/Config.h>
+#include "Config.h"
 
-#include <Concurrent/Internal/MutexPlatform.h>
+#include "Internal/MutexPlatform.h"
 
 namespace Concurrent
 {

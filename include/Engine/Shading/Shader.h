@@ -1,9 +1,9 @@
 #ifndef _ENGINE_SHADER_H_
 #define _ENGINE_SHADER_H_
 
-#include <Engine/Config.h>
+#include "../Config.h"
 
-#include <Engine/Internal/Shading/ShaderPlatform.h>
+#include "../Internal/Shading/ShaderPlatform.h"
 
 #include <string>
 
