@@ -264,7 +264,7 @@ namespace Engine
 	}
 }
 
-#ifdef ENGINE_DEVEOPMENT_SUPPORT
+#if defined(ENGINE_DEVEOPMENT_SUPPORT) && !defined(DOXYGEN)
 
 class Mat4x4MetaType
 {
@@ -276,4 +276,4 @@ public:
 };
 static Mat4x4MetaType instMat4x4MetaType;
 
-#endif // ENGINE_DEVEOPMENT_SUPPORT
+#endif // defined(ENGINE_DEVEOPMENT_SUPPORT) && !defined(DOXYGEN)

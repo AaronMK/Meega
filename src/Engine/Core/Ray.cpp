@@ -35,7 +35,7 @@ namespace Engine
 	}
 }
 
-#ifdef ENGINE_DEVEOPMENT_SUPPORT
+#if defined(ENGINE_DEVEOPMENT_SUPPORT) && !defined(DOXYGEN)
 
 class RayMetaType
 {
@@ -48,4 +48,4 @@ public:
 };
 static RayMetaType instRayMetaType;
 
-#endif // ENGINE_DEVEOPMENT_SUPPORT
+#endif // defined(ENGINE_DEVEOPMENT_SUPPORT) && !defined(DOXYGEN)
