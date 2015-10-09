@@ -54,7 +54,6 @@
     <ClInclude Include="..\..\include\Engine\Internal\Memory\VertexBufferObjectPlatform.h" />
     <ClInclude Include="..\..\include\Engine\Internal\Shading\ProgramPlatform.h" />
     <ClInclude Include="..\..\include\Engine\Internal\Shading\ShaderPlatform.h" />
-    <ClInclude Include="..\..\include\Engine\Internal\Shading\VertexArrayObjectPlatform.h" />
     <ClInclude Include="..\..\include\Engine\Internal\Tasking\FenceInternal.h" />
     <ClInclude Include="..\..\include\Engine\Memory\Align16.h" />
     <ClInclude Include="..\..\include\Engine\Memory\AlignedAllocator.hpp" />

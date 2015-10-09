@@ -186,9 +186,6 @@
     <ClInclude Include="..\..\include\Engine\Memory\VertexArrayObject.h">
       <Filter>Header Files\Memory</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\Engine\Internal\Shading\VertexArrayObjectPlatform.h">
-      <Filter>Header Files\Internal\Shading</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\Engine\Internal\Memory\VertexArrayObjectPlatform.h">
       <Filter>Header Files\Internal\Memory</Filter>
     </ClInclude>
