@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug Development|x64">
+      <Configuration>Debug Development</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release Development|x64">
+      <Configuration>Release Development</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{23AA1CE0-28E5-4DBC-A239-520A2E6AB4DC}</ProjectGuid>
+    <RootNamespace>SDK</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">
+    <PlatformToolset>v120</PlatformToolset>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">
+    <PlatformToolset>v120</PlatformToolset>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">
+    <Import Project="..\Local.props" />
+    <Import Project="..\Base.props" />
+    <Import Project="..\Debug.props" />
+    <Import Project="..\Qt.props" />
+    <Import Project="..\Development.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">
+    <Import Project="..\Local.props" />
+    <Import Project="..\Base.props" />
+    <Import Project="..\Release.props" />
+    <Import Project="..\Qt.props" />
+    <Import Project="..\Development.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>MEEGA_SDK_BUILD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>MEEGA_SDK_BUILD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\include\SDK\Config.h" />
+    <ClInclude Include="..\..\include\SDK\Plugin.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\SDK\Plugin.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
