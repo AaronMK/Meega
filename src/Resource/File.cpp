@@ -2,6 +2,8 @@
 
 #include "private_include/Internal.h"
 
+#include <climits>
+
 namespace Resource
 {
 	File::File(const char* path, bool readonly)
@@ -42,7 +44,7 @@ namespace Resource
 		if (nullptr == mFile)
 			return false;
 
-		int64_t backSeek = getSeekPosition();
+		seek_t backSeek = getSeekPosition();
 
 		size_t byteCount = byteLength;
 		size_t elementsRead;
@@ -69,7 +71,7 @@ namespace Resource
 		if (NULL == mFile)
 			return false;
 
-		int64_t backSeek = getSeekPosition();
+		seek_t backSeek = getSeekPosition();
 
 		size_t byteCount = byteLength;
 		size_t elementsWritten = fwrite(data, byteCount, 1, mFile);
@@ -135,8 +137,12 @@ namespace Resource
 		if (NULL == mFile)
 			return false;
 
-		int64_t currentSeek = ftell(mFile);
-		int64_t maxSeek = 0;
+		long int currentSeek = ftell(mFile);
+
+		if (currentSeek >= static_cast<long int>(std::numeric_limits<seek_t>::max()))
+			return false;
+
+		seek_t maxSeek = 0;
 
 		if (0 == fseek(mFile, 0, SEEK_END))
 		{
