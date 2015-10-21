@@ -54,10 +54,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\SDK\Config.h" />
-    <ClInclude Include="..\..\include\SDK\Plugin.h" />
+    <ClInclude Include="..\..\include\SDK\Internal\Project\ProjectPrivate.h" />
+    <ClInclude Include="..\..\include\SDK\Plugins\LocalProjectPlugin.h" />
+    <ClInclude Include="..\..\include\SDK\Plugins\Plugin.h" />
+    <ClInclude Include="..\..\include\SDK\Plugins\ProjectPlugin.h" />
+    <ClInclude Include="..\..\include\SDK\Project\LocalProject.h" />
+    <ClInclude Include="..\..\include\SDK\Project\Project.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\SDK\Plugin.cpp" />
+    <ClCompile Include="..\..\src\SDK\Plugins\LocalProjectPlugin.cpp" />
+    <ClCompile Include="..\..\src\SDK\Plugins\Plugin.cpp" />
+    <ClCompile Include="..\..\src\SDK\Plugins\ProjectPlugin.cpp" />
+    <ClCompile Include="..\..\src\SDK\Project\LocalProject.cpp" />
+    <ClCompile Include="..\..\src\SDK\Project\Project.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

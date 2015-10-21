@@ -13,18 +13,63 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Project">
+      <UniqueIdentifier>{74a8db51-5ada-49f9-9922-340a64356a28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Project">
+      <UniqueIdentifier>{69ee5a4b-369a-4e58-992c-43c0f95b8d76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Plugins">
+      <UniqueIdentifier>{fab6c87e-75f4-4cb2-a540-a003caad3c5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Plugins">
+      <UniqueIdentifier>{4cd6aa12-f462-4808-bdbc-9a3620ab14fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Internal">
+      <UniqueIdentifier>{69b6de73-bff4-4b62-97eb-883b8730cef9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Internal\Project">
+      <UniqueIdentifier>{5076e074-f001-4629-a32b-1fb67773d693}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\include\SDK\Plugin.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\SDK\Config.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\SDK\Plugins\Plugin.h">
+      <Filter>Header Files\Plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\SDK\Plugins\ProjectPlugin.h">
+      <Filter>Header Files\Plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\SDK\Project\Project.h">
+      <Filter>Header Files\Project</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\SDK\Internal\Project\ProjectPrivate.h">
+      <Filter>Header Files\Internal\Project</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\SDK\Project\LocalProject.h">
+      <Filter>Header Files\Project</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\SDK\Plugins\LocalProjectPlugin.h">
+      <Filter>Header Files\Plugins</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\SDK\Plugin.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="..\..\src\SDK\Plugins\Plugin.cpp">
+      <Filter>Source Files\Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\SDK\Plugins\ProjectPlugin.cpp">
+      <Filter>Source Files\Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\SDK\Project\Project.cpp">
+      <Filter>Source Files\Project</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\SDK\Project\LocalProject.cpp">
+      <Filter>Source Files\Project</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\SDK\Plugins\LocalProjectPlugin.cpp">
+      <Filter>Source Files\Plugins</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
