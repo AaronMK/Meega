@@ -22,3 +22,5 @@
 /doc
 /VS2013/Local.props
 /VS2013/SDK/x64
+/VS2013/SDK/moc
+/VS2013/Editor/*.user

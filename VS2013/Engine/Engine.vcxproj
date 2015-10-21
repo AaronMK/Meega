@@ -31,23 +31,6 @@
     <ClInclude Include="..\..\include\Engine\DevSupport\InterfaceHooks.h" />
     <ClInclude Include="..\..\include\Engine\DevSupport\Logging.h" />
     <ClInclude Include="..\..\include\Engine\DevSupport\Property.h" />
-    <CustomBuild Include="..\..\include\Engine\DevSupport\Widgets\QColorEdit.qt.h">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">$(QTDIR)/bin/moc "%(FullPath)" -o "$(ProjectDir)moc\DevSupport\Widgets\moc_%(Filename).cxx" -DENGINE_DEVEOPMENT_SUPPORT</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">Moc%27ing %(Filename)</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">$(ProjectDir)moc\DevSupport\Widgets\moc_%(Filename).cxx</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">$(QTDIR)/bin/moc "%(FullPath)" -o "$(ProjectDir)moc\DevSupport\Widgets\moc_%(Filename).cxx" -DENGINE_DEVEOPMENT_SUPPORT</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">Moc%27ing %(Filename)</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">$(ProjectDir)moc\DevSupport\Widgets\moc_%(Filename).cxx</Outputs>
-    </CustomBuild>
-    <CustomBuild Include="..\..\include\Engine\DevSupport\Widgets\QFloatEdit.qt.h">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">$(QTDIR)/bin/moc "%(FullPath)" -o "$(ProjectDir)moc\DevSupport\Widgets\moc_%(Filename).cxx" -DENGINE_DEVEOPMENT_SUPPORT</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">$(QTDIR)/bin/moc "%(FullPath)" -o "$(ProjectDir)moc\DevSupport\Widgets\moc_%(Filename).cxx" -DENGINE_DEVEOPMENT_SUPPORT</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">Moc%27ing %(Filename)</Message>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">Moc%27ing %(Filename)</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">$(ProjectDir)moc\DevSupport\Widgets\moc_%(Filename).cxx</Outputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">$(ProjectDir)moc\DevSupport\Widgets\moc_%(Filename).cxx</Outputs>
-    </CustomBuild>
-    <ClInclude Include="..\..\include\Engine\DevSupport\Widgets\QFloatValidator.h" />
     <ClInclude Include="..\..\include\Engine\Engine.h" />
     <ClInclude Include="..\..\include\Engine\Internal\Core\ConstantsPlatform.h" />
     <ClInclude Include="..\..\include\Engine\Internal\Memory\VertexArrayObjectPlatform.h" />
@@ -98,9 +81,6 @@
     <ClCompile Include="..\..\src\Engine\DevSupport\InterfaceHooks.cpp" />
     <ClCompile Include="..\..\src\Engine\DevSupport\Logging.cpp" />
     <ClCompile Include="..\..\src\Engine\DevSupport\QGuiThreadQueue.cpp" />
-    <ClCompile Include="..\..\src\Engine\DevSupport\Widgets\QColorEdit.cpp" />
-    <ClCompile Include="..\..\src\Engine\DevSupport\Widgets\QFloatEdit.cpp" />
-    <ClCompile Include="..\..\src\Engine\DevSupport\Widgets\QFloatValidator.cpp" />
     <ClCompile Include="..\..\src\Engine\Engine.cpp" />
     <ClCompile Include="..\..\src\Engine\Memory\Align16.cpp" />
     <ClCompile Include="..\..\src\Engine\Memory\VertexArrayObject.cpp" />
@@ -114,8 +94,6 @@
     <ClCompile Include="..\..\src\Engine\Tasking\Pipeline.cpp" />
     <ClCompile Include="..\..\src\Engine\Tasking\Scheduling.cpp" />
     <ClCompile Include="..\..\src\Engine\Timing\Timing.cpp" />
-    <ClCompile Include="moc\DevSupport\Widgets\moc_QColorEdit.qt.cxx" />
-    <ClCompile Include="moc\DevSupport\Widgets\moc_QFloatEdit.qt.cxx" />
     <ClCompile Include="moc\private_include\DevSupport\moc_QGuiThreadQueue.qt.cxx" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

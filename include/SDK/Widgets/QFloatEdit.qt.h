@@ -1,20 +1,18 @@
-#ifndef _ENGINE_Q_FLOAT_EDIT_H_
-#define _ENGINE_Q_FLOAT_EDIT_H_
+#ifndef _MEEGA_SDK_Q_FLOAT_EDIT_H_
+#define _MEEGA_SDK_Q_FLOAT_EDIT_H_
 
-#include "../../Config.h"
-
-#ifdef ENGINE_DEVEOPMENT_SUPPORT
+#include "../Config.h"
 
 #include "QFloatValidator.h"
 
 #include <QtWidgets/QLineEdit>
 
-namespace Engine
+namespace MeegaSDK
 {
 	/**
 	 * A line edit widget to accept floating point input.
 	 */
-	class ENGINE_DYNAMIC_CLASS QFloatEdit : public QLineEdit
+	class MEEGA_SDK_CLASS QFloatEdit : public QLineEdit
 	{
 		Q_OBJECT
 	public:
@@ -136,6 +134,4 @@ namespace Engine
 	};
 }
 
-#endif // ENGINE_DEVEOPMENT_SUPPORT
-
-#endif // _ENGINE_Q_FLOAT_EDIT_H_
+#endif // _MEEGA_SDK_Q_FLOAT_EDIT_H_

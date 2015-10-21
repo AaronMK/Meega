@@ -1,19 +1,16 @@
-#ifndef _ENGINE_Q_FLOAT_VALIDATOR_H_
-#define _ENGINE_Q_FLOAT_VALIDATOR_H_
+#ifndef _MEEGA_SDK_Q_FLOAT_VALIDATOR_H_
+#define _MEEGA_SDK_Q_FLOAT_VALIDATOR_H_
 
-#include "../../Config.h"
-
-#ifdef ENGINE_DEVEOPMENT_SUPPORT
+#include "../Config.h"
 
 #include <QtGui/QValidator>
 
-namespace Engine
+namespace MeegaSDK
 {
-
 	/**
 	 * Validator for floating point textual input.
 	 */
-	class ENGINE_DYNAMIC_CLASS QFloatValidator : public QValidator
+	class MEEGA_SDK_CLASS QFloatValidator : public QValidator
 	{
 	public:
 		QFloatValidator(QObject *parent = 0);
@@ -60,7 +57,7 @@ namespace Engine
 		 */
 		float getMax() const;
 
-		virtual State validate(QString &input, int &pos) const;
+		virtual State validate(QString &input, int &pos) const override;
 
 	private:
 		float Minimum;
@@ -68,6 +65,4 @@ namespace Engine
 	};
 }
 
-#endif // ENGINE_DEVEOPMENT_SUPPORT
-
-#endif // _ENGINE_Q_FLOAT_VALIDATOR_H_
+#endif // _MEEGA_SDK_Q_FLOAT_VALIDATOR_H_

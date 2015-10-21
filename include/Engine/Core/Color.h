@@ -31,6 +31,14 @@ namespace Engine
 
 	//////////////////////////
 
+	
+	/**
+	 * @defgroup Color Color
+	 */
+	
+	/**
+	 * @ingroup Color
+	 */
 	class ENGINE_DYNAMIC_CLASS RGB_8
 	{
 	public:
@@ -46,6 +54,9 @@ namespace Engine
 		static const PixelFormat Format = PixelFormat::PF_RGB_UI8;
 	};
 
+	/**
+	 * @ingroup Color
+	 */
 	class ENGINE_DYNAMIC_CLASS RGBA_8
 	{
 	public:
@@ -63,7 +74,10 @@ namespace Engine
 
 		static const PixelFormat Format = PixelFormat::PF_RGBA_UI8;
 	};
-
+	
+	/**
+	 * @ingroup Color
+	 */
 	class ENGINE_DYNAMIC_CLASS RGB_F32
 	{
 	public:
@@ -80,7 +94,10 @@ namespace Engine
 
 		static const PixelFormat Format = PixelFormat::PF_RGB_F32;
 	};
-
+	
+	/**
+	 * @ingroup Color
+	 */
 	class ENGINE_DYNAMIC_CLASS RGBA_F32
 	{
 	public:
@@ -98,7 +115,10 @@ namespace Engine
 
 		static const PixelFormat Format = PixelFormat::PF_RGBA_F32;
 	};
-
+	
+	/**
+	 * @ingroup Color
+	 */
 	class ENGINE_DYNAMIC_CLASS GRAY_8
 	{
 	public:
@@ -112,7 +132,10 @@ namespace Engine
 
 		static const PixelFormat Format = PixelFormat::PF_GRAY_UI8;
 	};
-
+	
+	/**
+	 * @ingroup Color
+	 */
 	class ENGINE_DYNAMIC_CLASS GRAY_F32
 	{
 	public:
@@ -126,7 +149,10 @@ namespace Engine
 
 		static const PixelFormat Format = PixelFormat::PF_GRAY_F32;
 	};
-
+	
+	/**
+	 * @ingroup Color
+	 */
 	class ENGINE_DYNAMIC_CLASS GRAY_ALPHA_8
 	{
 	public:
@@ -141,7 +167,10 @@ namespace Engine
 
 		static const PixelFormat Format = PixelFormat::PF_GRAY_ALPHA_UI8;
 	};
-
+	
+	/**
+	 * @ingroup Color
+	 */
 	class ENGINE_DYNAMIC_CLASS GRAY_ALPHA_F32
 	{
 	public:

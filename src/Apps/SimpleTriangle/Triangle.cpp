@@ -1,7 +1,7 @@
 #include "Triangle.h"
 
 #ifdef ENGINE_DEVEOPMENT_SUPPORT
-#	include <Engine/DevSupport/Widgets/QColorEdit.qt.h>
+#	include <SDK/Widgets/QColorEdit.qt.h>
 #endif
 
 #include <Engine/Core/Vec.h>
@@ -11,7 +11,6 @@
 
 #include <functional>
 #include <math.h>
-
 
 using namespace Engine;
 
@@ -95,12 +94,12 @@ void Triangle::draw(const Camera &camera)
 
 QWidget* Triangle::makePropertiesWidget()
 {
-	QColorEdit* widget = new QColorEdit(PixelFormat::PF_RGB_F32);
+	MeegaSDK::QColorEdit* widget = new MeegaSDK::QColorEdit(PixelFormat::PF_RGB_F32);
 	
 	widget->setColor(mColor);
 
-	connect(widget, &QColorEdit::colorEdited, this, &Triangle::onColorEdited);
-	connect(this, &Triangle::colorChanged, widget, &QColorEdit::setColor);
+	connect(widget, &MeegaSDK::QColorEdit::colorEdited, this, &Triangle::onColorEdited);
+	connect(this, &Triangle::colorChanged, widget, &MeegaSDK::QColorEdit::setColor);
 
 	return widget;
 }

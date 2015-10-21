@@ -1,12 +1,10 @@
-#include <Engine/DevSupport/Widgets/QFloatEdit.qt.h>
-
-#ifdef ENGINE_DEVEOPMENT_SUPPORT
+#include <SDK/Widgets/QFloatEdit.qt.h>
 
 #include <limits>
 
 using namespace std;
 
-namespace Engine
+namespace MeegaSDK
 {
 	QFloatEdit::QFloatEdit(QWidget *parent)
 	: QLineEdit(parent),
@@ -110,5 +108,3 @@ namespace Engine
 		return QSize((6 + m_Precision)*fontMetrics().width("0"), QLineEdit::sizeHint().height());
 	}
 }
-
-#endif // ENGINE_DEVEOPMENT_SUPPORT

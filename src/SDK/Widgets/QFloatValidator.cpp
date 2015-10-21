@@ -1,12 +1,10 @@
-#include <Engine/DevSupport/Widgets/QFloatValidator.h>
-
-#ifdef ENGINE_DEVEOPMENT_SUPPORT
+#include <SDK/Widgets/QFloatValidator.h>
 
 #include <limits>
 
 using namespace std;
 
-namespace Engine
+namespace MeegaSDK
 {
 	QFloatValidator::QFloatValidator(QObject *parent)
 		: QValidator(parent)
@@ -59,5 +57,3 @@ namespace Engine
 		return Acceptable;
 	}
 }
-
-#endif // ENGINE_DEVEOPMENT_SUPPORT

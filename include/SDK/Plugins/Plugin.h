@@ -16,9 +16,6 @@ namespace MeegaSDK
 	 *
 	 * Each plugin for the Meega tools will return a single object of the Plugin type.  This object is
 	 * used as the interface for interacting with and adding custom functionality to the system.
-	 *
-	 * The EXPORT_PLUGIN macro is used somewhere in the implentation files to designate a class
-	 * that will serve as the plugin.
 	 */
 	class MEEGA_SDK_CLASS Plugin
 	{

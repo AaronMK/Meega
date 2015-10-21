@@ -31,6 +31,21 @@
     <Filter Include="Header Files\Internal\Project">
       <UniqueIdentifier>{5076e074-f001-4629-a32b-1fb67773d693}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Widgets">
+      <UniqueIdentifier>{cd03e615-d0dd-4103-a1e6-d76f6e80488c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Widgets">
+      <UniqueIdentifier>{d2bb96b2-c29a-4a04-9557-e34c1d7438bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{5a36091b-2bff-48fe-9838-50627528dd8a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Generated Files\moc">
+      <UniqueIdentifier>{e37021fc-3a3b-43a1-b0a1-903abc1dcc1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Generated Files\moc\Widgets">
+      <UniqueIdentifier>{d43c222a-f502-4a3f-b584-e5f72f8d01dc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\SDK\Config.h">
@@ -54,6 +69,15 @@
     <ClInclude Include="..\..\include\SDK\Plugins\LocalProjectPlugin.h">
       <Filter>Header Files\Plugins</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\SDK\Widgets\QColorEdit.qt.h">
+      <Filter>Header Files\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\SDK\Widgets\QFloatEdit.qt.h">
+      <Filter>Header Files\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\SDK\Widgets\QFloatValidator.h">
+      <Filter>Header Files\Widgets</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\SDK\Plugins\Plugin.cpp">
@@ -70,6 +94,21 @@
     </ClCompile>
     <ClCompile Include="..\..\src\SDK\Plugins\LocalProjectPlugin.cpp">
       <Filter>Source Files\Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\SDK\Widgets\QColorEdit.cpp">
+      <Filter>Source Files\Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\SDK\Widgets\QFloatEdit.cpp">
+      <Filter>Source Files\Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\SDK\Widgets\QFloatValidator.cpp">
+      <Filter>Source Files\Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="moc\Widgets\moc_QColorEdit.qt.cxx">
+      <Filter>Generated Files\moc\Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="moc\Widgets\moc_QFloatEdit.qt.cxx">
+      <Filter>Generated Files\moc\Widgets</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

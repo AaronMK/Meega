@@ -60,6 +60,23 @@
     <ClInclude Include="..\..\include\SDK\Plugins\ProjectPlugin.h" />
     <ClInclude Include="..\..\include\SDK\Project\LocalProject.h" />
     <ClInclude Include="..\..\include\SDK\Project\Project.h" />
+    <CustomBuild Include="..\..\include\SDK\Widgets\QColorEdit.qt.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">$(QTDIR)/bin/moc "%(FullPath)" -o "$(ProjectDir)moc\Widgets\moc_%(Filename).cxx"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">$(QTDIR)/bin/moc "%(FullPath)" -o "$(ProjectDir)moc\Widgets\moc_%(Filename).cxx"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">Moc%27ing %(Filename)</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">Moc%27ing %(Filename)</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">$(ProjectDir)moc\Widgets\moc_%(Filename).cxx</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">$(ProjectDir)moc\Widgets\moc_%(Filename).cxx</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\..\include\SDK\Widgets\QFloatEdit.qt.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">$(QTDIR)/bin/moc "%(FullPath)" -o "$(ProjectDir)moc\Widgets\moc_%(Filename).cxx"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">$(QTDIR)/bin/moc "%(FullPath)" -o "$(ProjectDir)moc\Widgets\moc_%(Filename).cxx"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">Moc%27ing %(Filename)</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">Moc%27ing %(Filename)</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">$(ProjectDir)moc\Widgets\moc_%(Filename).cxx</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">$(ProjectDir)moc\Widgets\moc_%(Filename).cxx</Outputs>
+    </CustomBuild>
+    <ClInclude Include="..\..\include\SDK\Widgets\QFloatValidator.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\SDK\Plugins\LocalProjectPlugin.cpp" />
@@ -67,6 +84,11 @@
     <ClCompile Include="..\..\src\SDK\Plugins\ProjectPlugin.cpp" />
     <ClCompile Include="..\..\src\SDK\Project\LocalProject.cpp" />
     <ClCompile Include="..\..\src\SDK\Project\Project.cpp" />
+    <ClCompile Include="..\..\src\SDK\Widgets\QColorEdit.cpp" />
+    <ClCompile Include="..\..\src\SDK\Widgets\QFloatEdit.cpp" />
+    <ClCompile Include="..\..\src\SDK\Widgets\QFloatValidator.cpp" />
+    <ClCompile Include="moc\Widgets\moc_QColorEdit.qt.cxx" />
+    <ClCompile Include="moc\Widgets\moc_QFloatEdit.qt.cxx" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

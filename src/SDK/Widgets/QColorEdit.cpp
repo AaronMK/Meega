@@ -1,4 +1,4 @@
-#include <Engine/DevSupport/Widgets/QColorEdit.qt.h>
+#include <SDK/Widgets/QColorEdit.qt.h>
 
 #include <QtWidgets/QBoxLayout>
 #include <QtCore/QString>
@@ -8,7 +8,7 @@
 
 #include <functional>
 
-namespace Engine
+namespace MeegaSDK
 {
 	static char* styleRed =
 		"QLineEdit {\n"
@@ -28,7 +28,7 @@ namespace Engine
 		"  border-radius: 5px;"
 		"  padding: 1px;\n}";
 
-	QColorEdit::QColorEdit(PixelFormat format, QWidget* parent)
+	QColorEdit::QColorEdit(Engine::PixelFormat format, QWidget* parent)
 		: QWidget(parent), mFormat(format)
 	{
 		std::function<void(float)> changeHandler = [this](float param)
@@ -57,16 +57,16 @@ namespace Engine
 
 		switch (mFormat)
 		{
-		case PixelFormat::PF_RGBA_F32:
-		case PixelFormat::PF_RGBA_UI8:
+		case Engine::PixelFormat::PF_RGBA_F32:
+		case Engine::PixelFormat::PF_RGBA_UI8:
 			mAlpha = new QFloatEdit();
 			mAlpha->setBounds(0.0f, 1.0f);
 
 			connect(mAlpha, &QFloatEdit::valueChanged, this, changeHandler);
 			connect(mAlpha, &QFloatEdit::editingFinished, this, editHandler);
 
-		case PixelFormat::PF_RGB_F32:
-		case PixelFormat::PF_RGB_UI8:
+		case Engine::PixelFormat::PF_RGB_F32:
+		case Engine::PixelFormat::PF_RGB_UI8:
 			mGreen = new QFloatEdit();
 			mBlue = new QFloatEdit();
 
@@ -102,9 +102,9 @@ namespace Engine
 
 	}
 
-	RGBA_F32 QColorEdit::getColor() const
+	Engine::RGBA_F32 QColorEdit::getColor() const
 	{
-		RGBA_F32 ret;
+		Engine::RGBA_F32 ret;
 
 		ret.R = mRedGray->getValue();
 
@@ -124,7 +124,7 @@ namespace Engine
 		return ret;
 	}
 
-	void QColorEdit::setColor(const RGBA_F32& color)
+	void QColorEdit::setColor(const Engine::RGBA_F32& color)
 	{
 		blockSignals(true);
 
@@ -146,7 +146,7 @@ namespace Engine
 
 	bool QColorEdit::isGray() const
 	{
-		return ( (PixelFormat::PF_GRAY_ALPHA_F32 == mFormat) || (PixelFormat::PF_GRAY_ALPHA_F32 == mFormat) ||
-		         (PixelFormat::PF_GRAY_ALPHA_UI8 == mFormat) || (PixelFormat::PF_GRAY_UI8 == mFormat) );
+		return ( (Engine::PixelFormat::PF_GRAY_ALPHA_F32 == mFormat) || (Engine::PixelFormat::PF_GRAY_ALPHA_F32 == mFormat) ||
+		         (Engine::PixelFormat::PF_GRAY_ALPHA_UI8 == mFormat) || (Engine::PixelFormat::PF_GRAY_UI8 == mFormat) );
 	}
 }
