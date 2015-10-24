@@ -1,10 +1,16 @@
 #include "include/MainWindow.qt.h"
 
+#include <SDK/Project/Project.h>
+#include <SDK/Widgets/QCreateProjectDialog.qt.h>
+#include <SDK/Internal/Project/ProjectPrivate.h>
+
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QDockWidget>
 #include <QtWidgets/QLabel>
 
 #include <functional>
+
+using namespace MeegaSDK;
 
 MainWindow::MainWindow()
 	: QMainWindow()
@@ -35,13 +41,20 @@ MainWindow::~MainWindow()
 
 }
 
-
 void MainWindow::onFileNewProject(bool checked)
 {
+	QCreateProjectDialog dialog(this);
+	
+	if (QDialog::Accepted == dialog.exec())
+	{
+		std::unique_ptr<ProjectPrivate> projectPrivate(new ProjectPrivate());
+		projectPrivate->projectDir = dialog.selectedDir;
+		projectPrivate->projectName = dialog.projectName;
 
+		std::unique_ptr<Project> project = dialog.projectPlugin->createProject(std::move(projectPrivate));
+	}
 }
 
 void MainWindow::onFileOpenProject(bool checked)
 {
-
 }

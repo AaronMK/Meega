@@ -11,6 +11,7 @@ namespace MeegaSDK
 	{
 	public:
 		QDir projectDir;
+		QString projectName;
 	};
 }
 

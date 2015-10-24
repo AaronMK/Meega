@@ -69,14 +69,11 @@
     <ClInclude Include="..\..\include\SDK\Plugins\LocalProjectPlugin.h">
       <Filter>Header Files\Plugins</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\SDK\Widgets\QColorEdit.qt.h">
-      <Filter>Header Files\Widgets</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\SDK\Widgets\QFloatEdit.qt.h">
-      <Filter>Header Files\Widgets</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\SDK\Widgets\QFloatValidator.h">
       <Filter>Header Files\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\SDK\Plugins\PluginManager.h">
+      <Filter>Header Files\Plugins</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -110,5 +107,25 @@
     <ClCompile Include="moc\Widgets\moc_QFloatEdit.qt.cxx">
       <Filter>Generated Files\moc\Widgets</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\SDK\Plugins\PluginManager.cpp">
+      <Filter>Source Files\Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\SDK\Widgets\QCreateProjectDialog.cpp">
+      <Filter>Source Files\Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="moc\Widgets\moc_QCreateProjectDialog.qt.cxx">
+      <Filter>Generated Files\moc\Widgets</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\include\SDK\Widgets\QColorEdit.qt.h">
+      <Filter>Header Files\Widgets</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\include\SDK\Widgets\QFloatEdit.qt.h">
+      <Filter>Header Files\Widgets</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\include\SDK\Widgets\QCreateProjectDialog.qt.h">
+      <Filter>Header Files\Widgets</Filter>
+    </CustomBuild>
   </ItemGroup>
 </Project>

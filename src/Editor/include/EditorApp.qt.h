@@ -1,9 +1,14 @@
 #ifndef _EDITOR_APP_QT_H_
 #define _EDITOR_APP_QT_H_
 
+#include "MainWindow.qt.h"
+
 #include <QtWidgets/QApplication>
 
+#include <Concurrent/Producer.h>
+
 #include <functional>
+#include <memory>
 
 /**
  * Mostly singleton applciation object.  For the purposes of signals and slots there is
@@ -25,6 +30,10 @@ signals:
 
 private slots:
 	void onGuiThreadRunRequested();
+
+private:
+	std::unique_ptr<MainWindow> mMainWindow;
+	Concurrent::Producer<std::function<void()>> guiFunctionQueue;
 };
 
 #endif // _EDITOR_APP_QT_H_

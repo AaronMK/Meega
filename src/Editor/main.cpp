@@ -10,6 +10,8 @@
 #		pragma comment(lib, "Qt5Core.lib")
 #		pragma comment(lib, "Qt5Widgets.lib")
 #	endif
+
+#		pragma comment(lib, "SDK.lib")
 #endif
 
 int main(int argc, char** argv)

@@ -25,12 +25,25 @@ namespace MeegaSDK
 		Project(std::unique_ptr<ProjectPrivate>&& privParams);
 		virtual ~Project();
 
+		/**
+		 * @brief
+		 *   Opens a project in the provided directory, returning a valid pointer on success.
+		 */
+		static std::unique_ptr<Project> openProject(QDir dir);
+
 	protected:
 
 		/**
-		 * Obtains the directory for custom project data.
+		 * @brief
+		 *   Obtains the directory for custom project data.
 		 */
 		QDir dataDir() const;
+
+		/**
+		 * @brief
+		 *   Obtains the name of the project.
+		 */
+		QString name() const;
 
 	private:
 		std::unique_ptr<ProjectPrivate> mProjectPrivate;

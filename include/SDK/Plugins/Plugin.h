@@ -8,6 +8,12 @@
 #include <memory>
 #include <vector>
 
+#ifndef _WIN32
+#	define MEEGA_SDK_EXPORT_FUNC
+#else
+#	define MEEGA_SDK_EXPORT_FUNC __declspec(dllexport)
+#endif
+
 namespace MeegaSDK
 {
 	/**
@@ -16,6 +22,9 @@ namespace MeegaSDK
 	 *
 	 * Each plugin for the Meega tools will return a single object of the Plugin type.  This object is
 	 * used as the interface for interacting with and adding custom functionality to the system.
+	 *
+	 * Dynamic libraries containing plugins will export a function of type PluginExportFunc with the name
+	 * meegaCreatePlugins.  MEEGA_SDK_EXPORT_FUNC is a utility macro for this purpose.
 	 */
 	class MEEGA_SDK_CLASS Plugin
 	{
@@ -64,6 +73,9 @@ namespace MeegaSDK
 		static const uint32_t ID_ORG_BASE = 0x80000000;
 	};
 
+	/**
+	 * Function signature for creating and returning Plugin objects to the Meega tools.
+	 */
 	typedef std::vector<std::unique_ptr<Plugin>> (*PluginExportFunc)();
 
 	/**

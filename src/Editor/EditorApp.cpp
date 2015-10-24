@@ -5,24 +5,24 @@
 #	pragma comment(lib, "Concurrent.lib")
 #endif // WIN_32
 
-#include <Concurrent/Producer.h>
+#include <SDK/Plugins/PluginManager.h>
 
-static MainWindow* mainWindow = nullptr;
-static Concurrent::Producer<std::function<void ()>> guiFunctionQueue;
+using namespace MeegaSDK;
 
 EditorApp::EditorApp(int argc, char** argv)
 	: QApplication(argc, argv)
 {
-	mainWindow = new MainWindow;
-	mainWindow->show();
+	mMainWindow.reset(new MainWindow);
+	mMainWindow->show();
 
 	connect(this, &EditorApp::guiThreadRunRequested, &EditorApp::onGuiThreadRunRequested);
+
+	PluginManager::loadStandardPlugins();
 }
 
 EditorApp::~EditorApp()
 {
 	guiFunctionQueue.end();
-	delete mainWindow;
 }
 
 EditorApp* EditorApp::instance()
@@ -32,7 +32,7 @@ EditorApp* EditorApp::instance()
 
 void EditorApp::runInGuiThread(std::function<void(void)>&& func)
 {
-	guiFunctionQueue.push(std::forward <std::function<void()>>(func));
+	instance()->guiFunctionQueue.push(std::forward<std::function<void()>>(func));
 	emit instance()->guiThreadRunRequested();
 }
 
