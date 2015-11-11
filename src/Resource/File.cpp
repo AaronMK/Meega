@@ -6,26 +6,16 @@
 
 namespace Resource
 {
+	File::File()
+		: mFile(nullptr)
+	{
+
+	}
+
 	File::File(const char* path, bool readonly)
 		: mFile(nullptr)
 	{
-		if (readonly)
-		{
-			setFlags(READ_ONLY | CAN_SEEK);
-			mFile = fopen(path, "rb");
-		}
-		else
-		{
-			setFlags(CAN_SEEK);
-
-			if ( exists(path) )
-				mFile = fopen(path, "rb+");
-			else
-				mFile = fopen(path, "ab+");
-		}
-
-		if (mFile == nullptr)
-			perror("fopen");
+		open(path, readonly);
 	}
 
 	File::File(File &&other)
@@ -36,7 +26,7 @@ namespace Resource
 
 	File::~File()
 	{
-		fclose(mFile);
+		close();
 	}
 
 	bool File::readRaw(void* destination, bytesize_t byteLength)
@@ -106,13 +96,10 @@ namespace Resource
 	seek_t File::getSeekPosition() const
 	{
 		if (NULL != mFile)
-		{
 			return ftell(mFile);
-		}
 
 		return 0;
 	}
-
 
 	bytesize_t File::bytesAvailable() const
 	{
@@ -171,6 +158,39 @@ namespace Resource
 		}
 
 		return false;
+	}
+
+	bool File::open(const char* path, bool readonly)
+	{
+		if (nullptr != mFile)
+			return false;
+
+		if (readonly)
+		{
+			setFlags(READ_ONLY | CAN_SEEK);
+			mFile = fopen(path, "rb");
+		}
+		else
+		{
+			setFlags(CAN_SEEK);
+
+			if ( exists(path) )
+				mFile = fopen(path, "rb+");
+			else
+				mFile = fopen(path, "ab+");
+		}
+
+		if (mFile == nullptr)
+			perror("fopen");
+
+		return (nullptr != mFile);
+	}
+
+	void File::close()
+	{
+		
+		fclose(mFile);
+		mFile = nullptr;
 	}
 
 	bool File::isOpen()

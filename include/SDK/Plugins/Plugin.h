@@ -83,8 +83,9 @@ namespace MeegaSDK
 	 */
 	namespace PluginId
 	{
-		static const uint32_t PROJECT_LOCAL = Plugin::ID_MEEGA_BASE;
-		static const uint32_t PROJECT_GIT   = Plugin::ID_MEEGA_BASE + 1;
+		static const uint32_t INVALID = Plugin::ID_MEEGA_BASE;
+		static const uint32_t PROJECT_LOCAL = Plugin::ID_MEEGA_BASE + 1;
+		static const uint32_t PROJECT_GIT   = Plugin::ID_MEEGA_BASE + 2;
 	}
 }
 

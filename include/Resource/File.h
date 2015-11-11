@@ -19,6 +19,8 @@ namespace Resource
 		File(const File&) = delete;
 		File& operator=(const File&) = delete;
 
+		File();
+
 		/**
 		 * @param path
 		 *    Either an absolute or relative path to the file.
@@ -44,6 +46,9 @@ namespace Resource
 		virtual bool canRead(bytesize_t numBytes) override;
 		virtual bool canWrite(bytesize_t numBytes, bool autoExpand = false) override;
 		virtual bool clear() override;
+
+		bool open(const char* path, bool readonly);
+		void close();
 
 		bool isOpen();
 

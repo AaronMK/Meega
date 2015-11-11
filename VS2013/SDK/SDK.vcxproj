@@ -94,6 +94,7 @@
     <ClCompile Include="..\..\src\SDK\Plugins\ProjectPlugin.cpp" />
     <ClCompile Include="..\..\src\SDK\Project\LocalProject.cpp" />
     <ClCompile Include="..\..\src\SDK\Project\Project.cpp" />
+    <ClCompile Include="..\..\src\SDK\Project\ProjectPrivate.cpp" />
     <ClCompile Include="..\..\src\SDK\Widgets\QColorEdit.cpp" />
     <ClCompile Include="..\..\src\SDK\Widgets\QCreateProjectDialog.cpp" />
     <ClCompile Include="..\..\src\SDK\Widgets\QFloatEdit.cpp" />

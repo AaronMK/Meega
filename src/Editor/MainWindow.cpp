@@ -4,8 +4,9 @@
 #include <SDK/Widgets/QCreateProjectDialog.qt.h>
 #include <SDK/Internal/Project/ProjectPrivate.h>
 
-#include <QtWidgets/QMenuBar>
 #include <QtWidgets/QDockWidget>
+#include <QtWidgets/QFileDialog>
+#include <QtWidgets/QMenuBar>
 #include <QtWidgets/QLabel>
 
 #include <functional>
@@ -43,18 +44,11 @@ MainWindow::~MainWindow()
 
 void MainWindow::onFileNewProject(bool checked)
 {
-	QCreateProjectDialog dialog(this);
-	
-	if (QDialog::Accepted == dialog.exec())
-	{
-		std::unique_ptr<ProjectPrivate> projectPrivate(new ProjectPrivate());
-		projectPrivate->projectDir = dialog.selectedDir;
-		projectPrivate->projectName = dialog.projectName;
-
-		std::unique_ptr<Project> project = dialog.projectPlugin->createProject(std::move(projectPrivate));
-	}
+	QCreateProjectDialog::createProject(this);
 }
 
 void MainWindow::onFileOpenProject(bool checked)
 {
+	QString directory = QFileDialog::getExistingDirectory(this);
+	Project::openProject(QDir(directory));
 }

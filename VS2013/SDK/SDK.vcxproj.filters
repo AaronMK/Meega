@@ -116,6 +116,9 @@
     <ClCompile Include="moc\Widgets\moc_QCreateProjectDialog.qt.cxx">
       <Filter>Generated Files\moc\Widgets</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\SDK\Project\ProjectPrivate.cpp">
+      <Filter>Source Files\Project</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="..\..\include\SDK\Widgets\QColorEdit.qt.h">

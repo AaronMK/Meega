@@ -27,6 +27,15 @@ namespace MeegaSDK
 
 		/**
 		 * @brief
+		 *   Saves the project.
+		 *
+		 *   This default implementation saves all base project data, and should be called in
+		 *   any overrides.
+		 */
+		virtual bool save();
+
+		/**
+		 * @brief
 		 *   Opens a project in the provided directory, returning a valid pointer on success.
 		 */
 		static std::unique_ptr<Project> openProject(QDir dir);

@@ -33,11 +33,16 @@ namespace MeegaSDK
 		 * @param data
 		 *   This parameter is passed directly to the Project constructor.  It contains internal data
 		 *   and initialization enabling base Project functions to be usable during subclass construction.
+		 *
+		 * @return
+		 *   A Project if creating is completed succesfully, or an empty pointer if cancelled by the
+		 *   user or an error occurs.
 		 */
 		virtual std::unique_ptr<Project> createProject(std::unique_ptr<ProjectPrivate>&& data) = 0;
 		
 		/**
-		 * Called after a project directory has been selected to open an existing project. 
+		 * @brief
+		 *   Called after a project directory has been selected to open an existing project. 
 		 *
 		 * @param data
 		 *   This parameter is passed directly to the Project constructor.  It contains internal data

@@ -22,6 +22,11 @@ namespace Resource
 		{
 			// Read needs to be specialized for the type.
 			assert(false);
+
+			// This function should generate a compile error of
+			// not returning a value if the compiler ever tries
+			// use it, which would indicate no specialization
+			// being available.
 		}
 
 		template<typename T>
@@ -29,7 +34,47 @@ namespace Resource
 		{
 			// Write needs to be specialized for the type.
 			assert(false);
+
+			// This function should generate a compile error of
+			// not returning a value if the compiler ever tries
+			// use it, which would indicate no specialization
+			// being available.
 		}
+
+		template<typename T>
+		bool read(ByteStream* stream, T *out, size_t count)
+		{
+			seek_t backSeek = stream->getSeekPosition();
+
+			for (size_t i = 0; i < count; i++)
+			{
+				if (false == read<T>(stream, &out[i]))
+				{
+					stream->seek(backSeek);
+					return false;
+				}
+			}
+
+			return true;
+		}
+
+		template<typename T>
+		bool write(ByteStream* stream, const T *vals, size_t count)
+		{
+			seek_t backSeek = stream->getSeekPosition();
+
+			for (size_t i = 0; i < count; i++)
+			{
+				if (false == write<T>(stream, vals[i]))
+				{
+					stream->seek(backSeek);
+					return false;
+				}
+			}
+
+			return true;
+		}
+
 
 		template<>
 		RESOURCE_DYNAMIC_FUNC_EXPORT bool read<uint8_t>(ByteStream* stream, uint8_t *out);

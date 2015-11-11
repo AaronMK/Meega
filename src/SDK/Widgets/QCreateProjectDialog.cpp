@@ -1,6 +1,7 @@
 #include <SDK/Widgets/QCreateProjectDialog.qt.h>
 
 #include <SDK/Plugins/PluginManager.h>
+#include <SDK/Internal/Project/ProjectPrivate.h>
 
 #include <QtWidgets/QFileDialog>
 #include <QtWidgets/QFormLayout>
@@ -13,6 +14,24 @@ Q_DECLARE_METATYPE(MeegaSDK::ProjectPlugin*);
 
 namespace MeegaSDK
 {
+	std::unique_ptr<Project> QCreateProjectDialog::createProject(QWidget* parent)
+	{
+		QCreateProjectDialog dialog(parent);
+
+		if (QDialog::Accepted == dialog.exec())
+		{
+			std::unique_ptr<Project> ret = dialog.projectPlugin->createProject(std::move(dialog.projectPrivate));
+
+			if (ret)
+			{
+				ret->save();
+				return ret;
+			}
+		}
+
+		return std::unique_ptr<Project>();
+	}
+
 	QCreateProjectDialog::QCreateProjectDialog(QWidget* parent)
 		: QDialog(parent), projectPlugin(nullptr)
 	{
@@ -76,17 +95,14 @@ namespace MeegaSDK
 	
 	void QCreateProjectDialog::onRejected()
 	{
-		projectName = "";
-		selectedDir = QDir();
 		projectPlugin = nullptr;
-
 		reject();
 	}
 	
 	void QCreateProjectDialog::onAccepted()
 	{
-		projectName = lineName->text();
-		selectedDir = QDir(lineRootFolder->text());
+		QString projectName = lineName->text();
+		QDir selectedDir(lineRootFolder->text());
 
 		// Check that a plugin was selected.
 		QModelIndex selectedIndex = listView->currentIndex();
@@ -127,6 +143,11 @@ namespace MeegaSDK
 			QMessageBox::information(this, tr("Field Error"), tr("The project directory must be empty."));
 			return;
 		}
+
+		projectPrivate.reset(new ProjectPrivate());
+		projectPrivate->directory = selectedDir;
+		projectPrivate->name = projectName;
+		projectPrivate->plugin = projectPlugin;
 
 		accept();
 	}
