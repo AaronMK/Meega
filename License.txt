@@ -1,0 +1,11 @@
+-------------
+-- License --
+-------------
+
+All license terms apply to the current version code received from official sources and distributions with or without midifications.  Even if more restrictive terms are applied to future distributions from offical sources, they will not apply to the version accompanying this license.
+
+All code may be used and distribuited for whatever purpose seen fit, even on closed source and commercial projects with the following conditions:
+
+- Changes, modifications, and improvements do not have to be published, but no claims can be made on ownership of such changes in a way that would prevent them from being introduced to the any other distributions or copies of the provided source code.
+
+- Changes, modifications, and improvements made for hire on a distrbution of this code cannot prevent the person from working on other distrbutions or the official distrbution of the code.

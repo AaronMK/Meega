@@ -58,7 +58,7 @@ namespace Resource
 
 	bool File::writeRaw(const void* data, bytesize_t byteLength)
 	{
-		if (NULL == mFile)
+		if (nullptr == mFile)
 			return false;
 
 		seek_t backSeek = getSeekPosition();
@@ -80,7 +80,7 @@ namespace Resource
 
 	bool File::seek(seek_t position)
 	{
-		if (NULL == mFile)
+		if (nullptr == mFile)
 			return false;
 
 		// Check for overflow
@@ -95,7 +95,7 @@ namespace Resource
 
 	seek_t File::getSeekPosition() const
 	{
-		if (NULL != mFile)
+		if (nullptr != mFile)
 			return ftell(mFile);
 
 		return 0;
@@ -121,7 +121,7 @@ namespace Resource
 
 	bool File::canRead(bytesize_t numBytes)
 	{
-		if (NULL == mFile)
+		if (nullptr == mFile)
 			return false;
 
 		long int currentSeek = ftell(mFile);
@@ -151,10 +151,10 @@ namespace Resource
 
 	bool File::clear()
 	{
-		if ( NULL != mFile && (0 == (getFlags() | READ_ONLY)) )
+		if ( nullptr != mFile && (0 == (getFlags() | READ_ONLY)) )
 		{
-			mFile = freopen(NULL, "w+", mFile);
-			return (NULL != mFile);
+			mFile = freopen(nullptr, "w+", mFile);
+			return (nullptr != mFile);
 		}
 
 		return false;
@@ -221,7 +221,7 @@ namespace Resource
 	{
 		FILE* testFile = fopen(path, "rb");
 
-		if (NULL != testFile)
+		if (nullptr != testFile)
 		{
 			fclose(testFile);
 			return true;
