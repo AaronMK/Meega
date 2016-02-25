@@ -38,12 +38,15 @@ namespace Concurrent
 		 */
 		void wait();
 
+		/**
+		 * Returns true if the task is running on the current thread.
+		 */
 		bool isCurrent() const;
 
 		/**
-		* Gets a pointer to the Task that is currently running.  This will be NULL if execution
-		* is outside the context of a Scheduler.
-		*/
+		 * Gets a pointer to the Task that is currently running.  This will be NULL if execution
+		 * is outside the context of a Scheduler.
+		 */
 		static Task* current();
 
 		/**

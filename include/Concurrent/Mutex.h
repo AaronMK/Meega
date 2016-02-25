@@ -13,10 +13,6 @@ namespace Concurrent
 	 * lock call.  The Mutex is cooperative with the system thread pool.
 	 *
 	 * See MutexLocker for scope based locking.
-	 *
-	 * @todo
-	 *  Make MutexLocker required to acquire the lock.  Performance penalty is pretty
-	 *  much zero, it's easy for users, and so much less error-prone.
 	 */
 	class CONCURRENT_DYNAMIC_CLASS Mutex : private MutexPlatform
 	{

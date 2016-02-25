@@ -27,7 +27,7 @@ namespace Concurrent
 		
 		/**
 		 * Blocks until the condition is triggered or detroyed.  Returns true
-		 * if the condition was triggered, and false if it was detroyed.
+		 * if the condition was triggered, and false if it was destroyed.
 		 */
 		bool wait();
 		
@@ -38,7 +38,7 @@ namespace Concurrent
 		void trigger();
 
 		/**
-		 * Returns true if in the triggered state, ie if wait() would immeidatly return.
+		 * Returns true if in the triggered state, ie if wait() would immediately return.
 		 */
 		bool isTriggered() const;
 		

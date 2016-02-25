@@ -17,6 +17,8 @@ namespace Concurrent
 		friend class SchedulerInternal;
 
 	private:
+		static size_t waitForMultiple(Task** tArray, size_t numTasks, bool all);
+
 		TaskInternal();
 		virtual ~TaskInternal();
 

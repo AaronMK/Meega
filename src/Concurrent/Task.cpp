@@ -6,6 +6,7 @@
 #include "private_include/Platform.h"
 
 #include <cassert>
+#include <thread>
 
 namespace Concurrent
 {
@@ -62,6 +63,17 @@ namespace Concurrent
 		task->schedulerRelease();
 	}
 
+	
+	size_t TaskInternal::waitForMultiple(Task** tArray, size_t numTasks, bool all)
+	{
+		Concurrency::event** winEvents = (Concurrency::event**)alloca(sizeof(Concurrency::event*)*numTasks);
+
+		for(size_t i = 0; i < numTasks; i++)
+			winEvents[i] = &(tArray[i]->mFinishedHandle.winEvent);
+
+		return Concurrency::event::wait_for_multiple(winEvents, numTasks, all);
+	}
+
 	///////////////////////////////////////
 
 	Task::Task()
@@ -90,6 +102,16 @@ namespace Concurrent
 	Task* Task::current()
 	{
 		return runningTask.get();
+	}
+
+	size_t Task::waitForAny(Task** tArray, size_t numTasks)
+	{
+		return waitForMultiple(tArray, numTasks, false);
+	}
+
+	void Task::waitForAll(Task** tArray, size_t numTasks)
+	{
+		waitForMultiple(tArray, numTasks, false);
 	}
 
 	bool Task::subTask(std::function<void()>&& func)

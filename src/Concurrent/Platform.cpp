@@ -5,6 +5,8 @@
 #include <Windows.h>
 #include <concrt.h>
 
+#include <thread>
+
 using namespace std;
 
 namespace Concurrent
@@ -49,25 +51,10 @@ namespace Concurrent
 
 	///////////////////
 
-	static DWORD WINAPI sysFunctionalJump(LPVOID lpParam)
+	void sysRunAsThread(function<void()>&& func)
 	{
-		function<void()>* funcPtr = static_cast<function<void()>*>(lpParam);
-		function<void()> localFunc = std::move(*funcPtr);
-		
-		delete funcPtr;
-
-		localFunc();
-
-		return 0;
-	}
-
-	void sysRunAsThread(std::function<void()>&& func)
-	{
-		function<void()>* funcPtr = new function<void()>(forward<function<void()>>(func));
-
-		HANDLE winHandle = CreateThread(NULL, NULL, &sysFunctionalJump, funcPtr, CREATE_SUSPENDED, NULL);
-		ResumeThread(winHandle);
-		CloseHandle(winHandle);
+		thread t(forward<function<void()>>(func));
+		t.detach();
 	}
 }
 

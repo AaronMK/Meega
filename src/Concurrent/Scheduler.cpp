@@ -29,7 +29,15 @@ namespace Concurrent
 
 	Scheduler::Scheduler(int maxPriority)
 	{
+		if (maxPriority < 0)
+			maxPriority = 0;
+
 		mInternal = Reference<SchedulerInternal>::create(maxPriority);
+	}
+
+	Scheduler::Scheduler(Scheduler&& other)
+	{
+		mInternal = other.mInternal;
 	}
 
 	Scheduler::~Scheduler()
@@ -51,6 +59,12 @@ namespace Concurrent
 		task->mScheduler = this;
 
 		addTask(std::bind(&TaskInternal::doRun, task), priority);
+	}
+
+	Scheduler& Scheduler::operator=(Scheduler&& other)
+	{
+		mInternal = other.mInternal;
+		return *this;
 	}
 
 	Scheduler* Scheduler::default()
