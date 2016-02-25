@@ -111,7 +111,7 @@ namespace Concurrent
 
 	void Task::waitForAll(Task** tArray, size_t numTasks)
 	{
-		waitForMultiple(tArray, numTasks, false);
+		waitForMultiple(tArray, numTasks, true);
 	}
 
 	bool Task::subTask(std::function<void()>&& func)
