@@ -6,7 +6,8 @@
 namespace Concurrent
 {
 	/**
-	 * Class for scope based read locking of an RWLock.
+	 * @brief
+	 *  Class for scope based read locking of an RWLock.
 	 */
 	class CONCURRENT_DYNAMIC_CLASS ReadLocker
 	{

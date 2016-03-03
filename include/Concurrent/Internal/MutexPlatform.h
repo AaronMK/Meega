@@ -9,6 +9,10 @@
 namespace Concurrent
 {
 #ifdef _WIN32
+
+	/**
+	 * @internal
+	 */
 	class CONCURRENT_DYNAMIC_CLASS MutexPlatform
 	{
 	public:

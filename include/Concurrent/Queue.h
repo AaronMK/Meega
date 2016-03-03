@@ -8,7 +8,8 @@
 namespace Concurrent
 {
 	/**
-	 * Queue with a lock-free implementation on supported platforms.
+	 * @brief
+	 *  Queue with a lock-free implementation on supported platforms.
 	 */
 	template<typename T>
 	class Queue : public QueuePlatform<T>

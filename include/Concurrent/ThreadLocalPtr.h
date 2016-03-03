@@ -6,11 +6,14 @@
 namespace Concurrent
 {
 	/**
-	 * Creates a thread local pointer.  This is a pointer that can be given a different value for
-	 * each thread.  This class does no allocation or deletion of the object to which it points,
-	 * it simply stores the thread local value of the pointer.  This class should be used sparingly
-	 * since the number of thread local pointers that can be registered per process is limited on
-	 * some systems.
+	 * @brief
+	 *  A pointer that can be set independently for each thread or task.
+	 *
+	 *  This is a pointer that can be given a different value for
+	 *  each thread.  This class does no allocation or deletion of the object to which it points,
+	 *  it simply stores the thread local value of the pointer.  This class should be used sparingly
+	 *  since the number of thread local pointers that can be registered per process is limited on
+	 *  some systems.
 	 */
 	template<typename T>
 	class ThreadLocalPtr

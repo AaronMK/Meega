@@ -6,8 +6,11 @@
 namespace Concurrent
 {
 	/**
-	 * Scope based locking for a mutex.  The constructor will take give ownership of the Mutex to
-	 * the current thread, and destructor will automatically release ownership.
+	 * @brief
+	 *  Scope based locking for a Mutex.
+	 *
+	 *  The constructor will take give ownership of the Mutex to
+	 *  the current thread, and destructor will automatically release ownership.
 	 */
 	class CONCURRENT_DYNAMIC_CLASS MutexLocker
 	{
@@ -16,7 +19,8 @@ namespace Concurrent
 		MutexLocker& operator=(const MutexLocker&) = delete;
 
 		/**
-		 * Contructs a locker that will take ownership of the passed Mutex.
+		 * Contructs a locker that will take ownership of the passed Mutex.  This
+		 * call will block until the Mutex is available.
 		 */
 		MutexLocker(Mutex* M);
 

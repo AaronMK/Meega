@@ -7,10 +7,19 @@
 namespace Concurrent
 {
 	/**
-	 * The Read/Write lock allows multiple readers, but only a single writer.
-	 * Writers are given exclusive and prioritized access, waiting for existing
-	 * readers to exit the protected critical section if necessary.  Recursive
-	 * locking is currently not supported.
+	 * @brief
+	 *  Read/Write lock cooperative with the system threadpool. 
+	 *
+	 *  The Read/Write lock allows multiple readers, but only a single writer.
+	 *  Writers are given exclusive and prioritized access, waiting for existing
+	 *  readers to exit the protected critical section if necessary.  Recursive
+	 *  locking is not supported.
+	 *
+	 * @see
+	 *  ReadLocker
+	 *
+	 * @see
+	 *  WriteLocker
 	 */
 	class CONCURRENT_DYNAMIC_CLASS RWLock : public RWLockPlatform
 	{

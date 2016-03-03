@@ -9,13 +9,16 @@
 namespace Concurrent
 {
 	/**
-	 * A Scheduler runs tasks making sure that any tasks that have been added with a higher
-	 * priority will be sent to the system threadpool for execution before those with lower
-	 * priorities.
+	 * @brief
+	 *  An object for scheduling and prioritizing tasks.
 	 * 
-	 * There can be multiple schedulers, and internally the system will round-robin all 
-	 * the active schedulers, pulling the highest priority task in turn.  Any tasks passed
-	 * with the same priority will be run in the order they are submitted.
+	 *  A Scheduler runs tasks making sure that any tasks that have been added with a higher
+	 *  priority will be sent to the system threadpool for execution before those with lower
+	 *  priorities.
+	 * 
+	 *  There can be multiple schedulers, and internally the system will round-robin all 
+	 *  the active schedulers, pulling the highest priority task from eachin turn.  Any
+	 *  tasks passed with the same priority will be run in the order they are submitted.
 	 */
 	class CONCURRENT_DYNAMIC_CLASS Scheduler
 	{
@@ -84,9 +87,20 @@ namespace Concurrent
 		 */
 		static void runInline(Task* task);
 
+		template<typename T>
+		static void forEach(std::vector<T> vec, const std::function<void(T*)>& func);
+
 	private:
 		Reference<SchedulerInternal> mInternal;
 	};
+
+	template<typename T>
+	static void Scheduler::forEach(std::vector<T> vec, const std::function<void(T*)>& func)
+	{
+		unsigned int taskElements = std::thread::hardware_concurrency()/vec.size();
+
+
+	}
 }
 
 #endif // _CONCURRENT_SCHEDULER_H_

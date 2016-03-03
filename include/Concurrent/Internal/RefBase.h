@@ -7,6 +7,9 @@
 
 namespace Concurrent
 {	
+	/**
+	 * @internal
+	 */
 	template<typename T>
 	class RefBase
 	{

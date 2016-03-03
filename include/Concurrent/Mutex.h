@@ -8,11 +8,14 @@
 namespace Concurrent
 {
 	/**
-	 * Mutex class that abstracts system specific implmentations.  A thread can lock
-	 * a mutex multiple times, but must have a corresponding unlock call for each
-	 * lock call.  The Mutex is cooperative with the system thread pool.
+	 * @brief
+	 *  A mutex class that abstracts system specific cooperative implementations.
+	 * 
+	 *  A thread can lock a mutex multiple times, but must have a
+	 *  corresponding unlock call for each lock call.  The Mutex 
+	 *  is cooperative with the system thread pool.
 	 *
-	 * See MutexLocker for scope based locking.
+	 *  See MutexLocker for scope based locking.
 	 */
 	class CONCURRENT_DYNAMIC_CLASS Mutex : private MutexPlatform
 	{

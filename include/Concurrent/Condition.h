@@ -8,15 +8,22 @@
 namespace Concurrent
 {	
 	/**
-	 * Abstracts a manual-reset condtion that is cooperative with the system thread
-	 * pool.
+	 * @brief
+	 *  Abstracts a manual-reset condtion that is cooperative with the system thread
+	 *  pool.
+	 *
+	 *  Conditions can either be in the "triggered" or "reset" state.  When triggered,
+	 *  any tasks or threads waiting on the condition will be released and any wait()
+	 *  calls will immediately return.  When in the reset state, wait() calls will
+	 *  block until the condition is destroyed or put in the triggered state.
 	 */
 	class CONCURRENT_DYNAMIC_CLASS Condition : public ConditionPlatform
 	{
 	public:
+		Condition(const Condition&) = delete;
 
 		/**
-		 * Constructor creates a condition that is not triggered.
+		 * Constructor creates a condition that is in the reset state.
 		 */
 		Condition();
 		
@@ -26,7 +33,7 @@ namespace Concurrent
 		virtual ~Condition();
 		
 		/**
-		 * Blocks until the condition is triggered or detroyed.  Returns true
+		 * Blocks until the condition is triggered or detsroyed.  Returns true
 		 * if the condition was triggered, and false if it was destroyed.
 		 */
 		bool wait();
@@ -43,7 +50,8 @@ namespace Concurrent
 		bool isTriggered() const;
 		
 		/**
-		 * Resets the condition.
+		 * Resets the condition.  After this call the condition will no longer be in
+		 * triggered state.
 		 */
 		void reset();
 	};

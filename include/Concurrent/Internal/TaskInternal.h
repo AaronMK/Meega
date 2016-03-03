@@ -10,6 +10,9 @@
 
 namespace Concurrent
 {
+	/**
+	 * @internal
+	 */
 	class CONCURRENT_DYNAMIC_CLASS TaskInternal
 	{
 		friend class Task;

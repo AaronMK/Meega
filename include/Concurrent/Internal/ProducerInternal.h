@@ -12,6 +12,9 @@
 
 namespace Concurrent
 {
+	/**
+	 * @internal
+	 */
 	template<typename T>
 	struct ProducerInternal
 	{
@@ -64,14 +67,9 @@ namespace Concurrent
 				ReadLocker lock(&rwLock);
 
 				if (messages.tryPop(out))
-				{
 					return true;
-				}
 				else if (trying || endCalled)
-				{
 					return false;
-				}
-
 
 				record.wakeUp = &ready;
 				record.out = &out;

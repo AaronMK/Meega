@@ -13,6 +13,9 @@ namespace Concurrent
 {
 	class Task;
 
+	/**
+	 * @internal
+	 */
 	class SchedulerInternal
 	{
 		friend class Task;

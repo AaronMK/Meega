@@ -8,6 +8,9 @@
 
 namespace Concurrent
 {
+	/**
+	 * @internal
+	 */
 	class CONCURRENT_DYNAMIC_CLASS RWLockPlatform
 	{
 	protected:

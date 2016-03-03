@@ -9,11 +9,13 @@ namespace Concurrent
 	class WeakRef;
 
 	/**
-	 * Holds a reference counted pointer to an object.  Operators make this act
-	 * like normal pointers.  get() can be used to obtain the actual pointer.
-	 * It wraps an implementation that is thread-safe for all provided functionality
-	 * of the Reference objects themselves, but the objects to which they point and
-	 * manage will need their own access control.
+	 * @brief
+	 *  Holds a reference counted pointer to an object.
+	 * 
+	 *  Operators make this act like normal pointers.  get() can be used to obtain the actual pointer.
+	 *  It wraps an implementation that is thread-safe for all provided functionality
+	 *  of the Reference objects themselves, but the objects to which they point and
+	 *  manage will need their own access control.
 	 */
 	template<typename T>
 	class Reference : public RefBase<T>
@@ -152,9 +154,12 @@ namespace Concurrent
 	};
 
 	/**
-	 * Creates a weak reference. lock() can be used to get a strong reference that will either
-	 * be NULL if the object has been destroyed, or can be used to prevent destruction and for
-	 * access to the object.
+	 * @brief
+	 *  Creates a weak reference.
+	 * 
+	 *  lock() can be used to get a strong reference that will either
+	 *  be NULL if the object has been destroyed, or can be used to prevent destruction and for
+	 *  access to the object.
 	 */
 	template<typename T>
 	class WeakRef : public WeakRefBase<T>

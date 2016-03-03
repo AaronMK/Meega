@@ -8,8 +8,13 @@
 namespace Concurrent
 {
 	/**
-	 * Abstract task for concurrent operations.  These can be passed to a Scheduler to be
-	 * queued for running on the platform threadpool.
+	 * @brief
+	 *  Abstract task for concurrent operations.
+	 * 
+	 *  Tasks are the basic unit of work items that are passed into the system threadpool
+	 *  via a Scheduler for execution.  They can be tracked, and subtasks for seperate
+	 *  concurrent execution can be added as child tasks from within an implementation
+	 *  of main(); 
 	 */
 	class CONCURRENT_DYNAMIC_CLASS Task : public TaskInternal
 	{
@@ -89,8 +94,8 @@ namespace Concurrent
 
 		/**
 		 * Adds a sub-task that is run as a thread.  This task will continue to run
-		 *  to completion, but will not be considered complete, until decendent tasks are
-		 *  complete. The Task must be running to create subtasks, and any subtask cannot
+		 * to completion, but will not be considered complete, until decendent tasks are
+		 * complete. The Task must be running to create subtasks, and any subtask cannot
 		 * be running when attached. The subtask will be considered running upon return.
 		 */
 		bool subTaskThread(Task* childTask);
