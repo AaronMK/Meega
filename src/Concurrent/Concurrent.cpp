@@ -1,5 +1,7 @@
 #include <Concurrent/Concurrent.h>
 
+#include <thread>
+
 namespace Concurrent
 {
 	bool initialize()
@@ -10,5 +12,10 @@ namespace Concurrent
 	void shutdown()
 	{
 
+	}
+
+	unsigned int hardwareConcurrency()
+	{
+		return std::thread::hardware_concurrency();
 	}
 }

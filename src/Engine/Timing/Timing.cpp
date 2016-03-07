@@ -2,109 +2,93 @@
 
 #include <limits>
 
-#ifdef ENGINE_PLATORM_WINDOWS
-
 #include <Windows.h>
 #include <mmsystem.h>
 
 #include <algorithm>
+#include <chrono>
 
-#pragma comment(lib, "Winmm.lib")
-
-namespace Engine
-{
-	/**
-	 * Gets the amount of time since the system started in milliseconds.
-	 */
-	static uint32_t sysGetTime()
-	{
-		return timeGetTime();
-	}
-}
-
-#endif // ENGINE_PLATORM_WINDOWS
+using namespace std::chrono;
 
 namespace Engine
 {
 	/**
-	 * Max amount of time that is allowed to be considered passed between updates.
-	 * This makes break points and pauses practical.
+	 * @internal
+	 *
+	 * @brief
+	 *  Max amount of time that is allowed to be considered passed between updates.
+	 *  This makes break points and pauses practical.
 	 */
-	static const uint32_t MAX_ENGINE_DELTA_MS = 33;
-
-	/*
-	 * Amount of engine time in milliseconds since timing was initialized.
-	 */
-	static uint64_t engineTime;
-
-	/*
-	 * Amount of time in milliseconds since the last call to update().
-	 */
-	static uint32_t engineTimeDeltaMs;
-
-	/*
-	 * Amount of engine time since timing was initialized.
-	 */
-	static float engineTimeDeltaSeconds;
-
-	/*
-	 * Amount of world time in milliseconds since the Engine started.
-	 */
-	static uint64_t worldTime;
+	static const high_resolution_clock::duration MAX_ENGINE_DELTA
+		= duration_cast<high_resolution_clock::duration>(milliseconds(33));
 
 	/**
-	 * WorldTime of last update based on the system clock.
+	 * @internal
+	 *
+	 * @brief
+	 *  Amount of time since the last call to update().
 	 */
-	static uint32_t lastUpdate;
+	static high_resolution_clock::duration engineTimeDelta;
+
+	/**
+	 * @internal
+	 *
+	 * @brief
+	 *  Amount of engine time since timing was initialized.
+	 */
+	static high_resolution_clock::duration engineTime;
+
+	/**
+	 * @internal
+	 *
+	 * @brief
+	 *  Amount of world time since the Engine started.
+	 */
+	static high_resolution_clock::duration worldTime;
+
+	/**
+	 * @internal
+	 *
+	 * @brief
+	 *  WorldTime of last update based on the system clock.
+	 */
+	static time_point<high_resolution_clock> lastUpdate;
 
 	////////////////////////////////////////////////
 
 	void Timing::initialize()
 	{
-		engineTime = 0;
-		worldTime = 0;
-		engineTimeDeltaMs = 0;
-		engineTimeDeltaSeconds = 0.0f;
-		lastUpdate = sysGetTime();
+		engineTime = high_resolution_clock::duration(0);
+		worldTime = high_resolution_clock::duration(0);
+		engineTimeDelta = high_resolution_clock::duration(0);
+		lastUpdate = high_resolution_clock::now();
 	}
 
 	void Timing::update()
 	{
-		uint32_t worldTimeDelta = 0;
-		uint32_t currentUpdate = sysGetTime();
+		time_point<high_resolution_clock> currentUpdate = high_resolution_clock::now();
+		high_resolution_clock::duration worldTimeDelta = currentUpdate - lastUpdate;
 
-		// rollover should be EXTREMELY rare, but we account for it here.
-		if (lastUpdate > currentUpdate)
-			worldTimeDelta = (std::numeric_limits<uint32_t>::max() - lastUpdate) + currentUpdate;
-		else
-			worldTimeDelta = currentUpdate - lastUpdate;
+		engineTimeDelta = std::min(worldTimeDelta, MAX_ENGINE_DELTA);
 
-		engineTimeDeltaMs = std::min(worldTimeDelta, MAX_ENGINE_DELTA_MS);
-		engineTimeDeltaSeconds = (float)engineTimeDeltaMs / 1000.0f;
-
-		worldTime += (uint64_t)worldTimeDelta;
-		engineTime += (uint64_t)engineTimeDeltaMs;
+		worldTime += worldTimeDelta;
+		engineTime += engineTimeDelta;
 
 		lastUpdate = currentUpdate;
 	}
 
-	uint64_t Timing::WorldMSecs()
+	high_resolution_clock::duration Timing::world()
 	{
 		return worldTime;
 	}
 
-	uint64_t Timing::EngineMSecs()
+	high_resolution_clock::duration Timing::engine()
 	{
 		return engineTime;
 	}
 
-	uint32_t Timing::updateDeltaMSecs()
+	high_resolution_clock::duration Timing::updateDelta()
 	{
-		return engineTimeDeltaMs;
-	}
-
-	float Timing::updateDeltaSeconds()
-	{
-		return engineTimeDeltaSeconds;
+		return engineTimeDelta;
 	}
 }

@@ -60,7 +60,6 @@ namespace MeegaSDK
 		/*
 		 * @brief
 		 *	 Closes the project file and resets the object to an invalid state.
-		 *
 		 */
 		void close();
 

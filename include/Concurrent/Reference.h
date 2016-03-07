@@ -14,8 +14,7 @@ namespace Concurrent
 	 * 
 	 *  Operators make this act like normal pointers.  get() can be used to obtain the actual pointer.
 	 *  It wraps an implementation that is thread-safe for all provided functionality
-	 *  of the Reference objects themselves, but the objects to which they point and
-	 *  manage will need their own access control.
+	 *  of the Reference objects.
 	 */
 	template<typename T>
 	class Reference : public RefBase<T>
@@ -329,6 +328,7 @@ namespace Concurrent
 
 		return ret;
 	}
+
 	template<typename T>
 	void Reference<T>::makeNull()
 	{

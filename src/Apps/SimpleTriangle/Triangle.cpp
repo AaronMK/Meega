@@ -14,6 +14,8 @@
 
 using namespace Engine;
 
+using namespace std::chrono;
+
 ////////////////////////////////////
 
 Triangle::Triangle()
@@ -67,7 +69,8 @@ Triangle::~Triangle()
 
 void Triangle::draw(const Camera &camera)
 {
-	Transform modelviewTrans = camera.world() * Transform::Rotate(vec3(0.0f, 0.0f, 1.0f), Degrees(float(Timing::EngineMSecs()) * 0.1f));
+	milliseconds engineMs = duration_cast<milliseconds>(Timing::engine());
+	Transform modelviewTrans = camera.world() * Transform::Rotate(vec3(0.0f, 0.0f, 1.0f), Degrees(float(engineMs.count()) * 0.1f));
 
 	mat4x4 modelview(modelviewTrans.matrix());
 	mat4x4 projection(camera.projection().matrix());

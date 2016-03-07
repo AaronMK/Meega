@@ -51,12 +51,14 @@ namespace MeegaSDK
 		virtual std::unique_ptr<Project> openProject(std::unique_ptr<ProjectPrivate>&& data) = 0;
 
 		/**
-		 * The name used for project type selection.
+		 * @brief
+		 *  The name used for project type selection.
 		 */
 		virtual QString name() = 0;
 
 		/**
-		 * Gets a user friendly description of the project type.
+		 * @brief
+		 *  Gets a user friendly description of the project type.
 		 */
 		virtual QString description() = 0;
 	};

@@ -122,7 +122,7 @@ namespace Concurrent
 		if (false == schedulerInternal->highPriorityQueue.tryPop(record))
 		{
 			for (size_t i = schedulerInternal->mTaskQueues.size() - 1;
-				i >= 0 && false == schedulerInternal->mTaskQueues[i].tryPop(record); i--)
+			     i >= 0 && false == schedulerInternal->mTaskQueues[i].tryPop(record); i--)
 			{
 			}
 		}
