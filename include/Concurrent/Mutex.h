@@ -27,14 +27,16 @@ namespace Concurrent
 		virtual ~Mutex();
 
 		/**
-		 * Locks the mutex to the current thread.  If locked by another thread, it will
-		 * block until the thread releases it.
+		 * @brief
+		 *  Locks the mutex to the current thread.  If locked by another thread, it will
+		 *  block until the thread releases it.
 		 */
 		bool lock();
 
 		/**
-		 * Unlocks the mutex, waking a single other thread waiting on it.  It is an error
-		 * to call unlock if the calling thread does not hold the mutex.
+		 * @brief
+		 *  Unlocks the mutex, waking a single other thread waiting on it.  It is an error
+		 *  to call unlock if the calling thread does not hold the mutex.
 		 */
 		void unlock();
 	};

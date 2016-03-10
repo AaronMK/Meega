@@ -9,7 +9,7 @@ namespace Concurrent
 {
 	/**
 	 * @brief
-	 *  A convenience class that tha makes it easy to schedule and run a
+	 *  A convenience class that that makes it easy to schedule and run a
 	 *  function as a trackable Task.
 	 */
 	class CONCURRENT_DYNAMIC_CLASS FunctionTask : public Task
@@ -18,20 +18,23 @@ namespace Concurrent
 		FunctionTask() = default;
 
 		/**
-		 * Creates a task that will run the passed function when scheduled.
+		 * @brief
+		 *  Creates a task that will run the passed function when scheduled.
 		 */
 		FunctionTask(std::function<void()>&& func);
 
 		virtual ~FunctionTask();
 
 		/**
-		 * Sets the function that will run when the task is scheduled.  It is an error
-		 * to call this function when the task is in the running state.
+		 * @brief
+		 *  Sets the function that will run when the task is scheduled.  It is an error
+		 *  to call this function when the task is in the running state.
 		 */
 		void setFunction(std::function<void()>&& func);
 
 		/**
-		 * Overriden to call the function wrapped in the task.
+		 * @brief
+		 *  Overriden to call the function wrapped in the task.
 		 */
 		virtual void main() override;
 

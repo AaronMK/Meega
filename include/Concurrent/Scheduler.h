@@ -30,77 +30,79 @@ namespace Concurrent
 		Scheduler& operator=(const Scheduler&) = delete;
 
 		/**
-		 * Creates a scheduler with the passed value as the highest priority level.
-		 * Valid priorities will be in the range of [0, maxPriority].  Passing a value
-		 * or zero or less will create a scheduler that simply submits tasks to the
-		 * system thread pool in the order received.
+		 * @brief
+		 *  Creates a scheduler with the passed value as the highest priority level.
+		 *
+		 *  Valid priorities will be in the range of [0, maxPriority].  Passing a value
+		 *  or zero or less will create a scheduler that simply submits tasks to the
+		 *  system thread pool in the order received.
 		 */
 		Scheduler(int maxPriority);
 		
 		/**
-		 * Move constructor.
+		 * @brief
+		 *  Move constructor.
 		 *
-		 * Management of tasks passed to other will move to this.
+		 *  Management of tasks passed to other will move to this.
 		 */
 		Scheduler(Scheduler&& other);
 
 		/**
-		 * Destructor of the scheduler object.  Any tasks still remaing in the
-		 * scheduler will still be sent to the system threadpool in the proper order
-		 * even after the scheduler object is gone.
+		 * @brief
+		 *  Destructor of the scheduler object.
+		 *
+		 *  Any tasks still remaing in the the system threadpool
+		 *  in the proper order even after the scheduler object is gone.
 		 */
 		virtual ~Scheduler();
 
 		/**
-		 * Adds a function for scheduling.  If the passed priority is
-		 * greater than that of the scheduler, it will be clamped.
+		 * @brief
+		 *  Adds a function for scheduling.  If the passed priority is
+		 *  greater than that of the scheduler, it will be clamped.
 		 */
 		void addTask(std::function<void()>&& func, int priority);
 
 		/**
-		 * Adds a task for scheduling.  If the passed priority is
-		 * greater than that of the scheduler, it will be clamped.
+		 * @brief
+		 *  Adds a task for scheduling.  If the passed priority is
+		 *  greater than that of the scheduler, it will be clamped.
 		 */
 		void addTask(Task* task, int priority);
 
 		/**
-		 * Move assignment.
+		 * @brief
+		 *  Move assignment.
 		 *
-		 * Management of tasks passed to other will move to the l-value.
+		 *  Management of tasks passed to other will move to the l-value.
 		 */
 		Scheduler& operator=(Scheduler&& other);
 
 		/**
-		 * Gets a default scheduler with a single priority.  This is also the scheduler
-		 * that is used when a task run as a thread creates a subtask.
+		 * @brief
+		 *  Gets a default scheduler with a single priority.
+		 *
+		 *  This is also the scheduler that is used when a task run 
+		 *  as a thread creates a subtask.
 		 */
 		static Scheduler* default();
 
 		/**
-		 * Runs a task in its own thread.
+		 * @brief
+		 *  Runs a task in its own thread.
 		 */
 		static void runAsThread(Task* task);
 
 		/**
-		 * Runs a task inline in the current thread, and does not return until the
-		 * task and any subtasks it schedules have been completed.
+		 * @brief
+		 *  Runs a task inline in the current thread, and does not return until the
+		 *  task and any subtasks it schedules have been completed.
 		 */
 		static void runInline(Task* task);
-
-		template<typename T>
-		static void forEach(std::vector<T> vec, const std::function<void(T*)>& func);
 
 	private:
 		Reference<SchedulerInternal> mInternal;
 	};
-
-	template<typename T>
-	static void Scheduler::forEach(std::vector<T> vec, const std::function<void(T*)>& func)
-	{
-		unsigned int taskElements = std::thread::hardware_concurrency()/vec.size();
-
-
-	}
 }
 
 #endif // _CONCURRENT_SCHEDULER_H_

@@ -17,31 +17,36 @@ namespace Concurrent
 	public:
 
 		/**
-		 * Creates an empty queue.
+		 * @brief
+		 *  Creates an empty queue.
 		 */
 		Queue();
 
 		virtual ~Queue();
 
 		/**
-		 * Pushes an item onto the Queue.
+		 * @brief
+		 *  Pushes an item onto the Queue.
 		 */
 		void push(const T& item);
 
 		/**
-		 * Pushes an item onto the Queue.
+		 * @brief
+		 *  Pushes an item onto the Queue.
 		 */
 		void push(T&& item);
 
 		/**
-		 * Attempts to pop an item from the Queue, if there is something to
-		 * de-queue, it is placed in destination and true is returned.
-		 * Otherwise, destination remains unchanged and false is returned.
+		 * @brief
+		 *  Attempts to pop an item from the Queue, if there is something to
+		 *  de-queue, it is placed in destination and true is returned.
+		 *  Otherwise, destination remains unchanged and false is returned.
 		 */
 		bool tryPop(T& destination);
 
 		/**
-		 * Inspector to determine if the queue is empty.
+		 * @brief
+		 *  Inspector to determine if the queue is empty.
 		 */
 		bool isEmpty() const;
 	};

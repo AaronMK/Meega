@@ -9,11 +9,11 @@ namespace Concurrent
 	 * @brief
 	 *  A pointer that can be set independently for each thread or task.
 	 *
-	 *  This is a pointer that can be given a different value for
-	 *  each thread.  This class does no allocation or deletion of the object to which it points,
-	 *  it simply stores the thread local value of the pointer.  This class should be used sparingly
-	 *  since the number of thread local pointers that can be registered per process is limited on
-	 *  some systems.
+	 *  This is a pointer that can be given a different value for each thread.  
+	 *  This class does no allocation or deletion of the object to which it points, it simply 
+	 *  stores the thread local value of the pointer.  This class should be used sparingly
+	 *  since the number of thread local pointers that can be registered per process is limited
+	 *  on some systems.
 	 */
 	template<typename T>
 	class ThreadLocalPtr
@@ -21,42 +21,50 @@ namespace Concurrent
 	public:
 
 		/**
-		 * Constructs a thread local pointer, registering it with the runtime.
+		 * @brief
+		 *  Constructs a thread local pointer, registering it with the runtime.
 		 */
 		ThreadLocalPtr();
 
 		/**
-		 * Unregisters the thread local pointer from the runtime.
+		 * @brief
+		 *  Unregisters the thread local pointer from the runtime.
 		 */
 		virtual ~ThreadLocalPtr();
 
 		/**
-		 * "Dereference" operator acts as if the thread local poiter were a normal pointer.
+		 * @brief
+		 *  "Dereference" operator acts as if the thread local poiter were a normal pointer.
 		 */
 		operator T*();
 
 		/**
-		 * "Member" operator acts as if the thread local poiter were a normal pointer.
+		 * @brief
+		 *  "Member" operator acts as if the thread local poiter were a normal pointer.
 		 */
 		T* operator->();
 
 		/**
-		 * "Member" operator acts as if the thread local pointer were a normal pointer.
+		 * @brief
+		 *  "Member" operator acts as if the thread local pointer were a normal pointer.
 		 */
 		const T* operator->() const;
 
 		/**
-		 * Obtains the thread's value of the pointer.
+		 * @brief
+		 *  Obtains the thread's value of the pointer.
 		 */
 		const T* get() const;
 
 		/**
-		 * Obtains the thread's value of the pointer.
+		 * @brief
+		 *  Obtains the thread's value of the pointer.
 		 */
 		T* get();
 
 		/**
-		 * Sets the value of the pointer for the current thread.
+		 * @brief
+		 *  Sets the value of the pointer for the current thread.
 		 */
 		void set(T* val);
 

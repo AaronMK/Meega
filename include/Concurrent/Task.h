@@ -28,81 +28,102 @@ namespace Concurrent
 		virtual ~Task();
 		
 		/**
-		 * Override to determine what your task will do.
+		 * @brief
+		 *  Override to determine what your task will do.
 		 */
 		virtual void main() = 0;
 
 		/**
-		 * The task is either currently running, or is in the queue waiting to run.
+		 * @brief
+		 *  The task is either currently running, or is in the queue waiting to run.
 		 */
 		bool isRunning();
 
 		/**
-		 * Waits for the task and its subtasks to complete.  This will return immediately if the
-		 * task has not been passed to the scheduler.
+		 * @brief
+		 *  Waits for the task and its subtasks to complete.  This will return immediately if the
+		 *  task has not been passed to the scheduler.
 		 */
 		void wait();
 
 		/**
-		 * Returns true if the task is running on the current thread.
+		 * @brief
+		 *  Returns true if the task is running on the current thread.
 		 */
 		bool isCurrent() const;
 
 		/**
-		 * Gets a pointer to the Task that is currently running.  This will be NULL if execution
-		 * is outside the context of a Scheduler.
+		 * @brief
+		 *  Gets a pointer to the Task that is currently running.  This will be nullptr if execution
+		 *  is outside the context of a Scheduler.
 		 */
 		static Task* current();
 
 		/**
-		 * Waits for any task to complete, returning the index of the task that completed.
+		 * @brief
+		 *  Waits for any task to complete, returning the index of the task that completed.
 		 */
 		static size_t waitForAny(Task** tArray, size_t numTasks);
 
 		/**
-		 * Waits for all tasks to complete.
+		 * @brief
+		 *  Waits for all tasks to complete.
 		 */
 		static void waitForAll(Task** tArray, size_t numTasks);
 
 	protected:
 
 		/**
-		 * Adds the function as a subtask of this task.  There is no tracking for 
-		 * the status provided by the tasking system, but the task calling this will
-		 * not be signaled as complete until func has also completed.
+		 * @brief
+		 *  Adds the function as a subtask of this task.
+		 *  
+		 *  There is no tracking for the status provided by the tasking system, 
+		 *  but the task calling this will not be signaled as complete until
+		 *  func has also completed.
 		 */
 		bool subTask(std::function<void()>&& func);
 
 		/**
-		 * Adds the function as a subtask of this task, and runs it as a thread.  
-		 * There is no tracking for the status provided by the tasking system,
-		 * but the task calling this will, not be signaled as complete until
-		 * func has also completed.
+		 * @brief
+		 *  Adds the function as a subtask of this task, and runs it as a thread.
+		 *
+		 *  There is no tracking for the status provided by the tasking system,
+		 *  but the task calling this will not be signaled as complete until
+		 *  func has also completed.
 		 */
 		bool subTaskThread(std::function<void()>&& func);
 
 		/**
-		 * Adds a sub-task.  This task will continue to run to completion, but will not
-		 * be considered complete, until decendent tasks are complete. The Task
-		 * must be running to create subtasks, and any subtask cannot be running
-		 * when attached. The subtask will be considered running upon return.
+		 * @brief
+		 *  Adds a sub-task.
+		 * 
+		 *  This task will continue to run to completion, but will not
+		 *  be considered complete, until decendent tasks are complete. The Task
+		 *  must be running to create subtasks, and any subtask cannot be running
+		 *  when attached. The subtask will be considered running upon return.
 		 *
-		 * Subtasks will be placed on the highest priority queue.  This prevents a subtask from
-		 * effectively lowering the priority of the original task.
+		 *  Subtasks will be placed on the highest priority queue.  This prevents a subtask from
+		 *  effectively lowering the priority of the original task.
 		 */
 		bool subTask(Task* childTask);
 
 		/**
-		 * Adds a sub-task that is run as a thread.  This task will continue to run
-		 * to completion, but will not be considered complete, until decendent tasks are
-		 * complete. The Task must be running to create subtasks, and any subtask cannot
-		 * be running when attached. The subtask will be considered running upon return.
+		 * @brief
+		 *  Adds a sub-task that is run as a thread.
+		 *
+		 *  This task will continue to run to completion, but will not be considered complete 
+		 *  until decendent tasks are complete. The Task must be running to create subtasks,
+		 *  and any subtask cannot be running when attached. The subtask will be considered
+		 *  running upon return.
 		 */
 		bool subTaskThread(Task* childTask);
 
 		/**
-		 * Yields the current thread to work on another task.  This is good for keeping cores busy
-		 * while waiting on non-cooperative sychronization primitives.
+		 * @brief
+		 *  Yields the current thread to work on another task.
+		 *
+		 *  This is good for keeping cores busy while waiting on non-cooperative
+		 *  sychronization primitives.
 		 */
 		void yield();
 	};

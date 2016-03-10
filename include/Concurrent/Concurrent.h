@@ -9,9 +9,10 @@
  */
 namespace Concurrent
 {
-	CONCURRENT_DYNAMIC_FUNC_EXPORT bool initialize();
-	CONCURRENT_DYNAMIC_FUNC_EXPORT void shutdown();
-
+	/**
+	 * @brief
+	 *  Returns the number of logical cores on the host system.
+	 */
 	CONCURRENT_DYNAMIC_FUNC_EXPORT unsigned int hardwareConcurrency();
 }
 

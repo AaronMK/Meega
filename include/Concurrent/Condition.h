@@ -23,35 +23,41 @@ namespace Concurrent
 		Condition(const Condition&) = delete;
 
 		/**
-		 * Constructor creates a condition that is in the reset state.
+		 * @brief
+		 *  Constructor creates a condition that is in the reset state.
 		 */
 		Condition();
 		
 		/**
-		 * Detroys the condition, and returns false from any wait() calls.
+		 * @brief
+		 *  Detroys the condition, and returns false from any wait() calls.
 		 */
 		virtual ~Condition();
 		
 		/**
-		 * Blocks until the condition is triggered or detsroyed.  Returns true
-		 * if the condition was triggered, and false if it was destroyed.
+		 * @brief
+		 *  Blocks until the condition is triggered or detsroyed.  Returns true
+		 *  if the condition was triggered, and false if it was destroyed.
 		 */
 		bool wait();
 		
 		/**
-		 * Triggers the condition, and releases and returns from all wait calls.  Any subsequent
-		 * threads that call wait() will return until reset() is called.
+		 * @brief
+		 *  Triggers the condition, and releases and returns from all wait calls.  Any subsequent
+		 *  threads that call wait() will return until reset() is called.
 		 */
 		void trigger();
 
 		/**
-		 * Returns true if in the triggered state, ie if wait() would immediately return.
+		 * @brief
+		 *  Returns true if in the triggered state, ie if wait() would immediately return.
 		 */
 		bool isTriggered() const;
 		
 		/**
-		 * Resets the condition.  After this call the condition will no longer be in
-		 * triggered state.
+		 * @brief
+		 *  Resets the condition.  After this call the condition will no longer be in
+		 *  triggered state.
 		 */
 		void reset();
 	};

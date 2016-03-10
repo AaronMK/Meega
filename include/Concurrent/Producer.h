@@ -26,24 +26,28 @@ namespace Concurrent
 		Producer();
 
 		/**
-		 * Destruction of the produder with an automatic end() call.  Any unconsumed items
-		 * in the queue upon destruction will be deleted.
+		 * @brief
+		 *  Destruction of the produder with an automatic end() call.  Any unconsumed items
+		 *  in the queue upon destruction will be deleted.
 		 */
 		virtual ~Producer();
 
 		/**
-		 * Pushes a copy of the passed item into the message queue.
+		 * @brief
+		 *  Pushes a copy of the passed item into the message queue.
 		 */
 		bool push(const T &item);
 
 		/**
-		 * Pushes the passed item into the message queue using move semantics.
+		 * @brief
+		 *  Pushes the passed item into the message queue using move semantics.
 		 */
 		bool push(T&& item);
 
 		/**
-		 * Takes an item out of the queue and places it in out.  This call will block
-		 * either until an item becomes available or until end is called.
+		 * @brief
+		 *  Takes an item out of the queue and places it in out.  This call will block
+		 *  either until an item becomes available or until end is called.
 		 *
 		 * @return
 		 *  True if an item was pulled from the internal queue and placed into out.
@@ -52,21 +56,25 @@ namespace Concurrent
 		bool consume(T& out);
 
 		/**
-		 * Pulls an item from the queue and puts into out and returns true, or
-		 * returns false if there is none available.
+		 * @brief
+		 *  Pulls an item from the queue and puts into out and returns true, or
+		 *  returns false if there is none available.
 		 */
 		bool tryConsume(T& out);
 
 		/**
-		 * Returns true if the queue is empty.
+		 * @brief
+		 *  Returns true if the queue is empty.
 		 */
 		bool isEmpty() const;
 
 		/**
-		 * Marks the end of message production.  consume() calls will succeed
-		 * until all items currently in the queue have been consumed.  After
-		 * that consume calls will return false.  Any subsequent push() calls
-		 * will fail.
+		 * @brief
+		 *  Marks the end of message production.
+		 *
+		 *  consume() calls will succeed until all items currently
+		 *  in the queue have been consumed.  After that, consume() will
+		 *  return false.  Any subsequent push() calls will fail.
 		 */
 		void end();
 

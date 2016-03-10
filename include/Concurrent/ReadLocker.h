@@ -16,12 +16,14 @@ namespace Concurrent
 		ReadLocker& operator=(const ReadLocker&) = delete;
 
 		/**
-		 * Acquires the passed lock for reading, blocking until it is ready to read.
+		 * @brief
+		 *  Acquires the passed lock for reading, blocking until it is ready to read.
 		 */
 		ReadLocker(RWLock *lock);
 		
 		/**
-		 * Releases ownership of the lock.
+		 * @brief
+		 *  Releases ownership of the lock.
 		 */
 		virtual ~ReadLocker();
 

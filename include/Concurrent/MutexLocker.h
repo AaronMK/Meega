@@ -19,13 +19,15 @@ namespace Concurrent
 		MutexLocker& operator=(const MutexLocker&) = delete;
 
 		/**
-		 * Contructs a locker that will take ownership of the passed Mutex.  This
-		 * call will block until the Mutex is available.
+		 * @brief
+		 *  Contructs a locker that will take ownership of the passed Mutex.  This
+		 *  call will block until the Mutex is available.
 		 */
 		MutexLocker(Mutex* M);
 
 		/**
-		 * Destructor automatically releases ownership of Mutex.
+		 * @brief
+		 *  Destructor automatically releases ownership of Mutex.
 		 */
 		virtual ~MutexLocker();
 

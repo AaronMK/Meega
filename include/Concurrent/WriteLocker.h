@@ -6,7 +6,8 @@
 namespace Concurrent
 {
 	/**
-	 * Class for scope based write locking of an RWLock.
+	 * @brief
+	 *  Class for scope based write locking of an RWLock.
 	 */
 	class CONCURRENT_DYNAMIC_CLASS WriteLocker
 	{
@@ -15,12 +16,14 @@ namespace Concurrent
 		WriteLocker& operator=(const WriteLocker&) = delete;
 
 		/**
-		 * Acquires the passed lock for writing, blocking until it has ownership.
+		 * @brief
+		 *  Acquires the passed lock for writing, blocking until it has ownership.
 		 */
 		WriteLocker(RWLock *lock);
 		
 		/**
-		 * Releases ownership of the lock.
+		 * @brief
+		 *  Releases ownership of the lock.
 		 */
 		virtual ~WriteLocker();
 

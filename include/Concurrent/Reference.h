@@ -25,129 +25,151 @@ namespace Concurrent
 	public:
 
 		/**
-		 * Creates a new reference counted item of type T with the supplied arguments
-		 * and its reference counting functionality in a single allocation.  Use this to
-		 * reduce memory fragmentation.
+		 * @brief
+		 *  Creates a new reference counted item of type T with the supplied arguments
+		 *  and its reference counting functionality in a single allocation.  Use this to
+		 *  reduce memory fragmentation.
 		 */
 		template <typename... Args>
 		static Reference<T> create(Args&& ...arguments);
 
 		/**
-		 * Creates a reference to the passed object.  The object will now be managed by
-		 * the reference counting system.
+		 * @brief
+		 *  Creates a reference to the passed object.  The object will now be managed by
+		 *  the reference counting system.
 		 */
 		Reference(T* item = nullptr);
 
 		/**
-		 * Creates a reference to the same object the referenced by Other, and increments
-		 * the reference count.
+		 * @brief
+		 *  Creates a reference to the same object the referenced by Other, and increments
+		 *  the reference count.
 		 */
 		Reference(const Reference<T> &Other);
 
 		/**
-		 * Creates a strong reference from a weak one.
+		 * @brief
+		 *  Creates a strong reference from a weak one.
 		 */
 		Reference(const WeakRef<T> &Other);
 
 		/**
-		 * Creates a reference to the same object the referenced by Other, and increments
-		 * the reference count.  Implmentation will ensure pointer compatibility, generating
-		 * a compile error on incompatible pointers.
+		 * @brief
+		 *  Creates a reference to the same object the referenced by Other, and increments
+		 *  the reference count.  Implmentation will ensure pointer compatibility, generating
+		 *  a compile error on incompatible pointers.
 		 */
 		template<typename U>
 		Reference(const Reference<U> &Other);
 
 		/**
-		 * Decrements reference count of tracked object, deleting it if the count goes
-		 * to zero.
+		 * @brief
+		 *  Decrements reference count of tracked object, deleting it if the count goes
+		 *  to zero.
 		 */
 		virtual ~Reference();
 
 		/**
-		 * Acts like the set operator of a normal pointer, but handles reference
-		 * counting in the background.  Template logic produces a compiler error
-		 * if pointer types are not compatible.
+		 * @brief
+		 *  Acts like the set operator of a normal pointer, but handles reference
+		 *  counting in the background.  Template logic produces a compiler error
+		 *  if pointer types are not compatible.
 		 */
 		template<typename U>
 		Reference<T>& operator=(const Reference<U> &Other);
 
 		/**
-		 * Acts like the set operator of a normal pointer, but handles reference
-		 * counting in the background.
+		 * @brief
+		 *  Acts like the set operator of a normal pointer, but handles reference
+		 *  counting in the background.
 		 */
 		Reference<T>& operator=(const Reference<T> &Other);
 
 		/**
-		* "de-reference" operator acts as if the Reference were a normal pointer.
-		*/
+		 * @brief
+		 *  "de-reference" operator acts as if the Reference were a normal pointer.
+		 */
 		T& operator*();
 
 		/**
-		* "de-reference" operator acts as if the Reference were a normal pointer.
-		*/
+		 * @brief
+		 *  "de-reference" operator acts as if the Reference were a normal pointer.
+		 */
 		const T& operator*() const;
 
 		/**
-		 * "Member" operator acts as if the Reference were a normal pointer.
+		 * @brief
+		 *  "Member" operator acts as if the Reference were a normal pointer.
 		 */
 		T* operator->();
 
 		/**
-		 * "Member" operator acts as if the Reference were a normal pointer.
+		 * @brief
+		 *  "Member" operator acts as if the Reference were a normal pointer.
 		 */
 		const T* operator->() const;
 
 		/**
-		 * Obtains a raw pointer to the managed object.
+		 * @brief
+		 *  Obtains a raw pointer to the managed object.
 		 */
 		T* get();
 
 		/**
-		 * Obtains a raw const pointer to the managed object.
+		 * @brief
+		 *  Obtains a raw const pointer to the managed object.
 		 */
 		const T* get() const;
 
 		/**
-		 * References are equal if this and Other reference the same object.
+		 * @brief
+		 *  References are equal if this and Other reference the same object.
 		 */
 		template<typename U>
 		bool operator==(Reference<U> &Other);
 
 		/**
-		 * References are equal if this and Other reference the same object.
+		 * @brief
+		 *  References are equal if this and Other reference the same object.
 		 */
 		bool operator==(Reference<T> &Other);
 
 		/**
-		 * Comparison operator to make Reference compatible with sorting containers.
+		 * @brief
+		 *  Comparison operator to make Reference compatible with sorting containers.
 		 */
 		template<typename U>
 		bool operator<(Reference<U> &Other);
 
 		/**
-		 * Comparison operator to make Reference compatible with sorting containers.
+		 * @brief
+		 *  Comparison operator to make Reference compatible with sorting containers.
 		 */
 		bool operator<(Reference<T> &Other);
 
 		/*
-		 * Acts like a dynamic cast of pointers, but creates a reference instead.
+		 * @brief
+		 *  Acts like a dynamic cast of pointers, but creates a reference instead.
 		 */
 		template<typename U>
 		static Reference<T> dynamicCast(const Reference<U> &Ref);
 
 		/**
-		 * Makes the reference object NULL, decrements the count of the previously referenced
-		 * object, and deletes it if the count is zero.
+		 * @brief
+		 *  Makes the reference object NULL, decrements the count of the previously referenced
+		 *  object, and deletes it if the count is zero.
 		 */
 		void makeNull();
 
 		/**
-		 * Returns true if the reference is null.
+		 * @brief
+		 *  Returns true if the reference is null.
 		 */
 		bool isNull() const;
 		
 		/**
-		 * Just like a normal pointer, true if the reference is not NULL.
+		 * @brief
+		 *  Just like a normal pointer, true if the reference is not NULL.
 		 */
 		operator bool() const;
 	};
@@ -167,6 +189,11 @@ namespace Concurrent
 		WeakRef(const WeakRef<T> &other);
 		WeakRef(const Reference<T> &other);
 
+		/**
+		 * @brief
+		 *  Creates a strong reference that will prevent destruction of the referenced object
+		 *  if it still exists, or returns a NULL reference if it has been destryed.
+		 */
 		Reference<T> lock() const;
 	};
 
