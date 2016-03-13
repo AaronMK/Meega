@@ -5,10 +5,11 @@
 
 namespace Engine
 {
-	enum GraphicsApi
+	enum class GraphicsApi
 	{
-		GRAPHICS_API_OPEN_GL,
-		GRAPHICS_API_DIRECT_X
+		Vulkan,
+		OpenGL,
+		DirectX
 	};
 
 	enum Platform

@@ -53,7 +53,7 @@ namespace MeegaSDK
 		 *   Saves the project file to disk.
 		 *
 		 *   This will always save with the most current supported version.  The project
-		 *   file, will be created if it does not exist, and overwritten if it does.
+		 *   file will be created if it does not exist, and overwritten if it does.
 		 */
 		bool save();
 

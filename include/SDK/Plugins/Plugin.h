@@ -18,13 +18,13 @@ namespace MeegaSDK
 {
 	/**
 	 * @brief
-	 * The base class for all plugins.
+	 *  The base class for all plugins.
 	 *
-	 * Each plugin for the Meega tools will return a single object of the Plugin type.  This object is
-	 * used as the interface for interacting with and adding custom functionality to the system.
+	 *  Each plugin for the Meega tools will return a single object of the Plugin type.  This object is
+	 *  used as the interface for interacting with and adding custom functionality to the system.
 	 *
-	 * Dynamic libraries containing plugins will export a function of type PluginExportFunc with the name
-	 * meegaCreatePlugins.  MEEGA_SDK_EXPORT_FUNC is a utility macro for this purpose.
+	 *  Dynamic libraries containing plugins will export a function of type PluginExportFunc with the name
+	 *  meegaCreatePlugins.  MEEGA_SDK_EXPORT_FUNC is a utility macro for this purpose.
 	 */
 	class MEEGA_SDK_CLASS Plugin
 	{

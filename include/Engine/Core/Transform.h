@@ -12,15 +12,18 @@
 namespace Engine
 {
 	/**
-	 * Transform class stores a transformation matrix and its inverse.  Provides static functions for
-	 * creating common transforms, and applying the transform to points, vectors, and normals.  All vec3 forms
-	 * transform function return vec4 since if that type is not passed, it will be created to perform
-	 * perform the transform.  It might as well be kept to speed further operations and to maintain the w value,
-	 * see utility functions for getting the vec3 back.
+	 * @brief
+	 *  Transform class stores a transformation matrix and its inverse.
 	 *
-	 * Transforms can be stacked using the multiplication operator.  The left-to-right order of the transformations
-	 * is the order in which the matrices will be multiplied.  The most local transforms to the should be on
-	 * the right.
+	 *  It provides static functions for creating common transforms, and applying the transform to 
+	 *  points, vectors, and normals.  All vec3 forms transform function return vec4 since if that type 
+	 *  is not passed, it will be created to perform perform the transform.  It might as well be 
+	 *  kept to speed further operations and to maintain the w value, see utility functions for getting
+	 *  the vec3 back.
+	 *
+	 *  Transforms can be stacked using the multiplication operator.  The left-to-right order of the transformations
+	 *  is the order in which the matrices will be multiplied.  The most local transforms to the should be on
+	 *  the right.
 	 */
 	class ENGINE_DYNAMIC_CLASS Transform : public Align16
 	{
@@ -70,8 +73,9 @@ namespace Engine
 		static Transform Rotate(vec3 axis, const Radians &angle);
 
 		/**
-		 * Creates a transform that can be used to convert screen coordanites starting with (0, 0)
-		 * at the top-left to Normalized Device Coordinates [-1, 1] in x and y.
+		 * @brief 
+		 *  Creates a transform that can be used to convert screen coordanites starting with (0, 0)
+		 *  at the top-left to Normalized Device Coordinates [-1, 1] in x and y.
 		 */
 		static Transform RasterToScreen(float winWidth, float winHeight);
 

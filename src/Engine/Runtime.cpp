@@ -8,7 +8,7 @@ namespace Engine
 {	
 	GraphicsApi Runtime::graphicsApi()
 	{
-		return GRAPHICS_API_OPEN_GL;
+		return GraphicsApi::OpenGL;
 	}
 
 	bool Runtime::maxOpenGLVersion(int* major, int* minor)
@@ -31,7 +31,7 @@ namespace Engine
 {	
 	GraphicsApi Runtime::graphicsApi()
 	{
-		return GRAPHICS_API_DIRECT_X;
+		return GraphicsApi::DirectX;
 	}
 
 	bool Runtime::maxOpenGLVersion(int* major, int* minor)

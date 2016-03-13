@@ -75,7 +75,7 @@ namespace Concurrent
 	void Scheduler::runAsThread(Task* task)
 	{
 		task->schedulerAcquire();
-		sysRunAsThread(&SchedulerInternal::threadRunner, task);
+		sysRunAsThread(std::bind(&SchedulerInternal::threadRunner, task));
 	}
 
 	void Scheduler::runInline(Task* task)
@@ -133,10 +133,8 @@ namespace Concurrent
 			record.parentTask->schedulerRelease();
 	}
 
-	void SchedulerInternal::threadRunner(void* param)
+	void SchedulerInternal::threadRunner(Task* task)
 	{
-		Task* task = static_cast<Task*>(param);
-
 		task->doRun();
 		task->wait();
 	}

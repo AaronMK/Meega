@@ -23,12 +23,14 @@ namespace Engine
 	public:
 		
 		/**
-		 * Columns of the matrix
+		 * @brief 
+		 *  Columns of the matrix
 		 */
 		vec4 Cols[4];
 		
 		/**
-		 * Creates an uninitialized matrix
+		 * @brief 
+		 *  Creates an uninitialized matrix
 		 */
 		mat4x4();
 
@@ -50,8 +52,9 @@ namespace Engine
 		mat4x4 Transpose() const;
 
 		/**
-		 * Generates a new matrix with each element the determinant of the 3x3 matrix
-		 * left when the row and column of that element are removed.
+		 * @brief 
+		 *  Generates a new matrix with each element the determinant of the 3x3 matrix
+		 *  left when the row and column of that element are removed.
 		 *
 		 * @return
 		 *	The generated minors matrix.
@@ -59,18 +62,18 @@ namespace Engine
 		mat4x4 Minors() const;
 
 		/**
-		 * Generates the inverse of the matrix using Cramer's Rule.
+		 * @brief 
+		 *  Generates the inverse of the matrix using Cramer's Rule.
 		 * 
 		 * @return
 		 *	The inverse of the matrix.
 		 */
 		mat4x4 Inverse() const;
-
-		// float Determinant();
 		
 		/**
-		 * Calucalates the Trace of the matrix.  This is the sum of the elements along
-		 * the diagonal.
+		 * @brief 
+		 *  Calucalates the Trace of the matrix.  This is the sum of the elements along
+		 *  the diagonal.
 		 * 
 		 * @return
 		 *	The trace of the matrix.
@@ -78,7 +81,8 @@ namespace Engine
 		float Trace();
 		
 		/**
-		 * Row major access to the elements of the matrix.
+		 * @brief 
+		 *  Row major access to the elements of the matrix.
 		 *
 		 * @param R
 		 *	The row index.
@@ -89,7 +93,8 @@ namespace Engine
 		float& RC(int R, int C);
 		
 		/**
-		 * Column major access to the elements of the matrix.
+		 * @brief 
+		 *  Column major access to the elements of the matrix.
 		 * 
 		 * @param C
 		 *	The column index.
@@ -102,36 +107,43 @@ namespace Engine
 		mat4x4& operator=(const mat4x4 &Other);
 		
 		/**
-		 * Obtains column C from the matrix.
+		 * @brief 
+		 *  Obtains column C from the matrix.
 		 */
 		vec4& operator[](int C);
 
 		/**
-		 * Obtains column C from the matrix.
+		 * @brief 
+		 *  Obtains column C from the matrix.
 		 */
 		const vec4& operator[](int C) const;
 	};
 
 	/**
-	 * Multiplies the 4x4 M and the 4x1 F4, giving a 4x1 result.
+	 * @brief
+	 *  Multiplies the 4x4 M and the 4x1 F4, giving a 4x1 result.
 	 */
 	ENGINE_FUNC_EXPORT vec4 operator*(const mat4x4 &M, const vec4 &F4);
 
 	/**
-	 * Multiplies the 1x4 F4 and the 4x4 F4, giving a 1x4 result.
+	 * @brief 
+	 *  Multiplies the 1x4 F4 and the 4x4 F4, giving a 1x4 result.
 	 *
-	 * NOTE: This is a SLOWER operation than (mat4x4 * vec4) since
-	 * it involves the additional calculation of a transpose.
+	 * @note
+	 *  This is a SLOWER operation than (mat4x4 * vec4) since
+	 *  it involves the additional calculation of a transpose.
 	 */
 	ENGINE_FUNC_EXPORT vec4 operator*(const vec4 &F4, const mat4x4 &M);
 	
 	/**
-	 * Matrix multiplication.
+	 * @brief 
+	 *  Matrix multiplication.
 	 */
 	ENGINE_FUNC_EXPORT mat4x4 operator*(const mat4x4 &M1, const mat4x4 &M2);
 	
 	/**
-	 * Multiplies each component of the matrix by f.
+	 * @brief 
+	 *  Multiplies each component of the matrix by f.
 	 */
 	ENGINE_FUNC_EXPORT mat4x4 operator*(float f, const mat4x4 &M);
 }
@@ -143,6 +155,6 @@ namespace Engine
 
 Q_DECLARE_METATYPE(Engine::mat4x4)
 
-#endif // ENGINE_DEVEOPMENT_SUPPORT
+#endif // defined(ENGINE_DEVEOPMENT_SUPPORT) && !defined(DOXYGEN)
 
 #endif // _ENGINE_MAT4_H_

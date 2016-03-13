@@ -27,8 +27,9 @@
 namespace Engine
 {
 	/**
-	 * Any derived class will be aligned on 16 byte boundaries.  If a class has a member requiring
-	 * 16 byte alignment, it must also derive this class.
+	 * @brief
+	 *  Any derived class will be aligned on 16 byte boundaries.  If a class has a member requiring
+	 *  16 byte alignment, it must also derive this class.
 	 */
 	ALIGN_16_PRE class ALIGN_16_POST Align16
 	{

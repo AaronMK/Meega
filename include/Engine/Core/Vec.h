@@ -13,7 +13,8 @@ namespace Engine
 	class vec4;
 
 	/**
-	 * Abstracts SIMD floating construction and operations.
+	 * @brief
+	 *  Abstracts SIMD floating construction and operations.
 	 */
 	class ENGINE_DYNAMIC_CLASS vec3
 	{
@@ -21,27 +22,32 @@ namespace Engine
 		float Vals[3];
 
 		/**
-		 * Default constructor. Does not do any initialization.
+		 * @brief
+		 *  Default constructor. Does not do any initialization.
 		 */
 		vec3();
 
 		/**
-		 * Copy Constructor.
+		 * @brief
+		 *  Copy Constructor.
 		 */
 		vec3(const vec3 &V3);
 
 		/**
-		 * Creates a vec3 with F in each of the three components.
+		 * @brief
+		 *  Creates a vec3 with F in each of the three components.
 		 */
 		vec3(float F);
 
 		/**
-		 * Creates a vec3 with f0, f1, f2 as the components
+		 * @brief
+		 *  Creates a vec3 with f0, f1, f2 as the components
 		 */
 		vec3(float f0, float f1, float f2);
 
 		/**
-		 * Creates a vec3 by translating from homogeneous cordinates if w is not zero.
+		 * @brief
+		 *  Creates a vec3 by translating from homogeneous cordinates if w is not zero.
 		 */
 		vec3(const vec4 &V3);
 
@@ -72,39 +78,45 @@ namespace Engine
 		vec3& operator=(const vec4 &V4);
 
 		/**
-		 * @return
-		 *	True if any component is not equal to zero.
+		 * @brief
+		 *  Returns true if any component is not equal to zero.
 		 */
 		operator bool() const;
 
 		/**
-		 * Provides component-wise access.
+		 * @brief
+		 *  Provides component-wise access.
 		 */
 		float& operator[](int index);
 
 		/**
-		 * Provides component-wise access.
+		 * @brief
+		 *  Provides component-wise access.
 		 */
 		const float& operator[](int index) const;
 	
 		/**
-		 * Calculates the component-wise minimum of F1 and F2;
+		 * @brief
+		 *  Calculates the component-wise minimum of F1 and F2;
 		 */
 		static vec3 Min(const vec3 &F1, const vec3 &F2);
 
 		/**
-		 * Calculates the component-wise maximum of F1 and F2;
+		 * @brief
+		 *  Calculates the component-wise maximum of F1 and F2;
 		 */
 		static vec3 Max(const vec3 &F1, const vec3 &F2);
 
-		/*
-		 * Calculates the dot product.
+		/**
+		 * @brief
+		 *  Calculates the dot product.
 		 */
 		static float Dot(const vec3 &F1, const vec3 &F2);
 	};
 
 	/**
-	 * Abstracts SIMD floating construction and operations.
+	 * @brief
+	 *  Abstracts SIMD floating construction and operations.
 	 */
 	class ENGINE_DYNAMIC_CLASS vec4 : public Align16
 	{
@@ -116,42 +128,50 @@ namespace Engine
 		};
 
 		/**
-		 * Default constructor. Does not do any initialization.
+		 * @brief
+		 *  Default constructor. Does not do any initialization.
 		 */
 		vec4();
 
 		/**
-		 * Copy Constructor.
+		 * @brief
+		 *  Copy Constructor.
 		 */
 		vec4(const vec4 &F4);
 
 		/**
-		 * Creates a vec4 with F in each of the four components.
+		 * @brief
+		 *  Creates a vec4 with F in each of the four components.
 		 */
 		vec4(float F);
 
 		/**
-		 * Contructor that uses a vec3 and user provided w;
+		 * @brief
+		 *  Contructor that uses a vec3 and user provided w;
 		 */
 		vec4(const vec3 &V, float w = 0.0f);
 
 		/**
-		 * Creates a from the platform specific base of vec4.
+		 * @brief
+		 *  Creates a from the platform specific base of vec4.
 		 */
 		vec4(const __m128 &F);
 
 		/**
-		 * Creates a vec4 with f0, f1, f2, and f3 as the components
+		 * @brief
+		 *  Creates a vec4 with f0, f1, f2, and f3 as the components
 		 */
 		vec4(float f0, float f1, float f2, float f3 = 0.0f);
 		
 		/**
-		 * Returns the component-wise addition of this Vec4 and Right.
+		 * @brief
+		 *  Returns the component-wise addition of this Vec4 and Right.
 		 */
 		vec4 operator+(const vec4 &Right) const;
 		
 		/**
-		 * Component wise addition of Right to the Vec4.
+		 * @brief
+		 *  Component wise addition of Right to the Vec4.
 		 */
 		void operator+=(const vec4 &Right);
 
@@ -169,80 +189,92 @@ namespace Engine
 		void operator/=(const vec4 &F4);
 
 		/**
-		 * Each element where this vector is less than Right will be 1.0f in the returned Vec4.
+		 * @brief
+		 *  Each element where this vector is less than Right will be 1.0f in the returned Vec4.
 		 */
 		vec4 operator<(const vec4 &Right) const;
 
 		/**
-		 * Each element where this vector is less than or equal to Right will be 1.0f in the returned Vec4.
+		 * @brief
+		 *  Each element where this vector is less than or equal to Right will be 1.0f in the returned Vec4.
 		 */
 		vec4 operator<=(const vec4 &Right) const;
 
 		/**
-		 * Each element where this vector equal to Right will be 1.0f in the returned Vec4.
+		 * @brief
+		 *  Each element where this vector equal to Right will be 1.0f in the returned Vec4.
 		 */
 		vec4 operator==(const vec4 &Right) const;
 		
 		/**
-		 * Each element where this vector not equal to Right will be 1.0f in the returned Vec4.
+		 * @brief
+		 *  Each element where this vector not equal to Right will be 1.0f in the returned Vec4.
 		 */
 		vec4 operator!=(const vec4 &Right) const;
 
 		/**
-		 * Each element where this vector is greater than or equal to Right will be 1.0f in the returned Vec4.
+		 * @brief
+		 *  Each element where this vector is greater than or equal to Right will be 1.0f in the returned Vec4.
 		 */
 		vec4 operator>=(const vec4 &Right) const;
 
 		/**
-		 * Each element where this vector is greater than Right will be 1.0f in the returned Vec4.
+		 * @brief
+		 *  Each element where this vector is greater than Right will be 1.0f in the returned Vec4.
 		 */
 		vec4 operator>(const vec4 &Right) const;
 
 		/**
-		 * Assignment.
+		 * @brief
+		 *  Assignment.
 		 */
 		vec4& operator=(const vec4 &Other);
 
 		/**
-		 * @return
-		 *	true if any component is not equal to zero.
+		 * @brief
+		 *	Returns true if any component is not equal to zero.
 		 */
 		operator bool() const;
 
 		/**
-		 * Provides component-wise access.
+		 * @brief
+		 *  Provides component-wise access.
 		 */
 		float& operator[](int index);
 
 		/**
-		 * Provides component-wise access.
+		 * @brief
+		 *  Provides component-wise access.
 		 */
 		const float& operator[](int index) const;
 	
 		/**
-		 * Calculates the component-wise minimum of F1 and F2;
+		 * @brief
+		 *  Calculates the component-wise minimum of F1 and F2;
 		 */
 		static vec4 Min(const vec4 &F1, const vec4 &F2);
 
 		/**
-		 * Calculates the component-wise maximum of F1 and F2;
+		 * @brief
+		 *  Calculates the component-wise maximum of F1 and F2;
 		 */
 		static vec4 Max(const vec4 &F1, const vec4 &F2);
 		
 		/*
-		 * Calculates the dot product.
+		 * @brief
+		 *  Calculates the dot product.
 		 */
 		static float Dot(const vec4 &F1, const vec4 &F2);
 	};
 }
 
-#ifdef ENGINE_DEVEOPMENT_SUPPORT
+#if defined(ENGINE_DEVEOPMENT_SUPPORT) && !defined(DOXYGEN)
 
 #include <QtCore/QMetaType>
 
 Q_DECLARE_METATYPE(Engine::vec3)
 Q_DECLARE_METATYPE(Engine::vec4)
 
-#endif // ENGINE_DEVEOPMENT_SUPPORT
+#endif // defined(ENGINE_DEVEOPMENT_SUPPORT) && !defined(DOXYGEN)
 
 #endif // _ENGINE_VEC_H_

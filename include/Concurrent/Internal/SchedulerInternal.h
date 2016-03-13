@@ -63,8 +63,7 @@ namespace Concurrent
 
 		static void taskRunner(void* scheduler);
 
-		static void threadRunner(void* task);
-
+		static void threadRunner(Task* task);
 
 		Queue<TaskRecord> highPriorityQueue;
 		std::vector< Queue<TaskRecord> > mTaskQueues;

@@ -17,8 +17,9 @@
 namespace Engine
 {
 	/**
-	 * Allocator that can be used as a type parameter to STL collection classes
-	 * to guarentee proper alignment for items.
+	 * @brief
+	 *  Allocator that can be used as a type parameter to STL collection classes
+	 *  to guarentee proper alignment for items.
 	 */
 	template<typename T, size_t alignment>
 	class AlignedAllocator

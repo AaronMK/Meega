@@ -10,32 +10,38 @@
 namespace OpenGL
 {
 	/**
-	 * Performs OpenGL initialization.  This must be called before any use of OpenGL functionality.
+	 * @brief
+	 *  Performs OpenGL initialization.  This must be called before any use of OpenGL functionality.
 	 */
 	GPU_DYNAMIC_FUNC_EXPORT bool initialize();
 
 	/**
-	 * Peforms shutdown of OpenGL and frees related resources.
+	 * @brief
+	 *  Peforms shutdown of OpenGL and frees related resources.
 	 */
 	GPU_DYNAMIC_FUNC_EXPORT bool shutdown();
 
 	/**
-	 * Gets the maximum version of the OpenGL API that is supported on the host system.
+	 * @brief
+	 *  Gets the maximum version of the OpenGL API that is supported on the host system.
 	 */
 	GPU_DYNAMIC_FUNC_EXPORT void maxGLVersion(int* outMajor, int *outMinor);
 	
 	/**
-	 * Gets the vender of the default renderer.
+	 * @brief
+	 *  Gets the vender of the default renderer.
 	 */
 	GPU_DYNAMIC_FUNC_EXPORT const std::string& getGLVendorString();
 
 	/**
-	 * Gets the renderer string of the default OpenGL implmentation.
+	 * @brief
+	 *  Gets the renderer string of the default OpenGL implmentation.
 	 */
 	GPU_DYNAMIC_FUNC_EXPORT const std::string& getGLRendererString();
 
 	/**
-	 * Gets a string description of the last OpenGL error.
+	 * @brief
+	 *  Gets a string description of the last OpenGL error.
 	 */
 	GPU_DYNAMIC_FUNC_EXPORT const char* getLastError();
 }

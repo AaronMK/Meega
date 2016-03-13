@@ -8,17 +8,20 @@
 namespace OpenGL
 {
 	/**
-	 * Applicable to OpenGL 3.1 and above.  Determines deprecation behaviour.
+	 * @brief
+	 *  Applicable to OpenGL 3.1 and above.  Determines deprecation behaviour.
 	 */
 	enum class Profile
 	{
 		/**
-		 * Deprecated functions are not available, only core functionality for the specified version.
+		 * @brief
+		 *  Deprecated functions are not available, only core functionality for the specified version.
 		 */
 		CORE,
 
 		/**
-		 * Deprecated functions are available.
+		 * @brief
+		 *  Deprecated functions are available.
 		 */
 		COMPATIBILITY
 	};

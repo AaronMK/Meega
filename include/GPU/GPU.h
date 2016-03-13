@@ -4,8 +4,9 @@
 #include "Config.h"
 
 /**
- * The GPU namespace is a platform abstration layer for common GPU operations and
- * functionality that would otherwise require platform specific code.
+ * @brief
+ *  The GPU namespace is a platform abstration layer for common GPU operations and
+ *  functionality that would otherwise require platform specific code.
  */
 namespace GPU
 {
@@ -16,17 +17,20 @@ namespace GPU
 	};
 
 	/**
-	 * Returns true if the library was compiled with and the system supports DirectX.
+	 * @brief
+	 *  Returns true if the library was compiled with and the system supports DirectX.
 	 */
 	GPU_DYNAMIC_FUNC_EXPORT bool supportsDirectX();
 	
 	/**
-	 * Returns true if the library was compiled with and the system supports OpenGL.
+	 * @brief
+	 *  Returns true if the library was compiled with and the system supports OpenGL.
 	 */
 	GPU_DYNAMIC_FUNC_EXPORT bool supportsOpenGL();
 
 	/**
-	 * Return true if the library is being used as a dynamic library.
+	 * @brief
+	 *  Return true if the library is being used as a dynamic library.
 	 */
 	GPU_DYNAMIC_FUNC_EXPORT bool isDynamic();
 }

@@ -49,9 +49,10 @@ namespace Engine
 		T* pushAligned(size_t alignment, Args&& ...args);
 
 		/**
-		 * Destroys all objects in the MemoryPool and freeing all the
-		 * space.  Any pointers returned by the push functions
-		 * become invalid.
+		 * @brief
+		 *  Destroys all objects in the MemoryPool and freeing all the
+		 *  space.  Any pointers returned by the push functions
+		 *  become invalid.
 		 */
 		void clear();
 

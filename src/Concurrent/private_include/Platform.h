@@ -13,11 +13,6 @@ namespace Concurrent
 	/**
 	 * Runs the passed function as a thread.
 	 */
-	extern void sysRunAsThread(void (*func)(void*), void* param);
-
-	/**
-	 * Runs the passed function as a thread.
-	 */
 	extern void sysRunAsThread(std::function<void()>&& func);
 }
 

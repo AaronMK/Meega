@@ -390,7 +390,7 @@ namespace Engine
 	}
 }
 
-#ifdef ENGINE_DEVEOPMENT_SUPPORT
+#if defined(ENGINE_DEVEOPMENT_SUPPORT) && !defined(DOXYGEN)
 
 class VecMetaType
 {
@@ -403,4 +403,4 @@ public:
 };
 static VecMetaType instVecMetaType;
 
-#endif // ENGINE_DEVEOPMENT_SUPPORT
+#endif //  defined(ENGINE_DEVEOPMENT_SUPPORT) && !defined(DOXYGEN)

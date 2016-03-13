@@ -31,7 +31,8 @@ namespace Engine
 	namespace Render
 	{
 		/**
-		 * Enqueues a function into the Rendering pipeline.
+		 * @brief
+		 *  Enqueues a function into the Rendering pipeline.
 		 */
 		ENGINE_FUNC_EXPORT void enqueue(std::function<void()>&& function);
 
@@ -42,18 +43,22 @@ namespace Engine
 		ENGINE_FUNC_EXPORT void clear(unsigned int buffers);
 
 		/**
-		 * Many GPU drivers queue commands, waiting until a certian number of them
-		 * have been issued before sending them in batches to the GPU.  This function
-		 * causes queued commands to be sent to the GPU for execution, without waiting
-		 * (possibly forever) for additional commands to fill the the command buffer.
+		 * @brief
+		 *  Pushes a flush command to the pipeline.
+		 * 
+		 *  Many GPU drivers queue commands, waiting until a certian number of them
+		 *  have been issued before sending them in batches to the GPU.  This function
+		 *  causes queued commands to be sent to the GPU for execution, without waiting
+		 *  (possibly forever) for additional commands to fill the the command buffer.
 		 *
-		 * This only forces commands to be sent to the GPU for execution.  Use a Fence
-		 * to determine when execution of commands is complete.
+		 *  This only forces commands to be sent to the GPU for execution.  Use a Fence
+		 *  to determine when execution of commands is complete.
 		 */
 		ENGINE_FUNC_EXPORT void flush();
 
 		/**
-		 * Returns true if the current thread is the Render pipeline.
+		 * @brief
+		 *  Returns true if the current thread is the Render pipeline.
 		 */
 		ENGINE_FUNC_EXPORT bool inPipeline();
 	}
@@ -63,12 +68,14 @@ namespace Engine
 		ENGINE_FUNC_EXPORT void enqueue(std::function<void()>&& function);
 
 		/**
-		 * Forces any queued commands to be sent to the GPU and blocks until they are complete. 
+		 * @brief
+		 *  Forces any queued commands to be sent to the GPU and blocks until they are complete. 
 		 */
 		ENGINE_FUNC_EXPORT void flush();
 
 		/**
-		 * Returns true if the current thread is the Load pipeline.
+		 * @brief
+		 *  Returns true if the current thread is the Load pipeline.
 		 */
 		ENGINE_FUNC_EXPORT bool inPipeline();
 	}

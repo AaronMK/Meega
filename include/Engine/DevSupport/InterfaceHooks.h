@@ -8,8 +8,9 @@
 namespace Engine
 {
 	/**
-	 * Defines ways for the engine to communicate with a client.  The client can set up this communication
-	 * by passing an InterfaceHooks object to setHooks.
+	 * @brief
+	 *  Defines ways for the engine to communicate with a client.  The client can set up this communication
+	 *  by passing an InterfaceHooks object to setHooks().
 	 */
 	class ENGINE_DYNAMIC_CLASS InterfaceHooks
 	{
@@ -22,23 +23,40 @@ namespace Engine
 		static void setHooks(InterfaceHooks* hook);
 
 		/**
-		 * An error is a condition that will prevent the engine from operating further.
+		 * @brief
+		 *  An error is a condition that will prevent the engine from operating further.
 		 */
 		virtual void onError(std::string&& msg);
 
 		/**
-		 * The engine will continue to operate after a warning, but may not behave as expected.
+		 * @brief
+		 *  The engine will continue to operate after a warning, but may not behave as expected.
 		 */
 		virtual void onWarning(std::string&& msg);
 
 		/**
-		 * The engine will continue to operate after a warning, but may not behave as expected.
+		 * @brief
+		 *  The engine will continue to operate after a warning, but may not behave as expected.
 		 */
 		virtual void onInfo(std::string&& msg);
 	};
 
+	/**
+	 * @brief
+	 *  Raises an error message that passed to the current InterfaceHooks.
+	 */
 	ENGINE_FUNC_EXPORT void error(std::string&& msg);
+
+	/**
+	 * @brief
+	 *  Raises a warning message that passed to the current InterfaceHooks.
+	 */
 	ENGINE_FUNC_EXPORT void warning(std::string&& msg);
+
+	/**
+	 * @brief
+	 *  Raises an info message that passed to the current InterfaceHooks.
+	 */
 	ENGINE_FUNC_EXPORT void info(std::string&& msg);
 }
 

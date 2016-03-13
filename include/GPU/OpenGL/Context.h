@@ -8,7 +8,8 @@
 namespace OpenGL
 {
 	/**
-	 * An OpenGL context, abstracting system specific functionality.
+	 * @brief
+	 *  An OpenGL context, abstracting system specific functionality.
 	 */
 	class GPU_DYNAMIC_CLASS Context : public ContextSysBase
 	{
@@ -16,39 +17,45 @@ namespace OpenGL
 		Context(const Context&) = delete;
 
 		/**
-		 * Creates a context with the supplied format on target.  If target is NULL,
-		 * the context will be attached to an invisible window.
+		 * @brief
+		 *  Creates a context with the supplied format on target.  If target is NULL,
+		 *  the context will be attached to an invisible window.
 		 */
 		Context(const Format &fmnt);
 
 		/**
-		 * Creates a shared context. If target is NULL, the context will be attached
-		 * to an invisible window.
+		 * @brief
+		 *  Creates a shared context. If target is NULL, the context will be attached
+		 *  to an invisible window.
 		 *
-		 * <B>The shared context must be current when this constructor is called.</B>
+		 *  <B>The shared context must be current when this constructor is called.</B>
 		 */
 		Context(Context *shared);
 
 		virtual ~Context();
 
 		/**
-		 * Makes the context the current context for the thread. 
+		 * @brief
+		 *  Makes the context the current context for the thread. 
 		 */
 		virtual bool makeCurrent(GPU::RenderTarget *target = nullptr);
 
 		/**
-		 * Releases the context from the thread.
+		 * @brief
+		 *  Releases the context from the thread.
 		 */
 		virtual void doneCurrent();
 
 		/**
-		 * This begins the process of swapping the front an back buffers of the context.  The context should be current
-		 * when this is called.
+		 * @brief
+		 *  This begins the process of swapping the front an back buffers of the context.  The context should be current
+		 *  when this is called.
 		 */
 		void swapBuffers();
 
 		/**
-		 * Gets a pointer to the current context of the thread.
+		 * @brief
+		 *  Gets a pointer to the current context of the thread.
 		 */
 		static Context* current();
 	};
