@@ -4,14 +4,17 @@
 #include "Internal/TimerPlatform.h"
 
 #include <functional>
+#include <chrono>
 
 namespace Concurrent
 {
 	/**
 	 * @brief
-	 *  A timer object that will call a passed function at set intervals or after a delay.
+	 *  A timer object that will call a passed function at set intervals or after a delay.  Intervals
+	 *  will be as accurate as the underlying concurrency framework allows.  TimerPlatform::interval_t
+	 *  is defined from the std::chrono namespace to reflect underlying precision. 
 	 */
-	class CONCURRENT_DYNAMIC_CLASS Timer : public TimerPlatform
+	class CONCURRENT_EXPORT Timer : public TimerPlatform
 	{
 	public:
 		Timer(const Timer&) = delete;
@@ -22,7 +25,7 @@ namespace Concurrent
 		 *  Constructs a timer with the passed callback and interval.  start() or oneShot()
 		 *  must be called to active it.
 		 */
-		Timer(std::function<void(void)>&& func, unsigned int milliseconds);
+		Timer(std::function<void(void)>&& func, interval_t interval);
 		
 		/**
 		 * @brief
@@ -40,7 +43,7 @@ namespace Concurrent
 		 * @brief
 		 *  Configures and starts the timer.
 		 */
-		void start(std::function<void(void)>&& func, unsigned int milliseconds);
+		void start(std::function<void(void)>&& func, interval_t interval);
 
 		/**
 		 * @brief
@@ -54,7 +57,7 @@ namespace Concurrent
 		 *  
 		 *  The timer will remain configured with the passed parameters.
 		 */
-		void oneShot(std::function<void(void)>&& func, unsigned int milliseconds);
+		void oneShot(std::function<void(void)>&& func, interval_t interval);
 
 		/**
 		 * @brief

@@ -3,8 +3,10 @@
 #ifdef _WIN32
 
 #include <cassert>
+#include <type_traits>
 
 using namespace Concurrency;
+using namespace std;
 
 namespace Concurrent
 {
@@ -20,14 +22,20 @@ namespace Concurrent
 
 	void TimerPlatform::constructTimer()
 	{
+		static_assert(std::is_same<interval_t, std::chrono::milliseconds>::value,
+			"interval_t assumed to be milliseconds for current TimerPlatform::constructTimer() implementation.");
+
 		assert(nullptr == mTimer);
+
+		// Highly unlikely, but check anyway.
+		assert(mInterval.count() <= std::numeric_limits<unsigned int>::max());
 
 		static call<TimerPlatform*> funcCall([](TimerPlatform* t)
 		{
 			t->mHandler();
 		});
 
-		new (&mTimerMemory[0])sysTimer_t(mInterval, this, &funcCall, mRepeat);
+		new (&mTimerMemory[0])sysTimer_t((unsigned int)mInterval.count(), this, &funcCall, mRepeat);
 		mTimer = reinterpret_cast<sysTimer_t*>(&mTimerMemory[0]);
 	}
 
@@ -44,12 +52,12 @@ namespace Concurrent
 
 	/////////////////////////////////////////
 
-	Timer::Timer(std::function<void(void)>&& func, unsigned int milliseconds)
+	Timer::Timer(std::function<void(void)>&& func, std::chrono::milliseconds interval)
 		: Timer()
 	{
 		mTimer = nullptr;
 
-		mInterval = milliseconds;
+		mInterval = interval;
 		mHandler = std::forward<std::function<void(void)>>(func);
 	}
 
@@ -57,7 +65,7 @@ namespace Concurrent
 	{
 		mRepeat = false;
 		mTimer = nullptr;
-		mInterval = 0;
+		mInterval = interval_t(0);
 	}
 
 	Timer::~Timer()
@@ -65,11 +73,11 @@ namespace Concurrent
 		clearTimer();
 	}
 
-	void Timer::start(std::function<void(void)>&& func, unsigned int milliseconds)
+	void Timer::start(std::function<void(void)>&& func, interval_t interval)
 	{
 		clearTimer();
 
-		mInterval = milliseconds;
+		mInterval = interval;
 		mHandler = std::forward<std::function<void(void)>>(func);
 
 		start();
@@ -92,11 +100,11 @@ namespace Concurrent
 		}
 	}
 
-	void Timer::oneShot(std::function<void(void)>&& func, unsigned int milliseconds)
+	void Timer::oneShot(std::function<void(void)>&& func, interval_t interval)
 	{
 		clearTimer();
 
-		mInterval = milliseconds;
+		mInterval = interval;
 		mHandler = std::forward<std::function<void(void)>>(func);
 
 		oneShot();
@@ -129,7 +137,7 @@ namespace Concurrent
 	{
 		clearTimer();
 
-		mInterval = 0;
+		mInterval = interval_t(0);
 		mHandler = std::function<void()>();
 	}
 }

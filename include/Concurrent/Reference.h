@@ -156,7 +156,7 @@ namespace Concurrent
 
 		/**
 		 * @brief
-		 *  Makes the reference object NULL, decrements the count of the previously referenced
+		 *  Makes the reference object nullptr, decrements the count of the previously referenced
 		 *  object, and deletes it if the count is zero.
 		 */
 		void makeNull();
@@ -169,9 +169,15 @@ namespace Concurrent
 		
 		/**
 		 * @brief
-		 *  Just like a normal pointer, true if the reference is not NULL.
+		 *  Just like a normal pointer, true if the reference is not nullptr.
 		 */
 		operator bool() const;
+
+		/**
+		 * @brief
+		 *  Returns the number of references to the managed object.
+		 */
+		long use_count() const;
 	};
 
 	/**
@@ -179,7 +185,7 @@ namespace Concurrent
 	 *  Creates a weak reference.
 	 * 
 	 *  lock() can be used to get a strong reference that will either
-	 *  be NULL if the object has been destroyed, or can be used to prevent destruction and for
+	 *  be nullptr if the object has been destroyed, or can be used to prevent destruction and for
 	 *  access to the object.
 	 */
 	template<typename T>
@@ -192,7 +198,7 @@ namespace Concurrent
 		/**
 		 * @brief
 		 *  Creates a strong reference that will prevent destruction of the referenced object
-		 *  if it still exists, or returns a NULL reference if it has been destryed.
+		 *  if it still exists, or returns a nullptr reference if it has been destryed.
 		 */
 		Reference<T> lock() const;
 	};
@@ -374,32 +380,34 @@ namespace Concurrent
 		return (bool)mPtr;
 	}
 
+	template<typename T>
+	long Reference<T>::use_count() const
+	{
+		return mPtr.use_count()
+	}
+
 	///////////////////////////////////////////////////////
 
 	template<typename T>
 	WeakRefBase<T>::WeakRefBase()
 	{
-
 	}
 
 	template<typename T>
 	WeakRefBase<T>::WeakRefBase(const std::weak_ptr<T> &ptr)
 		: mWeakPtr(ptr)
 	{
-
 	}
 
 	template<typename T>
 	WeakRefBase<T>::WeakRefBase(const std::shared_ptr<T> &ptr)
 		: mWeakPtr(ptr)
 	{
-
 	}
 
 	template<typename T>
 	WeakRefBase<T>::~WeakRefBase()
 	{
-
 	}
 
 	/////////////////////////////////////
@@ -408,14 +416,12 @@ namespace Concurrent
 	WeakRef<T>::WeakRef(const WeakRef<T> &other)
 		: WeakRefBase(other.mWeakPtr)
 	{
-
 	}
 
 	template<typename T>
 	WeakRef<T>::WeakRef(const Reference<T> &other)
 		: WeakRefBase(other.mPtr)
 	{
-
 	}
 
 	template<typename T>

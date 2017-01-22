@@ -6,14 +6,18 @@
 #ifdef _WIN32
 
 #include <agents.h>
+#include <chrono>
 
 namespace Concurrent
 {
 	/**
 	 * @internal
 	 */
-	class CONCURRENT_DYNAMIC_CLASS TimerPlatform
+	class CONCURRENT_EXPORT TimerPlatform
 	{
+	public:
+		typedef std::chrono::milliseconds interval_t;
+
 	protected:
 		TimerPlatform();
 		virtual ~TimerPlatform();
@@ -26,7 +30,7 @@ namespace Concurrent
 
 		bool mRepeat;
 		std::function<void(void)> mHandler;
-		unsigned int mInterval;
+		interval_t mInterval;
 
 		void constructTimer();
 		void clearTimer();

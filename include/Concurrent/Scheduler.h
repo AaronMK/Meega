@@ -20,7 +20,7 @@ namespace Concurrent
 	 *  the active schedulers, pulling the highest priority task from eachin turn.  Any
 	 *  tasks passed with the same priority will be run in the order they are submitted.
 	 */
-	class CONCURRENT_DYNAMIC_CLASS Scheduler
+	class CONCURRENT_EXPORT Scheduler
 	{
 		friend class SchedulerInternal;
 		friend class Task;
@@ -34,7 +34,7 @@ namespace Concurrent
 		 *  Creates a scheduler with the passed value as the highest priority level.
 		 *
 		 *  Valid priorities will be in the range of [0, maxPriority].  Passing a value
-		 *  or zero or less will create a scheduler that simply submits tasks to the
+		 *  of zero or less will create a scheduler that simply submits tasks to the
 		 *  system thread pool in the order received.
 		 */
 		Scheduler(int maxPriority);
@@ -51,7 +51,7 @@ namespace Concurrent
 		 * @brief
 		 *  Destructor of the scheduler object.
 		 *
-		 *  Any tasks still remaing in the the system threadpool
+		 *  Any tasks still remaing in the the system threadpool will execute
 		 *  in the proper order even after the scheduler object is gone.
 		 */
 		virtual ~Scheduler();
