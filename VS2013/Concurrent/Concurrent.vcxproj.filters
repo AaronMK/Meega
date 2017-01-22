@@ -92,6 +92,9 @@
     <ClInclude Include="..\..\include\Concurrent\Internal\TimerPlatform.h">
       <Filter>Header Files\Internal</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\Concurrent\ObjectPool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\Concurrent\Mutex.cpp">

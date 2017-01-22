@@ -84,6 +84,7 @@
     <ClInclude Include="..\..\include\Concurrent\Internal\TimerPlatform.h" />
     <ClInclude Include="..\..\include\Concurrent\Mutex.h" />
     <ClInclude Include="..\..\include\Concurrent\MutexLocker.h" />
+    <ClInclude Include="..\..\include\Concurrent\ObjectPool.h" />
     <ClInclude Include="..\..\include\Concurrent\Producer.h" />
     <ClInclude Include="..\..\include\Concurrent\Queue.h" />
     <ClInclude Include="..\..\include\Concurrent\ReadLocker.h" />
