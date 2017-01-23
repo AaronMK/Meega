@@ -1,4 +1,6 @@
-#include "../private_include/DevSupport/QGuiThreadQueue.qt.h"
+#ifdef ENGINE_DEVELOPMENT_SUPPORT
+
+#include <Engine/DevSupport/QGuiThreadQueue.qt.h>
 
 #include <Concurrent/Producer.h>
 
@@ -46,3 +48,5 @@ namespace Engine
 			func();
 	}
 }
+
+#endif // ENGINE_DEVELOPMENT_SUPPORT

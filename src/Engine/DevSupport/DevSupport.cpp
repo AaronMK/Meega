@@ -1,6 +1,6 @@
 #include <Engine/DevSupport/DevSupport.h>
 
-#include "../private_include/DevSupport/QGuiThreadQueue.qt.h"
+#include <Engine/DevSupport/QGuiThreadQueue.qt.h>
 
 namespace Engine
 {

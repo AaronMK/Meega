@@ -28,7 +28,7 @@ private:
 
 	AppsCommon::BasicShader mShader;
 
-#ifdef ENGINE_DEVEOPMENT_SUPPORT
+#ifdef ENGINE_DEVELOPMENT_SUPPORT
 	Q_OBJECT
 public:
 	virtual QWidget* makePropertiesWidget() override;
@@ -40,7 +40,7 @@ signals:
 private:
 	void onColorEdited(Engine::RGBA_F32 color);
 
-#endif // ENGINE_DEVEOPMENT_SUPPORT
+#endif // ENGINE_DEVELOPMENT_SUPPORT
 };
 
 #endif // _TRIANGLE_H_

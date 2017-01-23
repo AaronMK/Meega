@@ -3,7 +3,7 @@
 
 #include "../Config.h"
 
-#ifdef ENGINE_DEVEOPMENT_SUPPORT
+#ifdef ENGINE_DEVELOPMENT_SUPPORT
 
 #if defined(_WIN32)
 #	if defined(_DEBUG)
@@ -29,6 +29,6 @@ namespace Engine
 	ENGINE_FUNC_EXPORT void setGuiThread(QThread* thread);
 }
 
-#endif // ENGINE_DEVEOPMENT_SUPPORT
+#endif // ENGINE_DEVELOPMENT_SUPPORT
 
 #endif // _ENGINE_DEV_SUPPORT_H_

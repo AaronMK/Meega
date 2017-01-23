@@ -16,7 +16,7 @@ using namespace Concurrent;
 namespace Engine
 {
 #ifdef ENGINE_API_OPEN_GL
-#	ifdef ENGINE_DEVEOPMENT_SUPPORT
+#	ifdef ENGINE_DEVELOPMENT_SUPPORT
 		static bool debugProfile = true;
 		
 		static void APIENTRY DebugGLCallback(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const void* userParam)

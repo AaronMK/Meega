@@ -11,7 +11,7 @@
  */
 // #define ENGINE_API_DIRECT_X
 
-/** \def ENGINE_DEVEOPMENT_SUPPORT
+/** \def ENGINE_DEVELOPMENT_SUPPORT
  * Define this to put development support into the engine.  This will enable
  * a great deal of functionality to assist in debugging of applications at a
  * noticeable cost in terms of memory, speed, and code bloat.
@@ -62,11 +62,17 @@ namespace Engine
 	ENGINE_FUNC_EXPORT bool DevelopmentSupport();
 	ENGINE_FUNC_EXPORT bool DynamicLibrary();
 
+	/**
+	 * @brief
+	 *  Checks that the pre-processor definations pertaining to Engine
+	 *  configuration correspond correctly to the version of the library
+	 *  that is imported into the running application.
+	 */
 	static bool checkRuntimeConfig()
 	{
 		bool ret = true;
 
-#		ifdef	ENGINE_DEVEOPMENT_SUPPORT
+#		ifdef	ENGINE_DEVELOPMENT_SUPPORT
 			ret &= DevelopmentSupport();
 #		else
 			ret &= !DevelopmentSupport();

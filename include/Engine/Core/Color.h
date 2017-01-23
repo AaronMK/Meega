@@ -187,7 +187,7 @@ namespace Engine
 	};
 }
 
-#if defined(ENGINE_DEVEOPMENT_SUPPORT) && !defined(DOXYGEN)
+#if defined(ENGINE_DEVELOPMENT_SUPPORT) && !defined(DOXYGEN)
 
 #include <QtCore/QMetaType>
 
@@ -200,6 +200,6 @@ Q_DECLARE_METATYPE(Engine::GRAY_ALPHA_8)
 Q_DECLARE_METATYPE(Engine::GRAY_F32)
 Q_DECLARE_METATYPE(Engine::GRAY_ALPHA_F32)
 
-#endif // defined(ENGINE_DEVEOPMENT_SUPPORT) && !defined(DOXYGEN)
+#endif // defined(ENGINE_DEVELOPMENT_SUPPORT) && !defined(DOXYGEN)
 
 #endif // _ENGINE_COLOR_H_

@@ -72,7 +72,7 @@ namespace Engine
 #if defined ENGINE_BUILD
 #	define ENGINE_DECLARE_APP_CLASS(cls)
 #else
-#	if defined(ENGINE_DEVEOPMENT_SUPPORT)
+#	if defined(ENGINE_DEVELOPMENT_SUPPORT)
 #		define ENGINE_DECLARE_APP_CLASS(cls) extern "C" __declspec(dllexport) Engine::App* createAppObject(int argc, char** argv) { return new cls(argc, argv); };
 #	else
 #		define ENGINE_DECLARE_APP_CLASS(cls) int main(int argc, char** argv) { return Engine::runApp(cls(argc, argv)); };

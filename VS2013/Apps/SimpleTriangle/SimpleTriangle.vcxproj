@@ -31,8 +31,8 @@
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="..\..\..\src\Apps\SimpleTriangle\Triangle.h">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">$(QTDIR)/bin/moc "%(FullPath)" -o "$(ProjectDir)moc\moc_%(Filename).cxx" -DENGINE_DEVEOPMENT_SUPPORT</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">$(QTDIR)/bin/moc "%(FullPath)" -o "$(ProjectDir)moc\moc_%(Filename).cxx" -DENGINE_DEVEOPMENT_SUPPORT</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">$(QTDIR)/bin/moc "%(FullPath)" -DENGINE_DEVELOPMENT_SUPPORT -o "$(ProjectDir)moc\moc_%(Filename).cxx" -DENGINE_DEVEOPMENT_SUPPORT</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">$(QTDIR)/bin/moc "%(FullPath)" -DENGINE_DEVELOPMENT_SUPPORT -o "$(ProjectDir)moc\moc_%(Filename).cxx" -DENGINE_DEVEOPMENT_SUPPORT</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">Moc%27ing %(Filename)</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">Moc%27ing %(Filename)</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">$(ProjectDir)moc\moc_%(Filename).cxx;%(Outputs)</Outputs>
@@ -65,14 +65,14 @@
     <Import Project="..\..\Base.props" />
     <Import Project="..\..\Debug.props" />
     <Import Project="..\..\Qt.props" />
-    <Import Project="..\..\Development.props" />
+    <Import Project="..\..\MeegaDevelopment.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'" Label="PropertySheets">
     <Import Project="..\..\Local.props" />
     <Import Project="..\..\Base.props" />
     <Import Project="..\..\Release.props" />
     <Import Project="..\..\Qt.props" />
-    <Import Project="..\..\Development.props" />
+    <Import Project="..\..\MeegaDevelopment.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup />

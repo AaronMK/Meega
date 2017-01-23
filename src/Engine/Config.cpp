@@ -2,7 +2,7 @@
 
 namespace Engine
 {
-#ifdef ENGINE_DEVEOPMENT_SUPPORT
+#ifdef ENGINE_DEVELOPMENT_SUPPORT
 	bool DevelopmentSupport()
 	{
 		return true;
@@ -12,7 +12,7 @@ namespace Engine
 	{
 		return false;
 	}
-#endif // ENGINE_DEVEOPMENT_SUPPORT
+#endif // ENGINE_DEVELOPMENT_SUPPORT
 
 #ifdef ENGINE_DYNAMIC
 	bool DynamicLibrary()

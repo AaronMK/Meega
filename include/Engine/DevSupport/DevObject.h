@@ -3,7 +3,7 @@
 
 #include "DevSupport.h"
 
-#ifdef ENGINE_DEVEOPMENT_SUPPORT
+#ifdef ENGINE_DEVELOPMENT_SUPPORT
 
 #include <QtWidgets/QWidget>
 
@@ -38,6 +38,6 @@ namespace Engine
 	};
 }
 
-#endif // ENGINE_DEVEOPMENT_SUPPORT
+#endif // ENGINE_DEVELOPMENT_SUPPORT
 
 #endif // _ENGINE_DEV_OBJECT_H_

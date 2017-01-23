@@ -268,13 +268,13 @@ namespace Engine
 	};
 }
 
-#if defined(ENGINE_DEVEOPMENT_SUPPORT) && !defined(DOXYGEN)
+#if defined(ENGINE_DEVELOPMENT_SUPPORT) && !defined(DOXYGEN)
 
 #include <QtCore/QMetaType>
 
 Q_DECLARE_METATYPE(Engine::vec3)
 Q_DECLARE_METATYPE(Engine::vec4)
 
-#endif // defined(ENGINE_DEVEOPMENT_SUPPORT) && !defined(DOXYGEN)
+#endif // defined(ENGINE_DEVELOPMENT_SUPPORT) && !defined(DOXYGEN)
 
 #endif // _ENGINE_VEC_H_

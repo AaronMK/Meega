@@ -38,7 +38,7 @@ namespace Engine
 
 	///////////////////////////////////////////
 
-#ifdef ENGINE_DEVEOPMENT_SUPPORT
+#ifdef ENGINE_DEVELOPMENT_SUPPORT
 
 	void error(std::string&& msg)
 	{

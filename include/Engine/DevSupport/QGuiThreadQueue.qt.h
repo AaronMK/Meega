@@ -1,7 +1,7 @@
 #ifndef _ENGINE_Q_GUI_THREAD_QUEUE_H_
 #define _ENGINE_Q_GUI_THREAD_QUEUE_H_
 
-#ifdef ENGINE_DEVEOPMENT_SUPPORT
+#ifdef ENGINE_DEVELOPMENT_SUPPORT
 
 #include <QtCore/QObject>
 #include <QtCore/QThread>
@@ -30,6 +30,6 @@ namespace Engine
 	};
 }
 
-#endif // ENGINE_DEVEOPMENT_SUPPORT
+#endif // ENGINE_DEVELOPMENT_SUPPORT
 
 #endif // _ENGINE_Q_GUI_THREAD_QUEUE_H_

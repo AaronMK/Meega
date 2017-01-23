@@ -1,6 +1,6 @@
 #include "Triangle.h"
 
-#ifdef ENGINE_DEVEOPMENT_SUPPORT
+#ifdef ENGINE_DEVELOPMENT_SUPPORT
 #	include <SDK/Widgets/QColorEdit.qt.h>
 #endif
 
@@ -22,7 +22,7 @@ Triangle::Triangle()
 	: DevObject(), mColor(1.0f, 1.0f, 1.0f),
 	  mDirty(true)
 {
-#	ifdef ENGINE_DEVEOPMENT_SUPPORT
+#	ifdef ENGINE_DEVELOPMENT_SUPPORT
 	setObjectName(QStringLiteral("Triangle"));
 
 	color.setter = [this](RGB_F32 _color)
@@ -39,7 +39,7 @@ Triangle::Triangle()
 	{
 		return mColor;
 	};
-#	endif // ENGINE_DEVEOPMENT_SUPPORT
+#	endif // ENGINE_DEVELOPMENT_SUPPORT
 
 	Render::enqueue([this]()
 	{
@@ -93,7 +93,7 @@ void Triangle::draw(const Camera &camera)
 	});
 }
 
-#ifdef ENGINE_DEVEOPMENT_SUPPORT
+#ifdef ENGINE_DEVELOPMENT_SUPPORT
 
 QWidget* Triangle::makePropertiesWidget()
 {
@@ -113,4 +113,4 @@ void Triangle::onColorEdited(Engine::RGBA_F32 color)
 	mDirty = true;
 }
 
-#endif // ENGINE_DEVEOPMENT_SUPPORT
+#endif // ENGINE_DEVELOPMENT_SUPPORT

@@ -8,7 +8,7 @@
 
 namespace Engine
 {
-#ifdef ENGINE_DEVEOPMENT_SUPPORT
+#ifdef ENGINE_DEVELOPMENT_SUPPORT
 	void initGLDebug(const OpenGL::Format &fmt, GLDEBUGPROC callback, void* userparam)
 	{
 		assert( fmt.versionMajor >= 3 );
@@ -34,7 +34,7 @@ namespace Engine
 	void initGLDebug(const OpenGL::Format &fmt, GLDEBUGPROC callback, void* userparam)
 	{
 	}
-#endif // ENGINE_DEVEOPMENT_SUPPORT
+#endif // ENGINE_DEVELOPMENT_SUPPORT
 }
 
 #endif // ENGINE_API_OPEN_GL

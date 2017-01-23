@@ -31,14 +31,14 @@
     <Import Project="..\Base.props" />
     <Import Project="..\Debug.props" />
     <Import Project="..\Qt.props" />
-    <Import Project="..\Development.props" />
+    <Import Project="..\MeegaDevelopment.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">
     <Import Project="..\Local.props" />
     <Import Project="..\Base.props" />
     <Import Project="..\Release.props" />
     <Import Project="..\Qt.props" />
-    <Import Project="..\Development.props" />
+    <Import Project="..\MeegaDevelopment.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup />

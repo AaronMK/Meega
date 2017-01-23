@@ -1,6 +1,6 @@
 #include <Engine/DevSupport/DevObject.h>
 
-#ifdef ENGINE_DEVEOPMENT_SUPPORT
+#ifdef ENGINE_DEVELOPMENT_SUPPORT
 
 namespace Engine
 {
@@ -20,4 +20,4 @@ namespace Engine
 	}
 }
 
-#endif // ENGINE_DEVEOPMENT_SUPPORT
+#endif // ENGINE_DEVELOPMENT_SUPPORT

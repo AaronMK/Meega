@@ -10,7 +10,7 @@ namespace Engine
 		mainRenderTarget = NULL;
 		vSync = VSync::AUTO;
 
-#		ifdef ENGINE_DEVEOPMENT_SUPPORT
+#		ifdef ENGINE_DEVELOPMENT_SUPPORT
 			debug = true;
 #		else
 			debug = false;

@@ -88,13 +88,13 @@ namespace Engine
 	};
 }
 
-#if defined(ENGINE_DEVEOPMENT_SUPPORT) && !defined(DOXYGEN)
+#if defined(ENGINE_DEVELOPMENT_SUPPORT) && !defined(DOXYGEN)
 
 #include <QtCore/QMetaType>
 
 Q_DECLARE_METATYPE(Engine::Ray3)
 Q_DECLARE_METATYPE(Engine::Ray4)
 
-#endif // ENGINE_DEVEOPMENT_SUPPORT
+#endif // ENGINE_DEVELOPMENT_SUPPORT
 
 #endif // _ENGINE_RAY_H_

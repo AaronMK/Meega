@@ -85,13 +85,7 @@
     <Filter Include="Generated Files">
       <UniqueIdentifier>{72efff1b-6386-410f-bc55-258d7ae023ff}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\private_include\DevSupport">
-      <UniqueIdentifier>{02dbef99-e1d0-4d35-9e25-cb4974766533}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Generated Files\private_include">
-      <UniqueIdentifier>{be1e2e8a-8fc4-4e7b-9ca3-e60d9ab2d214}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Generated Files\private_include\DevSupport">
+    <Filter Include="Generated Files\DevSupport">
       <UniqueIdentifier>{31671ce4-15d2-4e4e-9188-7c494b8dabed}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -314,16 +308,16 @@
     <ClCompile Include="..\..\src\Engine\DevSupport\QGuiThreadQueue.cpp">
       <Filter>Source Files\DevSupport</Filter>
     </ClCompile>
-    <ClCompile Include="moc\private_include\DevSupport\moc_QGuiThreadQueue.qt.cxx">
-      <Filter>Generated Files\private_include\DevSupport</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\Engine\Core\Quaternion.cpp">
       <Filter>Source Files\Core</Filter>
     </ClCompile>
+    <ClCompile Include="moc\DevSupport\moc_QGuiThreadQueue.qt.cxx">
+      <Filter>Generated Files\DevSupport</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="..\..\src\Engine\private_include\DevSupport\QGuiThreadQueue.qt.h">
-      <Filter>Source Files\private_include\DevSupport</Filter>
+    <CustomBuild Include="..\..\include\Engine\DevSupport\QGuiThreadQueue.qt.h">
+      <Filter>Header Files\DevSupport</Filter>
     </CustomBuild>
   </ItemGroup>
 </Project>

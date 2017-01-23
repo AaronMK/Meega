@@ -6,18 +6,22 @@
 namespace Engine
 {
 	/**
-	* <P>The mat4x4 class uses a column major represantation for the
-	* following reasons:
-	* <OL>
-	*	<LI>It is matches OpenGL's default implementation</LI>
-	*	<LI>It can take better advantage of SSE intructions</LI>
-	* </OL>
-	* </P>
-	*
-	* <P>The Rows reference makes it easier to follow code where
-	* operations are done on a transposed matrix, but should
-	* only be for temporary variables.</P>
-	*/
+	 * @brief
+	 *  A 4x4 matrix class.
+	 * 
+	 * @details
+	 *  <P>The mat4x4 class uses a column major represantation for the
+	 *  following reasons:
+	 *  <OL>
+	 *	 <LI>It matches OpenGL's default implementation</LI>
+	 *	 <LI>It can take better advantage of SSE intructions</LI>
+	 *  </OL>
+	 *  </P>
+	 *
+	 *  <P>The Rows reference makes it easier to follow code where
+	 *  operations are done on a transposed matrix, but should
+	 *  only be for temporary variables.</P>
+	 */
 	class ENGINE_DYNAMIC_CLASS mat4x4 : public Align16
 	{
 	public:
@@ -149,12 +153,12 @@ namespace Engine
 }
 
 
-#if defined(ENGINE_DEVEOPMENT_SUPPORT) && !defined(DOXYGEN)
+#if defined(ENGINE_DEVELOPMENT_SUPPORT) && !defined(DOXYGEN)
 
 #include <QtCore/QMetaType>
 
 Q_DECLARE_METATYPE(Engine::mat4x4)
 
-#endif // defined(ENGINE_DEVEOPMENT_SUPPORT) && !defined(DOXYGEN)
+#endif // defined(ENGINE_DEVELOPMENT_SUPPORT) && !defined(DOXYGEN)
 
 #endif // _ENGINE_MAT4_H_
