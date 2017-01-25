@@ -30,7 +30,7 @@ namespace Engine
 		GpuPipeline(GpuPipeline* shared = nullptr);
 		virtual ~GpuPipeline();
 
-		virtual void main();
+		virtual void run();
 
 		void enqueue(std::function<void()>&& func);
 

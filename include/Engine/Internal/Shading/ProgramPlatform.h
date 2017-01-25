@@ -9,7 +9,7 @@
 
 namespace Engine
 {
-	class ENGINE_DYNAMIC_CLASS ProgramPlatform
+	class ENGINE_EXPORT ProgramPlatform
 	{
 	public:
 		GLuint  mProgramID;

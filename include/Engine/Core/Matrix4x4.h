@@ -22,7 +22,7 @@ namespace Engine
 	 *  operations are done on a transposed matrix, but should
 	 *  only be for temporary variables.</P>
 	 */
-	class ENGINE_DYNAMIC_CLASS mat4x4 : public Align16
+	class ENGINE_EXPORT mat4x4 : public Align16
 	{
 	public:
 		
@@ -42,10 +42,10 @@ namespace Engine
 
 		mat4x4(const vec4 &C0, const vec4 &C1, const vec4 &C2, const vec4 &C3);
 		
-		mat4x4(float r0c0, float r0c1, float r0c2, float r0c3,
-		              float r1c0, float r1c1, float r1c2, float r1c3,
-		              float r2c0, float r2c1, float r2c2, float r2c3,
-		              float r3c0, float r3c1, float r3c2, float r3c3);
+		mat4x4( float r0c0, float r0c1, float r0c2, float r0c3,
+		        float r1c0, float r1c1, float r1c2, float r1c3,
+		        float r2c0, float r2c1, float r2c2, float r2c3,
+		        float r3c0, float r3c1, float r3c2, float r3c3);
 
 		static mat4x4& Identity();
 		
@@ -127,7 +127,7 @@ namespace Engine
 	 * @brief
 	 *  Multiplies the 4x4 M and the 4x1 F4, giving a 4x1 result.
 	 */
-	ENGINE_FUNC_EXPORT vec4 operator*(const mat4x4 &M, const vec4 &F4);
+	ENGINE_EXPORT vec4 operator*(const mat4x4 &M, const vec4 &F4);
 
 	/**
 	 * @brief 
@@ -137,28 +137,40 @@ namespace Engine
 	 *  This is a SLOWER operation than (mat4x4 * vec4) since
 	 *  it involves the additional calculation of a transpose.
 	 */
-	ENGINE_FUNC_EXPORT vec4 operator*(const vec4 &F4, const mat4x4 &M);
+	ENGINE_EXPORT vec4 operator*(const vec4 &F4, const mat4x4 &M);
 	
 	/**
 	 * @brief 
 	 *  Matrix multiplication.
 	 */
-	ENGINE_FUNC_EXPORT mat4x4 operator*(const mat4x4 &M1, const mat4x4 &M2);
+	ENGINE_EXPORT mat4x4 operator*(const mat4x4 &M1, const mat4x4 &M2);
 	
 	/**
 	 * @brief 
 	 *  Multiplies each component of the matrix by f.
 	 */
-	ENGINE_FUNC_EXPORT mat4x4 operator*(float f, const mat4x4 &M);
+	ENGINE_EXPORT mat4x4 operator*(float f, const mat4x4 &M);
 }
 
+#if !defined(DOXYGEN)
 
-#if defined(ENGINE_DEVELOPMENT_SUPPORT) && !defined(DOXYGEN)
+namespace Serialize
+{
+	template<>
+	ENGINE_EXPORT bool read<Engine::mat4x4>(ByteStream* stream, Engine::mat4x4 *out);
+
+	template<>
+	ENGINE_EXPORT bool write<Engine::mat4x4>(ByteStream* stream, const Engine::mat4x4 &val);
+}
+
+#if defined(ENGINE_DEVELOPMENT_SUPPORT)
 
 #include <QtCore/QMetaType>
 
 Q_DECLARE_METATYPE(Engine::mat4x4)
 
-#endif // defined(ENGINE_DEVELOPMENT_SUPPORT) && !defined(DOXYGEN)
+#endif // defined(ENGINE_DEVELOPMENT_SUPPORT)
+
+#endif // !defined(DOXYGEN)
 
 #endif // _ENGINE_MAT4_H_

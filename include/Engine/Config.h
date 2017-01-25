@@ -43,24 +43,22 @@
 #endif
 
 #if !defined(ENGINE_DYNAMIC) || !defined(_WIN32)
-#	define ENGINE_FUNC_EXPORT extern
-#	define ENGINE_DYNAMIC_CLASS
+#	define ENGINE_DATA_EXPORT __declspec(dllexport)
+#	define ENGINE_EXPORT
 #else
 #	ifdef ENGINE_BUILD
 #		define ENGINE_DATA_EXPORT __declspec(dllexport)
-#		define ENGINE_FUNC_EXPORT __declspec(dllexport)
-#		define ENGINE_DYNAMIC_CLASS __declspec(dllexport)
+#		define ENGINE_EXPORT __declspec(dllexport)
 #	else
 #		define ENGINE_DATA_EXPORT __declspec(dllimport)
-#		define ENGINE_FUNC_EXPORT extern
-#		define ENGINE_DYNAMIC_CLASS __declspec(dllimport)
+#		define ENGINE_EXPORT __declspec(dllimport)
 #	endif
 #endif
 
 namespace Engine
 {
-	ENGINE_FUNC_EXPORT bool DevelopmentSupport();
-	ENGINE_FUNC_EXPORT bool DynamicLibrary();
+	ENGINE_EXPORT bool DevelopmentSupport();
+	ENGINE_EXPORT bool DynamicLibrary();
 
 	/**
 	 * @brief

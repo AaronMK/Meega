@@ -1,11 +1,11 @@
-#ifndef _RESOURCE_FILE_H_
-#define _RESOURCE_FILE_H_
+#ifndef _SERIALIZE_FILE_H_
+#define _SERIALIZE_FILE_H_
 
 #include "ByteStream.h"
 
 #include <stdio.h>
 
-namespace Resource
+namespace Serialize
 {
 	/**
 	 * File based ByteStream.
@@ -13,7 +13,7 @@ namespace Resource
 	 * An attempt to create files opened for writing is always made if they don't exist, and
 	 * any file open for writing will also be readable.
 	 */
-	class RESOURCE_DYNAMIC_CLASS File : public ByteStream
+	class SERIALIZE_EXPORT File : public ByteStream
 	{
 	public:
 		File(const File&) = delete;
@@ -63,4 +63,4 @@ namespace Resource
 	};
 }
 
-#endif // _RESOURCE_FILE_H_
+#endif // _SERIALIZE_FILE_H_

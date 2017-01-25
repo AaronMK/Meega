@@ -19,7 +19,7 @@ namespace Engine
 	 *  needs signal/slot functionality.  For non-developent builds, this class compiles down
 	 *  to nothing.
 	 */
-	class ENGINE_DYNAMIC_CLASS DevObject : public QObject
+	class ENGINE_EXPORT DevObject : public QObject
 	{
 	public:
 		DevObject();

@@ -1,5 +1,4 @@
 #include <Engine/Core/Color.h>
-
 #include <Engine/Core/Utility.h>
 
 #include <cmath>
@@ -200,7 +199,228 @@ namespace Engine
 	}
 }
 
-#if defined(ENGINE_DEVELOPMENT_SUPPORT) && !defined(DOXYGEN)
+#if !defined(DOXYGEN)
+
+namespace Serialize
+{
+	template<>
+	bool read<Engine::RGB_8>(ByteStream* stream, Engine::RGB_8 *out)
+	{
+		seek_t backSeek = stream->getSeekPosition();
+
+		if ( read(stream, &out->R) &&
+		     read(stream, &out->G) &&
+		     read(stream, &out->B) )
+		{
+			return true;
+		}
+
+		stream->seek(backSeek);
+		return false;
+	}
+
+	template<>
+	bool write<Engine::RGB_8>(ByteStream* stream, const Engine::RGB_8 &val)
+	{
+		seek_t backSeek = stream->getSeekPosition();
+
+		if ( write(stream, val.R) &&
+		     write(stream, val.G) &&
+		     write(stream, val.B) )
+		{
+			return true;
+		}
+
+		stream->seek(backSeek);
+		return false;
+	}
+	
+	template<>
+	bool read<Engine::RGBA_8>(ByteStream* stream, Engine::RGBA_8 *out)
+	{
+		seek_t backSeek = stream->getSeekPosition();
+
+		if ( read(stream, &out->R) &&
+		     read(stream, &out->G) &&
+		     read(stream, &out->B) &&
+		     read(stream, &out->A) )
+		{
+			return true;
+		}
+
+		stream->seek(backSeek);
+		return false;
+	}
+
+	template<>
+	bool write<Engine::RGBA_8>(ByteStream* stream, const Engine::RGBA_8 &val)
+	{
+		seek_t backSeek = stream->getSeekPosition();
+
+		if ( write(stream, val.R) &&
+		     write(stream, val.G) &&
+		     write(stream, val.B) &&
+		     write(stream, val.A) )
+		{
+			return true;
+		}
+
+		stream->seek(backSeek);
+		return false;
+	}
+	
+	template<>
+	bool read<Engine::RGB_F32>(ByteStream* stream, Engine::RGB_F32 *out)
+	{
+		seek_t backSeek = stream->getSeekPosition();
+
+		if ( read(stream, &out->R) &&
+		     read(stream, &out->G) &&
+		     read(stream, &out->B) )
+		{
+			return true;
+		}
+
+		stream->seek(backSeek);
+		return false;
+	}
+
+	template<>
+	bool write<Engine::RGB_F32>(ByteStream* stream, const Engine::RGB_F32 &val)
+	{
+		seek_t backSeek = stream->getSeekPosition();
+
+		if ( write(stream, val.R) &&
+		     write(stream, val.G) &&
+		     write(stream, val.B) )
+		{
+			return true;
+		}
+
+		stream->seek(backSeek);
+		return false;
+	}
+	
+	template<>
+	bool read<Engine::RGBA_F32>(ByteStream* stream, Engine::RGBA_F32 *out)
+	{
+		seek_t backSeek = stream->getSeekPosition();
+
+		if ( read(stream, &out->R) &&
+		     read(stream, &out->G) &&
+		     read(stream, &out->B) &&
+		     read(stream, &out->A) )
+		{
+			return true;
+		}
+
+		stream->seek(backSeek);
+		return false;
+	}
+
+	template<>
+	bool write<Engine::RGBA_F32>(ByteStream* stream, const Engine::RGBA_F32 &val)
+	{
+		seek_t backSeek = stream->getSeekPosition();
+
+		if ( write(stream, val.R) &&
+		     write(stream, val.G) &&
+		     write(stream, val.B) &&
+		     write(stream, val.A) )
+		{
+			return true;
+		}
+
+		stream->seek(backSeek);
+		return false;
+	}
+	
+	template<>
+	bool read<Engine::GRAY_8>(ByteStream* stream, Engine::GRAY_8 *out)
+	{
+		return read(stream, &out->gray);
+	}
+
+	template<>
+	bool write<Engine::GRAY_8>(ByteStream* stream, const Engine::GRAY_8 &val)
+	{
+		return write(stream, val.gray);
+	}
+	
+	template<>
+	bool read<Engine::GRAY_ALPHA_8>(ByteStream* stream, Engine::GRAY_ALPHA_8 *out)
+	{
+		seek_t backSeek = stream->getSeekPosition();
+
+		if ( read(stream, &out->gray) &&
+		     read(stream, &out->alpha) )
+		{
+			return true;
+		}
+
+		stream->seek(backSeek);
+		return false;
+	}
+
+	template<>
+	bool write<Engine::GRAY_ALPHA_8>(ByteStream* stream, const Engine::GRAY_ALPHA_8 &val)
+	{
+		seek_t backSeek = stream->getSeekPosition();
+
+		if ( write(stream, val.gray) &&
+		     write(stream, val.alpha) )
+		{
+			return true;
+		}
+
+		stream->seek(backSeek);
+		return false;
+	}
+	
+	template<>
+	bool read<Engine::GRAY_F32>(ByteStream* stream, Engine::GRAY_F32 *out)
+	{
+		return read(stream, &out->gray);
+	}
+
+	template<>
+	bool write<Engine::GRAY_F32>(ByteStream* stream, const Engine::GRAY_F32 &val)
+	{
+		return write(stream, val.gray);
+	}
+	
+	template<>
+	bool read<Engine::GRAY_ALPHA_F32>(ByteStream* stream, Engine::GRAY_ALPHA_F32 *out)
+	{
+		seek_t backSeek = stream->getSeekPosition();
+
+		if ( read(stream, &out->gray) &&
+		     read(stream, &out->alpha) )
+		{
+			return true;
+		}
+
+		stream->seek(backSeek);
+		return false;
+	}
+
+	template<>
+	bool write<Engine::GRAY_ALPHA_F32>(ByteStream* stream, const Engine::GRAY_ALPHA_F32 &val)
+	{
+		seek_t backSeek = stream->getSeekPosition();
+
+		if ( write(stream, val.gray) &&
+		     write(stream, val.alpha) )
+		{
+			return true;
+		}
+
+		stream->seek(backSeek);
+		return false;
+	}
+}
+
+#if defined(ENGINE_DEVELOPMENT_SUPPORT) 
 
 class ColorMetaType
 {
@@ -219,4 +439,6 @@ public:
 };
 static ColorMetaType instColorMetaType;
 
-#endif // defined(ENGINE_DEVELOPMENT_SUPPORT) && !defined(DOXYGEN)
+#endif // defined(ENGINE_DEVELOPMENT_SUPPORT)
+
+#endif // !defined(DOXYGEN)

@@ -53,6 +53,11 @@ namespace Engine
 			pipeRender->setTarget(target);
 		}
 		
+		void viewport(int left, int bottom, int width, int height)
+		{
+			glViewport(left, bottom, width, height);
+		}
+
 		void swapBuffers()
 		{
 			pipeRender->swapBuffers();

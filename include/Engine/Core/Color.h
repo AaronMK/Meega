@@ -3,6 +3,8 @@
 
 #include "Types.h"
 
+#include <Serialize/Serialize.h>
+
 #include <cstdint>
 
 namespace Engine
@@ -39,7 +41,7 @@ namespace Engine
 	/**
 	 * @ingroup Color
 	 */
-	class ENGINE_DYNAMIC_CLASS RGB_8
+	class ENGINE_EXPORT RGB_8
 	{
 	public:
 		RGB_8() = default;
@@ -57,7 +59,7 @@ namespace Engine
 	/**
 	 * @ingroup Color
 	 */
-	class ENGINE_DYNAMIC_CLASS RGBA_8
+	class ENGINE_EXPORT RGBA_8
 	{
 	public:
 		RGBA_8() = default;
@@ -78,7 +80,7 @@ namespace Engine
 	/**
 	 * @ingroup Color
 	 */
-	class ENGINE_DYNAMIC_CLASS RGB_F32
+	class ENGINE_EXPORT RGB_F32
 	{
 	public:
 		RGB_F32() = default;
@@ -98,7 +100,7 @@ namespace Engine
 	/**
 	 * @ingroup Color
 	 */
-	class ENGINE_DYNAMIC_CLASS RGBA_F32
+	class ENGINE_EXPORT RGBA_F32
 	{
 	public:
 		RGBA_F32() = default;
@@ -119,7 +121,7 @@ namespace Engine
 	/**
 	 * @ingroup Color
 	 */
-	class ENGINE_DYNAMIC_CLASS GRAY_8
+	class ENGINE_EXPORT GRAY_8
 	{
 	public:
 		GRAY_8() = default;
@@ -136,7 +138,7 @@ namespace Engine
 	/**
 	 * @ingroup Color
 	 */
-	class ENGINE_DYNAMIC_CLASS GRAY_F32
+	class ENGINE_EXPORT GRAY_F32
 	{
 	public:
 		GRAY_F32() = default;
@@ -153,7 +155,7 @@ namespace Engine
 	/**
 	 * @ingroup Color
 	 */
-	class ENGINE_DYNAMIC_CLASS GRAY_ALPHA_8
+	class ENGINE_EXPORT GRAY_ALPHA_8
 	{
 	public:
 		GRAY_ALPHA_8() = default;
@@ -171,7 +173,7 @@ namespace Engine
 	/**
 	 * @ingroup Color
 	 */
-	class ENGINE_DYNAMIC_CLASS GRAY_ALPHA_F32
+	class ENGINE_EXPORT GRAY_ALPHA_F32
 	{
 	public:
 		GRAY_ALPHA_F32() = default;
@@ -187,7 +189,60 @@ namespace Engine
 	};
 }
 
-#if defined(ENGINE_DEVELOPMENT_SUPPORT) && !defined(DOXYGEN)
+#if !defined(DOXYGEN)
+
+namespace Serialize
+{
+	template<>
+	ENGINE_EXPORT bool read<Engine::RGB_8>(ByteStream* stream, Engine::RGB_8 *out);
+
+	template<>
+	ENGINE_EXPORT bool write<Engine::RGB_8>(ByteStream* stream, const Engine::RGB_8 &val);
+
+	template<>
+	ENGINE_EXPORT bool read<Engine::RGBA_8>(ByteStream* stream, Engine::RGBA_8 *out);
+
+	template<>
+	ENGINE_EXPORT bool write<Engine::RGBA_8>(ByteStream* stream, const Engine::RGBA_8 &val);
+
+	template<>
+	ENGINE_EXPORT bool read<Engine::RGB_F32>(ByteStream* stream, Engine::RGB_F32 *out);
+
+	template<>
+	ENGINE_EXPORT bool write<Engine::RGB_F32>(ByteStream* stream, const Engine::RGB_F32 &val);
+
+	template<>
+	ENGINE_EXPORT bool read<Engine::RGBA_F32>(ByteStream* stream, Engine::RGBA_F32 *out);
+
+	template<>
+	ENGINE_EXPORT bool write<Engine::RGBA_F32>(ByteStream* stream, const Engine::RGBA_F32 &val);
+
+	template<>
+	ENGINE_EXPORT bool read<Engine::GRAY_8>(ByteStream* stream, Engine::GRAY_8 *out);
+
+	template<>
+	ENGINE_EXPORT bool write<Engine::GRAY_8>(ByteStream* stream, const Engine::GRAY_8 &val);
+
+	template<>
+	ENGINE_EXPORT bool read<Engine::GRAY_ALPHA_8>(ByteStream* stream, Engine::GRAY_ALPHA_8 *out);
+
+	template<>
+	ENGINE_EXPORT bool write<Engine::GRAY_ALPHA_8>(ByteStream* stream, const Engine::GRAY_ALPHA_8 &val);
+
+	template<>
+	ENGINE_EXPORT bool read<Engine::GRAY_F32>(ByteStream* stream, Engine::GRAY_F32 *out);
+
+	template<>
+	ENGINE_EXPORT bool write<Engine::GRAY_F32>(ByteStream* stream, const Engine::GRAY_F32 &val);
+
+	template<>
+	ENGINE_EXPORT bool read<Engine::GRAY_ALPHA_F32>(ByteStream* stream, Engine::GRAY_ALPHA_F32 *out);
+
+	template<>
+	ENGINE_EXPORT bool write<Engine::GRAY_ALPHA_F32>(ByteStream* stream, const Engine::GRAY_ALPHA_F32 &val);
+}
+
+#if defined(ENGINE_DEVELOPMENT_SUPPORT)
 
 #include <QtCore/QMetaType>
 
@@ -200,6 +255,8 @@ Q_DECLARE_METATYPE(Engine::GRAY_ALPHA_8)
 Q_DECLARE_METATYPE(Engine::GRAY_F32)
 Q_DECLARE_METATYPE(Engine::GRAY_ALPHA_F32)
 
-#endif // defined(ENGINE_DEVELOPMENT_SUPPORT) && !defined(DOXYGEN)
+#endif // defined(ENGINE_DEVELOPMENT_SUPPORT)
+
+#endif // !defined(DOXYGEN)
 
 #endif // _ENGINE_COLOR_H_

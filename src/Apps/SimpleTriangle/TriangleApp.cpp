@@ -36,13 +36,6 @@ TriangleApp::TriangleApp(int argc, char** argv)
 
 	mCamera.setLookAt(vec3(0.0f, 0.0f, -2.0f), vec3(0.0f, 0.0f, 0.0f), vec3(0.0f, 1.0f, 0.0f));
 
-	Engine::Render::enqueue([this]()
-	{
-		glEnable(GL_DEPTH_TEST);
-		glEnable(GL_NORMALIZE);
-		glClearColor(0.0, 0.0, 0.0, 0.0);
-	});
-
 	renderTask.setFunction(std::bind(&TriangleApp::renderLoop, this));
 	Engine::ScheduleTask(&renderTask, Priority::High);
 }

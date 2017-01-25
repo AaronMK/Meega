@@ -10,7 +10,7 @@
 #	define ALIGN_16_POST __attribute__((aligned (16)))
 #elif _WIN32
 #	define ALIGN_16_PRE __declspec(align(16))
-#	define ALIGN_16_POST ENGINE_DYNAMIC_CLASS
+#	define ALIGN_16_POST ENGINE_EXPORT
 #endif
 
 #ifndef __SSE__

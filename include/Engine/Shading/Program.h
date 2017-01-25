@@ -18,7 +18,7 @@ namespace Engine
 	 *  and then linked to define a complete rendering pipeline.  Programs are only valid within the context it 
 	 *  is created and its shared contexts.
 	 */
-	class ENGINE_DYNAMIC_CLASS Program : public ProgramPlatform
+	class ENGINE_EXPORT Program : public ProgramPlatform
 	{
 	public:
 

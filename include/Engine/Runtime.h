@@ -22,7 +22,7 @@ namespace Engine
 	 * Static functionality used to determine how the engine was compiled and
 	 * system capabilities.
 	 */
-	class ENGINE_DYNAMIC_CLASS Runtime
+	class ENGINE_EXPORT Runtime
 	{
 		/**
 		 * Obtains the graphics API against which the library was compiled.

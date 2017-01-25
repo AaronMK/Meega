@@ -198,7 +198,7 @@ namespace Engine
 		return (this == Concurrent::Task::current());
 	}
 
-	void GpuPipeline::main()
+	void GpuPipeline::run()
 	{
 		subTaskThread([this]()
 		{
@@ -227,6 +227,10 @@ namespace Engine
 		
 		if (fmt.debug)
 			initGLDebug(fmt, &DebugGLCallback, this);
+
+		glEnable(GL_DEPTH_TEST);
+		glEnable(GL_NORMALIZE);
+		glClearColor(0.0, 0.0, 0.0, 0.0);
 
 		std::function<void()> func;
 		while (mTaskQueue.consume(func))

@@ -15,7 +15,7 @@ namespace Engine
 	 *  direction as vec3, so it is more space efficient but less computaionally
 	 *  efficeient.
 	 */
-	class ENGINE_DYNAMIC_CLASS Ray3
+	class ENGINE_EXPORT Ray3
 	{
 	public:
 		Ray3() = default;
@@ -62,7 +62,7 @@ namespace Engine
 	 *  direction as vec4, so it is more computaionally efficient but less 
 	 *  space efficeient.
 	 */
-	class ENGINE_DYNAMIC_CLASS Ray4 : public Align16
+	class ENGINE_EXPORT Ray4 : public Align16
 	{
 	public:
 		Ray4() = default;

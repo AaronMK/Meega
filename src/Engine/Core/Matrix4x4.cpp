@@ -264,7 +264,24 @@ namespace Engine
 	}
 }
 
-#if defined(ENGINE_DEVELOPMENT_SUPPORT) && !defined(DOXYGEN)
+#if !defined(DOXYGEN)
+
+namespace Serialize
+{
+	template<>
+	bool read<Engine::mat4x4>(ByteStream* stream, Engine::mat4x4 *out)
+	{
+		return read<Engine::vec4>(stream, out->Cols, 4);
+	}
+
+	template<>
+	bool write<Engine::mat4x4>(ByteStream* stream, const Engine::mat4x4 &val)
+	{
+		return write<Engine::vec4>(stream, val.Cols, 4);
+	}
+}
+
+#if defined(ENGINE_DEVELOPMENT_SUPPORT)
 
 class Mat4x4MetaType
 {
@@ -276,4 +293,6 @@ public:
 };
 static Mat4x4MetaType instMat4x4MetaType;
 
-#endif // defined(ENGINE_DEVELOPMENT_SUPPORT) && !defined(DOXYGEN)
+#endif // defined(ENGINE_DEVELOPMENT_SUPPORT)
+
+#endif // !defined(DOXYGEN)

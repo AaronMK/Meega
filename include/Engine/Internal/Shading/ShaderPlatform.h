@@ -17,7 +17,7 @@ namespace Engine
 	static const ShaderStageEnum_t ShaderGeometry_v  = GL_GEOMETRY_SHADER;
 	static const ShaderStageEnum_t ShaderFragment_v  = GL_FRAGMENT_SHADER;
 
-	class ENGINE_DYNAMIC_CLASS ShaderPlatform
+	class ENGINE_EXPORT ShaderPlatform
 	{
 	public:
 		GLenum mShaderType;

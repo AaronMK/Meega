@@ -1,15 +1,17 @@
-#include <Resource/File.h>
+#include <Serialize/File.h>
 
-#include "private_include/Internal.h"
+#ifndef _CRT_SECURE_NO_WARNINGS
+#	define _CRT_SECURE_NO_WARNINGS
+#endif
 
 #include <climits>
+#include <cstdio>
 
-namespace Resource
+namespace Serialize
 {
 	File::File()
 		: mFile(nullptr)
 	{
-
 	}
 
 	File::File(const char* path, bool readonly)
@@ -50,7 +52,6 @@ namespace Resource
 		}
 		else
 		{
-			warning("Reading of raw data from a file failed.");
 			seek(backSeek);
 			return false;
 		}
@@ -72,7 +73,6 @@ namespace Resource
 		}
 		else
 		{
-			warning("Writing of raw data to a file failed.");
 			seek(backSeek);
 			return false;
 		}
@@ -86,7 +86,6 @@ namespace Resource
 		// Check for overflow
 		if (position > (int64_t)std::numeric_limits<long>::max())
 		{
-			warning("Attempt was made to seek past the supported max file size.");
 			return false;
 		}
 
@@ -153,8 +152,13 @@ namespace Resource
 	{
 		if ( nullptr != mFile && (0 == (getFlags() | READ_ONLY)) )
 		{
-			mFile = freopen(nullptr, "w+", mFile);
-			return (nullptr != mFile);
+			FILE* reopenedFile;
+
+			if (0 == freopen_s(&reopenedFile, nullptr, "w+", mFile))
+			{
+				mFile = reopenedFile;
+				return true;
+			}
 		}
 
 		return false;
@@ -168,16 +172,16 @@ namespace Resource
 		if (readonly)
 		{
 			setFlags(READ_ONLY | CAN_SEEK);
-			mFile = fopen(path, "rb");
+			fopen_s(&mFile, path, "rb");
 		}
 		else
 		{
 			setFlags(CAN_SEEK);
 
 			if ( exists(path) )
-				mFile = fopen(path, "rb+");
+				fopen_s(&mFile, path, "rb+");
 			else
-				mFile = fopen(path, "ab+");
+				fopen_s(&mFile, path, "ab+");
 		}
 
 		if (mFile == nullptr)
@@ -219,7 +223,8 @@ namespace Resource
 
 	bool File::exists(const char* path)
 	{
-		FILE* testFile = fopen(path, "rb");
+		FILE* testFile;
+		fopen_s(&testFile, path, "rb");
 
 		if (nullptr != testFile)
 		{

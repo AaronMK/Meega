@@ -15,7 +15,7 @@ namespace Engine
 	/**
 	 * Initializes OpenGL debugging.
 	 */
-	ENGINE_FUNC_EXPORT void initGLDebug(const OpenGL::Format &fmt, GLDEBUGPROC callback, void* userparam);
+	ENGINE_EXPORT void initGLDebug(const OpenGL::Format &fmt, GLDEBUGPROC callback, void* userparam);
 }
 
 #endif // ENGINE_API_OPEN_GL

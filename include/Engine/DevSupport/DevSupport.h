@@ -26,7 +26,7 @@ namespace Engine
 	 *  In development builds the engine performs operations that must be done
 	 *  in the context of the user interface thread.  This function sets that thread.
 	 */
-	ENGINE_FUNC_EXPORT void setGuiThread(QThread* thread);
+	ENGINE_EXPORT void setGuiThread(QThread* thread);
 }
 
 #endif // ENGINE_DEVELOPMENT_SUPPORT

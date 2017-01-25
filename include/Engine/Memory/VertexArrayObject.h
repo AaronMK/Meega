@@ -7,7 +7,7 @@
 
 namespace Engine
 {
-	class ENGINE_DYNAMIC_CLASS VertexArrayObject : public VertexArrayObjectPlatform
+	class ENGINE_EXPORT VertexArrayObject : public VertexArrayObjectPlatform
 	{
 	public:
 		enum class Mode : Mode_t

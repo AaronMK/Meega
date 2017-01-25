@@ -9,7 +9,7 @@
 
 namespace Engine
 {
-	class ENGINE_DYNAMIC_CLASS VertexArrayObjectPlatform
+	class ENGINE_EXPORT VertexArrayObjectPlatform
 	{
 	protected:
 		typedef GLenum Mode_t;

@@ -231,7 +231,33 @@ namespace Engine
 	}
 }
 
-#if defined(ENGINE_DEVELOPMENT_SUPPORT) && !defined(DOXYGEN)
+
+#if !defined(DOXYGEN)
+
+namespace Serialize
+{
+	template<>
+	bool read<Engine::Transform>(ByteStream* stream, Engine::Transform *out)
+	{
+		Engine::mat4x4 matrix;
+
+		if ( read(stream, &matrix) )
+		{
+			*out = Engine::Transform(matrix);
+			return true;
+		}
+
+		return false;
+	}
+
+	template<>
+	bool write<Engine::Transform>(ByteStream* stream, const Engine::Transform &val)
+	{
+		return write(stream, val.matrix());
+	}
+}
+
+#if defined(ENGINE_DEVELOPMENT_SUPPORT)
 
 class TransformMetaType
 {
@@ -243,4 +269,6 @@ public:
 };
 static TransformMetaType instTransformMetaType;
 
-#endif // defined(ENGINE_DEVELOPMENT_SUPPORT) && !defined(DOXYGEN)
+#endif // defined(ENGINE_DEVELOPMENT_SUPPORT)
+
+#endif // !defined(DOXYGEN)

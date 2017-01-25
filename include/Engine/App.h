@@ -23,7 +23,7 @@ namespace Engine
 	 * This class also defines how the engine or engine tools will interface with the application once
 	 * launched.
 	 */
-	class ENGINE_DYNAMIC_CLASS App
+	class ENGINE_EXPORT App
 	{
 	public:
 		App(int argCount, char** argValues);
@@ -66,7 +66,7 @@ namespace Engine
 
 	typedef App* (appCreateFunc)(int argc, char** argv);
 
-	ENGINE_FUNC_EXPORT int runApp(App &app);
+	ENGINE_EXPORT int runApp(App &app);
 }
 
 #if defined ENGINE_BUILD

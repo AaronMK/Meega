@@ -12,7 +12,7 @@
 #	endif
 
 #		pragma comment(lib, "SDK.lib")
-#		pragma comment(lib, "Resource.lib")
+#		pragma comment(lib, "Serialize.lib")
 #endif
 
 int main(int argc, char** argv)

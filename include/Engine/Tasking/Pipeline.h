@@ -34,13 +34,31 @@ namespace Engine
 		 * @brief
 		 *  Enqueues a function into the Rendering pipeline.
 		 */
-		ENGINE_FUNC_EXPORT void enqueue(std::function<void()>&& function);
+		ENGINE_EXPORT void enqueue(std::function<void()>&& function);
 
-		ENGINE_FUNC_EXPORT void setTarget(GPU::RenderTarget* target);
-		ENGINE_FUNC_EXPORT void swapBuffers();
-		ENGINE_FUNC_EXPORT void clearTarget();
+		/**
+		 * @brief
+		 *  Sets the render target.  It is not valid to call this outside of the
+		 *  rendering pipeline.
+		 */
+		ENGINE_EXPORT void setTarget(GPU::RenderTarget* target);
+
+		/**
+		 * @brief
+		 *  Defines the mapping of nomralized device coordinates to window coordinates
+		 *  on the active render target.
+		 */
+		ENGINE_EXPORT void viewport(int left, int bottom, int width, int height);
+
+		/**
+		 * @brief
+		 *  Swaps the back and front buffers of the active render target.
+		 */
+		ENGINE_EXPORT void swapBuffers();
 		
-		ENGINE_FUNC_EXPORT void clear(unsigned int buffers);
+		ENGINE_EXPORT void clearTarget();
+		
+		ENGINE_EXPORT void clear(unsigned int buffers);
 
 		/**
 		 * @brief
@@ -54,30 +72,30 @@ namespace Engine
 		 *  This only forces commands to be sent to the GPU for execution.  Use a Fence
 		 *  to determine when execution of commands is complete.
 		 */
-		ENGINE_FUNC_EXPORT void flush();
+		ENGINE_EXPORT void flush();
 
 		/**
 		 * @brief
 		 *  Returns true if the current thread is the Render pipeline.
 		 */
-		ENGINE_FUNC_EXPORT bool inPipeline();
+		ENGINE_EXPORT bool inPipeline();
 	}
 
 	namespace Load
 	{
-		ENGINE_FUNC_EXPORT void enqueue(std::function<void()>&& function);
+		ENGINE_EXPORT void enqueue(std::function<void()>&& function);
 
 		/**
 		 * @brief
 		 *  Forces any queued commands to be sent to the GPU and blocks until they are complete. 
 		 */
-		ENGINE_FUNC_EXPORT void flush();
+		ENGINE_EXPORT void flush();
 
 		/**
 		 * @brief
 		 *  Returns true if the current thread is the Load pipeline.
 		 */
-		ENGINE_FUNC_EXPORT bool inPipeline();
+		ENGINE_EXPORT bool inPipeline();
 	}
 }
 

@@ -8,7 +8,7 @@
 
 namespace Engine
 {
-	class ENGINE_DYNAMIC_CLASS Fence : public FenceInternal
+	class ENGINE_EXPORT Fence : public FenceInternal
 	{
 		friend class GpuPipeline;
 	public:

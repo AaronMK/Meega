@@ -19,7 +19,7 @@ namespace Engine
 		Fragment                = ShaderFragment_v
 	};
 
-	class ENGINE_DYNAMIC_CLASS Shader : public ShaderPlatform
+	class ENGINE_EXPORT Shader : public ShaderPlatform
 	{
 	public:
 		Shader(const Shader &other) = delete;

@@ -37,9 +37,9 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Editor", "Editor\Editor.vcx
 		{23AA1CE0-28E5-4DBC-A239-520A2E6AB4DC} = {23AA1CE0-28E5-4DBC-A239-520A2E6AB4DC}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Resource", "Resource\Resource.vcxproj", "{DB5F6DD7-3F43-4A1B-A522-C343B990F953}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SDK", "SDK\SDK.vcxproj", "{23AA1CE0-28E5-4DBC-A239-520A2E6AB4DC}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Serialize", "Serialize\Serialize.vcxproj", "{60B61979-8F73-49F2-8DAB-67B9F024633A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,14 +71,14 @@ Global
 		{1B3E715B-0CA0-4198-9704-B4B99D177098}.Debug Development|x64.Build.0 = Debug Development|x64
 		{1B3E715B-0CA0-4198-9704-B4B99D177098}.Release Development|x64.ActiveCfg = Release Development|x64
 		{1B3E715B-0CA0-4198-9704-B4B99D177098}.Release Development|x64.Build.0 = Release Development|x64
-		{DB5F6DD7-3F43-4A1B-A522-C343B990F953}.Debug Development|x64.ActiveCfg = Debug Development|x64
-		{DB5F6DD7-3F43-4A1B-A522-C343B990F953}.Debug Development|x64.Build.0 = Debug Development|x64
-		{DB5F6DD7-3F43-4A1B-A522-C343B990F953}.Release Development|x64.ActiveCfg = Release Development|x64
-		{DB5F6DD7-3F43-4A1B-A522-C343B990F953}.Release Development|x64.Build.0 = Release Development|x64
 		{23AA1CE0-28E5-4DBC-A239-520A2E6AB4DC}.Debug Development|x64.ActiveCfg = Debug Development|x64
 		{23AA1CE0-28E5-4DBC-A239-520A2E6AB4DC}.Debug Development|x64.Build.0 = Debug Development|x64
 		{23AA1CE0-28E5-4DBC-A239-520A2E6AB4DC}.Release Development|x64.ActiveCfg = Release Development|x64
 		{23AA1CE0-28E5-4DBC-A239-520A2E6AB4DC}.Release Development|x64.Build.0 = Release Development|x64
+		{60B61979-8F73-49F2-8DAB-67B9F024633A}.Debug Development|x64.ActiveCfg = Debug Development|x64
+		{60B61979-8F73-49F2-8DAB-67B9F024633A}.Debug Development|x64.Build.0 = Debug Development|x64
+		{60B61979-8F73-49F2-8DAB-67B9F024633A}.Release Development|x64.ActiveCfg = Release Development|x64
+		{60B61979-8F73-49F2-8DAB-67B9F024633A}.Release Development|x64.Build.0 = Release Development|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

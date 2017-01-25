@@ -2,8 +2,6 @@
 
 #include <SDK/Internal/Project/ProjectPrivate.h>
 
-#include <Resource/File.h>
-
 namespace MeegaSDK
 {
 	Project::Project(std::unique_ptr<ProjectPrivate>&& privParams)

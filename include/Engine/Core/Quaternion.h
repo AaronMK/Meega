@@ -15,7 +15,7 @@ namespace Engine
 	 * @brief
 	 *	%Quaternion class.
 	 */
-	class ENGINE_DYNAMIC_CLASS Quaternion
+	class ENGINE_EXPORT Quaternion
 	{
 	public:
 		Quaternion() = default;

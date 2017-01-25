@@ -1,10 +1,8 @@
-#include <Resource/ByteStream.h>
-
-#include "private_include/Internal.h"
+#include <Serialize/ByteStream.h>
 
 #include <assert.h>
 
-namespace Resource
+namespace Serialize
 {
 	ByteStream::ByteStream()
 	{

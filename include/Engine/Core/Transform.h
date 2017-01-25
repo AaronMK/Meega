@@ -25,7 +25,7 @@ namespace Engine
 	 *  is the order in which the matrices will be multiplied.  The most local transforms to the should be on
 	 *  the right.
 	 */
-	class ENGINE_DYNAMIC_CLASS Transform : public Align16
+	class ENGINE_EXPORT Transform : public Align16
 	{
 	public:
 		Transform();
@@ -85,12 +85,25 @@ namespace Engine
 	};
 }
 
-#if defined(ENGINE_DEVELOPMENT_SUPPORT) && !defined(DOXYGEN)
+#if !defined(DOXYGEN)
+
+namespace Serialize
+{
+	template<>
+	ENGINE_EXPORT bool read<Engine::Transform>(ByteStream* stream, Engine::Transform *out);
+
+	template<>
+	ENGINE_EXPORT bool write<Engine::Transform>(ByteStream* stream, const Engine::Transform &val);
+}
+
+#if defined(ENGINE_DEVELOPMENT_SUPPORT)
 
 #include <QtCore/QMetaType>
 
 Q_DECLARE_METATYPE(Engine::Transform)
 
-#endif // ENGINE_DEVELOPMENT_SUPPORT
+#endif // defined(ENGINE_DEVELOPMENT_SUPPORT)
+
+#endif // !defined(DOXYGEN)
 
 #endif // _ENGINE_TRANSFORM_H_

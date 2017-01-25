@@ -5,6 +5,8 @@
 
 #include "../Memory/Align16.h"
 
+#include <Serialize/Serialize.h>
+
 #include "Utility.h"
 #include "SIMD.h"
 
@@ -16,7 +18,7 @@ namespace Engine
 	 * @brief
 	 *  Abstracts SIMD floating construction and operations.
 	 */
-	class ENGINE_DYNAMIC_CLASS vec3
+	class ENGINE_EXPORT vec3
 	{
 	public:
 		float Vals[3];
@@ -118,7 +120,7 @@ namespace Engine
 	 * @brief
 	 *  Abstracts SIMD floating construction and operations.
 	 */
-	class ENGINE_DYNAMIC_CLASS vec4 : public Align16
+	class ENGINE_EXPORT vec4 : public Align16
 	{
 	public:
 		union
@@ -268,13 +270,32 @@ namespace Engine
 	};
 }
 
-#if defined(ENGINE_DEVELOPMENT_SUPPORT) && !defined(DOXYGEN)
+#if !defined(DOXYGEN)
+
+namespace Serialize
+{
+	template<>
+	ENGINE_EXPORT bool read<Engine::vec3>(ByteStream* stream, Engine::vec3 *out);
+
+	template<>
+	ENGINE_EXPORT bool write<Engine::vec3>(ByteStream* stream, const Engine::vec3 &val);
+
+	template<>
+	ENGINE_EXPORT bool read<Engine::vec4>(ByteStream* stream, Engine::vec4 *out);
+
+	template<>
+	ENGINE_EXPORT bool write<Engine::vec4>(ByteStream* stream, const Engine::vec4 &val);
+}
+
+#if defined(ENGINE_DEVELOPMENT_SUPPORT)
 
 #include <QtCore/QMetaType>
 
 Q_DECLARE_METATYPE(Engine::vec3)
 Q_DECLARE_METATYPE(Engine::vec4)
 
-#endif // defined(ENGINE_DEVELOPMENT_SUPPORT) && !defined(DOXYGEN)
+#endif // defined(ENGINE_DEVELOPMENT_SUPPORT) 
+
+#endif // !defined(DOXYGEN)
 
 #endif // _ENGINE_VEC_H_

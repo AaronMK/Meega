@@ -13,7 +13,7 @@ namespace Engine
 	/**
 	 * @internal
 	 */
-	class ENGINE_DYNAMIC_CLASS FenceInternal
+	class ENGINE_EXPORT FenceInternal
 	{
 	public:
 		Concurrent::Condition done;

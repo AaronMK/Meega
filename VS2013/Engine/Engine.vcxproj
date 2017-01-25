@@ -43,6 +43,7 @@
     </CustomBuild>
     <ClInclude Include="..\..\include\Engine\Engine.h" />
     <ClInclude Include="..\..\include\Engine\Internal\Core\ConstantsPlatform.h" />
+    <ClInclude Include="..\..\include\Engine\Internal\Memory\TexturePlatform.h" />
     <ClInclude Include="..\..\include\Engine\Internal\Memory\VertexArrayObjectPlatform.h" />
     <ClInclude Include="..\..\include\Engine\Internal\Memory\VertexBufferObjectPlatform.h" />
     <ClInclude Include="..\..\include\Engine\Internal\Shading\ProgramPlatform.h" />
@@ -51,6 +52,7 @@
     <ClInclude Include="..\..\include\Engine\Memory\Align16.h" />
     <ClInclude Include="..\..\include\Engine\Memory\AlignedAllocator.hpp" />
     <ClInclude Include="..\..\include\Engine\Memory\MemoryPool.h" />
+    <ClInclude Include="..\..\include\Engine\Memory\Texture.h" />
     <ClInclude Include="..\..\include\Engine\Memory\VertexArrayObject.h" />
     <ClInclude Include="..\..\include\Engine\Memory\VertexBufferObject.h" />
     <ClInclude Include="..\..\include\Engine\Options.h" />
@@ -97,6 +99,17 @@
     <ClCompile Include="..\..\src\Engine\Tasking\Scheduling.cpp" />
     <ClCompile Include="..\..\src\Engine\Timing\Timing.cpp" />
     <ClCompile Include="moc\DevSupport\moc_QGuiThreadQueue.qt.cxx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Concurrent\Concurrent.vcxproj">
+      <Project>{9569e737-1280-416e-9e57-ae34829a19fd}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\GPU\GPU.vcxproj">
+      <Project>{5535e022-3b76-4077-8e27-a637dece19b6}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Serialize\Serialize.vcxproj">
+      <Project>{60b61979-8f73-49f2-8dab-67b9f024633a}</Project>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B91D3A2D-0E97-4441-BF25-1FDCCABEAB66}</ProjectGuid>

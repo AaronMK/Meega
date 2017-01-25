@@ -9,7 +9,7 @@
 
 namespace Engine
 {
-	class ENGINE_DYNAMIC_CLASS VertexBufferObjectPlatform
+	class ENGINE_EXPORT VertexBufferObjectPlatform
 	{
 	public:
 

@@ -12,7 +12,7 @@ namespace Engine
 	 *  Global timing functionality for the engine.  All metrics represent the state quaried
 	 *  when update() is called to keep consistency in frames.
 	 */
-	class ENGINE_DYNAMIC_CLASS Timing
+	class ENGINE_EXPORT Timing
 	{
 	public:
 

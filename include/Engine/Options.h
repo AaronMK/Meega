@@ -40,7 +40,7 @@ namespace Engine
 	 * @brief
 	 *  Startup options for the engine.
 	 */
-	struct ENGINE_DYNAMIC_CLASS Options
+	struct ENGINE_EXPORT Options
 	{
 		Options();
 
