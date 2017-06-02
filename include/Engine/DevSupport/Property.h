@@ -12,7 +12,7 @@ namespace Engine
 	{
 	public:
 		std::function<T& ()> getter;
-		std::function<T& (T&&)> setter;
+		std::function<T& (T)> setter;
 
 		operator T&() const;
 		T& operator=(T&& value);

@@ -25,7 +25,7 @@ Triangle::Triangle()
 #	ifdef ENGINE_DEVELOPMENT_SUPPORT
 	setObjectName(QStringLiteral("Triangle"));
 
-	color.setter = [this](RGB_F32 _color)
+	color.setter = [this](RGB_F32 _color) -> Engine::RGB_F32&
 	{
 		mColor = _color;
 		mDirty = true;
@@ -35,7 +35,7 @@ Triangle::Triangle()
 		return mColor;
 	};
 
-	color.getter = [this]()
+	color.getter = [this]() -> Engine::RGB_F32&
 	{
 		return mColor;
 	};
