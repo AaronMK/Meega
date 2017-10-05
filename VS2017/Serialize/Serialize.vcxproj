@@ -36,7 +36,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\StdExt\StdExt.vcxproj">
-      <Project>{287c53bb-7305-4fe9-99f4-1adbe3a55b46}</Project>
+      <Project>{d95d195b-8782-4b77-9ed5-cfed00a0273c}</Project>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Label="Globals">
