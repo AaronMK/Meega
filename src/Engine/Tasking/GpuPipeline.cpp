@@ -6,7 +6,7 @@
 #include "../private_include/Debug/DebugGL.h"
 
 #include <Concurrent/Scheduler.h>
-#include <Concurrent/ThreadLocalPtr.h>
+#include <Concurrent/ThreadLocal.h>
 
 #include <limits>
 #include <sstream>

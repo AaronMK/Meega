@@ -1,0 +1,3 @@
+[submodule "external/Concurrent"]
+	path = external/Concurrent
+	url = https://github.com/AaronMK/Concurrent.git

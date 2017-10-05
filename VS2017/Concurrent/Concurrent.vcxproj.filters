@@ -17,120 +17,123 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\include\Concurrent\Config.h">
+    <ClInclude Include="..\..\external\Concurrent\include\Concurrent\Concurrent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\Concurrent\Mutex.h">
+    <ClInclude Include="..\..\external\Concurrent\include\Concurrent\Condition.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\Concurrent\Internal\MutexPlatform.h">
+    <ClInclude Include="..\..\external\Concurrent\include\Concurrent\Config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\external\Concurrent\include\Concurrent\FunctionTask.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\external\Concurrent\include\Concurrent\Mutex.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\external\Concurrent\include\Concurrent\MutexLocker.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\external\Concurrent\include\Concurrent\ObjectPool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\external\Concurrent\include\Concurrent\Producer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\external\Concurrent\include\Concurrent\Queue.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\external\Concurrent\include\Concurrent\ReadLocker.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\external\Concurrent\include\Concurrent\Reference.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\external\Concurrent\include\Concurrent\RWLock.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\external\Concurrent\include\Concurrent\Scheduler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\external\Concurrent\include\Concurrent\Task.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\external\Concurrent\include\Concurrent\ThreadLocal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\external\Concurrent\include\Concurrent\Timer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\external\Concurrent\include\Concurrent\WriteLocker.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\external\Concurrent\include\Concurrent\Internal\ConditionPlatform.h">
       <Filter>Header Files\Internal</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\Concurrent\MutexLocker.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Concurrent\Internal\RefBase.h">
+    <ClInclude Include="..\..\external\Concurrent\include\Concurrent\Internal\MutexPlatform.h">
       <Filter>Header Files\Internal</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\Concurrent\Reference.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Concurrent\Internal\RWLockPlatform.h">
+    <ClInclude Include="..\..\external\Concurrent\include\Concurrent\Internal\ProducerInternal.h">
       <Filter>Header Files\Internal</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\Concurrent\RWLock.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Concurrent\ReadLocker.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Concurrent\WriteLocker.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Concurrent\Task.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Concurrent\Internal\ConditionPlatform.h">
+    <ClInclude Include="..\..\external\Concurrent\include\Concurrent\Internal\QueuePlatform.h">
       <Filter>Header Files\Internal</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\Concurrent\Condition.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Concurrent\Scheduler.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Concurrent\Queue.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Concurrent\Internal\TaskInternal.h">
+    <ClInclude Include="..\..\external\Concurrent\include\Concurrent\Internal\RefBase.h">
       <Filter>Header Files\Internal</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\Concurrent\ThreadLocalPtr.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Concurrent\FunctionTask.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Concurrent\Internal\ProducerInternal.h">
+    <ClInclude Include="..\..\external\Concurrent\include\Concurrent\Internal\RWLockPlatform.h">
       <Filter>Header Files\Internal</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\Concurrent\Producer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Concurrent\Internal\SchedulerInternal.h">
+    <ClInclude Include="..\..\external\Concurrent\include\Concurrent\Internal\SchedulerInternal.h">
       <Filter>Header Files\Internal</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\Concurrent\Concurrent.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="..\..\external\Concurrent\include\Concurrent\Internal\TaskInternal.h">
+      <Filter>Header Files\Internal</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\Concurrent\private_include\Platform.h">
+    <ClInclude Include="..\..\external\Concurrent\include\Concurrent\Internal\TimerPlatform.h">
+      <Filter>Header Files\Internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\external\Concurrent\src\private_include\Platform.h">
       <Filter>Source Files\private_include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Concurrent\Timer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Concurrent\Internal\TimerPlatform.h">
-      <Filter>Header Files\Internal</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Concurrent\ObjectPool.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\Concurrent\Mutex.cpp">
+    <ClCompile Include="..\..\external\Concurrent\src\Concurrent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\Concurrent\MutexLocker.cpp">
+    <ClCompile Include="..\..\external\Concurrent\src\Condition.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\Concurrent\RWLock.cpp">
+    <ClCompile Include="..\..\external\Concurrent\src\FunctionTask.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\Concurrent\ReadLocker.cpp">
+    <ClCompile Include="..\..\external\Concurrent\src\Mutex.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\Concurrent\WriteLocker.cpp">
+    <ClCompile Include="..\..\external\Concurrent\src\MutexLocker.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\Concurrent\Condition.cpp">
+    <ClCompile Include="..\..\external\Concurrent\src\Platform.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\Concurrent\Scheduler.cpp">
+    <ClCompile Include="..\..\external\Concurrent\src\ReadLocker.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\Concurrent\Task.cpp">
+    <ClCompile Include="..\..\external\Concurrent\src\RWLock.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\Concurrent\FunctionTask.cpp">
+    <ClCompile Include="..\..\external\Concurrent\src\Scheduler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\Concurrent\Concurrent.cpp">
+    <ClCompile Include="..\..\external\Concurrent\src\Task.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\Concurrent\Platform.cpp">
+    <ClCompile Include="..\..\external\Concurrent\src\Timer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\Concurrent\Timer.cpp">
+    <ClCompile Include="..\..\external\Concurrent\src\WriteLocker.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

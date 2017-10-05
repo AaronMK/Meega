@@ -10,6 +10,49 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\external\Concurrent\include\Concurrent\Concurrent.h" />
+    <ClInclude Include="..\..\external\Concurrent\include\Concurrent\Condition.h" />
+    <ClInclude Include="..\..\external\Concurrent\include\Concurrent\Config.h" />
+    <ClInclude Include="..\..\external\Concurrent\include\Concurrent\FunctionTask.h" />
+    <ClInclude Include="..\..\external\Concurrent\include\Concurrent\Internal\ConditionPlatform.h" />
+    <ClInclude Include="..\..\external\Concurrent\include\Concurrent\Internal\MutexPlatform.h" />
+    <ClInclude Include="..\..\external\Concurrent\include\Concurrent\Internal\ProducerInternal.h" />
+    <ClInclude Include="..\..\external\Concurrent\include\Concurrent\Internal\QueuePlatform.h" />
+    <ClInclude Include="..\..\external\Concurrent\include\Concurrent\Internal\RefBase.h" />
+    <ClInclude Include="..\..\external\Concurrent\include\Concurrent\Internal\RWLockPlatform.h" />
+    <ClInclude Include="..\..\external\Concurrent\include\Concurrent\Internal\SchedulerInternal.h" />
+    <ClInclude Include="..\..\external\Concurrent\include\Concurrent\Internal\TaskInternal.h" />
+    <ClInclude Include="..\..\external\Concurrent\include\Concurrent\Internal\TimerPlatform.h" />
+    <ClInclude Include="..\..\external\Concurrent\include\Concurrent\Mutex.h" />
+    <ClInclude Include="..\..\external\Concurrent\include\Concurrent\MutexLocker.h" />
+    <ClInclude Include="..\..\external\Concurrent\include\Concurrent\ObjectPool.h" />
+    <ClInclude Include="..\..\external\Concurrent\include\Concurrent\Producer.h" />
+    <ClInclude Include="..\..\external\Concurrent\include\Concurrent\Queue.h" />
+    <ClInclude Include="..\..\external\Concurrent\include\Concurrent\ReadLocker.h" />
+    <ClInclude Include="..\..\external\Concurrent\include\Concurrent\Reference.h" />
+    <ClInclude Include="..\..\external\Concurrent\include\Concurrent\RWLock.h" />
+    <ClInclude Include="..\..\external\Concurrent\include\Concurrent\Scheduler.h" />
+    <ClInclude Include="..\..\external\Concurrent\include\Concurrent\Task.h" />
+    <ClInclude Include="..\..\external\Concurrent\include\Concurrent\ThreadLocal.h" />
+    <ClInclude Include="..\..\external\Concurrent\include\Concurrent\Timer.h" />
+    <ClInclude Include="..\..\external\Concurrent\include\Concurrent\WriteLocker.h" />
+    <ClInclude Include="..\..\external\Concurrent\src\private_include\Platform.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\external\Concurrent\src\Concurrent.cpp" />
+    <ClCompile Include="..\..\external\Concurrent\src\Condition.cpp" />
+    <ClCompile Include="..\..\external\Concurrent\src\FunctionTask.cpp" />
+    <ClCompile Include="..\..\external\Concurrent\src\Mutex.cpp" />
+    <ClCompile Include="..\..\external\Concurrent\src\MutexLocker.cpp" />
+    <ClCompile Include="..\..\external\Concurrent\src\Platform.cpp" />
+    <ClCompile Include="..\..\external\Concurrent\src\ReadLocker.cpp" />
+    <ClCompile Include="..\..\external\Concurrent\src\RWLock.cpp" />
+    <ClCompile Include="..\..\external\Concurrent\src\Scheduler.cpp" />
+    <ClCompile Include="..\..\external\Concurrent\src\Task.cpp" />
+    <ClCompile Include="..\..\external\Concurrent\src\Timer.cpp" />
+    <ClCompile Include="..\..\external\Concurrent\src\WriteLocker.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{9569E737-1280-416E-9E57-AE34829A19FD}</ProjectGuid>
     <RootNamespace>Concurrent</RootNamespace>
@@ -70,48 +113,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\include\Concurrent\Concurrent.h" />
-    <ClInclude Include="..\..\include\Concurrent\Condition.h" />
-    <ClInclude Include="..\..\include\Concurrent\Config.h" />
-    <ClInclude Include="..\..\include\Concurrent\FunctionTask.h" />
-    <ClInclude Include="..\..\include\Concurrent\Internal\ConditionPlatform.h" />
-    <ClInclude Include="..\..\include\Concurrent\Internal\MutexPlatform.h" />
-    <ClInclude Include="..\..\include\Concurrent\Internal\ProducerInternal.h" />
-    <ClInclude Include="..\..\include\Concurrent\Internal\RefBase.h" />
-    <ClInclude Include="..\..\include\Concurrent\Internal\RWLockPlatform.h" />
-    <ClInclude Include="..\..\include\Concurrent\Internal\SchedulerInternal.h" />
-    <ClInclude Include="..\..\include\Concurrent\Internal\TaskInternal.h" />
-    <ClInclude Include="..\..\include\Concurrent\Internal\TimerPlatform.h" />
-    <ClInclude Include="..\..\include\Concurrent\Mutex.h" />
-    <ClInclude Include="..\..\include\Concurrent\MutexLocker.h" />
-    <ClInclude Include="..\..\include\Concurrent\ObjectPool.h" />
-    <ClInclude Include="..\..\include\Concurrent\Producer.h" />
-    <ClInclude Include="..\..\include\Concurrent\Queue.h" />
-    <ClInclude Include="..\..\include\Concurrent\ReadLocker.h" />
-    <ClInclude Include="..\..\include\Concurrent\Reference.h" />
-    <ClInclude Include="..\..\include\Concurrent\RWLock.h" />
-    <ClInclude Include="..\..\include\Concurrent\Scheduler.h" />
-    <ClInclude Include="..\..\include\Concurrent\Task.h" />
-    <ClInclude Include="..\..\include\Concurrent\ThreadLocalPtr.h" />
-    <ClInclude Include="..\..\include\Concurrent\Timer.h" />
-    <ClInclude Include="..\..\include\Concurrent\WriteLocker.h" />
-    <ClInclude Include="..\..\src\Concurrent\private_include\Platform.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\src\Concurrent\Concurrent.cpp" />
-    <ClCompile Include="..\..\src\Concurrent\Condition.cpp" />
-    <ClCompile Include="..\..\src\Concurrent\FunctionTask.cpp" />
-    <ClCompile Include="..\..\src\Concurrent\Mutex.cpp" />
-    <ClCompile Include="..\..\src\Concurrent\MutexLocker.cpp" />
-    <ClCompile Include="..\..\src\Concurrent\Platform.cpp" />
-    <ClCompile Include="..\..\src\Concurrent\ReadLocker.cpp" />
-    <ClCompile Include="..\..\src\Concurrent\RWLock.cpp" />
-    <ClCompile Include="..\..\src\Concurrent\Scheduler.cpp" />
-    <ClCompile Include="..\..\src\Concurrent\Task.cpp" />
-    <ClCompile Include="..\..\src\Concurrent\Timer.cpp" />
-    <ClCompile Include="..\..\src\Concurrent\WriteLocker.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
