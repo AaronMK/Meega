@@ -275,16 +275,16 @@ namespace Engine
 namespace Serialize
 {
 	template<>
-	ENGINE_EXPORT bool read<Engine::vec3>(ByteStream* stream, Engine::vec3 *out);
+	ENGINE_EXPORT void read<Engine::vec3>(ByteStream* stream, Engine::vec3 *out);
 
 	template<>
-	ENGINE_EXPORT bool write<Engine::vec3>(ByteStream* stream, const Engine::vec3 &val);
+	ENGINE_EXPORT void write<Engine::vec3>(ByteStream* stream, const Engine::vec3 &val);
 
 	template<>
-	ENGINE_EXPORT bool read<Engine::vec4>(ByteStream* stream, Engine::vec4 *out);
+	ENGINE_EXPORT void read<Engine::vec4>(ByteStream* stream, Engine::vec4 *out);
 
 	template<>
-	ENGINE_EXPORT bool write<Engine::vec4>(ByteStream* stream, const Engine::vec4 &val);
+	ENGINE_EXPORT void write<Engine::vec4>(ByteStream* stream, const Engine::vec4 &val);
 }
 
 #if defined(ENGINE_DEVELOPMENT_SUPPORT)

@@ -269,15 +269,15 @@ namespace Engine
 namespace Serialize
 {
 	template<>
-	bool read<Engine::mat4x4>(ByteStream* stream, Engine::mat4x4 *out)
+	void read<Engine::mat4x4>(ByteStream* stream, Engine::mat4x4 *out)
 	{
-		return read<Engine::vec4>(stream, out->Cols, 4);
+		read<Engine::vec4>(stream, out->Cols, 4);
 	}
 
 	template<>
-	bool write<Engine::mat4x4>(ByteStream* stream, const Engine::mat4x4 &val)
+	void write<Engine::mat4x4>(ByteStream* stream, const Engine::mat4x4 &val)
 	{
-		return write<Engine::vec4>(stream, val.Cols, 4);
+		write<Engine::vec4>(stream, val.Cols, 4);
 	}
 }
 

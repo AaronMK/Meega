@@ -157,10 +157,10 @@ namespace Engine
 namespace Serialize
 {
 	template<>
-	ENGINE_EXPORT bool read<Engine::mat4x4>(ByteStream* stream, Engine::mat4x4 *out);
+	ENGINE_EXPORT void read<Engine::mat4x4>(ByteStream* stream, Engine::mat4x4 *out);
 
 	template<>
-	ENGINE_EXPORT bool write<Engine::mat4x4>(ByteStream* stream, const Engine::mat4x4 &val);
+	ENGINE_EXPORT void write<Engine::mat4x4>(ByteStream* stream, const Engine::mat4x4 &val);
 }
 
 #if defined(ENGINE_DEVELOPMENT_SUPPORT)

@@ -237,23 +237,18 @@ namespace Engine
 namespace Serialize
 {
 	template<>
-	bool read<Engine::Transform>(ByteStream* stream, Engine::Transform *out)
+	void read<Engine::Transform>(ByteStream* stream, Engine::Transform *out)
 	{
 		Engine::mat4x4 matrix;
 
-		if ( read(stream, &matrix) )
-		{
-			*out = Engine::Transform(matrix);
-			return true;
-		}
-
-		return false;
+		read(stream, &matrix);
+		*out = Engine::Transform(matrix);
 	}
 
 	template<>
-	bool write<Engine::Transform>(ByteStream* stream, const Engine::Transform &val)
+	void write<Engine::Transform>(ByteStream* stream, const Engine::Transform &val)
 	{
-		return write(stream, val.matrix());
+		write(stream, val.matrix());
 	}
 }
 

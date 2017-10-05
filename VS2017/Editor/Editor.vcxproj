@@ -73,6 +73,7 @@
     <Import Project="..\Base.props" />
     <Import Project="..\Release.props" />
     <Import Project="..\Qt.props" />
+    <Import Project="..\MeegaDevelopment.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup />
@@ -89,7 +90,6 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
     </ClCompile>
     <Link>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <SubSystem>Windows</SubSystem>

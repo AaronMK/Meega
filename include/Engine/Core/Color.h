@@ -194,52 +194,52 @@ namespace Engine
 namespace Serialize
 {
 	template<>
-	ENGINE_EXPORT bool read<Engine::RGB_8>(ByteStream* stream, Engine::RGB_8 *out);
+	ENGINE_EXPORT void read<Engine::RGB_8>(ByteStream* stream, Engine::RGB_8 *out);
 
 	template<>
-	ENGINE_EXPORT bool write<Engine::RGB_8>(ByteStream* stream, const Engine::RGB_8 &val);
+	ENGINE_EXPORT void write<Engine::RGB_8>(ByteStream* stream, const Engine::RGB_8 &val);
 
 	template<>
-	ENGINE_EXPORT bool read<Engine::RGBA_8>(ByteStream* stream, Engine::RGBA_8 *out);
+	ENGINE_EXPORT void read<Engine::RGBA_8>(ByteStream* stream, Engine::RGBA_8 *out);
 
 	template<>
-	ENGINE_EXPORT bool write<Engine::RGBA_8>(ByteStream* stream, const Engine::RGBA_8 &val);
+	ENGINE_EXPORT void write<Engine::RGBA_8>(ByteStream* stream, const Engine::RGBA_8 &val);
 
 	template<>
-	ENGINE_EXPORT bool read<Engine::RGB_F32>(ByteStream* stream, Engine::RGB_F32 *out);
+	ENGINE_EXPORT void read<Engine::RGB_F32>(ByteStream* stream, Engine::RGB_F32 *out);
 
 	template<>
-	ENGINE_EXPORT bool write<Engine::RGB_F32>(ByteStream* stream, const Engine::RGB_F32 &val);
+	ENGINE_EXPORT void write<Engine::RGB_F32>(ByteStream* stream, const Engine::RGB_F32 &val);
 
 	template<>
-	ENGINE_EXPORT bool read<Engine::RGBA_F32>(ByteStream* stream, Engine::RGBA_F32 *out);
+	ENGINE_EXPORT void read<Engine::RGBA_F32>(ByteStream* stream, Engine::RGBA_F32 *out);
 
 	template<>
-	ENGINE_EXPORT bool write<Engine::RGBA_F32>(ByteStream* stream, const Engine::RGBA_F32 &val);
+	ENGINE_EXPORT void write<Engine::RGBA_F32>(ByteStream* stream, const Engine::RGBA_F32 &val);
 
 	template<>
-	ENGINE_EXPORT bool read<Engine::GRAY_8>(ByteStream* stream, Engine::GRAY_8 *out);
+	ENGINE_EXPORT void read<Engine::GRAY_8>(ByteStream* stream, Engine::GRAY_8 *out);
 
 	template<>
-	ENGINE_EXPORT bool write<Engine::GRAY_8>(ByteStream* stream, const Engine::GRAY_8 &val);
+	ENGINE_EXPORT void write<Engine::GRAY_8>(ByteStream* stream, const Engine::GRAY_8 &val);
 
 	template<>
-	ENGINE_EXPORT bool read<Engine::GRAY_ALPHA_8>(ByteStream* stream, Engine::GRAY_ALPHA_8 *out);
+	ENGINE_EXPORT void read<Engine::GRAY_ALPHA_8>(ByteStream* stream, Engine::GRAY_ALPHA_8 *out);
 
 	template<>
-	ENGINE_EXPORT bool write<Engine::GRAY_ALPHA_8>(ByteStream* stream, const Engine::GRAY_ALPHA_8 &val);
+	ENGINE_EXPORT void write<Engine::GRAY_ALPHA_8>(ByteStream* stream, const Engine::GRAY_ALPHA_8 &val);
 
 	template<>
-	ENGINE_EXPORT bool read<Engine::GRAY_F32>(ByteStream* stream, Engine::GRAY_F32 *out);
+	ENGINE_EXPORT void read<Engine::GRAY_F32>(ByteStream* stream, Engine::GRAY_F32 *out);
 
 	template<>
-	ENGINE_EXPORT bool write<Engine::GRAY_F32>(ByteStream* stream, const Engine::GRAY_F32 &val);
+	ENGINE_EXPORT void write<Engine::GRAY_F32>(ByteStream* stream, const Engine::GRAY_F32 &val);
 
 	template<>
-	ENGINE_EXPORT bool read<Engine::GRAY_ALPHA_F32>(ByteStream* stream, Engine::GRAY_ALPHA_F32 *out);
+	ENGINE_EXPORT void read<Engine::GRAY_ALPHA_F32>(ByteStream* stream, Engine::GRAY_ALPHA_F32 *out);
 
 	template<>
-	ENGINE_EXPORT bool write<Engine::GRAY_ALPHA_F32>(ByteStream* stream, const Engine::GRAY_ALPHA_F32 &val);
+	ENGINE_EXPORT void write<Engine::GRAY_ALPHA_F32>(ByteStream* stream, const Engine::GRAY_ALPHA_F32 &val);
 }
 
 #if defined(ENGINE_DEVELOPMENT_SUPPORT)

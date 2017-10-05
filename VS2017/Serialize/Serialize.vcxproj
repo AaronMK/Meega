@@ -10,6 +10,35 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\external\Serialize\include\Serialize\BufferedStream.h" />
+    <ClInclude Include="..\..\external\Serialize\include\Serialize\ByteStream.h" />
+    <ClInclude Include="..\..\external\Serialize\include\Serialize\CachedStream.h" />
+    <ClInclude Include="..\..\external\Serialize\include\Serialize\Config.h" />
+    <ClInclude Include="..\..\external\Serialize\include\Serialize\Exceptions.h" />
+    <ClInclude Include="..\..\external\Serialize\include\Serialize\File.h" />
+    <ClInclude Include="..\..\external\Serialize\include\Serialize\MemoryStream.h" />
+    <ClInclude Include="..\..\external\Serialize\include\Serialize\ProxyStream.h" />
+    <ClInclude Include="..\..\external\Serialize\include\Serialize\Serialize.h" />
+    <ClInclude Include="..\..\external\Serialize\include\Serialize\TestByteStream.h" />
+    <ClInclude Include="..\..\external\Serialize\include\Serialize\Types.h" />
+    <ClInclude Include="..\..\external\Serialize\src\private_include\Utility.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\external\Serialize\src\BufferedStream.cpp" />
+    <ClCompile Include="..\..\external\Serialize\src\ByteStream.cpp" />
+    <ClCompile Include="..\..\external\Serialize\src\CachedStream.cpp" />
+    <ClCompile Include="..\..\external\Serialize\src\File.cpp" />
+    <ClCompile Include="..\..\external\Serialize\src\MemoryStream.cpp" />
+    <ClCompile Include="..\..\external\Serialize\src\ProxyStream.cpp" />
+    <ClCompile Include="..\..\external\Serialize\src\Serialize.cpp" />
+    <ClCompile Include="..\..\external\Serialize\src\TestByteStream.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StdExt\StdExt.vcxproj">
+      <Project>{287c53bb-7305-4fe9-99f4-1adbe3a55b46}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{60B61979-8F73-49F2-8DAB-67B9F024633A}</ProjectGuid>
     <RootNamespace>Serialize</RootNamespace>
@@ -91,24 +120,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\src\Serialize\ByteStream.cpp" />
-    <ClCompile Include="..\..\src\Serialize\File.cpp" />
-    <ClCompile Include="..\..\src\Serialize\MemoryStream.cpp" />
-    <ClCompile Include="..\..\src\Serialize\ProxyStream.cpp" />
-    <ClCompile Include="..\..\src\Serialize\Serialize.cpp" />
-    <ClCompile Include="..\..\src\Serialize\TestByteStream.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\include\Serialize\ByteStream.h" />
-    <ClInclude Include="..\..\include\Serialize\Config.h" />
-    <ClInclude Include="..\..\include\Serialize\File.h" />
-    <ClInclude Include="..\..\include\Serialize\MemoryStream.h" />
-    <ClInclude Include="..\..\include\Serialize\ProxyStream.h" />
-    <ClInclude Include="..\..\include\Serialize\Serialize.h" />
-    <ClInclude Include="..\..\include\Serialize\TestByteStream.h" />
-    <ClInclude Include="..\..\include\Serialize\Types.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -90,10 +90,10 @@ namespace Engine
 namespace Serialize
 {
 	template<>
-	ENGINE_EXPORT bool read<Engine::Transform>(ByteStream* stream, Engine::Transform *out);
+	ENGINE_EXPORT void read<Engine::Transform>(ByteStream* stream, Engine::Transform *out);
 
 	template<>
-	ENGINE_EXPORT bool write<Engine::Transform>(ByteStream* stream, const Engine::Transform &val);
+	ENGINE_EXPORT void write<Engine::Transform>(ByteStream* stream, const Engine::Transform &val);
 }
 
 #if defined(ENGINE_DEVELOPMENT_SUPPORT)

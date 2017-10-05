@@ -397,27 +397,27 @@ namespace Engine
 namespace Serialize
 {
 	template<>
-	bool read<Engine::vec3>(ByteStream* stream, Engine::vec3 *out)
+	void read<Engine::vec3>(ByteStream* stream, Engine::vec3 *out)
 	{
-		return read<float>(stream, out->Vals, 3);
+		read<float>(stream, out->Vals, 3);
 	}
 
 	template<>
-	bool write<Engine::vec3>(ByteStream* stream, const Engine::vec3 &val)
+	void write<Engine::vec3>(ByteStream* stream, const Engine::vec3 &val)
 	{
-		return write<float>(stream, val.Vals, 3);
+		write<float>(stream, val.Vals, 3);
 	}
 
 	template<>
-	bool read<Engine::vec4>(ByteStream* stream, Engine::vec4 *out)
+	void read<Engine::vec4>(ByteStream* stream, Engine::vec4 *out)
 	{
-		return read<float>(stream, out->fVals, 3);
+		read<float>(stream, out->fVals, 3);
 	}
 
 	template<>
-	bool write<Engine::vec4>(ByteStream* stream, const Engine::vec4 &val)
+	void write<Engine::vec4>(ByteStream* stream, const Engine::vec4 &val)
 	{
-		return write<float>(stream, val.fVals, 3);
+		write<float>(stream, val.fVals, 3);
 	}
 }
 
