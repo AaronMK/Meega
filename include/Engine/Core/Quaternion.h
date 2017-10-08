@@ -1,8 +1,6 @@
 #ifndef _ENGINE_QUATERNION_H_
 #define _ENGINE_QUATERNION_H_
 
-#include "../Memory/Align16.h"
-
 #include "../Core/Transform.h"
 #include "../Core/Matrix4x4.h"
 #include "../Core/Utility.h"

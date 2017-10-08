@@ -1,7 +1,7 @@
 #ifndef _ENGINE_MEMORY_POOL_H_
 #define _ENGINE_MEMORY_POOL_H_
 
-#include "../../Config.h"
+#include "../Config.h"
 
 #include <atomic>
 #include <memory>
@@ -44,9 +44,6 @@ namespace Engine
 
 		template<typename T, typename... Args>
 		T* push(Args&& ...args);
-
-		template<typename T, typename... Args>
-		T* pushAligned(size_t alignment, Args&& ...args);
 
 		/**
 		 * @brief
@@ -107,18 +104,10 @@ namespace Engine
 	template <typename T, typename... Args>
 	T* MemoryPool::push(Args&& ...args)
 	{
-		return pushAligned<T>(0, args...);
-	}
-
-	template<typename T, typename... Args>
-	T* MemoryPool::pushAligned(size_t alignment, Args&& ...args)
-	{
 		if (nullptr == mMemory)
 			return nullptr;
 
-		alignment = (alignment < 4) ? 4 : alignment;
-
-		void* alignResult = std::align(alignment, sizeof(Entry<T>),
+		void* alignResult = std::align(alignof(T), sizeof(Entry<T>),
 		                               mStackMarker, mRemainingSpace);
 
 		if (alignResult)

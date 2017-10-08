@@ -1,9 +1,18 @@
 #ifndef _ENGINE_VEC_H_
 #define _ENGINE_VEC_H_
 
-#include "../Engine.h"
+#ifndef __SSE__
+#	define __SSE__
+#endif
 
-#include "../Memory/Align16.h"
+#ifndef __MMX__
+#	define __MMX__
+#endif
+
+#include <xmmintrin.h>
+#include <assert.h>
+
+#include "../Engine.h"
 
 #include <Serialize/Serialize.h>
 
@@ -120,7 +129,7 @@ namespace Engine
 	 * @brief
 	 *  Abstracts SIMD floating construction and operations.
 	 */
-	class ENGINE_EXPORT vec4 : public Align16
+	class ENGINE_EXPORT alignas(16) vec4
 	{
 	public:
 		union

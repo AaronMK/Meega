@@ -20,6 +20,16 @@ namespace Engine
 		return m_RenderTarget;
 	}
 
+	const int App::argc() const
+	{
+		return m_argc;
+	}
+
+	const char** App::argv() const
+	{
+		return m_argv;
+	}
+
 	int runApp(App &app)
 	{
 		Engine::Options options = app.getOptions();

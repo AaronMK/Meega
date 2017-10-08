@@ -9,10 +9,6 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="Header Files\Shading">
       <UniqueIdentifier>{9c986a53-1aa8-46b2-873f-668f8581e450}</UniqueIdentifier>
     </Filter>
@@ -107,9 +103,6 @@
     </ClInclude>
     <ClInclude Include="..\..\include\Engine\Core\Vec.h">
       <Filter>Header Files\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Engine\Memory\Align16.h">
-      <Filter>Header Files\Memory</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\Engine\Core\SIMD.h">
       <Filter>Header Files\Core</Filter>
@@ -271,9 +264,6 @@
     </ClCompile>
     <ClCompile Include="..\..\src\Engine\Core\Color.cpp">
       <Filter>Source Files\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\Engine\Memory\Align16.cpp">
-      <Filter>Source Files\Memory</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\Engine\Core\Ray.cpp">
       <Filter>Source Files\Core</Filter>

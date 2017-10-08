@@ -25,7 +25,7 @@ namespace Engine
 	 *  is the order in which the matrices will be multiplied.  The most local transforms to the should be on
 	 *  the right.
 	 */
-	class ENGINE_EXPORT Transform : public Align16
+	class ENGINE_EXPORT Transform
 	{
 	public:
 		Transform();

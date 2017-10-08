@@ -14,7 +14,7 @@ namespace Engine
 	 *  define projection and modelview transformations for use as the engine sees fit.  This could be for ray
 	 *  generation, passing as parameters to a shader or pre-OpenGL 3.2 calls.
 	 */
-	class ENGINE_EXPORT Camera : public Align16
+	class ENGINE_EXPORT alignas(16) Camera
 	{
 	public:
 		Camera(const Camera&) = default;

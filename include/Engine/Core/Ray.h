@@ -62,7 +62,7 @@ namespace Engine
 	 *  direction as vec4, so it is more computaionally efficient but less 
 	 *  space efficeient.
 	 */
-	class ENGINE_EXPORT Ray4 : public Align16
+	class ENGINE_EXPORT Ray4
 	{
 	public:
 		Ray4() = default;

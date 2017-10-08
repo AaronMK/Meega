@@ -22,7 +22,7 @@ namespace Engine
 	 *  operations are done on a transposed matrix, but should
 	 *  only be for temporary variables.</P>
 	 */
-	class ENGINE_EXPORT mat4x4 : public Align16
+	class ENGINE_EXPORT mat4x4
 	{
 	public:
 		

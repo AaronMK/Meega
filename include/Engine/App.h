@@ -61,7 +61,7 @@ namespace Engine
 		GPU::RenderTarget* m_RenderTarget;
 
 		int m_argc;
-		char** m_argv;
+		const char** m_argv;
 	};
 
 	typedef App* (appCreateFunc)(int argc, char** argv);

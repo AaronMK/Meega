@@ -1,18 +1,9 @@
 #ifndef _ENGINE_ALIGNED_ALLOCATOR_H_
 #define _ENGINE_ALIGNED_ALLOCATOR_H_
 
-#include "../../Config.h"
+#include "../Config.h"
 
-#ifndef __SSE__
-#	define __SSE__
-#endif
-
-#ifndef __MMX__
-#	define __MMX__
-#endif
-
-#include <xmmintrin.h>
-#include <limits>
+#include <cstdlib>
 
 namespace Engine
 {
@@ -21,7 +12,7 @@ namespace Engine
 	 *  Allocator that can be used as a type parameter to STL collection classes
 	 *  to guarentee proper alignment for items.
 	 */
-	template<typename T, size_t alignment>
+	template<typename T>
 	class AlignedAllocator
 	{
 	public:
@@ -36,7 +27,7 @@ namespace Engine
 		template<typename U>
 		struct rebind
 		{
-			typedef AlignedAllocator<U, alignment> other;
+			typedef AlignedAllocator<U> other;
 		};
 
 		AlignedAllocator()
@@ -52,7 +43,7 @@ namespace Engine
 		}
 
 		template<typename U>
-		AlignedAllocator(AlignedAllocator<U, alignment> const&)
+		AlignedAllocator(AlignedAllocator<U> const&)
 		{
 		}
 
@@ -68,12 +59,12 @@ namespace Engine
 
 		pointer allocate(size_type cnt, typename std::allocator<void>::const_pointer = 0)
 		{
-			return reinterpret_cast<pointer>(_mm_malloc(cnt * sizeof(T), alignment));
+			return reinterpret_cast<pointer>(aligned_alloc(cnt * sizeof(T), alignof(T)));
 		}
 
 		void deallocate(pointer p, size_type)
 		{ 
-			_mm_free(p);
+			free(p);
 		}
 
 		size_type max_size() const
