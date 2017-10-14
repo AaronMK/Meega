@@ -215,9 +215,6 @@
     <ClInclude Include="..\..\include\Engine\Core\Units.h">
       <Filter>Header Files\Core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\Engine\Memory\Texture.h">
-      <Filter>Header Files\Memory</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\Engine\Internal\Memory\TexturePlatform.h">
       <Filter>Header Files\Internal\Memory</Filter>
     </ClInclude>

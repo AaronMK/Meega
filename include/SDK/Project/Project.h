@@ -3,9 +3,12 @@
 
 #include "../Config.h"
 
+#include <QtWidgets/QDockWidget>
+#include <QtWidgets/QMenu>
 #include <QtCore/QDir>
 
 #include <memory>
+#include <stdexcept>
 
 namespace MeegaSDK
 {
@@ -22,6 +25,12 @@ namespace MeegaSDK
 	class MEEGA_SDK_CLASS Project
 	{
 	public:
+		/**
+		 * @brief
+		 *   Opens a project in the provided directory, returning a valid pointer on success.
+		 */
+		static std::unique_ptr<Project> openProject(QDir dirs, std::unique_ptr<ProjectPrivate>&& data);
+
 		Project(std::unique_ptr<ProjectPrivate>&& privParams);
 		virtual ~Project();
 
@@ -29,16 +38,11 @@ namespace MeegaSDK
 		 * @brief
 		 *   Saves the project.
 		 *
+		 * @details
 		 *   This default implementation saves all base project data, and should be called in
 		 *   any overrides.
 		 */
-		virtual bool save();
-
-		/**
-		 * @brief
-		 *   Opens a project in the provided directory, returning a valid pointer on success.
-		 */
-		static std::unique_ptr<Project> openProject(QDir dir);
+		virtual void save();
 
 	protected:
 
@@ -54,9 +58,17 @@ namespace MeegaSDK
 		 */
 		QString name() const;
 
+		/**
+		 * @brief
+		 *  Gets the project menu from the user interface.
+		 */
+		QMenu* projectMenu() const;
+
 	private:
 		std::unique_ptr<ProjectPrivate> mProjectPrivate;
 	};
+
+	// Exceptions
 }
 
 #endif // _MEEGA_SDK_PROJECT_H_

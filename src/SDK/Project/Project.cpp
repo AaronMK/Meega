@@ -14,23 +14,17 @@ namespace MeegaSDK
 
 	}
 
-	std::unique_ptr<Project> Project::openProject(QDir dir)
+	std::unique_ptr<Project> Project::openProject(QDir dir, std::unique_ptr<ProjectPrivate>&& projPrivate)
 	{
-		std::unique_ptr<ProjectPrivate> projPrivate(new ProjectPrivate());
-		
-		if (projPrivate->load(dir))
-		{
-			ProjectPlugin* plugin = projPrivate->plugin;
-			return plugin->openProject(std::move(projPrivate));
-		}
-
-		return std::unique_ptr<Project>(nullptr);
+		projPrivate->load(dir);
+		ProjectPlugin* plugin = projPrivate->plugin;
+		return plugin->openProject(std::move(projPrivate));
 	}
 
-	bool Project::save()
+	void Project::save()
 	{
 		Q_ASSERT(mProjectPrivate);
-		return mProjectPrivate->save();
+		mProjectPrivate->save();
 	}
 
 	QDir Project::dataDir() const
@@ -43,5 +37,10 @@ namespace MeegaSDK
 	{
 		Q_ASSERT(mProjectPrivate);
 		return mProjectPrivate->name;
+	}
+
+	QMenu* Project::projectMenu() const
+	{
+		return mProjectPrivate->projectMenu;
 	}
 }

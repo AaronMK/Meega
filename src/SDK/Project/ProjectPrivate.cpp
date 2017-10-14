@@ -1,8 +1,11 @@
 #include <SDK/Internal/Project/ProjectPrivate.h>
-
 #include <SDK/Plugins/PluginManager.h>
 
+#include <StdExt/Exceptions.h>
+
 #include <QtCore/QDataStream>
+
+using namespace StdExt;
 
 namespace MeegaSDK
 {
@@ -15,13 +18,17 @@ namespace MeegaSDK
 	ProjectPrivate::ProjectPrivate(ProjectPrivate&& other)
 	{
 		directory = other.directory;
-		name = other.name;
+		name = QString(std::move(other.name));
 
 		plugin = other.plugin;
+		other.plugin = nullptr;
+
 		version = other.version;
 
+		projectMenu = other.projectMenu;
+		other.projectMenu = nullptr;
+
 		file.reset(other.file.release());
-		lastError = other.lastError;
 	}
 
 	ProjectPrivate::~ProjectPrivate()
@@ -29,7 +36,7 @@ namespace MeegaSDK
 		close();
 	}
 
-	bool ProjectPrivate::save()
+	void ProjectPrivate::save()
 	{
 		if (nullptr == file.get())
 		{
@@ -37,15 +44,13 @@ namespace MeegaSDK
 
 			if (false == file->open(QIODevice::ReadWrite))
 			{
-				lastError = QObject::tr("Could not open or create project file.");
-
 				file.reset(nullptr);
-				return false;
+				throw invalid_operation(QObject::tr("Could not open or create project file.").toStdString());
 			}
 		}
 		else
 		{
-			lastError = QObject::tr("No project file is open.");
+			throw invalid_operation(QObject::tr("No project file is open.").toStdString());
 		}
 
 		file->resize(0);
@@ -53,8 +58,6 @@ namespace MeegaSDK
 
 		QDataStream stream(file.get());
 		stream << version << plugin->id() << plugin->name() << name;
-
-		return true;
 	}
 
 	void ProjectPrivate::close()
@@ -72,28 +75,19 @@ namespace MeegaSDK
 		}
 	}
 
-	bool ProjectPrivate::load(QDir dir)
+	void ProjectPrivate::load(QDir dir)
 	{
 		if (nullptr != file.get())
-		{
-			lastError = QObject::tr("A project file is already open.");
-			return false;
-		}
+			throw invalid_operation(QObject::tr("A project file is already open.").toStdString());
 
 		directory = dir;
 		std::unique_ptr<QFile> openedFile(new QFile(directory.absoluteFilePath("project.meega")));
 
 		if (false == openedFile->exists())
-		{
-			lastError = QObject::tr("A project file does not exist in the selected directory.");
-			return false;
-		}
+			throw invalid_operation(QObject::tr("A project file does not exist in the selected directory.").toStdString());
 
 		if (false == openedFile->open(QIODevice::ReadWrite))
-		{
-			lastError = QObject::tr("Could not open project file with write permissions.");
-			return false;
-		}
+			throw filesystem_error(QObject::tr("Could not open the project file with write permissions.").toStdString());
 
 		QDataStream stream(openedFile.get());
 		uint32_t inPluginId = PluginId::INVALID;
@@ -103,9 +97,7 @@ namespace MeegaSDK
 		if (version > 1)
 		{
 			version = 0;
-			lastError = QObject::tr("The file was created with a newer version of the software.");
-
-			return false;
+			throw std::domain_error(QObject::tr("The file was created with a newer version of the software.").toStdString());
 		}
 
 		stream >> inPluginId;
@@ -115,29 +107,15 @@ namespace MeegaSDK
 		if (nullptr == inPlugin)
 		{
 			stream >> inPluginName;
-			lastError = QObject::tr("The plugin %1 has not been loaded.").arg(inPluginName);
-
-			return false;
+			throw std::domain_error(QObject::tr("The plugin %1 has not been loaded.").arg(inPluginName).toStdString());
 		}
 		
 		if (Plugin::Type::Project != inPlugin->type())
-		{
-			lastError = QObject::tr("There is an error in the plugin specified by the file or the plugin is misidentified.");
-			return false;
-		}
+			throw std::domain_error(QObject::tr("There is an error in the plugin specified by the file or the plugin is misidentified.").toStdString());
 
 		plugin = dynamic_cast<ProjectPlugin*>(inPlugin);
 		stream >> name;
 
 		file.reset(openedFile.release());
-		return true;
-	}
-
-	QString ProjectPrivate::getLastError()
-	{
-		QString ret = lastError;
-		lastError.clear();
-
-		return ret;
 	}
 }

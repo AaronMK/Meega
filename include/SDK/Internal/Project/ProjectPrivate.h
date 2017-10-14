@@ -5,6 +5,8 @@
 
 #include <SDK/Plugins/ProjectPlugin.h>
 
+#include <QtWidgets/QMenu>
+
 #include <QtCore/QDir>
 #include <QtCore/QFile>
 
@@ -55,7 +57,7 @@ namespace MeegaSDK
 		 *   This will always save with the most current supported version.  The project
 		 *   file will be created if it does not exist, and overwritten if it does.
 		 */
-		bool save();
+		void save();
 
 		/*
 		 * @brief
@@ -63,9 +65,7 @@ namespace MeegaSDK
 		 */
 		void close();
 
-		bool load(QDir dir);
-
-		QString getLastError();
+		void load(QDir dir);
 
 		QDir directory;
 		QString name;
@@ -74,7 +74,8 @@ namespace MeegaSDK
 		uint32_t version;
 
 		std::unique_ptr<QFile> file;
-		QString lastError;
+
+		QMenu* projectMenu;
 	};
 }
 

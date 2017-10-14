@@ -15,6 +15,7 @@ namespace Engine
 	 *  to integrate itself in the development tools at the cost of adding space
 	 *  and processing overhead.
 	 *
+	 * @details
 	 *  DevObject inherits QObject to simplify coding for pre-processor support if a sub-class
 	 *  needs signal/slot functionality.  For non-developent builds, this class compiles down
 	 *  to nothing.

@@ -5,6 +5,7 @@
 #include <SDK/Internal/Project/ProjectPrivate.h>
 
 #include <QtWidgets/QDockWidget>
+#include <QtWidgets/QMessageBox>
 #include <QtWidgets/QFileDialog>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QLabel>
@@ -19,22 +20,24 @@ MainWindow::MainWindow()
 	QDockWidget* assetsDock = new QDockWidget(tr("Assets"), this);
 	assetsDock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
 
-	QMenuBar* menuBar = new QMenuBar();
-	QMenu* fileMenu = menuBar->addMenu(tr("File"));
-	QMenu* projectMenu = menuBar->addMenu(tr("Project"));
-	QMenu* windowMenu = menuBar->addMenu(tr("Window"));
+	mMenuBar = new QMenuBar();
+	mFileMenu = mMenuBar->addMenu(tr("File"));
+	mProjectMenu = mMenuBar->addMenu(tr("Project"));
+	mWindowMenu = mMenuBar->addMenu(tr("Window"));
 
-	connect(fileMenu->addAction(tr("New Project...")), &QAction::triggered,
+	mProjectMenu->setDisabled(true);
+
+	connect(mFileMenu->addAction(tr("New Project...")), &QAction::triggered,
 	        this, &MainWindow::onFileNewProject);
 
-	connect(fileMenu->addAction(tr("Open Project...")), &QAction::triggered,
+	connect(mFileMenu->addAction(tr("Open Project...")), &QAction::triggered,
 	        this, &MainWindow::onFileOpenProject);
 
-	windowMenu->addAction(assetsDock->toggleViewAction());
+	mWindowMenu->addAction(assetsDock->toggleViewAction());
 
 	setCentralWidget(new QLabel(tr("Placeholder Widget")));
 	addDockWidget(Qt::LeftDockWidgetArea, assetsDock);
-	setMenuBar(menuBar);
+	setMenuBar(mMenuBar);
 }
 
 MainWindow::~MainWindow()
@@ -49,6 +52,19 @@ void MainWindow::onFileNewProject(bool checked)
 
 void MainWindow::onFileOpenProject(bool checked)
 {
-	QString directory = QFileDialog::getExistingDirectory(this);
-	Project::openProject(QDir(directory));
+	try
+	{
+		std::unique_ptr<ProjectPrivate> projPrivate(new ProjectPrivate());
+		projPrivate->projectMenu = mProjectMenu;
+
+		QString directory = QFileDialog::getExistingDirectory(this);
+		Project::openProject(QDir(directory), std::move(projPrivate));
+
+		if (mProjectMenu->children().count() > 0)
+			mProjectMenu->setEnabled(true);
+	}
+	catch (std::exception& ex)
+	{
+		QMessageBox::critical(this, QObject::tr("Project Open Error"), ex.what());
+	}
 }

@@ -23,6 +23,12 @@
     <ClInclude Include="..\..\external\StdExt\include\StdExt\Utility.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\external\StdExt\include\StdExt\Exceptions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\external\StdExt\include\StdExt\Memory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\external\StdExt\src\Buffer.cpp">

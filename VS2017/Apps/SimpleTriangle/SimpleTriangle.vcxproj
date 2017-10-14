@@ -41,6 +41,14 @@
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">%(AdditionalInputs)</AdditionalInputs>
     </CustomBuild>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\AppsCommon\AppsCommon.vcxproj">
+      <Project>{777ba9a7-027e-4e8d-876c-13810b1654e6}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SDK\SDK.vcxproj">
+      <Project>{23aa1ce0-28e5-4dbc-a239-520a2e6ab4dc}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{7B98D68C-DF08-4548-BB01-2ECBD984CAE5}</ProjectGuid>
     <RootNamespace>SimpleTriangle</RootNamespace>

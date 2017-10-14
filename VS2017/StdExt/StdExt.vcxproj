@@ -62,6 +62,8 @@
   <ItemGroup>
     <ClInclude Include="..\..\external\StdExt\include\StdExt\Buffer.h" />
     <ClInclude Include="..\..\external\StdExt\include\StdExt\ConstString.h" />
+    <ClInclude Include="..\..\external\StdExt\include\StdExt\Exceptions.h" />
+    <ClInclude Include="..\..\external\StdExt\include\StdExt\Memory.h" />
     <ClInclude Include="..\..\external\StdExt\include\StdExt\StdExt.h" />
     <ClInclude Include="..\..\external\StdExt\include\StdExt\Utility.h" />
   </ItemGroup>
