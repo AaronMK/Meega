@@ -17,6 +17,7 @@
     <ClInclude Include="..\..\external\Concurrent\include\Concurrent\FunctionTask.h" />
     <ClInclude Include="..\..\external\Concurrent\include\Concurrent\Internal\ConditionPlatform.h" />
     <ClInclude Include="..\..\external\Concurrent\include\Concurrent\Internal\MutexPlatform.h" />
+    <ClInclude Include="..\..\external\Concurrent\include\Concurrent\Internal\ObjectPoolInternal.h" />
     <ClInclude Include="..\..\external\Concurrent\include\Concurrent\Internal\ProducerInternal.h" />
     <ClInclude Include="..\..\external\Concurrent\include\Concurrent\Internal\QueuePlatform.h" />
     <ClInclude Include="..\..\external\Concurrent\include\Concurrent\Internal\RefBase.h" />

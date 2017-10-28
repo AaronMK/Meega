@@ -98,6 +98,9 @@
     <ClInclude Include="..\..\external\Concurrent\src\private_include\Platform.h">
       <Filter>Source Files\private_include</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\external\Concurrent\include\Concurrent\Internal\ObjectPoolInternal.h">
+      <Filter>Header Files\Internal</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\external\Concurrent\src\Concurrent.cpp">

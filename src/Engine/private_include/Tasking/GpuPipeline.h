@@ -2,16 +2,14 @@
 #define _ENGINE_GPU_PIPELINE_H_
 
 #include <Engine/Config.h>
-
 #include <Engine/Tasking/Fence.h>
 
 #include <Concurrent/Producer.h>
-
-#include <functional>
-
 #include <Concurrent/FunctionTask.h>
 
 #include <GPU/RenderTarget.h>
+
+#include <functional>
 
 #ifdef ENGINE_API_OPEN_GL
 
