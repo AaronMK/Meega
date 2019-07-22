@@ -2,7 +2,7 @@
 #include "include/MainWindow.qt.h"
 
 #if defined(_WIN32)
-#	pragma comment(lib, "Concurrent.lib")
+#	pragma comment(lib, "Engine.lib")
 #endif // WIN_32
 
 #include <SDK/Plugins/PluginManager.h>

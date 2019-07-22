@@ -9,7 +9,6 @@
 #	pragma comment(lib, "SDK.lib")
 #	pragma comment(lib, "Engine.lib")
 #	pragma comment(lib, "AppsCommon.lib")
-#	pragma comment(lib, "Concurrent.lib")
 #endif
 
 #include "TriangleApp.qt.h"

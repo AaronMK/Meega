@@ -11,8 +11,6 @@
 #include <Engine/Core/Matrix4x4.h>
 #include <Engine/Core/Color.h>
 
-#include <Concurrent/Reference.h>
-
 namespace AppsCommon
 {
 	class APPS_COMMON_DYNAMIC_CLASS BasicShader
