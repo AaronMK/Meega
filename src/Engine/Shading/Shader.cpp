@@ -9,6 +9,7 @@
 #include "../private_include/Tasking/GpuPipeline.h"
 
 using namespace Concurrent;
+using namespace StdExt;
 
 namespace Engine
 {
@@ -47,13 +48,18 @@ namespace Engine
 			Render::enqueue(std::bind(glDeleteShader, mShaderID));
 	}
 
-	void Shader::setSource(const std::string &source, ShaderStage stage)
+	void Shader::setSource(const std::string& source, ShaderStage stage)
+	{
+		setSource(StringLiteral(source.c_str()), stage);
+	}
+
+	void Shader::setSource(const String& source, ShaderStage stage)
 	{
 		assert(nullptr != GpuPipeline::current());
 
 		if (0 != mShaderID)
 		{
-			warning("Overwriting an existing shader source without a clear() action.");
+			warning(StringLiteral("Overwriting an existing shader source without a clear() action."));
 			glDeleteShader(mShaderID);
 		}
 		else
@@ -62,8 +68,10 @@ namespace Engine
 			mShaderID = glCreateShader(mShaderType);
 		}
 
+		String ntSource = source.getNullTerminated();
+
 		const char* strings[1];
-		strings[0] = source.c_str();
+		strings[0] = ntSource.data();
 
 		glShaderSource(mShaderID, 1, strings, NULL);
 	}

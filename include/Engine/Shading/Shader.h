@@ -5,7 +5,7 @@
 
 #include "../Internal/Shading/ShaderPlatform.h"
 
-#include <string>
+#include <StdExt/String.h>
 
 namespace Engine
 {
@@ -31,6 +31,8 @@ namespace Engine
 		virtual ~Shader();
 
 		void setSource(const std::string &source, ShaderStage stage);
+		void setSource(const StdExt::String& source, ShaderStage stage);
+
 		bool compile();
 
 		void clear();

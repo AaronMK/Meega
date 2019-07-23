@@ -86,11 +86,11 @@ namespace Engine
 		}
 	}
 
-	std::string Program::getLinkErrors() const
+	StdExt::String Program::getLinkErrors() const
 	{
 		assert(nullptr != GpuPipeline::current());
 
-		std::string Ret;
+		StdExt::String Ret;
 		
 		int infologLength = 0;
 	    int charsWritten  = 0;
@@ -102,7 +102,7 @@ namespace Engine
 	    {
 	        infoLog = (char *)malloc(infologLength);
 	        glGetProgramInfoLog(mProgramID, infologLength, &charsWritten, infoLog);
-			Ret = std::string(infoLog, infologLength);
+			Ret = StdExt::String(infoLog, infologLength);
 	        free(infoLog);
 	    }
 
@@ -124,9 +124,9 @@ namespace Engine
 		return glGetUniformLocation(mProgramID, VarName);
 	}
 
-	GLint Program::getUniformLocation(const std::string &VarName)
+	GLint Program::getUniformLocation(const StdExt::String& VarName)
 	{
-		return glGetUniformLocation(mProgramID, VarName.c_str());
+		return glGetUniformLocation(mProgramID, VarName.getNullTerminated().data());
 	}
 
 	void Program::setUniform(GLint loc, int32_t val)

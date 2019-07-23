@@ -4,7 +4,8 @@
 #include "../Config.h"
 
 #include <functional>
-#include <string>
+
+#include <StdExt/String.h>
 
 namespace Engine
 {
@@ -43,7 +44,7 @@ namespace Engine
 		High
 	};
 
-	typedef std::function<void(LogType, LogSource, LogSeverity, std::string&&)> LogCallback;
+	typedef std::function<void(LogType, LogSource, LogSeverity, const StdExt::String&)> LogCallback;
 }
 
 #endif // _ENGINE_DEV_SUPPORT_H_

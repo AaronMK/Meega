@@ -24,15 +24,15 @@ namespace Engine
 		currentHooks = hook;
 	}
 
-	void InterfaceHooks::onError(std::string&& msg)
+	void InterfaceHooks::onError(const StdExt::String& msg)
 	{
 	}
 	
-	void InterfaceHooks::onWarning(std::string&& msg)
+	void InterfaceHooks::onWarning(const StdExt::String& msg)
 	{
 	}
 	
-	void InterfaceHooks::onInfo(std::string&& msg)
+	void InterfaceHooks::onInfo(const StdExt::String& msg)
 	{
 	}
 
@@ -40,28 +40,28 @@ namespace Engine
 
 #ifdef ENGINE_DEVELOPMENT_SUPPORT
 
-	void error(std::string&& msg)
+	void error(const StdExt::String& msg)
 	{
 		Concurrent::MutexLocker lock(&iHooksLock);
 
 		if ( NULL != currentHooks)
-			currentHooks->onError(std::forward<std::string>(msg));
+			currentHooks->onError(msg);
 	}
 	
-	void warning(std::string&& msg)
+	void warning(const StdExt::String& msg)
 	{
 		Concurrent::MutexLocker lock(&iHooksLock);
 
 		if ( NULL != currentHooks)
-			currentHooks->onWarning(std::forward<std::string>(msg));
+			currentHooks->onWarning(msg);
 	}
 
-	void info(std::string&& msg)
+	void info(const StdExt::String& msg)
 	{
 		Concurrent::MutexLocker lock(&iHooksLock);
 
 		if ( NULL != currentHooks)
-			currentHooks->onInfo(std::forward<std::string>(msg));
+			currentHooks->onInfo(msg);
 	}
 
 #else

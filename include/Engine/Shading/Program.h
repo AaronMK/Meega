@@ -75,7 +75,7 @@ namespace Engine
 		 * @brief
 		 *  Get text describing any link errors.  This is an empty string upon succesful linking.
 		 */
-		std::string getLinkErrors() const;
+		StdExt::String getLinkErrors() const;
 
 		/**
 		 * @brief
@@ -103,7 +103,7 @@ namespace Engine
 		 *  The program must be successfuly linked for this function to succeed.
 		 *  The returned location will be valid until the program is relinked.
 		 */
-		GLint getUniformLocation(const std::string &VarName);
+		GLint getUniformLocation(const StdExt::String& VarName);
 
 		void setUniform(GLint loc, int32_t val);
 		void setUniform(GLint loc, float32_t val);
