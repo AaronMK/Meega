@@ -88,10 +88,10 @@
       <AdditionalDependencies>AppsCommon.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>$(QTDIR)bin\windeployqt.exe "$(TargetPath)"</Command>
+      <Command>"$(QTDIR)bin\windeployqt.exe" "$(TargetPath)"</Command>
     </PostBuildEvent>
     <PostBuildEvent>
-      <Message>Copying Qt dependencies.</Message>
+      <Message>Copying Qt dependencies...</Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">
@@ -107,10 +107,10 @@
       <AdditionalDependencies>AppsCommon.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>$(QTDIR)bin\windeployqt.exe "$(TargetPath)"</Command>
+      <Command>"$(QTDIR)bin\windeployqt.exe" "$(TargetPath)"</Command>
     </PostBuildEvent>
     <PostBuildEvent>
-      <Message>Copying Qt dependencies.</Message>
+      <Message>Copying Qt dependencies...</Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
