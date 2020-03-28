@@ -1,8 +1,6 @@
-#include <Engine/DevSupport/DevObject.h>
+#include <SDK/DevObject.h>
 
-#ifdef ENGINE_DEVELOPMENT_SUPPORT
-
-namespace Engine
+namespace MeegaSDK
 {
 	DevObject::DevObject()
 	{
@@ -19,5 +17,3 @@ namespace Engine
 		return nullptr;
 	}
 }
-
-#endif // ENGINE_DEVELOPMENT_SUPPORT

@@ -71,6 +71,12 @@
     <ClInclude Include="..\..\include\SDK\Plugins\PluginManager.h">
       <Filter>Header Files\Plugins</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\SDK\DevObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\SDK\Metatypes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\SDK\Plugins\Plugin.cpp">
@@ -115,6 +121,21 @@
     <ClCompile Include="..\..\src\SDK\Project\ProjectPrivate.cpp">
       <Filter>Source Files\Project</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\SDK\DevObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\SDK\QGuiThreadQueue.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\SDK\DevSupport.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\SDK\Metatypes.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="moc\moc_QGuiThreadQueue.qt.cxx">
+      <Filter>Generated Files\moc</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="..\..\include\SDK\Widgets\QColorEdit.qt.h">
@@ -125,6 +146,9 @@
     </CustomBuild>
     <CustomBuild Include="..\..\include\SDK\Widgets\QCreateProjectDialog.qt.h">
       <Filter>Header Files\Widgets</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\include\SDK\QGuiThreadQueue.qt.h">
+      <Filter>Header Files</Filter>
     </CustomBuild>
   </ItemGroup>
 </Project>

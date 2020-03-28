@@ -59,7 +59,7 @@ namespace Engine
 
 		if (0 != mShaderID)
 		{
-			warning(StringLiteral("Overwriting an existing shader source without a clear() action."));
+			InterfaceHooks::warning(StringLiteral("Overwriting an existing shader source without a clear() action."));
 			glDeleteShader(mShaderID);
 		}
 		else

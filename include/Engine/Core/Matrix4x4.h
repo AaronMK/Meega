@@ -163,14 +163,6 @@ namespace Serialize
 	ENGINE_EXPORT void write<Engine::mat4x4>(ByteStream* stream, const Engine::mat4x4 &val);
 }
 
-#if defined(ENGINE_DEVELOPMENT_SUPPORT)
-
-#include <QtCore/QMetaType>
-
-Q_DECLARE_METATYPE(Engine::mat4x4)
-
-#endif // defined(ENGINE_DEVELOPMENT_SUPPORT)
-
 #endif // !defined(DOXYGEN)
 
 #endif // _ENGINE_MAT4_H_

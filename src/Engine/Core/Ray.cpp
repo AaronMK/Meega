@@ -34,18 +34,3 @@ namespace Engine
 	{
 	}
 }
-
-#if defined(ENGINE_DEVELOPMENT_SUPPORT) && !defined(DOXYGEN)
-
-class RayMetaType
-{
-public:
-	RayMetaType()
-	{
-		qRegisterMetaType<Engine::Ray3>();
-		qRegisterMetaType<Engine::Ray4>();
-	}
-};
-static RayMetaType instRayMetaType;
-
-#endif // defined(ENGINE_DEVELOPMENT_SUPPORT) && !defined(DOXYGEN)

@@ -296,15 +296,6 @@ namespace Serialize
 	ENGINE_EXPORT void write<Engine::vec4>(ByteStream* stream, const Engine::vec4 &val);
 }
 
-#if defined(ENGINE_DEVELOPMENT_SUPPORT)
-
-#include <QtCore/QMetaType>
-
-Q_DECLARE_METATYPE(Engine::vec3)
-Q_DECLARE_METATYPE(Engine::vec4)
-
-#endif // defined(ENGINE_DEVELOPMENT_SUPPORT) 
-
 #endif // !defined(DOXYGEN)
 
 #endif // _ENGINE_VEC_H_

@@ -242,21 +242,6 @@ namespace Serialize
 	ENGINE_EXPORT void write<Engine::GRAY_ALPHA_F32>(ByteStream* stream, const Engine::GRAY_ALPHA_F32 &val);
 }
 
-#if defined(ENGINE_DEVELOPMENT_SUPPORT)
-
-#include <QtCore/QMetaType>
-
-Q_DECLARE_METATYPE(Engine::RGB_8)
-Q_DECLARE_METATYPE(Engine::RGBA_8)
-Q_DECLARE_METATYPE(Engine::RGB_F32)
-Q_DECLARE_METATYPE(Engine::RGBA_F32)
-Q_DECLARE_METATYPE(Engine::GRAY_8)
-Q_DECLARE_METATYPE(Engine::GRAY_ALPHA_8)
-Q_DECLARE_METATYPE(Engine::GRAY_F32)
-Q_DECLARE_METATYPE(Engine::GRAY_ALPHA_F32)
-
-#endif // defined(ENGINE_DEVELOPMENT_SUPPORT)
-
 #endif // !defined(DOXYGEN)
 
 #endif // _ENGINE_COLOR_H_

@@ -3,48 +3,59 @@
 
 #include "../Config.h"
 
-#include <functional>
-
 #include <StdExt/String.h>
+#include <StdExt/Signals/Event.h>
+
+#include <functional>
 
 namespace Engine
 {
-	enum class LogSource
+	class Logging
 	{
-		GPU,
-		Engine,
-		GraphicsApi,
-		WindowSystem,
-		ShaderCompiler,
-		ThirdParty,
-		Application,
-		Other
+	public:
+		enum class Source
+		{
+			GPU,
+			Engine,
+			GraphicsApi,
+			WindowSystem,
+			ShaderCompiler,
+			ThirdParty,
+			Application,
+			Other
+		};
+
+		enum class Type
+		{
+			Info,
+			Deprecated,
+			UndefinedBehavior,
+			Protability,
+			Performance,
+			Marker,
+			PushGroup,
+			PopGroup,
+			Warning,
+			Error,
+			Other
+		};
+
+		enum class Severity
+		{
+			Info,
+			Low,
+			Medium,
+			High
+		};
+
+		using event_t = StdExt::Signals::Event<Type, Source, Severity, StdExt::String>;
+
+		static const event_t& getEvent();
+
+		static void log(Type lType, Source lSource, Severity lSeverity, const StdExt::String& lMsg);
 	};
 
-	enum class LogType
-	{
-		Info,
-		Deprecated,
-		UndefinedBehavior,
-		Protability,
-		Performance,
-		Marker,
-		PushGroup,
-		PopGroup,
-		Warning,
-		Error,
-		Other
-	};
 
-	enum class LogSeverity
-	{
-		Info,
-		Low,
-		Medium,
-		High
-	};
-
-	typedef std::function<void(LogType, LogSource, LogSeverity, const StdExt::String&)> LogCallback;
 }
 
 #endif // _ENGINE_DEV_SUPPORT_H_

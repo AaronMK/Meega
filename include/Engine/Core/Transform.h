@@ -96,14 +96,6 @@ namespace Serialize
 	ENGINE_EXPORT void write<Engine::Transform>(ByteStream* stream, const Engine::Transform &val);
 }
 
-#if defined(ENGINE_DEVELOPMENT_SUPPORT)
-
-#include <QtCore/QMetaType>
-
-Q_DECLARE_METATYPE(Engine::Transform)
-
-#endif // defined(ENGINE_DEVELOPMENT_SUPPORT)
-
 #endif // !defined(DOXYGEN)
 
 #endif // _ENGINE_TRANSFORM_H_

@@ -55,7 +55,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\SDK\Config.h" />
+    <ClInclude Include="..\..\include\SDK\DevObject.h" />
     <ClInclude Include="..\..\include\SDK\Internal\Project\ProjectPrivate.h" />
+    <ClInclude Include="..\..\include\SDK\Metatypes.h" />
     <ClInclude Include="..\..\include\SDK\Plugins\LocalProjectPlugin.h" />
     <ClInclude Include="..\..\include\SDK\Plugins\Plugin.h" />
     <ClInclude Include="..\..\include\SDK\Plugins\PluginManager.h" />
@@ -86,9 +88,20 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">$(ProjectDir)moc\Widgets\moc_%(Filename).cxx</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">$(ProjectDir)moc\Widgets\moc_%(Filename).cxx</Outputs>
     </CustomBuild>
+    <CustomBuild Include="..\..\include\SDK\QGuiThreadQueue.qt.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">$(QTDIR)/bin/moc "%(FullPath)" -o "$(ProjectDir)moc\moc_%(Filename).cxx"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">$(QTDIR)/bin/moc "%(FullPath)" -o "$(ProjectDir)moc\moc_%(Filename).cxx"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">Moc%27ing %(Filename)</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">Moc%27ing %(Filename)</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">$(ProjectDir)moc\moc_%(Filename).cxx</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">$(ProjectDir)moc\moc_%(Filename).cxx</Outputs>
+    </CustomBuild>
     <ClInclude Include="..\..\include\SDK\Widgets\QFloatValidator.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\SDK\DevObject.cpp" />
+    <ClCompile Include="..\..\src\SDK\DevSupport.cpp" />
+    <ClCompile Include="..\..\src\SDK\Metatypes.cpp" />
     <ClCompile Include="..\..\src\SDK\Plugins\LocalProjectPlugin.cpp" />
     <ClCompile Include="..\..\src\SDK\Plugins\Plugin.cpp" />
     <ClCompile Include="..\..\src\SDK\Plugins\PluginManager.cpp" />
@@ -96,10 +109,12 @@
     <ClCompile Include="..\..\src\SDK\Project\LocalProject.cpp" />
     <ClCompile Include="..\..\src\SDK\Project\Project.cpp" />
     <ClCompile Include="..\..\src\SDK\Project\ProjectPrivate.cpp" />
+    <ClCompile Include="..\..\src\SDK\QGuiThreadQueue.cpp" />
     <ClCompile Include="..\..\src\SDK\Widgets\QColorEdit.cpp" />
     <ClCompile Include="..\..\src\SDK\Widgets\QCreateProjectDialog.cpp" />
     <ClCompile Include="..\..\src\SDK\Widgets\QFloatEdit.cpp" />
     <ClCompile Include="..\..\src\SDK\Widgets\QFloatValidator.cpp" />
+    <ClCompile Include="moc\moc_QGuiThreadQueue.qt.cxx" />
     <ClCompile Include="moc\Widgets\moc_QColorEdit.qt.cxx" />
     <ClCompile Include="moc\Widgets\moc_QCreateProjectDialog.qt.cxx" />
     <ClCompile Include="moc\Widgets\moc_QFloatEdit.qt.cxx" />
