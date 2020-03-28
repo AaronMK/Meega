@@ -50,7 +50,7 @@ namespace Engine
 
 	void Shader::setSource(const std::string& source, ShaderStage stage)
 	{
-		setSource(StringLiteral(source.c_str()), stage);
+		setSource(String(source.c_str()), stage);
 	}
 
 	void Shader::setSource(const String& source, ShaderStage stage)
@@ -59,7 +59,7 @@ namespace Engine
 
 		if (0 != mShaderID)
 		{
-			warning(StringLiteral("Overwriting an existing shader source without a clear() action."));
+			InterfaceHooks::warning(StringLiteral("Overwriting an existing shader source without a clear() action."));
 			glDeleteShader(mShaderID);
 		}
 		else

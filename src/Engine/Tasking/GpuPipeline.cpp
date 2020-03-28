@@ -21,82 +21,82 @@ namespace Engine
 		
 		static void APIENTRY DebugGLCallback(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const void* userParam)
 		{
-			LogType logType;
-			LogSource logSource;
-			LogSeverity logSeverity;
+			Logging::Type logType = Logging::Type::Other;
+			Logging::Source logSource = Logging::Source::Other;
+			Logging::Severity logSeverity = Logging::Severity::Info;
 
 			switch(source)
 			{
 			case GL_DEBUG_SOURCE_API:
-				logSource = LogSource::GraphicsApi;
+				logSource = Logging::Source::GraphicsApi;
 				break;
 			case GL_DEBUG_SOURCE_WINDOW_SYSTEM:
-				logSource = LogSource::WindowSystem;
+				logSource = Logging::Source::WindowSystem;
 				break;
 			case GL_DEBUG_SOURCE_SHADER_COMPILER:
-				logSource = LogSource::ShaderCompiler;
+				logSource = Logging::Source::ShaderCompiler;
 				break;
 			case GL_DEBUG_SOURCE_THIRD_PARTY:
-				logSource = LogSource::ThirdParty;
+				logSource = Logging::Source::ThirdParty;
 				break;
 			case GL_DEBUG_SOURCE_APPLICATION:
-				logSource = LogSource::Application;
+				logSource = Logging::Source::Application;
 				break;
 			default:
-				logSource = LogSource::Other;
+				logSource = Logging::Source::Other;
 				break;
 			}
 
 			switch(type)
 			{
 			case GL_DEBUG_TYPE_ERROR:
-				logType = LogType::Error;
+				logType = Logging::Type::Error;
 				break;
 			case GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR:
-				logType = LogType::Deprecated;
+				logType = Logging::Type::Deprecated;
 				break;
 			case GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR:
-				logType = LogType::UndefinedBehavior;
+				logType = Logging::Type::UndefinedBehavior;
 				break;
 			case GL_DEBUG_TYPE_PORTABILITY:
-				logType = LogType::Protability;
+				logType = Logging::Type::Protability;
 				break;
 			case GL_DEBUG_TYPE_PERFORMANCE:
-				logType = LogType::Performance;
+				logType = Logging::Type::Performance;
 				break;
 			case GL_DEBUG_TYPE_MARKER:
-				logType = LogType::Marker;
+				logType = Logging::Type::Marker;
 				break;
 			case GL_DEBUG_TYPE_PUSH_GROUP:
-				logType = LogType::PushGroup;
+				logType = Logging::Type::PushGroup;
 				break;
 			case GL_DEBUG_TYPE_POP_GROUP:
-				logType = LogType::PopGroup;
+				logType = Logging::Type::PopGroup;
 				break;
 			default:
-				logType = LogType::Other;
+				logType = Logging::Type::Other;
 				break;
 			}
 
 			switch (severity)
 			{
 			case GL_DEBUG_SEVERITY_LOW:
-				logSeverity = LogSeverity::Low;
+				logSeverity = Logging::Severity::Low;
 				break;
 			case GL_DEBUG_SEVERITY_MEDIUM:
-				logSeverity = LogSeverity::Medium;
+				logSeverity = Logging::Severity::Medium;
 				break;
 			case GL_DEBUG_SEVERITY_HIGH:
-				logSeverity = LogSeverity::High;
+				logSeverity = Logging::Severity::High;
 				break;
 			case GL_DEBUG_SEVERITY_NOTIFICATION:
-				logSeverity = LogSeverity::Info;
+				logSeverity = Logging::Severity::Info;
 				break;
 			}
 
-			std::string strMessage(message, length);
+			StdExt::String strMessage(message, length);
 
-			int breakPt = 1;
+			Logging::log(logType, logSource, logSeverity, strMessage);
 		}
 #	else
 		static bool debugProfile = false;

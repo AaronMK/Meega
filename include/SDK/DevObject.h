@@ -1,13 +1,11 @@
 #ifndef _ENGINE_DEV_OBJECT_H_
 #define _ENGINE_DEV_OBJECT_H_
 
-#include "DevSupport.h"
-
-#ifdef ENGINE_DEVELOPMENT_SUPPORT
+#include "Config.h"
 
 #include <QtWidgets/QWidget>
 
-namespace Engine
+namespace MeegaSDK
 {
 	/**
 	 * @brief
@@ -20,7 +18,7 @@ namespace Engine
 	 *  needs signal/slot functionality.  For non-developent builds, this class compiles down
 	 *  to nothing.
 	 */
-	class ENGINE_EXPORT DevObject : public QObject
+	class MEEGA_SDK_CLASS DevObject : public QObject
 	{
 	public:
 		DevObject();
@@ -29,16 +27,5 @@ namespace Engine
 		virtual QWidget* makePropertiesWidget();
 	};
 }
-
-#else
-
-namespace Engine
-{
-	class DevObject 
-	{
-	};
-}
-
-#endif // ENGINE_DEVELOPMENT_SUPPORT
 
 #endif // _ENGINE_DEV_OBJECT_H_

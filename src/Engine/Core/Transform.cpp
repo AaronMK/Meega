@@ -252,18 +252,4 @@ namespace Serialize
 	}
 }
 
-#if defined(ENGINE_DEVELOPMENT_SUPPORT)
-
-class TransformMetaType
-{
-public:
-	TransformMetaType()
-	{
-		qRegisterMetaType<Engine::Transform>();
-	}
-};
-static TransformMetaType instTransformMetaType;
-
-#endif // defined(ENGINE_DEVELOPMENT_SUPPORT)
-
 #endif // !defined(DOXYGEN)

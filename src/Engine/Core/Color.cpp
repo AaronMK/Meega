@@ -324,25 +324,4 @@ namespace Serialize
 	}
 }
 
-#if defined(ENGINE_DEVELOPMENT_SUPPORT) 
-
-class ColorMetaType
-{
-public:
-	ColorMetaType()
-	{
-		qRegisterMetaType<Engine::RGB_8>();
-		qRegisterMetaType<Engine::RGBA_8>();
-		qRegisterMetaType<Engine::RGB_F32>();
-		qRegisterMetaType<Engine::RGBA_F32>();
-		qRegisterMetaType<Engine::GRAY_8>();
-		qRegisterMetaType<Engine::GRAY_ALPHA_8>();
-		qRegisterMetaType<Engine::GRAY_F32>();
-		qRegisterMetaType<Engine::GRAY_ALPHA_F32>();
-	}
-};
-static ColorMetaType instColorMetaType;
-
-#endif // defined(ENGINE_DEVELOPMENT_SUPPORT)
-
 #endif // !defined(DOXYGEN)

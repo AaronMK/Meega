@@ -1,72 +1,84 @@
 #include <Engine/DevSupport/InterfaceHooks.h>
 
-#include <iostream>
+using namespace StdExt::Signals;
+using namespace StdExt;
+
+#ifdef ENGINE_DEVELOPMENT_SUPPORT
 
 #include <Concurrent/Mutex.h>
 #include <Concurrent/MutexLocker.h>
 
 namespace Engine
 {
-	static InterfaceHooks* currentHooks = NULL;
-	static Concurrent::Mutex iHooksLock;
+	Concurrent::Mutex iHooksLock;
 
-	InterfaceHooks::InterfaceHooks()
+	Invokable<String> evtError;
+	Invokable<String> evtWarning;
+	Invokable<String> evtInfo;
+
+	const Event<String>& InterfaceHooks::errorEvent()
 	{
+		return evtError;
 	}
 
-	InterfaceHooks::~InterfaceHooks()
+	const Event<String>& InterfaceHooks::warningEvent()
 	{
-	}
-	
-	void InterfaceHooks::setHooks(InterfaceHooks* hook)
-	{
-		Concurrent::MutexLocker lock(&iHooksLock);
-		currentHooks = hook;
+		return evtWarning;
 	}
 
-	void InterfaceHooks::onError(const StdExt::String& msg)
+	const Event<String>& InterfaceHooks::infoEvent()
 	{
-	}
-	
-	void InterfaceHooks::onWarning(const StdExt::String& msg)
-	{
-	}
-	
-	void InterfaceHooks::onInfo(const StdExt::String& msg)
-	{
+		return evtInfo;
 	}
 
-	///////////////////////////////////////////
-
-#ifdef ENGINE_DEVELOPMENT_SUPPORT
-
-	void error(const StdExt::String& msg)
+	void InterfaceHooks::error(const StdExt::String& msg)
 	{
 		Concurrent::MutexLocker lock(&iHooksLock);
-
-		if ( NULL != currentHooks)
-			currentHooks->onError(msg);
+		evtError.invoke(msg);
 	}
 	
-	void warning(const StdExt::String& msg)
+	void InterfaceHooks::warning(const StdExt::String& msg)
 	{
 		Concurrent::MutexLocker lock(&iHooksLock);
-
-		if ( NULL != currentHooks)
-			currentHooks->onWarning(msg);
+		evtWarning.invoke(msg);
 	}
 
-	void info(const StdExt::String& msg)
+	void InterfaceHooks::info(const StdExt::String& msg)
 	{
 		Concurrent::MutexLocker lock(&iHooksLock);
-
-		if ( NULL != currentHooks)
-			currentHooks->onInfo(msg);
+		evtInfo.invoke(msg);
 	}
-
-#else
-	void error(std::string&& msg){}
-	void warning(std::string&& msg){}
-	void info(std::string&& msg){}
-#endif
 }
+#else
+namespace Engine
+{
+	Event<String> evtNull;
+
+	const Event<String>& InterfaceHooks::errorEvent()
+	{
+		return evtNull;
+	}
+
+	const Event<String>& InterfaceHooks::warningEvent()
+	{
+		return evtNull;
+	}
+
+	const Event<String>& InterfaceHooks::infoEvent()
+	{
+		return evtNull;
+	}
+
+	void InterfaceHooks::error(const StdExt::String& msg)
+	{
+	}
+
+	void InterfaceHooks::warning(const StdExt::String& msg)
+	{
+	}
+
+	void InterfaceHooks::info(const StdExt::String& msg)
+	{
+	}
+}
+#endif

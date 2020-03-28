@@ -390,8 +390,6 @@ namespace Engine
 	}
 }
 
-
-
 #if !defined(DOXYGEN)
 
 namespace Serialize
@@ -421,19 +419,4 @@ namespace Serialize
 	}
 }
 
-#if defined(ENGINE_DEVELOPMENT_SUPPORT)
-
-class VecMetaType
-{
-public:
-	VecMetaType()
-	{
-		qRegisterMetaType<Engine::vec3>();
-		qRegisterMetaType<Engine::vec4>();
-	}
-};
-static VecMetaType instVecMetaType;
-
-#endif // defined(ENGINE_DEVELOPMENT_SUPPORT)
-
-#endif // !defined(DOXYGEN)
+#endif // !DOXYGEN

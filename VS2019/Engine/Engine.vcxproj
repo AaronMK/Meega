@@ -26,21 +26,9 @@
     <ClInclude Include="..\..\include\Engine\Core\Units.h" />
     <ClInclude Include="..\..\include\Engine\Core\Utility.h" />
     <ClInclude Include="..\..\include\Engine\Core\Vec.h" />
-    <ClInclude Include="..\..\include\Engine\DevSupport\DevObject.h" />
-    <ClInclude Include="..\..\include\Engine\DevSupport\DevSupport.h" />
     <ClInclude Include="..\..\include\Engine\DevSupport\InterfaceHooks.h" />
     <ClInclude Include="..\..\include\Engine\DevSupport\Logging.h" />
     <ClInclude Include="..\..\include\Engine\DevSupport\Property.h" />
-    <CustomBuild Include="..\..\include\Engine\DevSupport\QGuiThreadQueue.qt.h">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">$(QTDIR)/bin/moc "%(FullPath)" -DENGINE_DEVELOPMENT_SUPPORT -o "$(ProjectDir)moc\DevSupport\moc_%(Filename).cxx"</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">Moc%27ing %(Filename)</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">$(ProjectDir)moc\DevSupport\moc_%(Filename).cxx;%(Outputs)</Outputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">$(QTDIR)/bin/moc "%(FullPath)" -DENGINE_DEVELOPMENT_SUPPORT -o "$(ProjectDir)moc\DevSupport\moc_%(Filename).cxx"</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">Moc%27ing %(Filename)</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">$(ProjectDir)moc\DevSupport\moc_%(Filename).cxx;%(Outputs)</Outputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">%(AdditionalInputs)</AdditionalInputs>
-    </CustomBuild>
     <ClInclude Include="..\..\include\Engine\Engine.h" />
     <ClInclude Include="..\..\include\Engine\Internal\Core\ConstantsPlatform.h" />
     <ClInclude Include="..\..\include\Engine\Internal\Memory\TexturePlatform.h" />
@@ -78,11 +66,8 @@
     <ClCompile Include="..\..\src\Engine\Core\Transform.cpp" />
     <ClCompile Include="..\..\src\Engine\Core\Vec.cpp" />
     <ClCompile Include="..\..\src\Engine\Debug\DebugGL.cpp" />
-    <ClCompile Include="..\..\src\Engine\DevSupport\DevObject.cpp" />
-    <ClCompile Include="..\..\src\Engine\DevSupport\DevSupport.cpp" />
     <ClCompile Include="..\..\src\Engine\DevSupport\InterfaceHooks.cpp" />
     <ClCompile Include="..\..\src\Engine\DevSupport\Logging.cpp" />
-    <ClCompile Include="..\..\src\Engine\DevSupport\QGuiThreadQueue.cpp" />
     <ClCompile Include="..\..\src\Engine\Engine.cpp" />
     <ClCompile Include="..\..\src\Engine\Memory\VertexArrayObject.cpp" />
     <ClCompile Include="..\..\src\Engine\Memory\VertexBufferObject.cpp" />
@@ -95,7 +80,6 @@
     <ClCompile Include="..\..\src\Engine\Tasking\Pipeline.cpp" />
     <ClCompile Include="..\..\src\Engine\Tasking\Scheduling.cpp" />
     <ClCompile Include="..\..\src\Engine\Timing\Timing.cpp" />
-    <ClCompile Include="moc\DevSupport\moc_QGuiThreadQueue.qt.cxx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GPU\GPU.vcxproj">
@@ -130,14 +114,12 @@
     <Import Project="..\Local.props" />
     <Import Project="..\Base.props" />
     <Import Project="..\Debug.props" />
-    <Import Project="..\Qt.props" />
     <Import Project="..\MeegaDevelopment.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'" Label="PropertySheets">
     <Import Project="..\Local.props" />
     <Import Project="..\Base.props" />
     <Import Project="..\Release.props" />
-    <Import Project="..\Qt.props" />
     <Import Project="..\MeegaDevelopment.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
