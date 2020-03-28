@@ -50,7 +50,7 @@ namespace Engine
 
 	void Shader::setSource(const std::string& source, ShaderStage stage)
 	{
-		setSource(StringLiteral(source.c_str()), stage);
+		setSource(String(source.c_str()), stage);
 	}
 
 	void Shader::setSource(const String& source, ShaderStage stage)

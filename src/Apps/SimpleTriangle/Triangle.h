@@ -3,14 +3,15 @@
 
 #include <Engine/Memory/VertexBufferObject.h>
 #include <Engine/Memory/VertexArrayObject.h>
-#include <Engine/DevSupport/DevObject.h>
 #include <Engine/DevSupport/Property.h>
 #include <Engine/Camera/Camera.h>
 #include <Engine/Core/Color.h>
 
+#include <SDK/DevObject.h>
+
 #include <AppsCommon/BasicShader.h>
 
-class Triangle : public Engine::DevObject
+class Triangle : public MeegaSDK::DevObject
 {
 public:
 	Triangle();
