@@ -128,7 +128,7 @@ namespace Engine
 
 		operator Meters() const
 		{
-			return Meters(mValue * 0.3048);
+			return Meters(mValue * 0.3048f);
 		}
 
 		Feet& operator=(const Feet &rhs)
@@ -322,7 +322,7 @@ namespace Engine
 
 		Degrees(const Radians &val)
 		{
-			mValue = val.value() * 57.2957795;
+			mValue = val.value() * 57.2957795f;
 		}
 
 		float value() const
@@ -332,7 +332,7 @@ namespace Engine
 
 		operator Radians() const
 		{
-			return Radians(mValue * 0.0174532925);
+			return Radians(mValue * 0.0174532925f);
 		}
 
 		Degrees& operator=(const Degrees &rhs)
