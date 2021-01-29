@@ -1,25 +1,27 @@
 #ifndef _GPU_Q_RENDER_RARGET_SYS_BASE_QT_H_
 #define _GPU_Q_RENDER_RARGET_SYS_BASE_QT_H_
 
-#include "../../RenderTarget.h"
+#include "../../Config.h"
+
+#include <GPU/RenderTarget.h>
 
 #include <QtWidgets/QWidget>
 
 #ifdef Q_OS_WIN
 #	ifdef _DEBUG
-#		pragma comment(lib, "Qt5Widgetsd.lib")
-#		pragma comment(lib, "Qt5Cored.lib")
+#		pragma comment(lib, "Qt6Widgetsd.lib")
+#		pragma comment(lib, "Qt6Cored.lib")
 #	else
-#		pragma comment(lib, "Qt5Widgets.lib")
-#		pragma comment(lib, "Qt5Core.lib")
+#		pragma comment(lib, "Qt6Widgets.lib")
+#		pragma comment(lib, "Qt6Core.lib")
 #	endif
 
-namespace GPU
+namespace SDK
 {
-	class GPU_DYNAMIC_CLASS QRenderTargetSysBase : public QWidget, public RenderTargetWin
+	class MEEGA_SDK_CLASS QRenderTargetSysBase : public QWidget, public GPU::RenderTargetWin
 	{
 	protected:
-		QRenderTargetSysBase(QWidget* parent = 0, Qt::WindowFlags f = 0);
+		QRenderTargetSysBase(QWidget* parent = nullptr, Qt::WindowFlags f = Qt::WindowFlags());
 		virtual ~QRenderTargetSysBase();
 
 	public:

@@ -1,8 +1,8 @@
 #if defined(_WIN32)
 #	if defined(_DEBUG)
-#		pragma comment(lib, "qtmaind.lib")
+#		pragma comment(lib, "Qt6EntryPointd.lib")
 #	else
-#		pragma comment(lib, "qtmain.lib")
+#		pragma comment(lib, "Qt6EntryPoint.lib")
 #	endif
 
 #	pragma comment(lib, "GPU.lib")

@@ -42,6 +42,9 @@
     <Filter Include="Generated Files\moc\Widgets">
       <UniqueIdentifier>{d43c222a-f502-4a3f-b584-e5f72f8d01dc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Internal\Widgets">
+      <UniqueIdentifier>{9f47cb7d-0db0-47bc-853f-a35c45722bd4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\SDK\Config.h">
@@ -76,6 +79,9 @@
     </ClInclude>
     <ClInclude Include="..\..\include\SDK\Metatypes.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\SDK\Internal\Widgets\QRenderTargetSysBase.h">
+      <Filter>Header Files\Internal\Widgets</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -136,6 +142,15 @@
     <ClCompile Include="moc\moc_QGuiThreadQueue.qt.cxx">
       <Filter>Generated Files\moc</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\SDK\Widgets\QRenderTarget.cpp">
+      <Filter>Source Files\Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\SDK\Widgets\QRenderTargetSysBase.cpp">
+      <Filter>Source Files\Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="moc\Widgets\moc_QRenderTarget.qt.cxx">
+      <Filter>Generated Files\moc\Widgets</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="..\..\include\SDK\Widgets\QColorEdit.qt.h">
@@ -149,6 +164,9 @@
     </CustomBuild>
     <CustomBuild Include="..\..\include\SDK\QGuiThreadQueue.qt.h">
       <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\include\SDK\Widgets\QRenderTarget.qt.h">
+      <Filter>Header Files\Widgets</Filter>
     </CustomBuild>
   </ItemGroup>
 </Project>

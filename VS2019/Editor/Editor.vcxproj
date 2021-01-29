@@ -45,6 +45,9 @@
     <ProjectReference Include="..\Engine\Engine.vcxproj">
       <Project>{b91d3a2d-0e97-4441-bf25-1fdccabeab66}</Project>
     </ProjectReference>
+    <ProjectReference Include="..\SDK\SDK.vcxproj">
+      <Project>{23aa1ce0-28e5-4dbc-a239-520a2e6ab4dc}</Project>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{1B3E715B-0CA0-4198-9704-B4B99D177098}</ProjectGuid>

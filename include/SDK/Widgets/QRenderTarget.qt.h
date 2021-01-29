@@ -1,15 +1,15 @@
 #ifndef _GPU_Q_RENDER_RARGET_QT_H_
 #define _GPU_Q_RENDER_RARGET_QT_H_
 
-#include "../Internal/Qt/QRenderTargetSysBase.h"
+#include "../Internal/Widgets/QRenderTargetSysBase.h"
 
-namespace GPU
+namespace SDK
 {
-	class GPU_DYNAMIC_CLASS QRenderTarget : public QRenderTargetSysBase
+	class MEEGA_SDK_CLASS QRenderTarget : public QRenderTargetSysBase
 	{
 		Q_OBJECT
 	public:
-		QRenderTarget(QWidget* parent = 0, Qt::WindowFlags f = 0);
+		QRenderTarget(QWidget* parent = nullptr, Qt::WindowFlags f = Qt::WindowFlags());
 		virtual ~QRenderTarget();
 
 		virtual void getDims(int *outWidth, int *outHeight) override;

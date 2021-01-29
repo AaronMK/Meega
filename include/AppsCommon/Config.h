@@ -5,9 +5,9 @@
 
 #if defined(_WIN32)
 #	if defined(_DEBUG)
-#		pragma comment(lib, "Qt5Cored.lib")
+#		pragma comment(lib, "Qt6Cored.lib")
 #	else
-#		pragma comment(lib, "Qt5Core.lib")
+#		pragma comment(lib, "Qt6Core.lib")
 #	endif
 #endif
 

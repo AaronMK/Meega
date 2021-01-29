@@ -2,17 +2,17 @@
 
 #if defined(_WIN32)
 #	if defined(_DEBUG)
-#		pragma comment(lib, "qtmaind.lib")
-#		pragma comment(lib, "Qt5Cored.lib")
-#		pragma comment(lib, "Qt5Widgetsd.lib")
+#		pragma comment(lib, "Qt6EntryPointd.lib")
+#		pragma comment(lib, "Qt6Cored.lib")
+#		pragma comment(lib, "Qt6Widgetsd.lib")
 #	else
-#		pragma comment(lib, "qtmain.lib")
-#		pragma comment(lib, "Qt5Core.lib")
-#		pragma comment(lib, "Qt5Widgets.lib")
+#		pragma comment(lib, "Qt6EntryPoint.lib")
+#		pragma comment(lib, "Qt6Core.lib")
+#		pragma comment(lib, "Qt6Widgets.lib")
 #	endif
 
-#		pragma comment(lib, "SDK.lib")
-#		pragma comment(lib, "Engine.lib")
+#	pragma comment(lib, "SDK.lib")
+#	pragma comment(lib, "Engine.lib")
 #endif
 
 int main(int argc, char** argv)

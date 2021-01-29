@@ -84,7 +84,7 @@ namespace OpenGL
 
 	const char* getLastError()
 	{
-		static char* nullString = "";
+		static const char* nullString = "";
 
 		GLenum errCode = glGetError();
 		if ( errCode != GL_NO_ERROR )
