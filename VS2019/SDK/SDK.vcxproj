@@ -57,6 +57,7 @@
     <ClInclude Include="..\..\include\SDK\Config.h" />
     <ClInclude Include="..\..\include\SDK\DevObject.h" />
     <ClInclude Include="..\..\include\SDK\Internal\Project\ProjectPrivate.h" />
+    <ClInclude Include="..\..\include\SDK\Internal\Widgets\QRenderTargetSysBase.h" />
     <ClInclude Include="..\..\include\SDK\Metatypes.h" />
     <ClInclude Include="..\..\include\SDK\Plugins\LocalProjectPlugin.h" />
     <ClInclude Include="..\..\include\SDK\Plugins\Plugin.h" />
@@ -64,6 +65,16 @@
     <ClInclude Include="..\..\include\SDK\Plugins\ProjectPlugin.h" />
     <ClInclude Include="..\..\include\SDK\Project\LocalProject.h" />
     <ClInclude Include="..\..\include\SDK\Project\Project.h" />
+    <CustomBuild Include="..\..\include\SDK\Widgets\QRenderTarget.qt.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">$(QTDIR)/bin/moc "%(FullPath)" -o "$(ProjectDir)moc\Widgets\moc_%(Filename).cxx"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">$(QTDIR)/bin/moc "%(FullPath)" -o "$(ProjectDir)moc\Widgets\moc_%(Filename).cxx"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">Moc%27ing %(Filename)</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">Moc%27ing %(Filename)</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">$(ProjectDir)moc\Widgets\moc_%(Filename).cxx;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">$(ProjectDir)moc\Widgets\moc_%(Filename).cxx;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
     <CustomBuild Include="..\..\include\SDK\Widgets\QColorEdit.qt.h">
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">$(QTDIR)/bin/moc "%(FullPath)" -o "$(ProjectDir)moc\Widgets\moc_%(Filename).cxx"</Command>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">$(QTDIR)/bin/moc "%(FullPath)" -o "$(ProjectDir)moc\Widgets\moc_%(Filename).cxx"</Command>
@@ -114,14 +125,20 @@
     <ClCompile Include="..\..\src\SDK\Widgets\QCreateProjectDialog.cpp" />
     <ClCompile Include="..\..\src\SDK\Widgets\QFloatEdit.cpp" />
     <ClCompile Include="..\..\src\SDK\Widgets\QFloatValidator.cpp" />
+    <ClCompile Include="..\..\src\SDK\Widgets\QRenderTarget.cpp" />
+    <ClCompile Include="..\..\src\SDK\Widgets\QRenderTargetSysBase.cpp" />
     <ClCompile Include="moc\moc_QGuiThreadQueue.qt.cxx" />
     <ClCompile Include="moc\Widgets\moc_QColorEdit.qt.cxx" />
     <ClCompile Include="moc\Widgets\moc_QCreateProjectDialog.qt.cxx" />
     <ClCompile Include="moc\Widgets\moc_QFloatEdit.qt.cxx" />
+    <ClCompile Include="moc\Widgets\moc_QRenderTarget.qt.cxx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Engine\Engine.vcxproj">
       <Project>{b91d3a2d-0e97-4441-bf25-1fdccabeab66}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\GPU\GPU.vcxproj">
+      <Project>{5535e022-3b76-4077-8e27-a637dece19b6}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

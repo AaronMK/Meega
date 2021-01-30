@@ -5,13 +5,13 @@
 
 #if defined(_WIN32)
 #	if defined(_DEBUG)
-#		pragma comment(lib, "Qt5Guid.lib")
-#		pragma comment(lib, "Qt5Cored.lib")
-#		pragma comment(lib, "Qt5Widgetsd.lib")
+#		pragma comment(lib, "Qt6Guid.lib")
+#		pragma comment(lib, "Qt6Cored.lib")
+#		pragma comment(lib, "Qt6Widgetsd.lib")
 #	else
-#		pragma comment(lib, "Qt5Gui.lib")
-#		pragma comment(lib, "Qt5Core.lib")
-#		pragma comment(lib, "Qt5Widgets.lib")
+#		pragma comment(lib, "Qt6Gui.lib")
+#		pragma comment(lib, "Qt6Core.lib")
+#		pragma comment(lib, "Qt6Widgets.lib")
 #	endif
 #endif
 

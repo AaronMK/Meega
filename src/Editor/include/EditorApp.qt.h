@@ -1,14 +1,14 @@
 #ifndef _EDITOR_APP_QT_H_
 #define _EDITOR_APP_QT_H_
 
-#include "MainWindow.qt.h"
-
-#include <QtWidgets/QApplication>
-
 #include <Concurrent/Producer.h>
 
 #include <functional>
 #include <memory>
+
+#include "MainWindow.qt.h"
+#include <QtWidgets/QApplication>
+
 
 /**
  * Mostly singleton applciation object.  For the purposes of signals and slots there is

@@ -10,19 +10,19 @@
 
 namespace MeegaSDK
 {
-	static char* styleRed =
+	static const char* styleRed =
 		"QLineEdit {\n"
 		"  border: 2px solid red;\n"
 		"  border-radius: 5px;"
 		"  padding: 1px;\n}";
 
-	static char* styleGreen =
+	static const char* styleGreen =
 		"QLineEdit {\n"
 		"  border: 2px solid green;\n"
 		"  border-radius: 5px;"
 		"  padding: 1px;\n}";
 
-	static char* styleBlue =
+	static const char* styleBlue =
 		"QLineEdit {\n"
 		"  border: 2px solid blue;\n"
 		"  border-radius: 5px;"

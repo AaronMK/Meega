@@ -21,12 +21,12 @@ TriangleApp::TriangleApp(int argc, char** argv)
 	: QApplication(argc, argv), mStop(false)
 {
 	mMainWindow = new QMainWindow();
-	mRenderTarget = new GPU::QRenderTarget();
+	mRenderTarget = new SDK::QRenderTarget();
 
 	mRenderTarget->setMinimumSize(640, 480);
 	mMainWindow->setCentralWidget(mRenderTarget);
 
-	connect(mRenderTarget, &GPU::QRenderTarget::resized, this, &TriangleApp::onRenderTargetResize);
+	connect(mRenderTarget, &SDK::QRenderTarget::resized, this, &TriangleApp::onRenderTargetResize);
 
 	QDockWidget* settingsDock = new QDockWidget("Settings");
 	settingsDock->setWidget(mTriangle.makePropertiesWidget());

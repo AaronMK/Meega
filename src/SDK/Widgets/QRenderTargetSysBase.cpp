@@ -1,10 +1,10 @@
-#include <GPU/Internal/Qt/QRenderTargetSysBase.h>
+#include <SDK/Internal/Widgets/QRenderTargetSysBase.h>
 
 #include <QtCore/QEvent>
 
 #ifdef Q_OS_WIN
 
-namespace GPU
+namespace SDK
 {
 	QRenderTargetSysBase::QRenderTargetSysBase(QWidget* parent, Qt::WindowFlags f)
 		: QWidget(parent, f | Qt::MSWindowsOwnDC), GPU::RenderTarget(),

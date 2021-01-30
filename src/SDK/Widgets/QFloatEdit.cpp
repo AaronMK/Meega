@@ -105,6 +105,6 @@ namespace MeegaSDK
 
 	QSize QFloatEdit::sizeHint() const
 	{
-		return QSize((6 + m_Precision)*fontMetrics().width("0"), QLineEdit::sizeHint().height());
+		return QSize((6 + m_Precision)*fontMetrics().horizontalAdvance("0"), QLineEdit::sizeHint().height());
 	}
 }

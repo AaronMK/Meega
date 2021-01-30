@@ -16,18 +16,7 @@
     <ClInclude Include="..\..\include\GPU\DirectX\Device.h" />
     <ClInclude Include="..\..\include\GPU\DirectX\DirectX.h" />
     <ClInclude Include="..\..\include\GPU\GPU.h" />
-    <CustomBuild Include="..\..\include\GPU\Qt\QRenderTarget.qt.h">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">$(QTDIR)/bin/moc "%(FullPath)" -o "$(ProjectDir)moc\Qt\moc_%(Filename).cxx"</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">Moc%27ing %(Filename)</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">$(ProjectDir)moc\Qt\moc_%(Filename).cxx;%(Outputs)</Outputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">$(QTDIR)/bin/moc "%(FullPath)" -o "$(ProjectDir)moc\Qt\moc_%(Filename).cxx"</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">Moc%27ing %(Filename)</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">$(ProjectDir)moc\Qt\moc_%(Filename).cxx;%(Outputs)</Outputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">%(AdditionalInputs)</AdditionalInputs>
-    </CustomBuild>
     <ClInclude Include="..\..\include\GPU\internal\OpenGL\ContextSysBase.h" />
-    <ClInclude Include="..\..\include\GPU\Internal\Qt\QRenderTargetSysBase.h" />
     <ClInclude Include="..\..\include\GPU\OpenGL\Common.h" />
     <ClInclude Include="..\..\include\GPU\OpenGL\Context.h" />
     <ClInclude Include="..\..\include\GPU\OpenGL\Format.h" />
@@ -46,11 +35,8 @@
     <ClCompile Include="..\..\src\GPU\OpenGL\Format.cpp" />
     <ClCompile Include="..\..\src\GPU\OpenGL\glew.c" />
     <ClCompile Include="..\..\src\GPU\OpenGL\OpenGL.cpp" />
-    <ClCompile Include="..\..\src\GPU\Qt\QRenderTarget.cpp" />
-    <ClCompile Include="..\..\src\GPU\Qt\QRenderTargetSysBase.cpp" />
     <ClCompile Include="..\..\src\GPU\Windows\HiddenWindow.cpp" />
     <ClCompile Include="..\..\src\GPU\Windows\RenderTargetWin.cpp" />
-    <ClCompile Include="moc\Qt\moc_QRenderTarget.qt.cxx" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{5535E022-3B76-4077-8E27-A637DECE19B6}</ProjectGuid>

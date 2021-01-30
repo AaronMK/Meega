@@ -1,6 +1,6 @@
-#include <GPU/Qt/QRenderTarget.qt.h>
+#include <SDK/Widgets/QRenderTarget.qt.h>
 
-namespace GPU
+namespace SDK
 {
 	QRenderTarget::QRenderTarget(QWidget* parent, Qt::WindowFlags f)
 		: QRenderTargetSysBase(parent, f)

@@ -69,7 +69,7 @@ namespace MeegaSDK
 
 			Q_FOREACH(QWeakPointer<Plugin> ptrPlugin, qList)
 			{
-				ret.append(dynamic_cast<ProjectPlugin*>(ptrPlugin.data()));
+				ret.append(dynamic_cast<ProjectPlugin*>(ptrPlugin.toStrongRef().data()));
 			}
 
 			return ret;

@@ -1,12 +1,10 @@
 #ifndef _TRAINGLE_APP_
 #define _TRAINGLE_APP_
 
-#include <GPU/Qt/QRenderTarget.qt.h>
+#include <SDK/Widgets/QRenderTarget.qt.h>
 
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QMainWindow>
-
-#include <GPU/Qt/QRenderTarget.qt.h>
 
 #include <Concurrent/FunctionTask.h>
 
@@ -32,7 +30,7 @@ private:
 	bool mStop;
 
 	QMainWindow* mMainWindow;
-	GPU::QRenderTarget* mRenderTarget;
+	SDK::QRenderTarget* mRenderTarget;
 
 	Triangle mTriangle;
 
