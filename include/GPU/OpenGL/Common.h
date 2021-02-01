@@ -5,11 +5,9 @@
 
 #if defined(GPU_SUPPORT_OPEN_GL)
 #	include "glew.h"
-	GPU_DYNAMIC_FUNC_EXPORT GLEWContext* glewGetContext();
 
 #	if defined(_WIN32)
 #		include "Windows/wglew.h"
-		GPU_DYNAMIC_FUNC_EXPORT WGLEWContext* wglewGetContext();
 
 #		pragma comment(lib, "Opengl32.lib")
 #		pragma comment(lib, "glu32.lib")

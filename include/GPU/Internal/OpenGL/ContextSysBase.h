@@ -26,8 +26,6 @@ namespace OpenGL
 		bool checkPixelFormat(GPU::RenderTargetWin *target);
 
 		HGLRC mHGLRC;
-		GLEWContext mGlewCtxt;
-		WGLEWContext mWGlewCtxt;
 		PIXELFORMATDESCRIPTOR mPixelFormat;
 
 		Format mGLFormat;
