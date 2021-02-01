@@ -12,18 +12,6 @@
 #ifdef _WIN32
 
 __declspec(thread) OpenGL::Context* currentContext = nullptr;
-__declspec(thread) WGLEWContext* currentWGLEW = nullptr;
-__declspec(thread) GLEWContext* currentGLEW = nullptr;
-
-WGLEWContext* wglewGetContext()
-{
-	return currentWGLEW;
-}
-
-GLEWContext* glewGetContext()
-{
-	return currentGLEW;
-}
 
 namespace OpenGL
 {
@@ -129,9 +117,6 @@ namespace OpenGL
 			mTarget = target;
 			currentContext = this;
 
-			currentGLEW = &mGlewCtxt;
-			currentWGLEW = &mWGlewCtxt;
-
 			return true;
 		}
 		else
@@ -163,8 +148,6 @@ namespace OpenGL
 		mTarget = NULL;
 		
 		currentContext = NULL;
-		currentGLEW = NULL;
-		currentWGLEW = NULL;
 	}
 
 	void Context::swapBuffers()
