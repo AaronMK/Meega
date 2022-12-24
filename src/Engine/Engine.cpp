@@ -1,6 +1,6 @@
 #include <Engine/Engine.h>
 
-#include <Concurrent/FunctionTask.h>
+#include <StdExt/Concurrent/FunctionTask.h>
 
 #include <Engine/Tasking/Scheduling.h>
 #include <Engine/Timing/Timing.h>
@@ -10,7 +10,7 @@
 #include "private_include/Tasking/SchedulingPrivate.h"
 #include "private_include/Tasking/PipelinePrivate.h"
 
-using namespace Concurrent;
+using namespace StdExt::Concurrent;
 
 namespace Engine
 {

@@ -24,20 +24,15 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SDK", "SDK\SDK.vcxproj", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External Code", "External Code", "{1CC08A73-CD57-4CFE-A6C1-D45336176DBB}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StdExt", "..\external\StdExt\VS2019\StdExt.vcxitems", "{AF0995C6-63D1-4C4D-8CE7-B4461373FB06}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Concurrent", "..\external\Concurrent\VS2019\Concurrent.vcxitems", "{1AB3F033-1D44-4A54-9CCA-762533C8D198}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Serialize", "..\external\Serialize\VS2019\Serialize.vcxitems", "{6436C889-50EB-4687-A260-F614918F2E53}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StdExt", "..\external\StdExt\VS2019\StdExt.vcxitems", "{AF0995C6-63D1-4C4D-8CE7-B4461373FB06}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		..\external\Concurrent\VS2019\Concurrent.vcxitems*{1ab3f033-1d44-4a54-9cca-762533c8d198}*SharedItemsImports = 9
 		..\external\Serialize\VS2019\Serialize.vcxitems*{6436c889-50eb-4687-a260-f614918f2e53}*SharedItemsImports = 9
 		..\external\StdExt\VS2019\StdExt.vcxitems*{af0995c6-63d1-4c4d-8ce7-b4461373fb06}*SharedItemsImports = 9
-		..\external\Concurrent\VS2019\Concurrent.vcxitems*{b91d3a2d-0e97-4441-bf25-1fdccabeab66}*SharedItemsImports = 4
 		..\external\Serialize\VS2019\Serialize.vcxitems*{b91d3a2d-0e97-4441-bf25-1fdccabeab66}*SharedItemsImports = 4
-		..\external\StdExt\VS2019\StdExt.vcxitems*{b91d3a2d-0e97-4441-bf25-1fdccabeab66}*SharedItemsImports = 4
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug Development|x64 = Debug Development|x64
@@ -159,9 +154,8 @@ Global
 		{777BA9A7-027E-4E8D-876C-13810B1654E6} = {14F47720-E8D4-496B-8E11-88D8071428C0}
 		{1B3E715B-0CA0-4198-9704-B4B99D177098} = {7EDA3C03-AFF1-4A4E-A60D-262633D125A9}
 		{23AA1CE0-28E5-4DBC-A239-520A2E6AB4DC} = {7EDA3C03-AFF1-4A4E-A60D-262633D125A9}
-		{AF0995C6-63D1-4C4D-8CE7-B4461373FB06} = {1CC08A73-CD57-4CFE-A6C1-D45336176DBB}
-		{1AB3F033-1D44-4A54-9CCA-762533C8D198} = {1CC08A73-CD57-4CFE-A6C1-D45336176DBB}
 		{6436C889-50EB-4687-A260-F614918F2E53} = {1CC08A73-CD57-4CFE-A6C1-D45336176DBB}
+		{AF0995C6-63D1-4C4D-8CE7-B4461373FB06} = {1CC08A73-CD57-4CFE-A6C1-D45336176DBB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {917F9AA8-8AF7-4771-A599-EA0C3E2247E5}

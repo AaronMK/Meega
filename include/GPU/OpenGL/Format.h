@@ -30,8 +30,8 @@ namespace OpenGL
 	{	
 		Format();
 
-		unsigned int versionMajor;
-		unsigned int versionMinor;
+		int versionMajor;
+		int versionMinor;
 		Profile versionProfile;
 		bool debug;
 	};

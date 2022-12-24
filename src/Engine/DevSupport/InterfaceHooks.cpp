@@ -1,16 +1,18 @@
 #include <Engine/DevSupport/InterfaceHooks.h>
 
-using namespace StdExt::Signals;
-using namespace StdExt;
 
 #ifdef ENGINE_DEVELOPMENT_SUPPORT
 
-#include <Concurrent/Mutex.h>
-#include <Concurrent/MutexLocker.h>
+#include <StdExt/Concurrent/Mutex.h>
+#include <StdExt/Signals/Invokable.h>
+
+using namespace StdExt::Concurrent;
+using namespace StdExt::Signals;
+using namespace StdExt;
 
 namespace Engine
 {
-	Concurrent::Mutex iHooksLock;
+	Mutex iHooksLock;
 
 	Invokable<String> evtError;
 	Invokable<String> evtWarning;
@@ -33,19 +35,19 @@ namespace Engine
 
 	void InterfaceHooks::error(const StdExt::String& msg)
 	{
-		Concurrent::MutexLocker lock(&iHooksLock);
+		MutexLocker lock(iHooksLock);
 		evtError.invoke(msg);
 	}
 	
 	void InterfaceHooks::warning(const StdExt::String& msg)
 	{
-		Concurrent::MutexLocker lock(&iHooksLock);
+		MutexLocker lock(iHooksLock);
 		evtWarning.invoke(msg);
 	}
 
 	void InterfaceHooks::info(const StdExt::String& msg)
 	{
-		Concurrent::MutexLocker lock(&iHooksLock);
+		MutexLocker lock(iHooksLock);
 		evtInfo.invoke(msg);
 	}
 }

@@ -1,12 +1,13 @@
 #include <Engine/DevSupport/Logging.h>
 
-using namespace StdExt::Signals;
-using namespace StdExt;
-
 #ifdef ENGINE_DEVELOPMENT_SUPPORT
 
-#include <Concurrent/Mutex.h>
-#include <Concurrent/MutexLocker.h>
+#include <StdExt/Signals/Invokable.h>
+#include <StdExt/Concurrent/Mutex.h>
+
+using namespace StdExt::Concurrent;
+using namespace StdExt::Signals;
+using namespace StdExt;
 
 namespace Engine
 {
@@ -21,24 +22,24 @@ namespace Engine
 	void Logging::log(Logging::Type lType, Logging::Source lSource, Logging::Severity lSeverity, const StdExt::String& lMsg)
 	{
 
-		Concurrent::MutexLocker lock(&logLock);
+		Concurrent::MutexLocker lock(logLock);
 		evtLog.invoke(lType, lSource, lSeverity, lMsg);
 	}
 }
 #else
+
+namespace Engine
 {
-	namespace Engine
+	Invokable<Logging::Type, Logging::Source, Logging::Severity, StdExt::String> evtLog;
+
+	const Logging::event_t& Logging::getEvent()
 	{
-		Invokable<Logging::Type, Logging::Source, Logging::Severity, StdExt::String> evtLog;
+		return evtLog;
+	}
 
-		const Logging::event_t& Logging::getEvent()
-		{
-			return evtLog;
-		}
-
-		void Logging::log(Type lType, Source lSource, Severity lSeverity, const StdExt::String& lMsg)
-		{
-		}
+	void Logging::log(Type lType, Source lSource, Severity lSeverity, const StdExt::String& lMsg)
+	{
 	}
 }
+
 #endif

@@ -5,7 +5,7 @@
 
 #include "../private_include/Tasking/SchedulingPrivate.h"
 
-using namespace Concurrent;
+using namespace StdExt::Concurrent;
 
 namespace Engine
 {

@@ -5,7 +5,7 @@
 
 #ifdef ENGINE_API_OPEN_GL
 
-#include <Concurrent/Condition.h>
+#include <StdExt/Concurrent/Condition.h>
 #include <GPU/OpenGL/OpenGL.h>
 
 namespace Engine
@@ -16,7 +16,7 @@ namespace Engine
 	class ENGINE_EXPORT FenceInternal
 	{
 	public:
-		Concurrent::Condition done;
+		StdExt::Concurrent::Condition done;
 		GLsync mApiFence;
 	};
 }

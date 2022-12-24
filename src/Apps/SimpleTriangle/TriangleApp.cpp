@@ -7,14 +7,11 @@
 #include <Engine/Tasking/Fence.h>
 #include <Engine/Timing/Timing.h>
 
-#include <Concurrent/Scheduler.h>
-
 #include <QtWidgets/QDockWidget>
 
 #include <math.h>
 
 using namespace Engine;
-using namespace Concurrent;
 using namespace AppsCommon;
 
 TriangleApp::TriangleApp(int argc, char** argv)

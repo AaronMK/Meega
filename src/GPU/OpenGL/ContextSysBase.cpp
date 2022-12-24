@@ -32,10 +32,10 @@ namespace OpenGL
 
 	void ContextSysBase::initNewContext(HGLRC shared)
 	{
-		unsigned int compatibilityBit = (mGLFormat.versionProfile == Profile::CORE)
+		int compatibilityBit = (mGLFormat.versionProfile == Profile::CORE)
 			? WGL_CONTEXT_CORE_PROFILE_BIT_ARB : WGL_CONTEXT_COMPATIBILITY_PROFILE_BIT_ARB;
 
-		unsigned int contextFlags = 0;
+		int contextFlags = 0;
 
 		if (mGLFormat.debug)
 			contextFlags |= WGL_CONTEXT_DEBUG_BIT_ARB;

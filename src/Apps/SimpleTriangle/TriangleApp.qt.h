@@ -6,7 +6,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QMainWindow>
 
-#include <Concurrent/FunctionTask.h>
+#include <StdExt/Concurrent/FunctionTask.h>
 
 #include <Engine/Tasking/Fence.h>
 #include <Engine/Camera/Camera.h>
@@ -25,7 +25,7 @@ private slots:
 
 private:
 	void renderLoop();
-	Concurrent::FunctionTask renderTask;
+	StdExt::Concurrent::FunctionTask renderTask;
 
 	bool mStop;
 

@@ -3,7 +3,7 @@
 
 #include "../Config.h"
 
-#include <Concurrent/Task.h>
+#include <StdExt/Concurrent/Task.h>
 
 #include <functional>
 
@@ -17,7 +17,7 @@ namespace Engine
 	};
 
 	ENGINE_EXPORT void ScheduleTask(std::function<void()>&& func, Priority priority);
-	ENGINE_EXPORT void ScheduleTask(Concurrent::Task* task, Priority priority);
+	ENGINE_EXPORT void ScheduleTask(StdExt::Concurrent::Task* task, Priority priority);
 }
 
 #endif // _ENGINE_SCHEDULING_H_
