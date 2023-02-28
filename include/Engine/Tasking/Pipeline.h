@@ -73,12 +73,6 @@ namespace Engine
 		 *  to determine when execution of commands is complete.
 		 */
 		ENGINE_EXPORT void flush();
-
-		/**
-		 * @brief
-		 *  Returns true if the current thread is the Render pipeline.
-		 */
-		ENGINE_EXPORT bool inPipeline();
 	}
 
 	namespace Load
@@ -90,12 +84,6 @@ namespace Engine
 		 *  Forces any queued commands to be sent to the GPU and blocks until they are complete. 
 		 */
 		ENGINE_EXPORT void flush();
-
-		/**
-		 * @brief
-		 *  Returns true if the current thread is the Load pipeline.
-		 */
-		ENGINE_EXPORT bool inPipeline();
 	}
 }
 

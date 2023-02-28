@@ -97,23 +97,23 @@ namespace Engine
 
 	Transform Quaternion::toTransform() const
 	{
-		vec4 sq = mVec*mVec;
+		vec3 sq = mVec * mVec;
 
 		float xx = sq[0], yy = sq[1], zz = sq[2];
 		float xy = mVec[0] * mVec[1], xz = mVec[0] * mVec[2], yz = mVec[1] * mVec[2];
-		float wx = mVec[0] * mVec[3], wy = mVec[1] * mVec[3], wz = mVec[2] * mVec[3];
+		float wx = mVec[0] * mW, wy = mVec[1] *mW, wz = mVec[2] * mW;
 
 		mat4x4 transMat(1 - 2 * (yy + zz), 2 * (xy + wz), 2 * (xz - wy), 0.0f,
 		                1 - 2 * (xy + wz), 2 * (xx + zz), 2 * (yz - wx), 0.0f,
 		                1 - 2 * (xz + wy), 2 * (yz + wx), 2 * (xx - yy), 0.0f,
 		                0.0f,              0.0f,          0.0f,          1.0f);
 
-		return Transform(transMat, transMat.Transpose());
+		return Transform(transMat, transMat.transpose());
 	}
 
 	float Quaternion::dot(const Quaternion &Q1, const Quaternion &Q2)
 	{
-		return vec3::Dot(Q1.mVec, Q2.mVec) + Q1.mW * Q2.mW;
+		return Engine::dot(Q1.mVec, Q2.mVec) + Q1.mW * Q2.mW;
 	}
 
 	Quaternion Quaternion::slerp(const Quaternion &Q1, const Quaternion &Q2, float t)

@@ -5,7 +5,7 @@
   <PropertyGroup />
   <ItemDefinitionGroup>
     <ClCompile>
-      <PreprocessorDefinitions>CONCURRENT_DYNAMIC_LIB;GPU_DYNAMIC_LIB;SERIALIZE_DYNAMIC;ENGINE_DYNAMIC;STD_EXT_DYNAMIC;APPS_COMMON_DYNAMIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>GPU_DYNAMIC_LIB;ENGINE_DYNAMIC;STD_EXT_DYNAMIC;APPS_COMMON_DYNAMIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup />

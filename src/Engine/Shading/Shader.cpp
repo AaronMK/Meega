@@ -4,11 +4,11 @@
 #include <Engine/Tasking/Pipeline.h>
 #include <Engine/DevSupport/InterfaceHooks.h>
 
-#include <Concurrent/Condition.h>
+#include <StdExt/Concurrent/Condition.h>
 
 #include "../private_include/Tasking/GpuPipeline.h"
 
-using namespace Concurrent;
+using namespace StdExt::Concurrent;
 using namespace StdExt;
 
 namespace Engine
@@ -48,18 +48,11 @@ namespace Engine
 			Render::enqueue(std::bind(glDeleteShader, mShaderID));
 	}
 
-	void Shader::setSource(const std::string& source, ShaderStage stage)
-	{
-		setSource(String(source.c_str()), stage);
-	}
-
 	void Shader::setSource(const String& source, ShaderStage stage)
 	{
-		assert(nullptr != GpuPipeline::current());
-
 		if (0 != mShaderID)
 		{
-			InterfaceHooks::warning(StringLiteral("Overwriting an existing shader source without a clear() action."));
+			InterfaceHooks::warning(u8"Overwriting an existing shader source without a clear() action.");
 			glDeleteShader(mShaderID);
 		}
 		else
@@ -71,15 +64,13 @@ namespace Engine
 		String ntSource = source.getNullTerminated();
 
 		const char* strings[1];
-		strings[0] = ntSource.data();
+		strings[0] = reinterpret_cast<const char*>(ntSource.data());
 
 		glShaderSource(mShaderID, 1, strings, NULL);
 	}
 
 	bool Shader::compile()
 	{
-		assert(nullptr != GpuPipeline::current());
-
 		glCompileShader(mShaderID);
 
 		GLint Ret;
@@ -90,8 +81,6 @@ namespace Engine
 
 	void Shader::clear()
 	{
-		assert(nullptr != GpuPipeline::current());
-
 		if (0 != mShaderID)
 		{
 			glDeleteShader(mShaderID);

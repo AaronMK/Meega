@@ -4,7 +4,7 @@
 #include "../Config.h"
 #include "../Internal/Tasking/FenceInternal.h"
 
-#include <Concurrent/Condition.h>
+#include <StdExt/Concurrent/Condition.h>
 
 namespace Engine
 {
@@ -15,7 +15,7 @@ namespace Engine
 		Fence();
 		virtual ~Fence();
 
-		void activate();
+		void activate(GpuPipeline* pipeline);
 		void wait();
 	};
 }

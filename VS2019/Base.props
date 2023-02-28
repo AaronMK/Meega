@@ -10,6 +10,7 @@
       <AdditionalIncludeDirectories>$(SolutionDir)..\include;$(SolutionDir)..\external\Concurrent\include;$(SolutionDir)..\external\Serialize\include;$(SolutionDir)..\external\StdExt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <LanguageStandard>stdcpplatest</LanguageStandard>
+      <DisableSpecificWarnings>4251</DisableSpecificWarnings>
     </ClCompile>
     <Link />
     <Link>

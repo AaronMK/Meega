@@ -2,11 +2,11 @@
 
 #include <Engine/Tasking/Pipeline.h>
 
-#include <Concurrent/Condition.h>
+#include <StdExt/Concurrent/Condition.h>
 
 #include "../private_include/Tasking/GpuPipeline.h"
 
-using namespace Concurrent;
+using namespace StdExt::Concurrent;
 
 namespace Engine
 {
@@ -55,8 +55,6 @@ namespace Engine
 
 	bool Program::attachShader(const Shader &S)
 	{
-		assert(nullptr != GpuPipeline::current());
-
 		if (0 == mProgramID)
 			mProgramID = glCreateProgram();
 
@@ -66,8 +64,6 @@ namespace Engine
 
 	bool Program::link()
 	{
-		assert(nullptr != GpuPipeline::current());
-
 		glLinkProgram(mProgramID);
 
 		GLint LinkStatus;
@@ -77,8 +73,6 @@ namespace Engine
 
 	void Program::clear()
 	{
-		assert(nullptr != GpuPipeline::current());
-
 		if (0 != mProgramID)
 		{
 			glDeleteProgram(mProgramID);
@@ -88,23 +82,21 @@ namespace Engine
 
 	StdExt::String Program::getLinkErrors() const
 	{
-		assert(nullptr != GpuPipeline::current());
-
 		StdExt::String Ret;
 		
 		int infologLength = 0;
-	    int charsWritten  = 0;
-	    char *infoLog;
+		int charsWritten  = 0;
+		char *infoLog;
 
 		glGetProgramiv(mProgramID, GL_INFO_LOG_LENGTH, &infologLength);
 
-	    if (infologLength > 1)
-	    {
-	        infoLog = (char *)malloc(infologLength);
-	        glGetProgramInfoLog(mProgramID, infologLength, &charsWritten, infoLog);
-			Ret = StdExt::String(infoLog, infologLength);
-	        free(infoLog);
-	    }
+		if (infologLength > 1)
+		{
+			infoLog = (char *)malloc(infologLength);
+			glGetProgramInfoLog(mProgramID, infologLength, &charsWritten, infoLog);
+			Ret = StdExt::String( reinterpret_cast<const char8_t*>(infoLog), infologLength );
+			free(infoLog);
+		}
 
 		return Ret;
 	}
@@ -126,7 +118,10 @@ namespace Engine
 
 	GLint Program::getUniformLocation(const StdExt::String& VarName)
 	{
-		return glGetUniformLocation(mProgramID, VarName.getNullTerminated().data());
+		return glGetUniformLocation(
+			mProgramID,
+			reinterpret_cast<const char*>(VarName.getNullTerminated().data())
+		);
 	}
 
 	void Program::setUniform(GLint loc, int32_t val)

@@ -201,7 +201,7 @@ namespace Engine
 
 #if !defined(DOXYGEN)
 
-namespace Serialize
+namespace StdExt::Serialize::Binary
 {
 	template<>
 	void read<Engine::RGB_8>(ByteStream* stream, Engine::RGB_8 *out)

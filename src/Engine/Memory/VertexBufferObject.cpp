@@ -14,25 +14,17 @@ namespace Engine
 
 	VertexBufferObject::VertexBufferObject(VertexBufferObject&& other)
 	{
-		if (Render::inPipeline())
+		StdExt::Concurrent::Condition done;
+
+		Render::enqueue([this, &other, &done]()
 		{
 			mHandle = other.mHandle;
 			other.mHandle = 0;
-		}
-		else
-		{
-			Concurrent::Condition done;
 
-			Render::enqueue([this, &other, &done]()
-			{
-				mHandle = other.mHandle;
-				other.mHandle = 0;
+			done.trigger();
+		});
 
-				done.trigger();
-			});
-
-			done.wait();
-		}
+		done.wait();
 	}
 
 	VertexBufferObject::~VertexBufferObject()
@@ -48,31 +40,20 @@ namespace Engine
 
 	VertexBufferObject& VertexBufferObject::operator=(VertexBufferObject&& other)
 	{
-		if (Render::inPipeline())
+		StdExt::Concurrent::Condition done;
+
+		Render::enqueue([this, &other, &done]()
 		{
 			if (0 != mHandle)
 				glDeleteBuffers(1, &mHandle);
 
 			mHandle = other.mHandle;
 			other.mHandle = 0;
-		}
-		else
-		{
-			Concurrent::Condition done;
 
-			Render::enqueue([this, &other, &done]()
-			{
-				if (0 != mHandle)
-					glDeleteBuffers(1, &mHandle);
+			done.trigger();
+		});
 
-				mHandle = other.mHandle;
-				other.mHandle = 0;
-
-				done.trigger();
-			});
-
-			done.wait();
-		}
+		done.wait();
 
 		return *this;
 	}

@@ -2,13 +2,33 @@
 
 namespace Engine
 {
+	static vec4 point4(const vec3& pt)
+	{
+		return vec4(pt[0], pt[1], pt[2], 1.0f);
+	}
+	
+	static vec4 vector4(const vec3& pt)
+	{
+		return vec4(pt[0], pt[1], pt[2], 0.0f);
+	}
+	
+	static vec4 normal4(const vec3& pt)
+	{
+		return vec4(pt[0], pt[1], pt[2], 0.0f);
+	}
+
+	vec4 operator*(const vec4 &F4, const mat4x4 &M)
+	{
+		return M.transpose() * F4;
+	}
+	
 	Transform::Transform()
 	{
 		m_Matrix = m_invMatrix = mat4x4::Identity();
 	}
 
 	Transform::Transform(const mat4x4 &mat)
-	: m_Matrix(mat), m_invMatrix(m_Matrix.Inverse())
+	: m_Matrix(mat), m_invMatrix(m_Matrix.inverse())
 	{
 	}
 
@@ -29,7 +49,7 @@ namespace Engine
 
 	vec4 Transform::point(const vec3 &V) const
 	{
-		vec4 ret = m_Matrix * vec4(V, 1.0f);
+		vec4 ret = m_Matrix * point4(V);
 		return ret;
 	}
 
@@ -43,7 +63,7 @@ namespace Engine
 
 	vec4 Transform::invPoint(const vec3 &V) const
 	{
-		vec4 ret = m_invMatrix * vec4(V, 1.0f);
+		vec4 ret = m_invMatrix * point4(V);
 		return ret;
 	}
 
@@ -57,7 +77,7 @@ namespace Engine
 
 	vec4 Transform::vector(const vec3 &V) const
 	{
-		return m_Matrix * vec4(V, 0.0f);
+		return m_Matrix * vector4(V);
 	}
 
 	vec4 Transform::vector(const vec4 &V) const
@@ -68,7 +88,7 @@ namespace Engine
 
 	vec4 Transform::invVector(const vec3 &V) const
 	{
-		return m_invMatrix * vec4(V, 0.0f);
+		return m_invMatrix * vector4(V);
 	}
 
 	vec4 Transform::invVector(const vec4 &V) const
@@ -79,7 +99,7 @@ namespace Engine
 
 	vec4 Transform::normal(const vec3 &V) const
 	{
-		vec4 ret = vec4(V) * m_invMatrix;
+		vec4 ret = normal4(V) * m_invMatrix;
 		ret[3] = 0.0f;
 		return ret;
 	}
@@ -95,7 +115,7 @@ namespace Engine
 
 	vec4 Transform::invNormal(const vec3 &V) const
 	{
-		vec4 ret = vec4(V) * m_Matrix;
+		vec4 ret = normal4(V) * m_Matrix;
 		ret[3] = 0.0f;
 		return ret;
 	}
@@ -152,7 +172,7 @@ namespace Engine
 	Transform& Transform::operator=(const mat4x4 &transMatrix)
 	{
 		m_Matrix = transMatrix;
-		m_invMatrix = transMatrix.Inverse();
+		m_invMatrix = transMatrix.inverse();
 
 		return *this;
 	}
@@ -221,7 +241,7 @@ namespace Engine
 		            m[2][0], m[2][1], m[2][2],  0.0f,
 		               0.0f,    0.0f,    0.0f,  1.0f);
 
-		return Transform(mat, mat.Transpose());
+		return Transform(mat, mat.transpose());
 	}
 
 	Transform Transform::RasterToScreen(float winWidth, float winHeight)
@@ -234,7 +254,7 @@ namespace Engine
 
 #if !defined(DOXYGEN)
 
-namespace Serialize
+namespace StdExt::Serialize::Binary
 {
 	template<>
 	void read<Engine::Transform>(ByteStream* stream, Engine::Transform *out)

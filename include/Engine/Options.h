@@ -66,7 +66,7 @@ namespace Engine
 
 		/**
 		 * @brief
-		 *  If true, this enabbles additional debugging functionality of the underlying API.
+		 *  If true, this enables additional debugging functionality of the underlying API.
 		 *  For builds of the engine with deveoplment support, this will default to true.
 		 */
 		bool debug;

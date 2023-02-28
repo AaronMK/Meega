@@ -87,7 +87,7 @@ namespace Engine
 
 #if !defined(DOXYGEN)
 
-namespace Serialize
+namespace StdExt::Serialize::Binary
 {
 	template<>
 	ENGINE_EXPORT void read<Engine::Transform>(ByteStream* stream, Engine::Transform *out);

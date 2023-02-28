@@ -3,7 +3,7 @@
 
 #include "Types.h"
 
-#include <Serialize/Serialize.h>
+#include <StdExt/Serialize/Binary/Binary.h>
 
 #include <cstdint>
 
@@ -191,7 +191,7 @@ namespace Engine
 
 #if !defined(DOXYGEN)
 
-namespace Serialize
+namespace StdExt::Serialize::Binary
 {
 	template<>
 	ENGINE_EXPORT void read<Engine::RGB_8>(ByteStream* stream, Engine::RGB_8 *out);

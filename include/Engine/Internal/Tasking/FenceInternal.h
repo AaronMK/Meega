@@ -17,7 +17,7 @@ namespace Engine
 	{
 	public:
 		StdExt::Concurrent::Condition done;
-		GLsync mApiFence;
+		GLsync mApiFence = nullptr;
 	};
 }
 

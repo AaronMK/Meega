@@ -1,10 +1,10 @@
 #include <Engine/Tasking/Pipeline.h>
 
-#include <Concurrent/Task.h>
+#include <StdExt/Concurrent/Task.h>
 
 #include "../private_include/Tasking/GpuPipeline.h"
 
-using namespace Concurrent;
+using namespace StdExt::Concurrent;
 
 namespace Engine
 {
@@ -19,16 +19,6 @@ namespace Engine
 		pipeLoad = new GpuPipeline(pipeRender);
 
 		return true;
-	}
-
-	extern GpuPipeline* currentPipeline()
-	{
-		Task* currentTask = Task::current();
-
-		if (currentTask == pipeRender || currentTask == pipeLoad)
-			return dynamic_cast<GpuPipeline*>(currentTask);
-
-		return nullptr;
 	}
 
 	void shutdownPipeline()
@@ -77,11 +67,6 @@ namespace Engine
 		{
 			pipeRender->markForFlush();
 		}
-
-		bool inPipeline()
-		{
-			return pipeRender->inPipeline();
-		}
 	}
 
 	namespace Load
@@ -94,23 +79,13 @@ namespace Engine
 
 		void flush()
 		{
-			assert(nullptr != pipeLoad);
-			if (pipeLoad->inPipeline())
+			Fence fence;
+			Load::enqueue([&]()
 			{
-				Fence fence;
-				Load::enqueue([&]()
-				{
-					fence.activate();
-					glFlush();
-				});
-				fence.wait();
-			}
-		}
-
-		bool inPipeline()
-		{
-			assert(nullptr != pipeLoad);
-			return (pipeLoad->inPipeline());
+				fence.activate(pipeLoad);
+				glFlush();
+			});
+			fence.wait();
 		}
 	}
 }

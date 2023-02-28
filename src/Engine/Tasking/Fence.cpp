@@ -19,10 +19,8 @@ namespace Engine
 		assert(0 == mApiFence);
 	}
 
-	void Fence::activate()
+	void Fence::activate(GpuPipeline* pipeline)
 	{
-		GpuPipeline* pipeline = currentPipeline();
-		
 		assert(nullptr != pipeline && 0 == mApiFence && false == done.isTriggered());
 		mApiFence = glFenceSync(GL_SYNC_GPU_COMMANDS_COMPLETE, 0);
 		pipeline->mFenceQueue.push(this);

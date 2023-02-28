@@ -46,11 +46,13 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release Development|x64'">
     <ClCompile>
       <PreprocessorDefinitions>MEEGA_SDK_BUILD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug Development|x64'">
     <ClCompile>
       <PreprocessorDefinitions>MEEGA_SDK_BUILD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>

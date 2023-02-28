@@ -4,6 +4,74 @@
 
 namespace Engine
 {
+	Point::Point(const vec3& v3, float w) noexcept
+		: vec4(v3[0], v3[1], v3[2], w)
+	{
+	}
+
+	Point::Point(const vec4& v4) noexcept
+		: vec4(v4)
+	{
+	}
+
+	Point::Point(const Point&) noexcept = default;
+	Point& Point::operator=(const Point&)  noexcept = default;
+
+	////////////////////////////////
+	
+	Normal::Normal(const vec3& v3) noexcept
+		: vec4(v3[0], v3[1], v3[2], 0.0f)
+	{
+	}
+
+	Normal::Normal(const vec4& v4) noexcept
+		: vec4(v4[0], v4[1], v4[2], 0.0f)
+	{
+	}
+
+	Normal::Normal(const Normal&) noexcept = default;
+	Normal& Normal::operator=(const Normal&) noexcept = default;
+
+	void Normal::normalize()
+	{
+		*this = Engine::normalize(
+			vec3( (*this)[0], (*this)[1], (*this)[2])
+		);
+	}
+
+	////////////////////////////////
+	
+	Vector::Vector(const vec3& v3) noexcept
+		: vec4(v3[0], v3[1], v3[2], 0.0f)
+	{
+	}
+
+	Vector::Vector(const vec4& v4) noexcept
+	{
+		*this = ( 0.0f != v4[3] && 1.0 != v4[3] ) ?
+			vec3(v4[0], v4[1], v4[2]) / v4[3] :
+			vec3(v4[0], v4[1], v4[2]);
+	}
+
+	Vector::Vector(const Vector&) noexcept = default;
+	Vector& Vector::operator=(const Vector&) noexcept = default;
+
+	float Vector::length() const noexcept
+	{
+		return Engine::length(
+			vec3((*this)[0], (*this)[1], (*this)[2])
+		);
+	}
+
+	float Vector::lengthSquared() const noexcept
+	{
+		return Engine::lengthSquared(
+			vec3((*this)[0], (*this)[1], (*this)[2])
+		);
+	}
+	
+	////////////////////////////////
+
 	float sin(const Radians &rad)
 	{
 		return sinf(rad.value());
@@ -117,5 +185,52 @@ namespace Engine
 		*Forward /= (*Forward)[3];
 		*Right = crossR(*Up, *Forward);
 		*Up = crossR(*Forward, *Right);
+	}
+
+	float dot(const vec3 &F1, const vec3 &F2)
+	{
+		return F1[0]*F2[0] + F1[1]*F2[1] + F1[2]*F2[2];
+	}
+
+	float dot(const vec4 &F1, const vec4 &F2)
+	{
+		vec4 mult(F1*F2);
+		return mult[0] + mult[1] + mult[2] + mult[3]; 
+	}
+
+	vec4 point(const vec3& v3, float w)
+	{
+		return vec4(v3[0], v3[1], v3[2], w);
+	}
+
+	vec3 point(const vec4& v4)
+	{
+		vec3 result(v4[0], v4[1], v4[2]);
+
+		if ( 0.0f != v4[3] && 1.0 != v4[3])
+			result /= v4[3];
+
+		return result;
+	}
+
+	vec4 normal(const vec3& v3)
+	{
+		vec3 normalized = normalize(v3);
+		return vec4(normalized[0], normalized[1], normalized[2], 0.0f);
+	}
+
+	vec4 vector(const vec3& v3, float w)
+	{
+		return vec4(v3[0], v3[1], v3[2], w);
+	}
+
+	vec3 vector(const vec4& v4)
+	{
+		vec3 result(v4[0], v4[1], v4[2]);
+
+		if ( 0.0f != v4[3] && 1.0 != v4[3])
+			result /= v4[3];
+
+		return result;
 	}
 }

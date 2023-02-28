@@ -4,8 +4,8 @@
 #include <Engine/Config.h>
 #include <Engine/Tasking/Fence.h>
 
-#include <Concurrent/Producer.h>
-#include <Concurrent/FunctionTask.h>
+#include <StdExt/Concurrent/Producer.h>
+#include <StdExt/Concurrent/FunctionTask.h>
 
 #include <GPU/RenderTarget.h>
 
@@ -21,7 +21,7 @@
 
 namespace Engine
 {
-	class GpuPipeline : public Concurrent::Task
+	class GpuPipeline : public StdExt::Concurrent::Task
 	{
 		friend class Fence;
 	public:
@@ -37,8 +37,6 @@ namespace Engine
 
 		void markForFlush();
 
-		bool inPipeline() const;
-
 	private:
 #ifdef ENGINE_API_OPEN_GL
 		OpenGL::Context* mWaitContext;
@@ -47,8 +45,8 @@ namespace Engine
 
 		bool flush;
 
-		Concurrent::Producer<Fence*> mFenceQueue;
-		Concurrent::Producer<std::function<void()>> mTaskQueue;
+		StdExt::Concurrent::Producer<Fence*> mFenceQueue;
+		StdExt::Concurrent::Producer<std::function<void()>> mTaskQueue;
 	};
 }
 

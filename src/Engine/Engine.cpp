@@ -7,7 +7,6 @@
 
 #include <GPU/OpenGL/OpenGL.h>
 
-#include "private_include/Tasking/SchedulingPrivate.h"
 #include "private_include/Tasking/PipelinePrivate.h"
 
 using namespace StdExt::Concurrent;
@@ -20,13 +19,12 @@ namespace Engine
 			return false;
 
 		Timing::initialize();
-		return (OpenGL::initialize() && initScheduling() && initPipeline());
+		return (OpenGL::initialize() && initPipeline());
 	}
 
 	void shutdown()
 	{
 		shutdownPipeline();
-		shutdownScheduling();
 		OpenGL::shutdown();
 	}
 }

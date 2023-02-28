@@ -19,6 +19,42 @@
  */
 namespace Engine
 {
+	class ENGINE_EXPORT Point : public vec4
+	{
+	public:
+		Point(const vec3& v3, float w = 1.0f) noexcept;
+		Point(const vec4& v4) noexcept;
+
+		Point(const Point&) noexcept;
+		Point& operator=(const Point&) noexcept;
+	};
+
+	class ENGINE_EXPORT Normal : public vec4
+	{
+	public:
+		Normal(const vec3& v3) noexcept;
+		Normal(const vec4& v4) noexcept;
+
+		Normal(const Normal&) noexcept;
+		Normal& operator=(const Normal&) noexcept;
+
+		void normalize();
+		bool isNormailized() const;
+	};
+
+	class ENGINE_EXPORT Vector : public vec4
+	{
+	public:
+		Vector(const vec3& v3) noexcept;
+		Vector(const vec4& v4) noexcept;
+
+		Vector(const Vector&) noexcept;
+		Vector& operator=(const Vector&) noexcept;
+
+		float length() const noexcept;
+		float lengthSquared() const noexcept;
+	};
+
 	ENGINE_EXPORT float sin(const Radians &rad);
 	ENGINE_EXPORT float cos(const Radians &rad);
 	ENGINE_EXPORT float tan(const Radians &rad);
@@ -40,6 +76,14 @@ namespace Engine
 
 	ENGINE_EXPORT void orthonormalBasis(vec3 *Forward, vec3 *Up, vec3 *Right);
 	ENGINE_EXPORT void orthonormalBasis(vec4 *Forward, vec4 *Up, vec4 *Right);
+
+	ENGINE_EXPORT float dot(const vec3 &F1, const vec3 &F2);
+	ENGINE_EXPORT float dot(const vec4 &F1, const vec4 &F2);
+
+	ENGINE_EXPORT vec3 point(const vec4& v4);
+	ENGINE_EXPORT vec3 normal(const vec4& v4);
+	ENGINE_EXPORT vec3 vector(const vec4& v4);
+
 }
 
 #endif // _ENGINE_MATH_H_

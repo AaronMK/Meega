@@ -1,8 +1,8 @@
 #include <Engine/Memory/VertexArrayObject.h>
-
 #include <Engine/Tasking/Pipeline.h>
-
 #include <Engine/Core/Utility.h>
+
+using namespace StdExt;
 
 namespace Engine
 {
@@ -13,25 +13,17 @@ namespace Engine
 
 	VertexArrayObject::VertexArrayObject(VertexArrayObject&& other)
 	{
-		if (Render::inPipeline())
+		Concurrent::Condition done;
+
+		Render::enqueue([this, &other, &done]()
 		{
 			mHandle = other.mHandle;
 			other.mHandle = 0;
-		}
-		else
-		{
-			Concurrent::Condition done;
 
-			Render::enqueue([this, &other, &done]()
-			{
-				mHandle = other.mHandle;
-				other.mHandle = 0;
+			done.trigger();
+		});
 
-				done.trigger();
-			});
-
-			done.wait();
-		}
+		done.wait();
 	}
 
 	VertexArrayObject::~VertexArrayObject()
@@ -47,31 +39,21 @@ namespace Engine
 
 	VertexArrayObject& VertexArrayObject::operator=(VertexArrayObject&& other)
 	{
-		if (Render::inPipeline())
+
+		Concurrent::Condition done;
+
+		Render::enqueue([this, &other, &done]()
 		{
 			if (0 != mHandle)
 				glDeleteVertexArrays(1, &mHandle);
 
 			mHandle = other.mHandle;
 			other.mHandle = 0;
-		}
-		else
-		{
-			Concurrent::Condition done;
 
-			Render::enqueue([this, &other, &done]()
-			{
-				if (0 != mHandle)
-					glDeleteVertexArrays(1, &mHandle);
+			done.trigger();
+		});
 
-				mHandle = other.mHandle;
-				other.mHandle = 0;
-
-				done.trigger();
-			});
-
-			done.wait();
-		}
+		done.wait();
 
 		return *this;
 	}
