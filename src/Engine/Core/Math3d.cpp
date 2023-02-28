@@ -198,11 +198,6 @@ namespace Engine
 		return mult[0] + mult[1] + mult[2] + mult[3]; 
 	}
 
-	vec4 point(const vec3& v3, float w)
-	{
-		return vec4(v3[0], v3[1], v3[2], w);
-	}
-
 	vec3 point(const vec4& v4)
 	{
 		vec3 result(v4[0], v4[1], v4[2]);
@@ -217,11 +212,6 @@ namespace Engine
 	{
 		vec3 normalized = normalize(v3);
 		return vec4(normalized[0], normalized[1], normalized[2], 0.0f);
-	}
-
-	vec4 vector(const vec3& v3, float w)
-	{
-		return vec4(v3[0], v3[1], v3[2], w);
 	}
 
 	vec3 vector(const vec4& v4)
