@@ -69,10 +69,12 @@ namespace Engine
 		 *  causes queued commands to be sent to the GPU for execution, without waiting
 		 *  (possibly forever) for additional commands to fill the the command buffer.
 		 *
-		 *  This only forces commands to be sent to the GPU for execution.  Use a Fence
+		 *  This only forces commands to be sent to the GPU for execution.  Use fence()
 		 *  to determine when execution of commands is complete.
 		 */
 		ENGINE_EXPORT void flush();
+
+		ENGINE_EXPORT void fence();
 	}
 
 	namespace Load
@@ -84,6 +86,8 @@ namespace Engine
 		 *  Forces any queued commands to be sent to the GPU and blocks until they are complete. 
 		 */
 		ENGINE_EXPORT void flush();
+
+		ENGINE_EXPORT void fence();
 	}
 }
 

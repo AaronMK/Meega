@@ -16,7 +16,10 @@ namespace Engine
 		assert(nullptr == pipeRender && nullptr == pipeLoad);
 
 		pipeRender = new GpuPipeline;
+		pipeRender->runAsThread();
+
 		pipeLoad = new GpuPipeline(pipeRender);
+		pipeLoad->runAsThread();
 
 		return true;
 	}
@@ -67,6 +70,14 @@ namespace Engine
 		{
 			pipeRender->markForFlush();
 		}
+
+		void fence()
+		{
+			Fence fence;
+
+			fence.activate(pipeRender);
+			fence.wait();
+		}
 	}
 
 	namespace Load
@@ -85,6 +96,14 @@ namespace Engine
 				fence.activate(pipeLoad);
 				glFlush();
 			});
+			fence.wait();
+		}
+
+		void fence()
+		{
+			Fence fence;
+
+			fence.activate(pipeLoad);
 			fence.wait();
 		}
 	}

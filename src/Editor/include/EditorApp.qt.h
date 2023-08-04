@@ -33,7 +33,7 @@ private slots:
 
 private:
 	std::unique_ptr<MainWindow> mMainWindow;
-	Concurrent::Producer<std::function<void()>> guiFunctionQueue;
+	StdExt::Concurrent::Producer<std::function<void()>> guiFunctionQueue;
 };
 
 #endif // _EDITOR_APP_QT_H_

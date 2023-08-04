@@ -14,6 +14,8 @@
 using namespace Engine;
 using namespace AppsCommon;
 
+using namespace StdExt::Concurrent;
+
 TriangleApp::TriangleApp(int argc, char** argv)
 	: QApplication(argc, argv), mStop(false)
 {
@@ -33,14 +35,20 @@ TriangleApp::TriangleApp(int argc, char** argv)
 
 	mCamera.setLookAt(vec3(0.0f, 0.0f, -2.0f), vec3(0.0f, 0.0f, 0.0f), vec3(0.0f, 1.0f, 0.0f));
 
-	renderTask.setFunction(std::bind(&TriangleApp::renderLoop, this));
-	Engine::ScheduleTask(&renderTask, Priority::High);
+	mRenderTask = std::make_unique<FunctionTask>(
+		[this]()
+		{
+			TriangleApp::renderLoop();
+		}
+	);
+
+	Engine::ScheduleTask(mRenderTask.get(), Priority::High);
 }
 
 TriangleApp::~TriangleApp()
 {
 	mStop = true;
-	renderTask.wait();
+	mRenderTask->wait();
 }
 
 void TriangleApp::renderLoop()
@@ -55,12 +63,11 @@ void TriangleApp::renderLoop()
 
 			mTriangle.draw(mCamera);
 
-			mRenderFence.activate();
 			Engine::Render::swapBuffers();
 			Engine::Render::flush();
 		});
 
-		mRenderFence.wait();
+		Engine::Render::fence();
 	}
 }
 

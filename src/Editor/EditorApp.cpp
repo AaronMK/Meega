@@ -38,9 +38,14 @@ void EditorApp::runInGuiThread(std::function<void(void)>&& func)
 
 void EditorApp::onGuiThreadRunRequested()
 {
-	std::function<void()> func;
-	if (guiFunctionQueue.consume(func))
+	try
 	{
+		std::function<void()> func;
+		guiFunctionQueue.consume(func);
+
 		func();
+	}
+	catch ( ... )
+	{
 	}
 }

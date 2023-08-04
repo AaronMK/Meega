@@ -16,7 +16,6 @@ namespace Engine
 		High
 	};
 
-	ENGINE_EXPORT void ScheduleTask(std::function<void()>&& func, Priority priority);
 	ENGINE_EXPORT void ScheduleTask(StdExt::Concurrent::Task* task, Priority priority);
 }
 

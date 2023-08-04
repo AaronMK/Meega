@@ -24,6 +24,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SDK", "SDK\SDK.vcxproj", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External Code", "External Code", "{1CC08A73-CD57-4CFE-A6C1-D45336176DBB}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StdExt Sources", "..\external\StdExt\VS2022\Sources\StdExt Sources.vcxitems", "{F9DE9573-077E-4DDD-A7F9-8988C16F3663}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug Development|x64 = Debug Development|x64
@@ -145,8 +147,13 @@ Global
 		{777BA9A7-027E-4E8D-876C-13810B1654E6} = {14F47720-E8D4-496B-8E11-88D8071428C0}
 		{1B3E715B-0CA0-4198-9704-B4B99D177098} = {7EDA3C03-AFF1-4A4E-A60D-262633D125A9}
 		{23AA1CE0-28E5-4DBC-A239-520A2E6AB4DC} = {7EDA3C03-AFF1-4A4E-A60D-262633D125A9}
+		{F9DE9573-077E-4DDD-A7F9-8988C16F3663} = {1CC08A73-CD57-4CFE-A6C1-D45336176DBB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {917F9AA8-8AF7-4771-A599-EA0C3E2247E5}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		..\external\StdExt\VS2022\Sources\StdExt Sources.vcxitems*{b91d3a2d-0e97-4441-bf25-1fdccabeab66}*SharedItemsImports = 4
+		..\external\StdExt\VS2022\Sources\StdExt Sources.vcxitems*{f9de9573-077e-4ddd-a7f9-8988c16f3663}*SharedItemsImports = 9
 	EndGlobalSection
 EndGlobal

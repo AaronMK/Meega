@@ -13,6 +13,8 @@
 
 #include "Triangle.h"
 
+#include <memory>
+
 class TriangleApp : public QApplication
 {
 	Q_OBJECT
@@ -25,7 +27,8 @@ private slots:
 
 private:
 	void renderLoop();
-	StdExt::Concurrent::FunctionTask renderTask;
+
+	std::unique_ptr<StdExt::Concurrent::FunctionTask> mRenderTask;
 
 	bool mStop;
 
@@ -35,7 +38,6 @@ private:
 	Triangle mTriangle;
 
 	Engine::Camera mCamera;
-	Engine::Fence mRenderFence;
 };
 
 #endif // _TRAINGLE_APP_

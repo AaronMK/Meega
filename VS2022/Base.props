@@ -9,8 +9,9 @@
     <ClCompile>
       <AdditionalIncludeDirectories>$(SolutionDir)..\include;$(SolutionDir)..\external\Concurrent\include;$(SolutionDir)..\external\Serialize\include;$(SolutionDir)..\external\StdExt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard>stdcpp20</LanguageStandard>
       <DisableSpecificWarnings>4251</DisableSpecificWarnings>
+      <AdditionalOptions>/Zc:__cplusplus %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link />
     <Link>

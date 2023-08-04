@@ -6,6 +6,7 @@
 #include <atomic>
 
 using namespace Engine;
+using namespace StdExt;
 
 namespace AppsCommon
 {
@@ -18,19 +19,22 @@ namespace AppsCommon
 
 	static void acquire()
 	{
-		QString vertSource(fileToString(":/AppsCommon/Shaders/basic.vert"));
-		QString fragSource(fileToString(":/AppsCommon/Shaders/basic.frag"));
+		QString q_vertSource(fileToString(":/AppsCommon/Shaders/basic.vert"));
+		QString q_fragSource(fileToString(":/AppsCommon/Shaders/basic.frag"));
+
+		String vertSource = convertString<char8_t>(q_vertSource.toStdString());
+		String fragSource = convertString<char8_t>(q_fragSource.toStdString());
 
 		if (0 == refCount.fetch_add(1))
 		{
 			Render::enqueue([vertSource, fragSource]()
 			{
 				Shader vertShader;
-				vertShader.setSource(vertSource.toStdString(), ShaderStage::Vertex);
+				vertShader.setSource(vertSource, ShaderStage::Vertex);
 				vertShader.compile();
 
 				Shader fragShader;
-				fragShader.setSource(fragSource.toStdString(), ShaderStage::Fragment);
+				fragShader.setSource(fragSource, ShaderStage::Fragment);
 				fragShader.compile();
 
 				basicProgram.attachShader(vertShader);

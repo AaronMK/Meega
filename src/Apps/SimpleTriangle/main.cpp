@@ -15,7 +15,7 @@
 
 #include <Engine/Engine.h>
 
-using namespace Concurrent;
+using namespace StdExt::Concurrent;
 
 int main(int argc, char** argv)
 {

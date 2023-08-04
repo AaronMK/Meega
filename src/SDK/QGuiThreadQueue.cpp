@@ -4,7 +4,7 @@
 
 #include <QtWidgets/QApplication>
 
-using namespace Concurrent;
+using namespace StdExt::Concurrent;
 
 namespace Engine
 {
@@ -40,9 +40,15 @@ namespace Engine
 
 	void QGuiThreadQueue::runItem()
 	{
-		std::function<void()> func;
+		try
+		{
+			std::function<void()> func;
+			taskQueue.consume(func);
 
-		if (taskQueue.consume(func))
 			func();
+		}
+		catch ( ... )
+		{
+		}
 	}
 }

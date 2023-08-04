@@ -262,5 +262,8 @@
     <ClCompile Include="..\..\src\Engine\Core\Quaternion.cpp">
       <Filter>Source Files\Core</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\Engine\Tasking\Scheduling.cpp">
+      <Filter>Source Files\Tasking</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
