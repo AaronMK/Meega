@@ -1,9 +1,3 @@
-[submodule "external/Concurrent"]
-	path = external/Concurrent
-	url = https://github.com/AaronMK/Concurrent.git
-[submodule "external/Serialize"]
-	path = external/Serialize
-	url = https://github.com/AaronMK/Serialize.git
 [submodule "external/StdExt"]
 	path = external/StdExt
 	url = https://github.com/AaronMK/StdExt.git
