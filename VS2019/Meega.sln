@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.6.33829.357
+VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GPU", "GPU\GPU.vcxproj", "{5535E022-3B76-4077-8E27-A637DECE19B6}"
 EndProject
@@ -148,9 +148,5 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {917F9AA8-8AF7-4771-A599-EA0C3E2247E5}
-	EndGlobalSection
-	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		..\external\StdExt\VS2022\Sources\StdExt Sources.vcxitems*{b91d3a2d-0e97-4441-bf25-1fdccabeab66}*SharedItemsImports = 4
-		..\external\StdExt\VS2022\Sources\StdExt Sources.vcxitems*{f9de9573-077e-4ddd-a7f9-8988c16f3663}*SharedItemsImports = 9
 	EndGlobalSection
 EndGlobal
